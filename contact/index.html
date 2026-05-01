@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - NutriLife</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif
+        }
+    </style>
+</head>
+
+<body class="bg-white text-gray-800">
+
+    <div id="navbar"></div>
+
+    <section class="relative pt-28 pb-20 overflow-hidden text-center
+bg-gradient-to-br from-[#eef7d4] via-[#f7fbe9] to-[#ffffff]">
+
+<div class="absolute inset-0 opacity-20"
+     style="background: repeating-radial-gradient(
+        circle at center,
+        #9dd744 0px,
+        #9dd744 1px,
+        transparent 1px,
+        transparent 50px
+     );">
+</div>
+
+<!-- <div class="absolute inset-0 opacity-30 z-0"
+        style="background-image: radial-gradient(#7fb82f 2px, transparent 2px);
+               background-size: 30px 30px;">
+    </div> -->
+
+    <!-- CONTENT -->
+    <div class="relative z-10 max-w-4xl mx-auto px-4">
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+            Contact Us
+        </h2>
+
+        <p class="text-gray-600 text-lg">
+            We’re here to help you start your journey towards a healthier lifestyle.
+        </p>
+    </div>
+
+    <!-- WAVE -->
+    <div class="absolute bottom-0 left-0 w-full leading-none">
+        <svg viewBox="0 0 1440 200" class="w-full">
+            <path fill="#ffffff"
+                d="M0,120 C300,200 900,40 1440,120 L1440,200 L0,200 Z">
+            </path>
+        </svg>
+    </div>
+
+</section>
+
+    <section class="py-16">
+        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 px-4">
+
+            <form class="space-y-4">
+                <input type="text" placeholder="Your Name" class="w-full border p-3 rounded">
+                <input type="email" placeholder="Email" class="w-full border p-3 rounded">
+                <textarea placeholder="Your Message" class="w-full border p-3 rounded"></textarea>
+
+                <button type="button" onclick="sendWhatsApp()"
+                    class="bg-green-600 text-white px-6 py-3 rounded-full w-full">
+                    Send via WhatsApp
+                </button>
+            </form>
+
+            <div>
+                <h3 class="text-2xl font-bold mb-4">Get in Touch</h3>
+                <p class="text-gray-600 mb-2">📞 +91 XXXXX XXXXX</p>
+                <p class="text-gray-600 mb-2">📧 info@nutrilife.com</p>
+                <p class="text-gray-600">📍 Your Clinic Address</p>
+            </div>
+
+        </div>
+    </section>
+
+    <div id="footer"></div>
+
+    <script src="/js/main.js"></script>
+
+</body>
+
+</html>
