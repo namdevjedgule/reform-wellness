@@ -273,7 +273,22 @@
         }
 
         .sn-icon {
-            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 0.9rem;
+
+            margin-right: 0.4rem;
+
+            color: var(--primary);
+
+            transition: 0.3s ease;
+        }
+
+        .sn-item:hover .sn-icon,
+        .sn-item.active .sn-icon {
+            color: var(--accent);
         }
 
         /* ─── SECTION COMMONS ─────────────────────── */
@@ -457,7 +472,15 @@
         }
 
         .srb-icon {
-            font-size: 1.8rem;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            background: rgba(144, 155, 76, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1rem;
         }
 
         .srb-val {
@@ -759,6 +782,7 @@
         .ov-icon {
             font-size: 1.8rem;
             margin-bottom: .9rem;
+            color: var(--primary);
         }
 
         .ov-title {
@@ -1293,15 +1317,26 @@
     <!-- ═══ STICKY SERVICE NAV ══════════════════════ -->
     <nav class="sticky-nav" id="stickyNav">
         <div class="sn-inner">
-            <a href="#weight-loss" class="sn-item active" data-section="weight-loss"><span
-                    class="sn-icon">⚖️</span>Weight Loss</a>
-            <a href="#pcos-thyroid" class="sn-item" data-section="pcos-thyroid"><span class="sn-icon">🌸</span>PCOS &
+            <a href="#weight-loss" class="sn-item active" data-section="weight-loss"><span class="sn-icon">
+                    <i class="fa-solid fa-weight-scale"></i>
+                </span>Weight Loss</a>
+            <a href="#pcos-thyroid" class="sn-item" data-section="pcos-thyroid"><span class="sn-icon">
+                    <i class="fa-solid fa-seedling"></i>
+                </span>PCOS &
                 Thyroid</a>
-            <a href="#muscle-gain" class="sn-item" data-section="muscle-gain"><span class="sn-icon">💪</span>Muscle
+            <a href="#muscle-gain" class="sn-item" data-section="muscle-gain"><span class="sn-icon">
+                    <i class="fa-solid fa-dumbbell"></i>
+                </span>Muscle
                 Gain</a>
-            <a href="#diabetes" class="sn-item" data-section="diabetes"><span class="sn-icon">🩺</span>Diabetes Care</a>
-            <a href="#sports" class="sn-item" data-section="sports"><span class="sn-icon">🏃</span>Sports Nutrition</a>
-            <a href="#gut-health" class="sn-item" data-section="gut-health"><span class="sn-icon">🌿</span>Gut
+            <a href="#diabetes" class="sn-item" data-section="diabetes"><span class="sn-icon">
+                    <i class="fa-solid fa-stethoscope"></i>
+                </span>Diabetes Care</a>
+            <a href="#sports" class="sn-item" data-section="sports"><span class="sn-icon">
+                    <i class="fa-solid fa-person-running"></i>
+                </span>Sports Nutrition</a>
+            <a href="#gut-health" class="sn-item" data-section="gut-health"> <span class="sn-icon">
+                    <i class="fa-solid fa-leaf"></i>
+                </span>Gut
                 Health</a>
         </div>
     </nav>
@@ -1316,7 +1351,7 @@
                     <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=700&q=80" class="svc-img"
                         alt="Weight Loss" />
                     <div class="svc-result-badge">
-                        <div class="srb-icon">⚖️</div>
+                        <div class="srb-icon"><i class="fa-solid fa-weight-scale"></i></div>
                         <div>
                             <div class="srb-val">−8 to −15 kg</div>
                             <div class="srb-label">Average result in 90 days</div>
@@ -1398,7 +1433,7 @@
                     <img src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?w=700&q=80" class="svc-img"
                         alt="PCOS Thyroid" />
                     <div class="svc-result-badge">
-                        <div class="srb-icon">🌸</div>
+                        <div class="srb-icon"><i class="fa-solid fa-seedling"></i></div>
                         <div>
                             <div class="srb-val">80% Improvement</div>
                             <div class="srb-label">In hormonal markers (6 months)</div>
@@ -1478,7 +1513,7 @@
                     <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=700&q=80" class="svc-img"
                         alt="Muscle Gain" />
                     <div class="svc-result-badge">
-                        <div class="srb-icon">💪</div>
+                        <div class="srb-icon"><i class="fa-solid fa-dumbbell"></i></div>
                         <div>
                             <div class="srb-val">+4 to +7 kg</div>
                             <div class="srb-label">Lean muscle in 4 months</div>
@@ -1559,7 +1594,7 @@
                     <img src="https://images.unsplash.com/photo-1559181567-c3190bfa4945?w=700&q=80" alt="Diabetes Diet"
                         class="svc-img" />
                     <div class="svc-result-badge">
-                        <div class="srb-icon">🩺</div>
+                        <div class="srb-icon"><i class="fa-solid fa-stethoscope"></i></div>
                         <div>
                             <div class="srb-val">HbA1c ↓ 1–2%</div>
                             <div class="srb-label">Average reduction in 3 months</div>
@@ -1640,7 +1675,7 @@
                     <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=700&q=80" class="svc-img"
                         alt="Sports Nutrition" />
                     <div class="svc-result-badge">
-                        <div class="srb-icon">🏃</div>
+                        <div class="srb-icon"><i class="fa-solid fa-person-running"></i></div>
                         <div>
                             <div class="srb-val">+18% Performance</div>
                             <div class="srb-label">Average endurance gain reported</div>
@@ -1722,7 +1757,7 @@
                     <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=700&q=80" class="svc-img"
                         alt="Gut Health" />
                     <div class="svc-result-badge">
-                        <div class="srb-icon">🌿</div>
+                        <div class="srb-icon"><i class="fa-solid fa-leaf"></i></div>
                         <div>
                             <div class="srb-val">90% Feel Better</div>
                             <div class="srb-label">Reported in 6–8 weeks</div>
@@ -1810,7 +1845,7 @@
             <div class="overview-grid fade-up">
                 <a href="#weight-loss" class="ov-card">
                     <div class="ov-num">01</div>
-                    <div class="ov-icon">⚖️</div>
+                    <div class="ov-icon"><i class="fa-solid fa-weight-scale"></i></div>
                     <div class="ov-title">Weight Loss</div>
                     <div class="ov-desc">Sustainable fat loss through enjoyable Indian nutrition — no starvation, no
                         supplements.</div>
@@ -1818,7 +1853,7 @@
                 </a>
                 <a href="#pcos-thyroid" class="ov-card">
                     <div class="ov-num">02</div>
-                    <div class="ov-icon">🌸</div>
+                    <div class="ov-icon"> <i class="fa-solid fa-seedling"></i></div>
                     <div class="ov-title">PCOS & Thyroid Care</div>
                     <div class="ov-desc">Hormone-balancing nutrition therapy for PCOS, hypothyroidism, and estrogen
                         imbalance.</div>
@@ -1826,7 +1861,7 @@
                 </a>
                 <a href="#muscle-gain" class="ov-card">
                     <div class="ov-num">03</div>
-                    <div class="ov-icon">💪</div>
+                    <div class="ov-icon"><i class="fa-solid fa-dumbbell"></i></div>
                     <div class="ov-title">Muscle Gain</div>
                     <div class="ov-desc">High-protein Indian meal plans optimized for lean muscle growth and recovery.
                     </div>
@@ -1834,7 +1869,7 @@
                 </a>
                 <a href="#diabetes" class="ov-card">
                     <div class="ov-num">04</div>
-                    <div class="ov-icon">🩺</div>
+                    <div class="ov-icon"><i class="fa-solid fa-stethoscope"></i></div>
                     <div class="ov-title">Diabetes Management</div>
                     <div class="ov-desc">Evidence-based glycemic control through low-GI Indian food planning and carb
                         management.</div>
@@ -1842,7 +1877,7 @@
                 </a>
                 <a href="#sports" class="ov-card">
                     <div class="ov-num">05</div>
-                    <div class="ov-icon">🏃</div>
+                    <div class="ov-icon"><i class="fa-solid fa-person-running"></i></div>
                     <div class="ov-title">Sports Nutrition</div>
                     <div class="ov-desc">Performance fueling, carb loading, and race-day nutrition for athletes and
                         fitness enthusiasts.</div>
@@ -1850,7 +1885,7 @@
                 </a>
                 <a href="#gut-health" class="ov-card">
                     <div class="ov-num">06</div>
-                    <div class="ov-icon">🌿</div>
+                    <div class="ov-icon"><i class="fa-solid fa-leaf"></i></div>
                     <div class="ov-title">Gut Health & Immunity</div>
                     <div class="ov-desc">Microbiome restoration, IBS relief, and immunity building through
                         probiotic-rich Indian foods.</div>
@@ -1952,7 +1987,7 @@
                 <p class="cta-box-sub">Book a free, zero-obligation consultation and let our nutritionists guide you to
                     the perfect program for your body, goals, and lifestyle.</p>
                 <div class="cta-btns">
-                    <a href="https://wa.me/91XXXXXXXXXX" target="_blank" class="btn-p">💬 Book Free Consultation</a>
+                    <a href="https://wa.me/91XXXXXXXXXX" target="_blank" class="btn-p"><i class="fab fa-whatsapp"></i> Book Free Consultation</a>
                     <a href="/contact/" class="btn-ghost">Send Us a Message</a>
                 </div>
             </div>

@@ -1182,12 +1182,12 @@
                         <!-- Goal chips -->
                         <p class="goal-label">What's your primary goal?</p>
                         <div class="goal-chips">
-                            <span class="goal-chip" onclick="toggleChip(this)">⚖️ Weight Loss</span>
-                            <span class="goal-chip" onclick="toggleChip(this)">🌸 PCOS / Thyroid</span>
-                            <span class="goal-chip" onclick="toggleChip(this)">💪 Muscle Gain</span>
-                            <span class="goal-chip" onclick="toggleChip(this)">🩺 Diabetes Care</span>
-                            <span class="goal-chip" onclick="toggleChip(this)">🏃 Sports Nutrition</span>
-                            <span class="goal-chip" onclick="toggleChip(this)">🌿 General Wellness</span>
+                            <span class="goal-chip" onclick="toggleChip(this)"><i class="fa-solid fa-weight-scale"></i> Weight Loss</span>
+                            <span class="goal-chip" onclick="toggleChip(this)"><i class="fa-solid fa-seedling"></i> PCOS / Thyroid</span>
+                            <span class="goal-chip" onclick="toggleChip(this)"><i class="fa-solid fa-dumbbell"></i> Muscle Gain</span>
+                            <span class="goal-chip" onclick="toggleChip(this)"><i class="fa-solid fa-stethoscope"></i> Diabetes Care</span>
+                            <span class="goal-chip" onclick="toggleChip(this)"><i class="fa-solid fa-person-running"></i> Sports Nutrition</span>
+                            <span class="goal-chip" onclick="toggleChip(this)"><i class="fa-solid fa-leaf"></i> General Wellness</span>
                         </div>
 
                         <form id="contactForm" novalidate>
@@ -1276,7 +1276,7 @@
                             <button type="submit" class="submit-btn" id="submitBtn">
                                 Send Message &nbsp;→
                             </button>
-                            <p class="form-note">🔒 Your details are kept private and never shared with third parties.
+                            <p class="form-note"><i class="fas fa-lock"></i> Your details are kept private and never shared with third parties.
                             </p>
                         </form>
                     </div>
@@ -1287,7 +1287,7 @@
                         <h3 class="form-success-h">Message Received!</h3>
                         <p class="form-success-p">Thank you for reaching out to Reform Wellness.<br>We'll get back to
                             you within 24 hours — usually much sooner.<br><br>
-                            <a href="https://wa.me/91XXXXXXXXXX" target="_blank"
+                            <a href="https://wa.me/918669586311" target="_blank"
                                 style="color:var(--primary);font-weight:500;font-size:.88rem;">
                                 For instant help, message us on WhatsApp →
                             </a>
@@ -1323,7 +1323,7 @@
                     loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                 </iframe>
             </div>
-            <p class="map-sub fade-up">📍 Kharadi, Pune, Maharashtra — Near World Trade Center, Pune</p>
+            <p class="map-sub fade-up"><i class="fas fa-map-marker-alt"></i> Kharadi, Pune, Maharashtra — Near World Trade Center, Pune</p>
         </div>
     </section>
 
@@ -1480,16 +1480,66 @@
             if (!wasOpen) item.classList.add('open');
         }
 
-        /* form submit */
         document.getElementById('contactForm').addEventListener('submit', function (e) {
             e.preventDefault();
+
             const btn = document.getElementById('submitBtn');
-            btn.textContent = 'Sending…';
+
+            const fname = document.getElementById('fname').value.trim();
+            const lname = document.getElementById('lname').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+
+            if (!fname || !phone) {
+                alert("Please fill required fields (First Name & Phone)");
+                return;
+            }
+
+            // Goals
+            const goals = [];
+            document.querySelectorAll('.goal-chip.active').forEach(chip => {
+                goals.push(chip.innerText);
+            });
+
+            // Preferred contact
+            const pref = document.querySelector('input[name="pref"]:checked').value;
+
+            // Collect data
+            const message = `
+🌿 *New Consultation Request*
+
+👤 Name: ${fname} ${lname}
+📞 Phone: ${phone}
+📧 Email: ${document.getElementById('email').value}
+
+🎯 Goals: ${goals.join(', ') || 'Not selected'}
+📋 Service: ${document.getElementById('service').value || 'Not selected'}
+
+📍 Age/City: ${document.getElementById('age').value}
+
+💬 Message:
+${document.getElementById('msg').value}
+
+📲 Preferred Contact: ${pref}
+    `;
+
+            const encodedMessage = encodeURIComponent(message);
+
+            const whatsappNumber = "918669586311"; // 👉 replace with your number
+
+            const url = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+            // UI loading
+            btn.textContent = 'Redirecting…';
             btn.disabled = true;
+
+            // Open WhatsApp
+            window.open(url, '_blank');
+
+            // Show success UI
             setTimeout(() => {
                 document.getElementById('formView').style.display = 'none';
                 document.getElementById('formSuccess').classList.add('show');
-            }, 1200);
+            }, 800);
         });
     </script>
 </body>

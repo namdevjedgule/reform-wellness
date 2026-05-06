@@ -467,6 +467,11 @@ nav.scrolled {
     margin-top: 0.2rem;
 }
 
+.hero-badge-sub i {
+    color: var(--primary);;
+    margin-left: 6px;
+}
+
 .marquee-wrap {
     background: var(--primary);
     overflow: hidden;
@@ -1426,6 +1431,7 @@ footer {
 }
 
 @keyframes waFloat {
+
     0%,
     100% {
         transform: translateY(0);
