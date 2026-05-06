@@ -173,52 +173,54 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            mix-blend-mode: luminosity;
-            opacity: .45;
+            /* mix-blend-mode: luminosity; */
+            opacity: .8;
         }
 
-        /* big italic number overlay */
-        .hero-right-num {
-            position: absolute;
-            bottom: -2rem;
-            right: 3%;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(12rem, 18vw, 20rem);
-            font-weight: 600;
-            font-style: italic;
-            color: rgba(144, 155, 76, .1);
-            line-height: 1;
-            pointer-events: none;
-            user-select: none;
-        }
+            /* floating badge */
+            .hero-badge {
+                position: absolute;
+                top: 2.5rem;
+                left: 2.5rem;
+                background: rgba(240, 238, 233, 0.15);
+                backdrop-filter: blur(16px);
+                border: 1px solid rgba(240, 238, 233, 0.2);
+                border-radius: 16px;
+                padding: 1rem 1.4rem;
+                width: 180px;
+            }
 
-        /* floating badge */
-        .hero-badge {
-            position: absolute;
-            top: 2.5rem;
-            left: 2.5rem;
-            background: rgba(240, 238, 233, .1);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(240, 238, 233, .15);
-            border-radius: 16px;
-            padding: 1.2rem 1.6rem;
-        }
+            /* each stat block */
+            .badge-item {
+                text-align: center;
+            }
 
-        .hero-badge-val {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.2rem;
-            font-weight: 600;
-            color: var(--secondary);
-            line-height: 1;
-        }
+            /* value */
+            .hero-badge-val {
+                font-family: 'Cormorant Garamond', serif;
+                font-size: 2rem;
+                font-weight: 600;
+                color: var(--dark);
+                line-height: 1;
+            }
 
-        .hero-badge-label {
-            font-size: .68rem;
-            color: rgba(240, 238, 233, .5);
-            margin-top: .3rem;
-            text-transform: uppercase;
-            letter-spacing: .08em;
-        }
+            /* label */
+            .hero-badge-label {
+                font-size: 0.7rem;
+                color: var(--dark);
+                margin-top: 0.3rem;
+                text-transform: uppercase;
+                letter-spacing: 0.08em;
+                opacity: 0.8;
+            }
+
+            /* divider (softer + premium) */
+            .badge-divider {
+                width: 100%;
+                border-top: 1px solid rgba(245, 243, 235, 0.6);
+                /* softer + consistent */
+                margin: 12px 0;
+            }
 
         /* ─── STICKY SERVICE NAV ──────────────────── */
         .sticky-nav {
@@ -1304,12 +1306,30 @@
         </div>
 
         <div class="hero-right">
-            <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=900&q=80"
+            <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=900&q=80"
                 alt="Nutrition programs" />
-            <div class="hero-right-num">6</div>
+
             <div class="hero-badge">
-                <div class="hero-badge-val">98%</div>
-                <div class="hero-badge-label">Client Satisfaction</div>
+
+                <div class="badge-item">
+                    <div class="hero-badge-val">98%</div>
+                    <div class="hero-badge-label">Client Satisfaction</div>
+                </div>
+
+                <div class="badge-divider"></div>
+
+                <div class="badge-item">
+                    <div class="hero-badge-val">500+</div>
+                    <div class="hero-badge-label">Transformations</div>
+                </div>
+
+                <div class="badge-divider"></div>
+
+                <div class="badge-item">
+                    <div class="hero-badge-val">6+</div>
+                    <div class="hero-badge-label">Years Experience</div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -1591,8 +1611,8 @@
             <div class="svc-layout flip fade-up">
                 <div class="svc-img-wrap">
                     <div class="svc-img-bg"></div>
-                    <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=700&q=80" alt="Diabetes Diet"
-                        class="svc-img" />
+                    <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=700&q=80"
+                        alt="Diabetes Diet" class="svc-img" />
                     <div class="svc-result-badge">
                         <div class="srb-icon"><i class="fa-solid fa-stethoscope"></i></div>
                         <div>
@@ -1987,7 +2007,8 @@
                 <p class="cta-box-sub">Book a free, zero-obligation consultation and let our nutritionists guide you to
                     the perfect program for your body, goals, and lifestyle.</p>
                 <div class="cta-btns">
-                    <a href="https://wa.me/91XXXXXXXXXX" target="_blank" class="btn-p"><i class="fab fa-whatsapp"></i> Book Free Consultation</a>
+                    <a href="https://wa.me/91XXXXXXXXXX" target="_blank" class="btn-p"><i class="fab fa-whatsapp"></i>
+                        Book Free Consultation</a>
                     <a href="/contact/" class="btn-ghost">Send Us a Message</a>
                 </div>
             </div>
