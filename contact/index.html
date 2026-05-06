@@ -13,10 +13,13 @@
     <link rel="stylesheet" href="/css/style.css">
     <style>
         .contact-hero {
+            min-height: calc(100vh - 92px);
             background: var(--dark);
             display: flex;
             align-items: center;
-            padding: var(--hero-padding-y) 6% var(--hero-padding-y) 7%;
+            padding: 5% 6% 5% 7%;
+            position: relative;
+            overflow: hidden;
         }
 
         .contact-hero::before {
@@ -138,7 +141,7 @@
         }
 
         .left-panel {
-            padding: 5.5rem 4.5rem 5.5rem 0;
+            padding: 2.5rem 4.5rem 2.5rem 0;
             border-right: 1px solid rgba(144, 155, 76, .14);
         }
 
@@ -375,7 +378,7 @@
 
         /* ── RIGHT PANEL / FORM ───────────── */
         .right-panel {
-            padding: 5.5rem 0 5.5rem 4.5rem;
+            padding: 2.5rem 0 2.5rem 4.5rem;
         }
 
         .form-card {
@@ -706,11 +709,11 @@
         .map-wrap {
             max-width: 1240px;
             margin: 0 auto;
-            padding: 0 5% 6rem;
+            padding: 0 5% 2.5rem;
         }
 
         .map-header {
-            padding-top: 5.5rem;
+            padding-top: 2.5rem;
             margin-bottom: 2.5rem;
             display: flex;
             justify-content: space-between;

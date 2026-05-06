@@ -13,10 +13,12 @@
     <link rel="stylesheet" href="/css/style.css">
     <style>
         .services-hero {
+            min-height: calc(100vh - 92px);
             background: var(--dark);
             display: grid;
             grid-template-columns: 1fr 1fr;
-            align-items: center;
+            position: relative;
+            overflow: hidden;
         }
 
         .hero-grain {

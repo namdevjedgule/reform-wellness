@@ -1,12 +1,15 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    // LOAD NAVBAR
+    /* ================= NAVBAR ================= */
+
     fetch("../components/navbar.html")
         .then(response => response.text())
         .then(data => {
+
             document.getElementById("navbar").innerHTML = data;
 
-            // ACTIVE MENU LINK
+            /* ===== ACTIVE LINK ===== */
+
             const currentPath = window.location.pathname;
 
             document.querySelectorAll(".nav-links a").forEach(link => {
@@ -22,37 +25,65 @@ document.addEventListener("DOMContentLoaded", function () {
 
             });
 
-            // MOBILE MENU
-            const menuBtn = document.getElementById("menuBtn");
+            /* ===== HAMBURGER ===== */
 
-            if (menuBtn) {
-                menuBtn.addEventListener("click", function () {
-                    document.getElementById("mobileMenu")
-                        .classList.toggle("hidden");
+            const hamburger = document.querySelector("#hamburger");
+            const navLinks = document.querySelector("#navLinks");
+
+            if (hamburger && navLinks) {
+
+                hamburger.onclick = function () {
+
+                    navLinks.classList.toggle("active");
+                    hamburger.classList.toggle("active");
+
+                    document.body.classList.toggle("menu-open");
+
+                };
+
+                /* ===== CLOSE MENU ON LINK CLICK ===== */
+
+                document.querySelectorAll(".nav-links a").forEach(link => {
+
+                    link.onclick = () => {
+
+                        navLinks.classList.remove("active");
+                        hamburger.classList.remove("active");
+
+                        document.body.classList.remove("menu-open");
+
+                    };
+
                 });
+
             }
 
-            // NAVBAR SCROLL EFFECT
-            const nav = document.querySelector("nav");
+            /* ===== NAVBAR SCROLL EFFECT ===== */
+
+            const nav = document.querySelector("#navbar nav");
 
             window.addEventListener("scroll", () => {
+
                 if (nav) {
                     nav.classList.toggle("scrolled", window.scrollY > 60);
                 }
+
             });
 
         });
 
+    /* ================= FOOTER ================= */
 
-    // LOAD FOOTER
     fetch("../components/footer.html")
         .then(response => response.text())
         .then(data => {
+
             document.getElementById("footer").innerHTML = data;
+
         });
 
+    /* ================= FADE-UP ANIMATION ================= */
 
-    // FADE-UP ANIMATION
     const fadeEls = document.querySelectorAll(".fade-up");
 
     const observer = new IntersectionObserver((entries) => {
@@ -66,6 +97,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 }, i * 80);
 
                 observer.unobserve(entry.target);
+
             }
 
         });
