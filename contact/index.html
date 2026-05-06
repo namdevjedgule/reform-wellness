@@ -2,90 +2,1493 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - NutriLife</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us — Reform Wellness</title>
+    <link rel="icon" type="image/x-icon" href="/favicon_io/favicon.ico" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/css/style.css">
     <style>
-        body {
-            font-family: 'Poppins', sans-serif
+        .contact-hero {
+            background: var(--dark);
+            display: flex;
+            align-items: center;
+            padding: var(--hero-padding-y) 6% var(--hero-padding-y) 7%;
+        }
+
+        .contact-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='250' height='250' filter='url(%23n)' opacity='.055'/%3E%3C/svg%3E");
+            pointer-events: none;
+            opacity: .4;
+        }
+
+        .hero-blob1 {
+            position: absolute;
+            top: -120px;
+            right: -80px;
+            width: 520px;
+            height: 520px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(144, 155, 76, .22) 0%, transparent 68%);
+            pointer-events: none;
+        }
+
+        .hero-blob2 {
+            position: absolute;
+            bottom: -80px;
+            left: 30%;
+            width: 360px;
+            height: 360px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(72, 153, 38, .14) 0%, transparent 65%);
+            pointer-events: none;
+        }
+
+        .hero-deco {
+            position: absolute;
+            right: 5%;
+            bottom: -0.5rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(14rem, 22vw, 22rem);
+            font-weight: 600;
+            font-style: italic;
+            color: rgba(144, 155, 76, .07);
+            line-height: 1;
+            pointer-events: none;
+            user-select: none;
+            letter-spacing: -.02em;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 780px;
+        }
+
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: .7rem;
+            font-size: .72rem;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            color: var(--secondary);
+            font-weight: 500;
+            margin-bottom: 1.6rem;
+        }
+
+        .hero-eyebrow::before {
+            content: '';
+            width: 34px;
+            height: 1px;
+            background: var(--secondary);
+        }
+
+        .hero-h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3.4rem, 6vw, 7rem);
+            font-weight: 300;
+            line-height: .95;
+            color: var(--light);
+            letter-spacing: -.01em;
+        }
+
+        .hero-h1 em {
+            font-style: italic;
+            color: var(--secondary);
+        }
+
+        .hero-sub {
+            font-size: .95rem;
+            line-height: 1.85;
+            color: rgba(240, 238, 233, .52);
+            max-width: 500px;
+            margin-top: 1.6rem;
+        }
+
+        .contact-main {
+            background: var(--light);
+            position: relative;
+        }
+
+        .contact-main::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, transparent, var(--primary) 20%, var(--secondary) 80%, transparent);
+            opacity: .35;
+        }
+
+        .main-grid {
+            max-width: 1240px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.08fr;
+            gap: 0;
+            padding: 0 5%;
+        }
+
+        .left-panel {
+            padding: 5.5rem 4.5rem 5.5rem 0;
+            border-right: 1px solid rgba(144, 155, 76, .14);
+        }
+
+        .panel-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: .6rem;
+            font-size: .7rem;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 1.2rem;
+        }
+
+        .panel-tag::before {
+            content: '';
+            width: 26px;
+            height: 1px;
+            background: var(--primary);
+        }
+
+        .panel-h {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 3.2vw, 3.2rem);
+            font-weight: 300;
+            line-height: 1.1;
+            color: var(--dark);
+            margin-bottom: 1.4rem;
+        }
+
+        .panel-h em {
+            font-style: italic;
+            color: var(--primary);
+        }
+
+        .panel-body {
+            font-size: .9rem;
+            line-height: 1.9;
+            opacity: .65;
+            max-width: 400px;
+            margin-bottom: 3rem;
+        }
+
+        .channels {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .channel {
+            display: grid;
+            grid-template-columns: 3.2rem 1fr auto;
+            align-items: center;
+            gap: 1.2rem;
+            padding: 1.3rem 1.5rem;
+            background: var(--soft);
+            border-radius: 16px;
+            border: 1px solid rgba(144, 155, 76, .15);
+            text-decoration: none;
+            transition: background .28s, transform .25s, box-shadow .28s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .channel::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(144, 155, 76, .12), transparent 60%);
+            opacity: 0;
+            transition: opacity .28s;
+        }
+
+        .channel:hover {
+            background: var(--primary);
+            transform: translateX(6px);
+            box-shadow: 0 10px 40px rgba(144, 155, 76, .28);
+        }
+
+        .channel:hover .ch-title,
+        .channel:hover .ch-val,
+        .channel:hover .ch-arrow {
+            color: #fff;
+        }
+
+        .channel:hover .ch-val {
+            opacity: .8;
+        }
+
+        .ch-icon {
+            width: 3rem;
+            height: 3rem;
+            min-width: 3rem;
+            border-radius: 50%;
+            background: rgba(144, 155, 76, 0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1rem;
+            transition: 0.3s ease;
+        }
+
+        .channel:hover .ch-icon {
+            background: rgba(255, 255, 255, .15);
+            color: #fff;
+        }
+
+        .ch-title {
+            font-size: .68rem;
+            text-transform: uppercase;
+            letter-spacing: .09em;
+            font-weight: 500;
+            color: var(--primary);
+            margin-bottom: .2rem;
+            transition: color .28s;
+        }
+
+        .ch-val {
+            font-size: .9rem;
+            font-weight: 500;
+            color: var(--dark);
+            transition: color .28s, opacity .28s;
+        }
+
+        .ch-arrow {
+            font-size: 1.1rem;
+            color: var(--primary);
+            opacity: .6;
+            transition: color .28s, transform .25s;
+        }
+
+        .channel:hover .ch-arrow {
+            transform: translateX(3px);
+            opacity: 1;
+        }
+
+        /* hours block */
+        .hours-block {
+            background: var(--dark);
+            border-radius: 20px;
+            padding: 2rem 2.2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hours-block::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(144, 155, 76, .25) 0%, transparent 70%);
+        }
+
+        .hours-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            color: var(--light);
+            margin-bottom: 1.3rem;
+            position: relative;
+        }
+
+        .hours-rows {
+            display: flex;
+            flex-direction: column;
+            gap: .65rem;
+            position: relative;
+        }
+
+        .hours-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .hours-day {
+            font-size: .8rem;
+            color: rgba(240, 238, 233, .55);
+        }
+
+        .hours-time {
+            font-size: .82rem;
+            font-weight: 500;
+            color: var(--secondary);
+        }
+
+        .hours-divider {
+            height: 1px;
+            background: rgba(240, 238, 233, .07);
+            margin: .5rem 0;
+        }
+
+        .hours-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: .4rem;
+            margin-top: 1.2rem;
+            background: rgba(72, 153, 38, .18);
+            border: 1px solid rgba(72, 153, 38, .3);
+            border-radius: 100px;
+            padding: .4rem 1rem;
+            font-size: .72rem;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .hours-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+            animation: pulse 1.8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1)
+            }
+
+            50% {
+                opacity: .5;
+                transform: scale(1.4)
+            }
+        }
+
+        /* ── RIGHT PANEL / FORM ───────────── */
+        .right-panel {
+            padding: 5.5rem 0 5.5rem 4.5rem;
+        }
+
+        .form-card {
+            background: #fff;
+            border-radius: 28px;
+            padding: 3.5rem;
+            box-shadow: 0 30px 90px rgba(46, 44, 47, .1);
+            border: 1px solid rgba(144, 155, 76, .12);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .form-card::before {
+            content: '';
+            position: absolute;
+            top: -60px;
+            right: -60px;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(144, 155, 76, .1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .form-card-tag {
+            font-size: .68rem;
+            text-transform: uppercase;
+            letter-spacing: .13em;
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: .7rem;
+        }
+
+        .form-card-h {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.1rem;
+            font-weight: 400;
+            color: var(--dark);
+            margin-bottom: .5rem;
+            line-height: 1.1;
+        }
+
+        .form-card-h em {
+            font-style: italic;
+            color: var(--primary);
+        }
+
+        .form-card-sub {
+            font-size: .84rem;
+            opacity: .6;
+            margin-bottom: 2.4rem;
+            line-height: 1.7;
+        }
+
+        /* goal selector */
+        .goal-label {
+            font-size: .76rem;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            font-weight: 500;
+            color: var(--dark);
+            opacity: .75;
+            margin-bottom: .75rem;
+        }
+
+        .goal-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .55rem;
+            margin-bottom: 2rem;
+        }
+
+        .goal-chip {
+            padding: .45rem 1.1rem;
+            border-radius: 100px;
+            cursor: pointer;
+            border: 1.5px solid rgba(144, 155, 76, .25);
+            font-size: .78rem;
+            font-weight: 500;
+            color: var(--dark);
+            opacity: .75;
+            background: transparent;
+            transition: all .22s;
+            user-select: none;
+        }
+
+        .goal-chip:hover {
+            border-color: var(--primary);
+            opacity: 1;
+        }
+
+        .goal-chip.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: #fff;
+            opacity: 1;
+        }
+
+        /* form fields */
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: .45rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group.full {
+            grid-column: 1/-1;
+        }
+
+        label {
+            font-size: .72rem;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            font-weight: 500;
+            color: var(--dark);
+            opacity: .65;
+        }
+
+        .field-wrap {
+            position: relative;
+        }
+
+        .field-wrap input,
+        .field-wrap select,
+        .field-wrap textarea {
+            width: 100%;
+            padding: 1rem 1.2rem;
+            border: 1.5px solid rgba(144, 155, 76, .2);
+            border-radius: 12px;
+            background: var(--light);
+            font-family: 'DM Sans', sans-serif;
+            font-size: .9rem;
+            color: var(--dark);
+            outline: none;
+            transition: border-color .25s, box-shadow .25s, background .25s;
+            appearance: none;
+            -webkit-appearance: none;
+        }
+
+        .field-wrap input:focus,
+        .field-wrap select:focus,
+        .field-wrap textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(144, 155, 76, .12);
+            background: #fff;
+        }
+
+        .field-wrap input::placeholder,
+        .field-wrap textarea::placeholder {
+            opacity: .45;
+        }
+
+        .field-wrap textarea {
+            resize: none;
+            min-height: 110px;
+            line-height: 1.7;
+        }
+
+        .field-wrap select {
+            cursor: pointer;
+        }
+
+        /* floating label line accent */
+        .field-wrap::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 12px;
+            right: 12px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform .3s ease;
+        }
+
+        .field-wrap:focus-within::after {
+            transform: scaleX(1);
+        }
+
+        /* preferred contact */
+        .pref-label {
+            font-size: .72rem;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            font-weight: 500;
+            color: var(--dark);
+            opacity: .65;
+            margin-bottom: .65rem;
+        }
+
+        .pref-options {
+            display: flex;
+            gap: .8rem;
+            margin-bottom: 1.8rem;
+            flex-wrap: wrap;
+        }
+
+        .pref-opt {
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            cursor: pointer;
+            padding: .55rem 1.1rem;
+            border-radius: 10px;
+            border: 1.5px solid rgba(144, 155, 76, .2);
+            font-size: .82rem;
+            font-weight: 500;
+            color: var(--dark);
+            opacity: .7;
+            transition: all .22s;
+            user-select: none;
+        }
+
+        .pref-opt input[type=radio] {
+            display: none;
+        }
+
+        .pref-opt.checked {
+            background: var(--soft);
+            border-color: var(--primary);
+            opacity: 1;
+            color: var(--primary);
+        }
+
+        .pref-opt .pref-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            border: 1.5px solid currentColor;
+            flex-shrink: 0;
+            transition: background .2s;
+        }
+
+        .pref-opt.checked .pref-dot {
+            background: var(--primary);
+            border-color: var(--primary);
+        }
+
+        /* submit btn */
+        .submit-btn {
+            width: 100%;
+            padding: 1.05rem;
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            border-radius: 14px;
+            cursor: pointer;
+            font-family: 'DM Sans', sans-serif;
+            font-size: .92rem;
+            font-weight: 600;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            box-shadow: 0 8px 32px rgba(144, 155, 76, .32);
+            transition: background .25s, transform .2s, box-shadow .25s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, .12) 0%, transparent 60%);
+        }
+
+        .submit-btn:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 14px 40px rgba(72, 153, 38, .38);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .form-note {
+            font-size: .73rem;
+            opacity: .5;
+            text-align: center;
+            margin-top: .9rem;
+            line-height: 1.6;
+        }
+
+        /* success state */
+        .form-success {
+            display: none;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .form-success.show {
+            display: block;
+        }
+
+        .form-success-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .form-success-h {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            color: var(--dark);
+            margin-bottom: .6rem;
+        }
+
+        .form-success-p {
+            font-size: .88rem;
+            opacity: .65;
+            line-height: 1.8;
+        }
+
+        /* ── MAP SECTION ──────────────────── */
+        .map-section {
+            background: var(--soft);
+        }
+
+        .map-wrap {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 5% 6rem;
+        }
+
+        .map-header {
+            padding-top: 5.5rem;
+            margin-bottom: 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .map-frame {
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 30px 90px rgba(46, 44, 47, .1);
+            border: 2px solid rgba(144, 155, 76, .15);
+        }
+
+        .map-frame iframe {
+            display: block;
+            width: 100%;
+            height: 460px;
+            border: none;
+        }
+
+        .map-sub {
+            font-size: .85rem;
+            opacity: .6;
+            margin-top: 1.2rem;
+            text-align: center;
+        }
+
+        /* ── FAQ ──────────────────────────── */
+        .faq {
+            background: var(--light);
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin-top: 3.5rem;
+        }
+
+        .faq-item {
+            background: var(--soft);
+            border-radius: 18px;
+            border: 1px solid rgba(144, 155, 76, .15);
+            overflow: hidden;
+        }
+
+        .faq-q {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 1.8rem;
+            cursor: pointer;
+            font-size: .92rem;
+            font-weight: 500;
+            color: var(--dark);
+            gap: 1rem;
+            transition: color .2s;
+        }
+
+        .faq-q:hover {
+            color: var(--primary);
+        }
+
+        .faq-icon {
+            width: 1.8rem;
+            height: 1.8rem;
+            border-radius: 50%;
+            flex-shrink: 0;
+            background: rgba(144, 155, 76, .12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            color: var(--primary);
+            font-weight: 300;
+            transition: transform .3s, background .25s;
+        }
+
+        .faq-item.open .faq-icon {
+            transform: rotate(45deg);
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .faq-a {
+            max-height: 0;
+            overflow: hidden;
+            font-size: .84rem;
+            line-height: 1.8;
+            opacity: .65;
+            padding: 0 1.8rem;
+            transition: max-height .4s ease, padding .3s;
+        }
+
+        .faq-item.open .faq-a {
+            max-height: 200px;
+            padding: 0 1.8rem 1.5rem;
+        }
+
+        /* ── SOCIAL CTA STRIP ─────────────── */
+        .social-strip {
+            background: var(--dark);
+            padding: 4rem 0;
+        }
+
+        .social-inner {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 5%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .social-text h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            font-weight: 300;
+            color: var(--light);
+            margin-bottom: .4rem;
+        }
+
+        .social-text h3 em {
+            font-style: italic;
+            color: var(--secondary);
+        }
+
+        .social-text p {
+            font-size: .84rem;
+            color: rgba(240, 238, 233, .5);
+        }
+
+        .social-cards {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .social-card {
+            display: flex;
+            align-items: center;
+            gap: .8rem;
+            padding: 1rem 1.6rem;
+            border-radius: 14px;
+            background: rgba(240, 238, 233, .06);
+            border: 1px solid rgba(240, 238, 233, .1);
+            text-decoration: none;
+            color: rgba(240, 238, 233, .7);
+            font-size: .82rem;
+            font-weight: 500;
+            transition: background .25s, color .25s, transform .2s;
+        }
+
+        .social-card:hover {
+            background: var(--primary);
+            color: #fff;
+            transform: translateY(-3px);
+            border-color: var(--primary);
+        }
+
+        .social-icon {
+            font-size: 1.2rem;
+        }
+
+        /* ── FOOTER ───────────────────────── */
+        footer {
+            background: var(--dark);
+            color: rgba(240, 238, 233, .45);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-grid {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 5%;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--light);
+            margin-bottom: .9rem;
+        }
+
+        .footer-logo span {
+            color: var(--secondary);
+        }
+
+        .footer-desc {
+            font-size: .82rem;
+            line-height: 1.8;
+            margin-bottom: 1.4rem;
+        }
+
+        .footer-col-title {
+            color: var(--light);
+            font-size: .72rem;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            font-weight: 500;
+            margin-bottom: 1.1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: .6rem;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: rgba(240, 238, 233, .45);
+            font-size: .82rem;
+            transition: color .2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        .footer-bottom {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 2rem 5% 0;
+            border-top: 1px solid rgba(240, 238, 233, .07);
+            display: flex;
+            justify-content: space-between;
+            font-size: .74rem;
+        }
+
+        /* ── WA BTN ───────────────────────── */
+        .wa-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 300;
+            background: var(--accent);
+            color: #fff;
+            padding: .8rem 1.5rem;
+            border-radius: 100px;
+            font-size: .78rem;
+            font-weight: 500;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+            text-decoration: none;
+            box-shadow: 0 8px 30px rgba(72, 153, 38, .4);
+            display: flex;
+            align-items: center;
+            gap: .45rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .wa-btn:hover {
+            animation: none;
+            transform: scale(1.04);
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0)
+            }
+
+            50% {
+                transform: translateY(-5px)
+            }
+        }
+
+        /* ── ANIMS ────────────────────────── */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity .7s ease, transform .7s ease;
+        }
+
+        .fade-left {
+            opacity: 0;
+            transform: translateX(-28px);
+            transition: opacity .7s ease, transform .7s ease;
+        }
+
+        .fade-right {
+            opacity: 0;
+            transform: translateX(28px);
+            transition: opacity .7s ease, transform .7s ease;
+        }
+
+        .fade-up.visible,
+        .fade-left.visible,
+        .fade-right.visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* ── RESPONSIVE ───────────────────── */
+        @media(max-width:1024px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .left-panel {
+                padding: 4rem 0;
+                border-right: none;
+                border-bottom: 1px solid rgba(144, 155, 76, .14);
+            }
+
+            .right-panel {
+                padding: 3.5rem 0 4rem;
+            }
+
+            nav .nav-links {
+                display: none;
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .social-inner {
+                flex-direction: column;
+            }
+        }
+
+        @media(max-width:640px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-hero {
+                padding: 7rem 6% 3.5rem;
+            }
+
+            .hero-deco {
+                display: none;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: .5rem;
+                text-align: center;
+            }
+
+            .form-card {
+                padding: 2.2rem 1.8rem;
+            }
         }
     </style>
 </head>
 
-<body class="bg-white text-gray-800">
+<body>
 
     <div id="navbar"></div>
 
-    <section class="relative pt-28 pb-20 overflow-hidden text-center
-bg-gradient-to-br from-[#eef7d4] via-[#f7fbe9] to-[#ffffff]">
+    <!-- HERO -->
+    <section class="contact-hero">
+        <div class="hero-blob1"></div>
+        <div class="hero-blob2"></div>
+        <div class="hero-deco">Hello.</div>
+        <div class="hero-content">
+            <span class="hero-eyebrow">Get In Touch</span>
+            <h1 class="hero-h1">Let's Start Your<br><em>Wellness</em> Story</h1>
+            <p class="hero-sub">Whether you have a question, want to book a consultation, or simply want to know if
+                we're the right fit — we'd love to hear from you. Reach out any way you prefer.</p>
+        </div>
+    </section>
 
-<div class="absolute inset-0 opacity-20"
-     style="background: repeating-radial-gradient(
-        circle at center,
-        #9dd744 0px,
-        #9dd744 1px,
-        transparent 1px,
-        transparent 50px
-     );">
-</div>
+    <!-- MAIN CONTACT GRID -->
+    <section class="contact-main">
+        <div class="main-grid">
 
-<!-- <div class="absolute inset-0 opacity-30 z-0"
-        style="background-image: radial-gradient(#7fb82f 2px, transparent 2px);
-               background-size: 30px 30px;">
-    </div> -->
+            <!-- LEFT INFO PANEL -->
+            <div class="left-panel fade-left">
+                <span class="panel-tag">Reach Us</span>
+                <h2 class="panel-h">We're <em>Always</em><br>Here For You</h2>
+                <p class="panel-body">Pick the channel that's most comfortable for you. We typically respond within a
+                    few hours on all platforms — and always with warmth.</p>
 
-    <!-- CONTENT -->
-    <div class="relative z-10 max-w-4xl mx-auto px-4">
-        <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-            Contact Us
-        </h2>
+                <div class="channels">
+                    <a href="https://wa.me/91XXXXXXXXXX" target="_blank" class="channel">
+                        <div class="ch-icon"><i class="fa-brands fa-whatsapp"></i></div>
+                        <div>
+                            <div class="ch-title">WhatsApp</div>
+                            <div class="ch-val">+91 XXXXX XXXXX</div>
+                        </div>
+                        <span class="ch-arrow">→</span>
+                    </a>
+                    <a href="tel:+91XXXXXXXXXX" class="channel">
+                        <div class="ch-icon"><i class="fa-solid fa-phone"></i></div>
+                        <div>
+                            <div class="ch-title">Call Us</div>
+                            <div class="ch-val">+91 XXXXX XXXXX</div>
+                        </div>
+                        <span class="ch-arrow">→</span>
+                    </a>
+                    <a href="mailto:reformwellness@gmail.com" class="channel">
+                        <div class="ch-icon"> <i class="fa-solid fa-envelope"></i></div>
+                        <div>
+                            <div class="ch-title">Email</div>
+                            <div class="ch-val">reformwellness@gmail.com</div>
+                        </div>
+                        <span class="ch-arrow">→</span>
+                    </a>
+                    <a href="https://instagram.com" target="_blank" class="channel">
+                        <div class="ch-icon"><i class="fa-brands fa-instagram"></i></div>
+                        <div>
+                            <div class="ch-title">Instagram</div>
+                            <div class="ch-val">@reformwellness</div>
+                        </div>
+                        <span class="ch-arrow">→</span>
+                    </a>
+                    <div class="channel" style="cursor:default;">
+                        <div class="ch-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div>
+                            <div class="ch-title">Clinic Address</div>
+                            <div class="ch-val">Kharadi, Pune, Maharashtra</div>
+                        </div>
+                        <span class="ch-arrow" style="opacity:0;">→</span>
+                    </div>
+                </div>
 
-        <p class="text-gray-600 text-lg">
-            We’re here to help you start your journey towards a healthier lifestyle.
-        </p>
-    </div>
-
-    <!-- WAVE -->
-    <div class="absolute bottom-0 left-0 w-full leading-none">
-        <svg viewBox="0 0 1440 200" class="w-full">
-            <path fill="#ffffff"
-                d="M0,120 C300,200 900,40 1440,120 L1440,200 L0,200 Z">
-            </path>
-        </svg>
-    </div>
-
-</section>
-
-    <section class="py-16">
-        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 px-4">
-
-            <form class="space-y-4">
-                <input type="text" placeholder="Your Name" class="w-full border p-3 rounded">
-                <input type="email" placeholder="Email" class="w-full border p-3 rounded">
-                <textarea placeholder="Your Message" class="w-full border p-3 rounded"></textarea>
-
-                <button type="button" onclick="sendWhatsApp()"
-                    class="bg-green-600 text-white px-6 py-3 rounded-full w-full">
-                    Send via WhatsApp
-                </button>
-            </form>
-
-            <div>
-                <h3 class="text-2xl font-bold mb-4">Get in Touch</h3>
-                <p class="text-gray-600 mb-2">📞 +91 XXXXX XXXXX</p>
-                <p class="text-gray-600 mb-2">📧 info@nutrilife.com</p>
-                <p class="text-gray-600">📍 Your Clinic Address</p>
+                <!-- Hours -->
+                <div class="hours-block">
+                    <h4 class="hours-title">Consultation Hours</h4>
+                    <div class="hours-rows">
+                        <div class="hours-row">
+                            <span class="hours-day">Monday – Saturday</span>
+                            <span class="hours-time">9:00 AM – 7:00 PM</span>
+                        </div>
+                        <div class="hours-divider"></div>
+                        <div class="hours-row">
+                            <span class="hours-day">Sunday</span>
+                            <span class="hours-time">9:00 AM – 3:00 PM</span>
+                        </div>
+                    </div>
+                    <div class="hours-badge">Currently accepting new clients</div>
+                </div>
             </div>
 
+            <!-- RIGHT FORM PANEL -->
+            <div class="right-panel fade-right">
+                <div class="form-card">
+
+                    <!-- Default form view -->
+                    <div id="formView">
+                        <div class="form-card-tag">Book a Session</div>
+                        <h3 class="form-card-h">Send Us a <em>Message</em></h3>
+                        <p class="form-card-sub">Fill in a few quick details and we'll get back to you within 24 hours —
+                            usually much sooner.</p>
+
+                        <!-- Goal chips -->
+                        <p class="goal-label">What's your primary goal?</p>
+                        <div class="goal-chips">
+                            <span class="goal-chip" onclick="toggleChip(this)">⚖️ Weight Loss</span>
+                            <span class="goal-chip" onclick="toggleChip(this)">🌸 PCOS / Thyroid</span>
+                            <span class="goal-chip" onclick="toggleChip(this)">💪 Muscle Gain</span>
+                            <span class="goal-chip" onclick="toggleChip(this)">🩺 Diabetes Care</span>
+                            <span class="goal-chip" onclick="toggleChip(this)">🏃 Sports Nutrition</span>
+                            <span class="goal-chip" onclick="toggleChip(this)">🌿 General Wellness</span>
+                        </div>
+
+                        <form id="contactForm" novalidate>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="fname">First Name</label>
+                                    <div class="field-wrap">
+                                        <input type="text" id="fname" placeholder="Priya" required />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lname">Last Name</label>
+                                    <div class="field-wrap">
+                                        <input type="text" id="lname" placeholder="Sharma" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="phone">Phone Number</label>
+                                    <div class="field-wrap">
+                                        <input type="tel" id="phone" placeholder="+91 XXXXX XXXXX" required />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email Address</label>
+                                    <div class="field-wrap">
+                                        <input type="email" id="email" placeholder="you@example.com" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="service">Service Interested In</label>
+                                <div class="field-wrap">
+                                    <select id="service">
+                                        <option value="" disabled selected>Select a program</option>
+                                        <option>Weight Loss Program</option>
+                                        <option>PCOS / Thyroid Care</option>
+                                        <option>Muscle Gain Program</option>
+                                        <option>Diabetes Diet Management</option>
+                                        <option>Sports Nutrition</option>
+                                        <option>General Wellness Plan</option>
+                                        <option>Child / Teen Nutrition</option>
+                                        <option>Not Sure — Need Guidance</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="age">Age &amp; City (optional)</label>
+                                <div class="field-wrap">
+                                    <input type="text" id="age" placeholder="e.g. 28 years, Pune" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="msg">Your Message</label>
+                                <div class="field-wrap">
+                                    <textarea id="msg"
+                                        placeholder="Tell us briefly about your health goals or any questions you have…"></textarea>
+                                </div>
+                            </div>
+
+                            <!-- Preferred contact -->
+                            <p class="pref-label">Preferred way to reach you</p>
+                            <div class="pref-options">
+                                <label class="pref-opt checked" id="pref-wa">
+                                    <input type="radio" name="pref" value="whatsapp" checked
+                                        onchange="selectPref(this.parentElement)" />
+                                    <span class="pref-dot"></span> WhatsApp
+                                </label>
+                                <label class="pref-opt" id="pref-call">
+                                    <input type="radio" name="pref" value="call"
+                                        onchange="selectPref(this.parentElement)" />
+                                    <span class="pref-dot"></span> Phone Call
+                                </label>
+                                <label class="pref-opt" id="pref-email">
+                                    <input type="radio" name="pref" value="email"
+                                        onchange="selectPref(this.parentElement)" />
+                                    <span class="pref-dot"></span> Email
+                                </label>
+                            </div>
+
+                            <button type="submit" class="submit-btn" id="submitBtn">
+                                Send Message &nbsp;→
+                            </button>
+                            <p class="form-note">🔒 Your details are kept private and never shared with third parties.
+                            </p>
+                        </form>
+                    </div>
+
+                    <!-- Success state -->
+                    <div class="form-success" id="formSuccess">
+                        <div class="form-success-icon">🌿</div>
+                        <h3 class="form-success-h">Message Received!</h3>
+                        <p class="form-success-p">Thank you for reaching out to Reform Wellness.<br>We'll get back to
+                            you within 24 hours — usually much sooner.<br><br>
+                            <a href="https://wa.me/91XXXXXXXXXX" target="_blank"
+                                style="color:var(--primary);font-weight:500;font-size:.88rem;">
+                                For instant help, message us on WhatsApp →
+                            </a>
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAP -->
+    <section class="map-section">
+        <div class="map-wrap">
+            <div class="map-header fade-up">
+                <div>
+                    <span class="panel-tag"
+                        style="display:inline-flex;align-items:center;gap:.6rem;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--primary);font-weight:500;">
+                        <span style="display:block;width:26px;height:1px;background:var(--primary);"></span>Find Us
+                    </span>
+                    <h2
+                        style="font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3vw,3rem);font-weight:300;color:var(--dark);margin-top:.4rem;">
+                        Visit Our <em style="font-style:italic;color:var(--primary);">Clinic</em>
+                    </h2>
+                </div>
+                <p style="font-size:.88rem;opacity:.6;max-width:340px;text-align:right;line-height:1.75;">
+                    Located in the heart of Kharadi, Pune.<br>
+                    Walk-ins welcome during consultation hours.
+                </p>
+            </div>
+            <div class="map-frame fade-up">
+                <iframe src="https://www.google.com/maps?q=Reform+Wellness+Clinic+Pune&output=embed" allowfullscreen=""
+                    loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+            <p class="map-sub fade-up">📍 Kharadi, Pune, Maharashtra — Near World Trade Center, Pune</p>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="container" style="max-width:1240px;">
+            <div class="fade-up" style="text-align:center;margin-bottom:0;">
+                <span
+                    style="display:inline-flex;align-items:center;gap:.6rem;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--primary);font-weight:500;margin-bottom:.9rem;">
+                    <span style="width:24px;height:1px;background:var(--primary);display:block;"></span>Quick Answers
+                </span>
+                <h2
+                    style="font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,3.5vw,3.5rem);font-weight:300;color:var(--dark);">
+                    Frequently Asked <em style="font-style:italic;color:var(--primary);">Questions</em>
+                </h2>
+            </div>
+            <div class="faq-grid fade-up">
+
+                <div class="faq-item">
+                    <div class="faq-q" onclick="toggleFaq(this)">
+                        Is the first consultation really free?
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-a">Yes! Your first consultation is completely free and has no obligation. We'll
+                        understand your goals, assess your current health, and explain how we can help — before you
+                        commit to anything.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q" onclick="toggleFaq(this)">
+                        Do you offer online / remote consultations?
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-a">Absolutely. All our consultations and follow-ups are available online via
+                        WhatsApp, Zoom, or phone call. We serve clients from across India with the same quality of care
+                        as in-person visits.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q" onclick="toggleFaq(this)">
+                        How quickly will I see results?
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-a">Most clients begin noticing meaningful improvements in energy, digestion, and
+                        overall wellbeing within 2–3 weeks. Visible physical changes typically appear within 4–8 weeks,
+                        depending on your goals and consistency.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q" onclick="toggleFaq(this)">
+                        Will I have to give up Indian food?
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-a">Never. Our plans are built entirely around Indian cuisine — dal, sabzi, rotis,
+                        rice, curd, and everything you love. We believe food should nourish both your body and your
+                        culture.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q" onclick="toggleFaq(this)">
+                        How much do your programs cost?
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-a">Our program pricing varies based on the duration, condition complexity, and level
+                        of support required. We offer transparent packages with no hidden costs. Your free consultation
+                        will include full pricing details.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-q" onclick="toggleFaq(this)">
+                        What if I have a medical condition like PCOS or diabetes?
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-a">We specialize in therapeutic nutrition for medical conditions including PCOS,
+                        thyroid disorders, type 2 diabetes, hypertension, and more. All plans are evidence-based and
+                        developed in coordination with your healthcare provider.</div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SOCIAL STRIP -->
+    <section class="social-strip">
+        <div class="social-inner fade-up">
+            <div class="social-text">
+                <h3>Follow Our <em>Journey</em></h3>
+                <p>Daily nutrition tips, client stories, and healthy Indian recipes.</p>
+            </div>
+            <div class="social-cards">
+                <a href="https://instagram.com" target="_blank" class="social-card">
+                    <span class="social-icon"><i class="fa-brands fa-instagram"></i></span> Instagram
+                </a>
+                <a href="https://facebook.com" target="_blank" class="social-card">
+                    <span class="social-icon"><i class="fa-brands fa-facebook-f"></i></span> Facebook
+                </a>
+                <a href="https://wa.me/91XXXXXXXXXX" target="_blank" class="social-card">
+                    <span class="social-icon"><i class="fa-brands fa-whatsapp"></i></span> WhatsApp
+                </a>
+                <a href="https://youtube.com" target="_blank" class="social-card">
+                    <span class="social-icon"><i class="fa-brands fa-youtube"></i></span> YouTube
+                </a>
+            </div>
         </div>
     </section>
 
     <div id="footer"></div>
 
+    <a href="https://wa.me/91XXXXXXXXXX" target="_blank" class="wa-btn">
+
+        <i class="fa-brands fa-whatsapp"></i>
+
+        <div class="wa-tooltip">
+            WhatsApp Us
+        </div>
+
+    </a>
+
     <script src="/js/main.js"></script>
 
+    <script>
+        /* navbar scroll */
+        const nav = document.getElementById('navbar');
+        window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 60));
+
+        /* scroll animations */
+        const allFade = document.querySelectorAll('.fade-up,.fade-left,.fade-right');
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach((e, i) => {
+                if (e.isIntersecting) {
+                    setTimeout(() => e.target.classList.add('visible'), i * 80);
+                    obs.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.08 });
+        allFade.forEach(el => obs.observe(el));
+
+        /* goal chips */
+        function toggleChip(el) {
+            el.classList.toggle('active');
+        }
+
+        /* preferred contact */
+        function selectPref(el) {
+            document.querySelectorAll('.pref-opt').forEach(o => o.classList.remove('checked'));
+            el.classList.add('checked');
+        }
+
+        /* faq accordion */
+        function toggleFaq(el) {
+            const item = el.parentElement;
+            const wasOpen = item.classList.contains('open');
+            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+            if (!wasOpen) item.classList.add('open');
+        }
+
+        /* form submit */
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            btn.textContent = 'Sending…';
+            btn.disabled = true;
+            setTimeout(() => {
+                document.getElementById('formView').style.display = 'none';
+                document.getElementById('formSuccess').classList.add('show');
+            }, 1200);
+        });
+    </script>
 </body>
 
 </html>

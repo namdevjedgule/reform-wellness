@@ -1,47 +1,79 @@
 document.addEventListener("DOMContentLoaded", function () {
-    fetch('/components/navbar.html')
-        .then(res => res.text())
-        .then(data => {
-            document.getElementById('navbar').innerHTML = data;
 
+    // LOAD NAVBAR
+    fetch("../components/navbar.html")
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("navbar").innerHTML = data;
+
+            // ACTIVE MENU LINK
+            const currentPath = window.location.pathname;
+
+            document.querySelectorAll(".nav-links a").forEach(link => {
+
+                const linkPath = new URL(link.href).pathname;
+
+                if (
+                    currentPath === linkPath ||
+                    (currentPath.includes(linkPath) && linkPath !== "/")
+                ) {
+                    link.classList.add("active");
+                }
+
+            });
+
+            // MOBILE MENU
             const menuBtn = document.getElementById("menuBtn");
+
             if (menuBtn) {
-                menuBtn.onclick = function () {
-                    document.getElementById("mobileMenu").classList.toggle("hidden");
-                };
+                menuBtn.addEventListener("click", function () {
+                    document.getElementById("mobileMenu")
+                        .classList.toggle("hidden");
+                });
             }
+
+            // NAVBAR SCROLL EFFECT
+            const nav = document.querySelector("nav");
+
+            window.addEventListener("scroll", () => {
+                if (nav) {
+                    nav.classList.toggle("scrolled", window.scrollY > 60);
+                }
+            });
+
         });
 
-    fetch('/components/footer.html')
-        .then(res => res.text())
+
+    // LOAD FOOTER
+    fetch("../components/footer.html")
+        .then(response => response.text())
         .then(data => {
-            document.getElementById('footer').innerHTML = data;
+            document.getElementById("footer").innerHTML = data;
         });
 
 
-    function sendWhatsApp() {
-        const name = document.querySelector('input')?.value || "";
-        const message = document.querySelector('textarea')?.value || "";
+    // FADE-UP ANIMATION
+    const fadeEls = document.querySelectorAll(".fade-up");
 
-        const url = `https://wa.me/91XXXXXXXXXX?text=Hello, I am ${name}. ${message}`;
-        window.open(url, '_blank');
-    }
+    const observer = new IntersectionObserver((entries) => {
 
-    const links = document.querySelectorAll("nav a");
-    links.forEach(link => {
-        if (link.href === window.location.href) {
-            link.classList.add("text-green-600", "font-semibold");
-        }
-    });
+        entries.forEach((entry, i) => {
 
-    const sections = document.querySelectorAll("section");
+            if (entry.isIntersecting) {
 
-    window.addEventListener("scroll", () => {
-        sections.forEach(sec => {
-            const pos = sec.getBoundingClientRect().top;
-            if (pos < window.innerHeight - 100) {
-                sec.classList.add("opacity-100", "translate-y-0");
+                setTimeout(() => {
+                    entry.target.classList.add("visible");
+                }, i * 80);
+
+                observer.unobserve(entry.target);
             }
+
         });
+
+    }, {
+        threshold: 0.1
     });
+
+    fadeEls.forEach(el => observer.observe(el));
+
 });

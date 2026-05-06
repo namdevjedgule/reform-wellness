@@ -1,0 +1,2091 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wellness Journal — Reform Wellness</title>
+    <link rel="icon" type="image/x-icon" href="/favicon_io/favicon.ico" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        :root {
+            --primary: #909B4C;
+            --dark: #2E2C2F;
+            --secondary: #B4BB85;
+            --accent: #489926;
+            --light: #F0EEE9;
+            --soft: #D8C0AD;
+
+            /* category colour system */
+            --cat-weight: #909B4C;
+            --cat-pcos: #C4855A;
+            --cat-muscle: #4A7A9B;
+            --cat-diabetes: #8B6BA8;
+            --cat-gut: #489926;
+            --cat-habits: #B4886A;
+        }
+
+        .blog-hero {
+            display: grid;
+            grid-template-rows: 1fr;
+        }
+
+        .blog-hero:hover .bh-img {
+            transform: scale(1.04);
+        }
+
+        .bh-img {
+            position: absolute;
+            inset: 0;
+            background: url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=1600&q=85') center/cover no-repeat;
+            transition: transform .8s ease;
+        }
+
+        .bh-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top,
+                    rgba(46, 44, 47, .96) 0%,
+                    rgba(46, 44, 47, .6) 45%,
+                    rgba(46, 44, 47, .15) 100%);
+        }
+
+        /* grain texture */
+        .bh-grain {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
+            opacity: .6;
+        }
+
+        .bh-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 5% 7% 5.5%;
+            max-width: 1300px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .bh-meta {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            margin-bottom: 1.6rem;
+        }
+
+        .bh-cat {
+            background: var(--primary);
+            color: #fff;
+            font-size: .65rem;
+            font-weight: 600;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            padding: .35rem 1rem;
+            border-radius: 100px;
+        }
+
+        .bh-date {
+            font-size: .78rem;
+            color: rgba(240, 238, 233, .5);
+            letter-spacing: .04em;
+        }
+
+        .bh-read {
+            font-size: .78rem;
+            color: rgba(240, 238, 233, .5);
+            display: flex;
+            align-items: center;
+            gap: .4rem;
+        }
+
+        .bh-read::before {
+            content: '';
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: rgba(240, 238, 233, .3);
+        }
+
+        .bh-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.8rem, 5.5vw, 6.5rem);
+            font-weight: 300;
+            line-height: .97;
+            color: var(--light);
+            letter-spacing: -.02em;
+            max-width: 900px;
+            margin-bottom: 1.5rem;
+        }
+
+        .bh-title em {
+            font-style: italic;
+            color: var(--secondary);
+        }
+
+        .bh-excerpt {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: rgba(240, 238, 233, .6);
+            max-width: 560px;
+            margin-bottom: 2.2rem;
+        }
+
+        .bh-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .bh-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .bh-avatar {
+            width: 2.8rem;
+            height: 2.8rem;
+            border-radius: 50%;
+            background: var(--secondary);
+            border: 2px solid rgba(240, 238, 233, .2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .bh-author-name {
+            font-size: .88rem;
+            font-weight: 500;
+            color: var(--light);
+        }
+
+        .bh-author-role {
+            font-size: .72rem;
+            color: rgba(240, 238, 233, .45);
+            margin-top: .1rem;
+        }
+
+        .bh-read-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: .65rem;
+            background: var(--primary);
+            color: #fff;
+            padding: .8rem 1.8rem;
+            border-radius: 100px;
+            font-size: .82rem;
+            font-weight: 500;
+            letter-spacing: .05em;
+            text-transform: uppercase;
+            text-decoration: none;
+            box-shadow: 0 8px 28px rgba(144, 155, 76, .4);
+            transition: background .25s, transform .2s, box-shadow .25s;
+        }
+
+        .bh-read-btn:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 14px 40px rgba(72, 153, 38, .4);
+        }
+
+        /* big decorative background text */
+        .bh-deco {
+            position: absolute;
+            bottom: -2rem;
+            right: 3%;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(12rem, 18vw, 20rem);
+            font-weight: 600;
+            font-style: italic;
+            color: rgba(144, 155, 76, .06);
+            line-height: 1;
+            pointer-events: none;
+            user-select: none;
+            z-index: 1;
+        }
+
+        /* ── CATEGORY FILTER BAR ─────────────────────── */
+        .filter-bar {
+            position: sticky;
+            top: 70px;
+            z-index: 200;
+            background: rgba(240, 238, 233, .96);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(144, 155, 76, .14);
+        }
+
+        .filter-inner {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 5%;
+            display: flex;
+            align-items: center;
+            gap: 0;
+            overflow-x: auto;
+            white-space: nowrap;
+            scrollbar-width: none;
+        }
+
+        .filter-inner::-webkit-scrollbar {
+            display: none;
+        }
+
+        .filter-label {
+            font-size: .68rem;
+            text-transform: uppercase;
+            letter-spacing: .12em;
+            font-weight: 500;
+            color: var(--dark);
+            opacity: .45;
+            padding: 1rem 1.5rem 1rem 0;
+            border-right: 1px solid rgba(144, 155, 76, .15);
+            margin-right: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .filter-btn {
+            padding: 1rem 1.3rem;
+            font-size: .78rem;
+            font-weight: 500;
+            letter-spacing: .05em;
+            text-transform: uppercase;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-family: 'DM Sans', sans-serif;
+            color: var(--dark);
+            opacity: .55;
+            border-bottom: 2px solid transparent;
+            transition: opacity .2s, border-color .2s, color .2s;
+            flex-shrink: 0;
+        }
+
+        .filter-btn:hover {
+            opacity: 1;
+        }
+
+        .filter-btn.active {
+            opacity: 1;
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+
+        /* article count badge */
+        .filter-btn sup {
+            font-size: .6rem;
+            background: var(--soft);
+            color: var(--dark);
+            padding: .15rem .4rem;
+            border-radius: 100px;
+            margin-left: .3rem;
+            vertical-align: super;
+        }
+
+        .filter-btn.active sup {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        /* ── MAIN CONTENT LAYOUT ─────────────────────── */
+        .blog-main {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 5rem 5% 6rem;
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 5rem;
+            align-items: start;
+        }
+
+        /* ── ARTICLE GRID ────────────────────────────── */
+        .articles-grid {}
+
+        .grid-section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: var(--dark);
+            opacity: .4;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .grid-section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: rgba(144, 155, 76, .15);
+        }
+
+        /* featured row — big + small */
+        .featured-row {
+            display: grid;
+            grid-template-columns: 1.4fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* 3-col row */
+        .three-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* wide row */
+        .wide-row {
+            display: grid;
+            grid-template-columns: 1fr 1.6fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* horizontal card */
+        .horiz-row {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+            margin-bottom: 1.5rem;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(46, 44, 47, .06);
+        }
+
+        /* ── ARTICLE CARD BASE ───────────────────────── */
+        .article-card {
+            background: var(--soft);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(144, 155, 76, .13);
+            transition: transform .35s, box-shadow .35s;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: inherit;
+            position: relative;
+        }
+
+        .article-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 24px 70px rgba(46, 44, 47, .11);
+        }
+
+        .article-card:hover .ac-img img {
+            transform: scale(1.06);
+        }
+
+        .ac-img {
+            overflow: hidden;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .ac-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform .5s ease;
+        }
+
+        /* category colour strip on image */
+        .ac-cat-strip {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+        }
+
+        .ac-cat-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            font-size: .62rem;
+            font-weight: 600;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            padding: .3rem .85rem;
+            border-radius: 100px;
+            color: #fff;
+        }
+
+        /* read time badge */
+        .ac-readtime {
+            position: absolute;
+            bottom: 1rem;
+            right: 1rem;
+            background: rgba(46, 44, 47, .7);
+            backdrop-filter: blur(8px);
+            color: rgba(240, 238, 233, .8);
+            font-size: .65rem;
+            padding: .28rem .7rem;
+            border-radius: 100px;
+            font-weight: 500;
+            letter-spacing: .04em;
+        }
+
+        .ac-body {
+            padding: 1.6rem 1.8rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .ac-meta {
+            display: flex;
+            align-items: center;
+            gap: .75rem;
+            margin-bottom: .75rem;
+        }
+
+        .ac-date {
+            font-size: .7rem;
+            opacity: .5;
+            letter-spacing: .04em;
+        }
+
+        .ac-dot {
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            background: rgba(46, 44, 47, .25);
+        }
+
+        .ac-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+            color: var(--dark);
+            line-height: 1.25;
+            margin-bottom: .7rem;
+            flex: 1;
+        }
+
+        /* size variants */
+        .card-xl .ac-title {
+            font-size: 2.2rem;
+        }
+
+        .card-lg .ac-title {
+            font-size: 1.7rem;
+        }
+
+        .card-md .ac-title {
+            font-size: 1.4rem;
+        }
+
+        .card-sm .ac-title {
+            font-size: 1.15rem;
+        }
+
+        .ac-excerpt {
+            font-size: .83rem;
+            line-height: 1.78;
+            opacity: .62;
+            margin-bottom: 1.2rem;
+        }
+
+        .ac-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: auto;
+        }
+
+        .ac-author-mini {
+            display: flex;
+            align-items: center;
+            gap: .6rem;
+        }
+
+        .ac-author-dot {
+            width: 1.9rem;
+            height: 1.9rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: .85rem;
+            font-weight: 600;
+            color: var(--dark);
+            flex-shrink: 0;
+        }
+
+        .ac-author-name {
+            font-size: .72rem;
+            font-weight: 500;
+            opacity: .7;
+        }
+
+        .ac-link {
+            font-size: .72rem;
+            font-weight: 500;
+            letter-spacing: .07em;
+            text-transform: uppercase;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: .35rem;
+            transition: gap .2s;
+        }
+
+        .article-card:hover .ac-link {
+            gap: .6rem;
+        }
+
+        /* image height variants */
+        .img-tall .ac-img {
+            height: 340px;
+        }
+
+        .img-med .ac-img {
+            height: 240px;
+        }
+
+        .img-short .ac-img {
+            height: 180px;
+        }
+
+        .img-sq .ac-img {
+            height: 220px;
+        }
+
+        .img-wide .ac-img {
+            height: 300px;
+        }
+
+        /* horizontal card variant */
+        .article-card.horiz {
+            flex-direction: row;
+            border-radius: 0;
+            border: none;
+            border-bottom: 1px solid rgba(144, 155, 76, .1);
+        }
+
+        .article-card.horiz:last-child {
+            border-bottom: none;
+        }
+
+        .article-card.horiz:hover {
+            transform: none;
+            box-shadow: none;
+            background: var(--light);
+        }
+
+        .article-card.horiz .ac-img {
+            width: 160px;
+            height: auto;
+            flex-shrink: 0;
+        }
+
+        .article-card.horiz .ac-img img {
+            height: 100%;
+        }
+
+        .article-card.horiz .ac-title {
+            font-size: 1.15rem;
+        }
+
+        .article-card.horiz .ac-excerpt {
+            display: none;
+        }
+
+        .article-card.horiz .ac-body {
+            padding: 1.3rem 1.5rem;
+        }
+
+        /* article number watermark */
+        .ac-num {
+            position: absolute;
+            bottom: 1rem;
+            right: 1.5rem;
+            z-index: 0;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 5rem;
+            font-weight: 600;
+            font-style: italic;
+            color: rgba(144, 155, 76, .07);
+            line-height: 1;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        /* load more */
+        .load-more-wrap {
+            text-align: center;
+            padding: 3rem 0 0;
+        }
+
+        .load-more-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: .7rem;
+            background: transparent;
+            border: 1.5px solid rgba(144, 155, 76, .3);
+            color: var(--dark);
+            padding: .9rem 2.5rem;
+            border-radius: 100px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: .85rem;
+            font-weight: 500;
+            letter-spacing: .05em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background .25s, border-color .25s, color .25s, transform .2s;
+        }
+
+        .load-more-btn:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        /* ── SIDEBAR ─────────────────────────────────── */
+        .sidebar {
+            position: sticky;
+            top: 130px;
+        }
+
+        .sidebar-block {
+            background: var(--soft);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(144, 155, 76, .13);
+            margin-bottom: 1.5rem;
+        }
+
+        .sb-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: var(--dark);
+            margin-bottom: 1.3rem;
+            padding-bottom: .9rem;
+            border-bottom: 1px solid rgba(144, 155, 76, .15);
+            display: flex;
+            align-items: center;
+            gap: .7rem;
+        }
+
+        .sb-title-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--primary);
+            flex-shrink: 0;
+        }
+
+        /* newsletter */
+        .sb-newsletter-desc {
+            font-size: .83rem;
+            line-height: 1.75;
+            opacity: .65;
+            margin-bottom: 1.2rem;
+        }
+
+        .sb-email-wrap {
+            position: relative;
+            margin-bottom: .75rem;
+        }
+
+        .sb-email-wrap input {
+            width: 100%;
+            padding: .85rem 1rem;
+            border: 1.5px solid rgba(144, 155, 76, .2);
+            border-radius: 12px;
+            background: var(--light);
+            font-family: 'DM Sans', sans-serif;
+            font-size: .85rem;
+            color: var(--dark);
+            outline: none;
+            transition: border-color .25s, box-shadow .25s;
+        }
+
+        .sb-email-wrap input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(144, 155, 76, .1);
+        }
+
+        .sb-email-wrap input::placeholder {
+            opacity: .45;
+        }
+
+        .sb-subscribe-btn {
+            width: 100%;
+            padding: .82rem;
+            border-radius: 12px;
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            font-family: 'DM Sans', sans-serif;
+            font-size: .82rem;
+            font-weight: 500;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background .25s, transform .2s;
+        }
+
+        .sb-subscribe-btn:hover {
+            background: var(--accent);
+            transform: translateY(-1px);
+        }
+
+        .sb-note {
+            font-size: .68rem;
+            opacity: .5;
+            text-align: center;
+            margin-top: .6rem;
+        }
+
+        /* popular posts */
+        .popular-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .popular-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: .9rem 0;
+            border-bottom: 1px solid rgba(144, 155, 76, .1);
+            text-decoration: none;
+            color: inherit;
+            transition: padding-left .25s;
+        }
+
+        .popular-item:last-child {
+            border-bottom: none;
+        }
+
+        .popular-item:hover {
+            padding-left: .4rem;
+        }
+
+        .pop-rank {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-weight: 600;
+            font-style: italic;
+            color: rgba(144, 155, 76, .3);
+            line-height: 1;
+            flex-shrink: 0;
+            min-width: 1.8rem;
+            text-align: right;
+        }
+
+        .popular-item:hover .pop-rank {
+            color: var(--primary);
+        }
+
+        .pop-title {
+            font-size: .83rem;
+            font-weight: 500;
+            line-height: 1.4;
+            color: var(--dark);
+            margin-bottom: .2rem;
+        }
+
+        .pop-meta {
+            font-size: .68rem;
+            opacity: .5;
+        }
+
+        /* topics cloud */
+        .topics-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .5rem;
+        }
+
+        .topic-tag {
+            padding: .4rem .9rem;
+            border-radius: 100px;
+            border: 1.5px solid rgba(144, 155, 76, .22);
+            font-size: .75rem;
+            font-weight: 500;
+            color: var(--dark);
+            opacity: .75;
+            text-decoration: none;
+            transition: all .22s;
+        }
+
+        .topic-tag:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: #fff;
+            opacity: 1;
+        }
+
+        /* expert tip card */
+        .expert-tip {
+            background: var(--dark);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+        }
+
+        .expert-tip::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(144, 155, 76, .25) 0%, transparent 70%);
+        }
+
+        .et-label {
+            font-size: .65rem;
+            text-transform: uppercase;
+            letter-spacing: .12em;
+            color: var(--secondary);
+            font-weight: 500;
+            margin-bottom: .8rem;
+        }
+
+        .et-quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-style: italic;
+            font-weight: 400;
+            color: var(--light);
+            line-height: 1.6;
+            margin-bottom: 1.2rem;
+            position: relative;
+        }
+
+        .et-quote::before {
+            content: '"';
+            font-size: 4rem;
+            line-height: .5;
+            color: rgba(144, 155, 76, .2);
+            display: block;
+            margin-bottom: .5rem;
+        }
+
+        .et-author {
+            font-size: .72rem;
+            color: rgba(240, 238, 233, .45);
+            text-transform: uppercase;
+            letter-spacing: .07em;
+        }
+
+        /* ── QUOTE BREAK ─────────────────────────────── */
+        .quote-break {
+            background: var(--primary);
+            padding: 5rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quote-break::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Ccircle cx='30' cy='30' r='1.5' fill='rgba(255,255,255,0.07)'/%3E%3C/svg%3E");
+        }
+
+        .qb-mark {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 8rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, .12);
+            line-height: .6;
+            display: block;
+            margin-bottom: .5rem;
+        }
+
+        .qb-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 4vw, 3.8rem);
+            font-weight: 300;
+            font-style: italic;
+            color: #fff;
+            line-height: 1.2;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .qb-text em {
+            color: rgba(255, 255, 255, .65);
+            font-style: normal;
+        }
+
+        .qb-source {
+            font-size: .78rem;
+            color: rgba(255, 255, 255, .45);
+            margin-top: 1.5rem;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+
+        /* ── TOPIC SECTIONS ──────────────────────────── */
+        .topic-section {
+            padding: 5rem 0;
+        }
+
+        .topic-section:nth-child(odd) {
+            background: var(--light);
+        }
+
+        .topic-section:nth-child(even) {
+            background: var(--soft);
+        }
+
+        .topic-header {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 5% 3rem;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .topic-header-left {}
+
+        .topic-section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: .6rem;
+            font-size: .7rem;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            font-weight: 500;
+            margin-bottom: .7rem;
+        }
+
+        .topic-section-label::before {
+            content: '';
+            width: 22px;
+            height: 1px;
+        }
+
+        .topic-h {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 3.5vw, 3.2rem);
+            font-weight: 300;
+            color: var(--dark);
+            line-height: 1.1;
+        }
+
+        .topic-h em {
+            font-style: italic;
+        }
+
+        .topic-see-all {
+            font-size: .78rem;
+            font-weight: 500;
+            letter-spacing: .07em;
+            text-transform: uppercase;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: .4rem;
+            transition: gap .2s;
+        }
+
+        .topic-see-all:hover {
+            gap: .7rem;
+        }
+
+        .topic-grid {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        .tg-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .tg-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.2rem;
+        }
+
+        /* ── NEWSLETTER SECTION ──────────────────────── */
+        .newsletter-section {
+            background: var(--dark);
+            padding: 6rem 0;
+        }
+
+        .nl-inner {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 5%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .nl-text {}
+
+        .nl-eyebrow {
+            font-size: .72rem;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--secondary);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .nl-h {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.5rem, 4vw, 4rem);
+            font-weight: 300;
+            color: var(--light);
+            line-height: 1.05;
+            margin-bottom: 1.2rem;
+        }
+
+        .nl-h em {
+            font-style: italic;
+            color: var(--secondary);
+        }
+
+        .nl-sub {
+            font-size: .92rem;
+            line-height: 1.85;
+            color: rgba(240, 238, 233, .5);
+        }
+
+        .nl-form {}
+
+        .nl-benefits {
+            display: flex;
+            flex-direction: column;
+            gap: .65rem;
+            margin-bottom: 2rem;
+        }
+
+        .nl-benefit {
+            display: flex;
+            align-items: center;
+            gap: .9rem;
+            font-size: .85rem;
+            color: rgba(240, 238, 233, .65);
+        }
+
+        .nl-benefit-check {
+            width: 1.5rem;
+            height: 1.5rem;
+            border-radius: 50%;
+            flex-shrink: 0;
+            background: rgba(144, 155, 76, .2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary);
+            font-size: .7rem;
+        }
+
+        .nl-input-row {
+            display: flex;
+            gap: .8rem;
+            margin-bottom: .75rem;
+        }
+
+        .nl-input {
+            flex: 1;
+            padding: .9rem 1.2rem;
+            border-radius: 12px;
+            border: 1.5px solid rgba(240, 238, 233, .1);
+            background: rgba(240, 238, 233, .06);
+            color: var(--light);
+            font-family: 'DM Sans', sans-serif;
+            font-size: .88rem;
+            outline: none;
+            transition: border-color .25s, background .25s;
+        }
+
+        .nl-input::placeholder {
+            opacity: .4;
+        }
+
+        .nl-input:focus {
+            border-color: var(--primary);
+            background: rgba(240, 238, 233, .09);
+        }
+
+        .nl-btn {
+            padding: .9rem 2rem;
+            border-radius: 12px;
+            flex-shrink: 0;
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            font-family: 'DM Sans', sans-serif;
+            font-size: .85rem;
+            font-weight: 500;
+            letter-spacing: .05em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background .25s, transform .2s;
+            white-space: nowrap;
+        }
+
+        .nl-btn:hover {
+            background: var(--accent);
+            transform: translateY(-1px);
+        }
+
+        .nl-note {
+            font-size: .7rem;
+            color: rgba(240, 238, 233, .35);
+        }
+
+        /* ── FOOTER ──────────────────────────────────── */
+        footer {
+            background: var(--dark);
+            color: rgba(240, 238, 233, .45);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-inner {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 5%;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: var(--light);
+            margin-bottom: .9rem;
+        }
+
+        .footer-logo span {
+            color: var(--secondary);
+        }
+
+        .footer-desc {
+            font-size: .82rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-col-title {
+            color: var(--light);
+            font-size: .72rem;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            font-weight: 500;
+            margin-bottom: 1.1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: .6rem;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: rgba(240, 238, 233, .45);
+            font-size: .82rem;
+            transition: color .2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(240, 238, 233, .07);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            font-size: .74rem;
+        }
+
+        /* ── WA ──────────────────────────────────────── */
+        .wa-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 400;
+            background: var(--accent);
+            color: #fff;
+            padding: .78rem 1.5rem;
+            border-radius: 100px;
+            font-size: .78rem;
+            font-weight: 500;
+            letter-spacing: .04em;
+            text-transform: uppercase;
+            text-decoration: none;
+            box-shadow: 0 8px 28px rgba(72, 153, 38, .4);
+            display: flex;
+            align-items: center;
+            gap: .45rem;
+            animation: float 3.2s ease-in-out infinite;
+        }
+
+        .wa-btn:hover {
+            animation: none;
+            transform: scale(1.04);
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0)
+            }
+
+            50% {
+                transform: translateY(-5px)
+            }
+        }
+
+        /* ── ANIMATIONS ──────────────────────────────── */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(26px);
+            transition: opacity .7s ease, transform .7s ease;
+        }
+
+        .fade-left {
+            opacity: 0;
+            transform: translateX(-26px);
+            transition: opacity .7s ease, transform .7s ease;
+        }
+
+        .fade-right {
+            opacity: 0;
+            transform: translateX(26px);
+            transition: opacity .7s ease, transform .7s ease;
+        }
+
+        .fade-up.v,
+        .fade-left.v,
+        .fade-right.v {
+            opacity: 1;
+            transform: none;
+        }
+
+        /* hidden articles for filter */
+        .article-card.hidden {
+            display: none;
+        }
+
+        /* ── RESPONSIVE ──────────────────────────────── */
+        @media(max-width:1100px) {
+            .blog-main {
+                grid-template-columns: 1fr;
+                gap: 3.5rem;
+            }
+
+            .sidebar {
+                position: static;
+            }
+
+            nav .nav-links {
+                display: none;
+            }
+
+            .tg-4 {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .nl-inner {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media(max-width:768px) {
+
+            .featured-row,
+            .three-col,
+            .wide-row,
+            .tg-3 {
+                grid-template-columns: 1fr;
+            }
+
+            .bh-title {
+                font-size: 2.8rem;
+            }
+
+            .bh-deco {
+                display: none;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: .5rem;
+                text-align: center;
+            }
+
+            .nl-input-row {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="navbar"></div>
+
+    <!-- ═══ HERO FEATURED ARTICLE ═══════════════════ -->
+    <section class="blog-hero">
+        <div class="bh-img"></div>
+        <div class="bh-overlay"></div>
+        <div class="bh-grain"></div>
+        <div class="bh-deco">Read.</div>
+
+        <div class="bh-content">
+            <div class="bh-meta">
+                <span class="bh-cat">Weight Loss</span>
+                <span class="bh-date">May 2025</span>
+                <span class="bh-read">8 min read</span>
+            </div>
+            <h1 class="bh-title">Why Every Indian Diet<br>Fails — And How to<br><em>Fix Yours For Good</em></h1>
+            <p class="bh-excerpt">Most diet advice is imported from the West and simply doesn't translate to Indian
+                lifestyles, kitchens, or food cultures. Here's a science-backed framework built entirely around dal,
+                sabzi, rotis, and the way India actually eats.</p>
+            <div class="bh-bottom">
+                <div class="bh-author">
+                    <div class="bh-avatar">P</div>
+                    <div>
+                        <div class="bh-author-name">Dr. Priya Kulkarni</div>
+                        <div class="bh-author-role">Clinical Nutritionist & Founder</div>
+                    </div>
+                </div>
+                <a href="#" class="bh-read-btn">Read Full Article →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ CATEGORY FILTER BAR ══════════════════════ -->
+    <div class="filter-bar" id="filterBar">
+        <div class="filter-inner">
+            <span class="filter-label">Filter by</span>
+            <button class="filter-btn active" data-cat="all" onclick="filterArticles('all', this)">All
+                Topics<sup>18</sup></button>
+            <button class="filter-btn" data-cat="weight" onclick="filterArticles('weight', this)">Weight
+                Loss<sup>5</sup></button>
+            <button class="filter-btn" data-cat="pcos" onclick="filterArticles('pcos', this)">PCOS &
+                Hormones<sup>4</sup></button>
+            <button class="filter-btn" data-cat="muscle" onclick="filterArticles('muscle', this)">Muscle &
+                Fitness<sup>3</sup></button>
+            <button class="filter-btn" data-cat="diabetes"
+                onclick="filterArticles('diabetes', this)">Diabetes<sup>2</sup></button>
+            <button class="filter-btn" data-cat="gut" onclick="filterArticles('gut', this)">Gut
+                Health<sup>2</sup></button>
+            <button class="filter-btn" data-cat="habits" onclick="filterArticles('habits', this)">Healthy
+                Habits<sup>2</sup></button>
+        </div>
+    </div>
+
+    <!-- ═══ MAIN CONTENT ══════════════════════════════ -->
+    <div class="blog-main">
+
+        <!-- ── ARTICLE GRID ── -->
+        <div class="articles-col">
+            <div class="grid-section-title fade-up">Latest Articles</div>
+
+            <!-- ROW 1: Featured big + medium -->
+            <div class="featured-row fade-up">
+
+                <a href="#" class="article-card card-xl img-tall" data-cat="weight">
+                    <div class="ac-img">
+                        <div class="ac-cat-strip" style="background:var(--cat-weight);"></div>
+                        <div class="ac-cat-badge" style="background:var(--cat-weight);">Weight Loss</div>
+                        <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=700&q=80"
+                            alt="Article" />
+                        <span class="ac-readtime">8 min read</span>
+                    </div>
+                    <div class="ac-body">
+                        <div class="ac-num">01</div>
+                        <div class="ac-meta">
+                            <span class="ac-date">12 May 2025</span>
+                            <span class="ac-dot"></span>
+                            <span class="ac-date">Dr. Priya Kulkarni</span>
+                        </div>
+                        <h2 class="ac-title">10 Indian Foods That Burn Fat Faster Than Any Supplement</h2>
+                        <p class="ac-excerpt">From methi seeds to amla — discover the powerful fat-burning properties
+                            hiding inside your own kitchen and how to use them daily.</p>
+                        <div class="ac-footer">
+                            <div class="ac-author-mini">
+                                <div class="ac-author-dot" style="background:var(--secondary);">P</div>
+                                <span class="ac-author-name">Dr. Priya K.</span>
+                            </div>
+                            <span class="ac-link">Read More →</span>
+                        </div>
+                    </div>
+                </a>
+
+                <div style="display:flex;flex-direction:column;gap:1.5rem;">
+
+                    <a href="#" class="article-card card-md img-med" data-cat="pcos">
+                        <div class="ac-img">
+                            <div class="ac-cat-strip" style="background:var(--cat-pcos);"></div>
+                            <div class="ac-cat-badge" style="background:var(--cat-pcos);">PCOS</div>
+                            <img src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?w=600&q=80"
+                                alt="Article" />
+                            <span class="ac-readtime">6 min read</span>
+                        </div>
+                        <div class="ac-body">
+                            <div class="ac-num">02</div>
+                            <div class="ac-meta"><span class="ac-date">8 May 2025</span></div>
+                            <h2 class="ac-title">The PCOS Diet Checklist: What to Eat Every Week</h2>
+                            <div class="ac-footer">
+                                <div class="ac-author-mini">
+                                    <div class="ac-author-dot" style="background:var(--soft);">A</div>
+                                    <span class="ac-author-name">Anjali D.</span>
+                                </div>
+                                <span class="ac-link">Read →</span>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="#" class="article-card card-md img-short" data-cat="habits">
+                        <div class="ac-img">
+                            <div class="ac-cat-strip" style="background:var(--cat-habits);"></div>
+                            <div class="ac-cat-badge" style="background:var(--cat-habits);">Healthy Habits</div>
+                            <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=600&q=80"
+                                alt="Article" />
+                            <span class="ac-readtime">4 min read</span>
+                        </div>
+                        <div class="ac-body">
+                            <div class="ac-num">03</div>
+                            <div class="ac-meta"><span class="ac-date">3 May 2025</span></div>
+                            <h2 class="ac-title">5 Morning Rituals That Boost Your Metabolism Before Breakfast</h2>
+                            <div class="ac-footer">
+                                <div class="ac-author-mini">
+                                    <div class="ac-author-dot" style="background:var(--soft);">M</div>
+                                    <span class="ac-author-name">Meera J.</span>
+                                </div>
+                                <span class="ac-link">Read →</span>
+                            </div>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- ROW 2: Three equal cards -->
+            <div class="three-col fade-up">
+
+                <a href="#" class="article-card card-sm img-med" data-cat="muscle">
+                    <div class="ac-img">
+                        <div class="ac-cat-strip" style="background:var(--cat-muscle);"></div>
+                        <div class="ac-cat-badge" style="background:var(--cat-muscle);">Muscle & Fitness</div>
+                        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=500&q=80"
+                            alt="Article" />
+                        <span class="ac-readtime">5 min read</span>
+                    </div>
+                    <div class="ac-body">
+                        <div class="ac-num">04</div>
+                        <div class="ac-meta"><span class="ac-date">28 Apr 2025</span></div>
+                        <h2 class="ac-title">High-Protein Indian Meals for Muscle Gain (No Supplements)</h2>
+                        <div class="ac-footer">
+                            <div class="ac-author-mini">
+                                <div class="ac-author-dot" style="background:var(--secondary);">A</div>
+                                <span class="ac-author-name">Anjali D.</span>
+                            </div>
+                            <span class="ac-link">Read →</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" class="article-card card-sm img-med" data-cat="diabetes">
+                    <div class="ac-img">
+                        <div class="ac-cat-strip" style="background:var(--cat-diabetes);"></div>
+                        <div class="ac-cat-badge" style="background:var(--cat-diabetes);">Diabetes</div>
+                        <img src="https://images.unsplash.com/photo-1559181567-c3190bfa4945?w=500&q=80" alt="Article" />
+                        <span class="ac-readtime">7 min read</span>
+                    </div>
+                    <div class="ac-body">
+                        <div class="ac-num">05</div>
+                        <div class="ac-meta"><span class="ac-date">22 Apr 2025</span></div>
+                        <h2 class="ac-title">Low-GI Indian Foods That Won't Spike Your Blood Sugar</h2>
+                        <div class="ac-footer">
+                            <div class="ac-author-mini">
+                                <div class="ac-author-dot" style="background:var(--secondary);">P</div>
+                                <span class="ac-author-name">Dr. Priya K.</span>
+                            </div>
+                            <span class="ac-link">Read →</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" class="article-card card-sm img-med" data-cat="gut">
+                    <div class="ac-img">
+                        <div class="ac-cat-strip" style="background:var(--cat-gut);"></div>
+                        <div class="ac-cat-badge" style="background:var(--cat-gut);">Gut Health</div>
+                        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=500&q=80"
+                            alt="Article" />
+                        <span class="ac-readtime">6 min read</span>
+                    </div>
+                    <div class="ac-body">
+                        <div class="ac-num">06</div>
+                        <div class="ac-meta"><span class="ac-date">18 Apr 2025</span></div>
+                        <h2 class="ac-title">Heal Your Gut in 30 Days: An Indian Probiotic Food Guide</h2>
+                        <div class="ac-footer">
+                            <div class="ac-author-mini">
+                                <div class="ac-author-dot" style="background:var(--secondary);">M</div>
+                                <span class="ac-author-name">Meera J.</span>
+                            </div>
+                            <span class="ac-link">Read →</span>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+
+            <!-- ROW 3: wide layout -->
+            <div class="wide-row fade-up">
+
+                <a href="#" class="article-card card-md img-wide" data-cat="pcos">
+                    <div class="ac-img">
+                        <div class="ac-cat-strip" style="background:var(--cat-pcos);"></div>
+                        <div class="ac-cat-badge" style="background:var(--cat-pcos);">PCOS & Hormones</div>
+                        <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=600&q=80"
+                            alt="Article" />
+                        <span class="ac-readtime">9 min read</span>
+                    </div>
+                    <div class="ac-body">
+                        <div class="ac-num">07</div>
+                        <div class="ac-meta"><span class="ac-date">14 Apr 2025</span></div>
+                        <h2 class="ac-title">Seed Cycling for PCOS: Does It Actually Work?</h2>
+                        <p class="ac-excerpt">We break down the science behind seed cycling, what Indian seeds to use,
+                            and a realistic protocol that fits your lifestyle.</p>
+                        <div class="ac-footer">
+                            <div class="ac-author-mini">
+                                <div class="ac-author-dot" style="background:var(--soft);">A</div>
+                                <span class="ac-author-name">Anjali D.</span>
+                            </div>
+                            <span class="ac-link">Read More →</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" class="article-card card-lg img-wide" data-cat="weight">
+                    <div class="ac-img">
+                        <div class="ac-cat-strip" style="background:var(--cat-weight);"></div>
+                        <div class="ac-cat-badge" style="background:var(--cat-weight);">Weight Loss</div>
+                        <img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=700&q=80" alt="Article" />
+                        <span class="ac-readtime">10 min read</span>
+                    </div>
+                    <div class="ac-body">
+                        <div class="ac-num">08</div>
+                        <div class="ac-meta"><span class="ac-date">9 Apr 2025</span></div>
+                        <h2 class="ac-title">The Definitive Guide to Intermittent Fasting on an Indian Diet</h2>
+                        <p class="ac-excerpt">Kadak chai, upma, and roti — how to make intermittent fasting work
+                            beautifully with every Indian meal timing and tradition.</p>
+                        <div class="ac-footer">
+                            <div class="ac-author-mini">
+                                <div class="ac-author-dot" style="background:var(--secondary);">P</div>
+                                <span class="ac-author-name">Dr. Priya K.</span>
+                            </div>
+                            <span class="ac-link">Read More →</span>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+
+            <!-- ROW 4: Horizontal list -->
+            <div class="grid-section-title fade-up">More From the Journal</div>
+            <div class="horiz-row fade-up">
+
+                <a href="#" class="article-card horiz" data-cat="muscle">
+                    <div class="ac-img">
+                        <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=300&q=75"
+                            alt="Article" />
+                    </div>
+                    <div class="ac-body">
+                        <div class="ac-meta">
+                            <span class="ac-cat-badge"
+                                style="background:var(--cat-muscle);color:#fff;font-size:.6rem;padding:.25rem .7rem;border-radius:100px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;position:relative;top:0;left:0;">Fitness</span>
+                            <span class="ac-dot"></span>
+                            <span class="ac-date">5 Apr 2025</span>
+                            <span class="ac-dot"></span>
+                            <span class="ac-date">4 min read</span>
+                        </div>
+                        <h2 class="ac-title">Pre-Workout Meals: The Best Indian Options for Energy and Power</h2>
+                        <div class="ac-footer"><span class="ac-link">Read →</span></div>
+                    </div>
+                </a>
+
+                <a href="#" class="article-card horiz" data-cat="pcos">
+                    <div class="ac-img">
+                        <img src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?w=300&q=75"
+                            alt="Article" />
+                    </div>
+                    <div class="ac-body">
+                        <div class="ac-meta">
+                            <span class="ac-cat-badge"
+                                style="background:var(--cat-pcos);color:#fff;font-size:.6rem;padding:.25rem .7rem;border-radius:100px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;position:relative;top:0;left:0;">PCOS</span>
+                            <span class="ac-dot"></span>
+                            <span class="ac-date">1 Apr 2025</span>
+                            <span class="ac-dot"></span>
+                            <span class="ac-date">5 min read</span>
+                        </div>
+                        <h2 class="ac-title">Thyroid Diet Guide: Foods to Eat and Avoid for Better Function</h2>
+                        <div class="ac-footer"><span class="ac-link">Read →</span></div>
+                    </div>
+                </a>
+
+                <a href="#" class="article-card horiz" data-cat="weight">
+                    <div class="ac-img">
+                        <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=300&q=75"
+                            alt="Article" />
+                    </div>
+                    <div class="ac-body">
+                        <div class="ac-meta">
+                            <span class="ac-cat-badge"
+                                style="background:var(--cat-weight);color:#fff;font-size:.6rem;padding:.25rem .7rem;border-radius:100px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;position:relative;top:0;left:0;">Weight
+                                Loss</span>
+                            <span class="ac-dot"></span>
+                            <span class="ac-date">25 Mar 2025</span>
+                            <span class="ac-dot"></span>
+                            <span class="ac-date">6 min read</span>
+                        </div>
+                        <h2 class="ac-title">Why You're Not Losing Weight Despite Eating Less — The Real Reason</h2>
+                        <div class="ac-footer"><span class="ac-link">Read →</span></div>
+                    </div>
+                </a>
+
+                <a href="#" class="article-card horiz" data-cat="gut">
+                    <div class="ac-img">
+                        <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=300&q=75"
+                            alt="Article" />
+                    </div>
+                    <div class="ac-body">
+                        <div class="ac-meta">
+                            <span class="ac-cat-badge"
+                                style="background:var(--cat-gut);color:#fff;font-size:.6rem;padding:.25rem .7rem;border-radius:100px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;position:relative;top:0;left:0;">Gut
+                                Health</span>
+                            <span class="ac-dot"></span>
+                            <span class="ac-date">20 Mar 2025</span>
+                            <span class="ac-dot"></span>
+                            <span class="ac-date">5 min read</span>
+                        </div>
+                        <h2 class="ac-title">The Connection Between Your Gut and Your Mood: What Science Says</h2>
+                        <div class="ac-footer"><span class="ac-link">Read →</span></div>
+                    </div>
+                </a>
+
+                <a href="#" class="article-card horiz" data-cat="habits">
+                    <div class="ac-img">
+                        <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=300&q=75"
+                            alt="Article" />
+                    </div>
+                    <div class="ac-body">
+                        <div class="ac-meta">
+                            <span class="ac-cat-badge"
+                                style="background:var(--cat-habits);color:#fff;font-size:.6rem;padding:.25rem .7rem;border-radius:100px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;position:relative;top:0;left:0;">Habits</span>
+                            <span class="ac-dot"></span>
+                            <span class="ac-date">15 Mar 2025</span>
+                            <span class="ac-dot"></span>
+                            <span class="ac-date">3 min read</span>
+                        </div>
+                        <h2 class="ac-title">Eating Mindfully: How Slowing Down Can Transform Your Digestion</h2>
+                        <div class="ac-footer"><span class="ac-link">Read →</span></div>
+                    </div>
+                </a>
+
+                <a href="#" class="article-card horiz" data-cat="diabetes">
+                    <div class="ac-img">
+                        <img src="https://images.unsplash.com/photo-1559181567-c3190bfa4945?w=300&q=75" alt="Article" />
+                    </div>
+                    <div class="ac-body">
+                        <div class="ac-meta">
+                            <span class="ac-cat-badge"
+                                style="background:var(--cat-diabetes);color:#fff;font-size:.6rem;padding:.25rem .7rem;border-radius:100px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;position:relative;top:0;left:0;">Diabetes</span>
+                            <span class="ac-dot"></span>
+                            <span class="ac-date">10 Mar 2025</span>
+                            <span class="ac-dot"></span>
+                            <span class="ac-date">7 min read</span>
+                        </div>
+                        <h2 class="ac-title">How to Read a Blood Sugar Report: A Nutritionist's Guide</h2>
+                        <div class="ac-footer"><span class="ac-link">Read →</span></div>
+                    </div>
+                </a>
+
+            </div>
+
+            <div class="load-more-wrap fade-up">
+                <button class="load-more-btn"
+                    onclick="this.textContent='Loading…';setTimeout(()=>this.textContent='Load More Articles ↓',1200)">
+                    Load More Articles ↓
+                </button>
+            </div>
+        </div>
+
+        <!-- ── SIDEBAR ── -->
+        <aside class="sidebar">
+
+            <!-- Newsletter -->
+            <div class="sidebar-block fade-right">
+                <div class="sb-title"><span class="sb-title-dot"></span>Weekly Wellness Tips</div>
+                <p class="sb-newsletter-desc">Get science-backed nutrition insights, Indian healthy recipes, and expert
+                    tips — delivered every Tuesday, free.</p>
+                <div class="sb-email-wrap">
+                    <input type="email" placeholder="Your email address…" />
+                </div>
+                <button class="sb-subscribe-btn">Subscribe Free →</button>
+                <p class="sb-note">🔒 No spam. Unsubscribe anytime.</p>
+            </div>
+
+            <!-- Expert tip -->
+            <div class="expert-tip fade-right">
+                <div class="et-label">💡 Expert Tip of the Week</div>
+                <p class="et-quote">Eating your roti with ghee actually slows glucose absorption — it's not the enemy.
+                    Context matters far more than individual foods.</p>
+                <div class="et-author">— Dr. Priya Kulkarni, Clinical Nutritionist</div>
+            </div>
+
+            <!-- Popular posts -->
+            <div class="sidebar-block fade-right">
+                <div class="sb-title"><span class="sb-title-dot"></span>Most Read</div>
+                <div class="popular-list">
+                    <a href="#" class="popular-item">
+                        <span class="pop-rank">1</span>
+                        <div>
+                            <div class="pop-title">Why Every Indian Diet Fails — And How to Fix Yours</div>
+                            <div class="pop-meta">18.2k reads · 8 min</div>
+                        </div>
+                    </a>
+                    <a href="#" class="popular-item">
+                        <span class="pop-rank">2</span>
+                        <div>
+                            <div class="pop-title">The PCOS Diet Checklist: What to Eat Every Week</div>
+                            <div class="pop-meta">12.4k reads · 6 min</div>
+                        </div>
+                    </a>
+                    <a href="#" class="popular-item">
+                        <span class="pop-rank">3</span>
+                        <div>
+                            <div class="pop-title">Low-GI Indian Foods That Won't Spike Blood Sugar</div>
+                            <div class="pop-meta">9.8k reads · 7 min</div>
+                        </div>
+                    </a>
+                    <a href="#" class="popular-item">
+                        <span class="pop-rank">4</span>
+                        <div>
+                            <div class="pop-title">High-Protein Indian Meals for Muscle Gain</div>
+                            <div class="pop-meta">8.1k reads · 5 min</div>
+                        </div>
+                    </a>
+                    <a href="#" class="popular-item">
+                        <span class="pop-rank">5</span>
+                        <div>
+                            <div class="pop-title">Heal Your Gut in 30 Days: Indian Probiotic Guide</div>
+                            <div class="pop-meta">7.3k reads · 6 min</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Topics -->
+            <div class="sidebar-block fade-right">
+                <div class="sb-title"><span class="sb-title-dot"></span>Browse Topics</div>
+                <div class="topics-cloud">
+                    <a href="#" class="topic-tag">Weight Loss</a>
+                    <a href="#" class="topic-tag">PCOS</a>
+                    <a href="#" class="topic-tag">Thyroid</a>
+                    <a href="#" class="topic-tag">Gut Health</a>
+                    <a href="#" class="topic-tag">Muscle Gain</a>
+                    <a href="#" class="topic-tag">Diabetes</a>
+                    <a href="#" class="topic-tag">Indian Recipes</a>
+                    <a href="#" class="topic-tag">Intermittent Fasting</a>
+                    <a href="#" class="topic-tag">Hormones</a>
+                    <a href="#" class="topic-tag">Mindful Eating</a>
+                    <a href="#" class="topic-tag">Immunity</a>
+                    <a href="#" class="topic-tag">Sports Nutrition</a>
+                    <a href="#" class="topic-tag">Meal Planning</a>
+                    <a href="#" class="topic-tag">Sleep & Health</a>
+                </div>
+            </div>
+
+            <!-- CTA card -->
+            <div style="background:var(--primary);border-radius:20px;padding:2rem;text-align:center;margin-bottom:1.5rem;"
+                class="fade-right">
+                <div style="font-size:2rem;margin-bottom:.8rem;">🌿</div>
+                <h4
+                    style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:#fff;margin-bottom:.7rem;font-weight:400;line-height:1.2;">
+                    Ready to transform your health?</h4>
+                <p style="font-size:.8rem;color:rgba(255,255,255,.7);line-height:1.7;margin-bottom:1.3rem;">Book a free
+                    consultation and get a personalized plan built for you.</p>
+                <a href="https://wa.me/91XXXXXXXXXX" target="_blank"
+                    style="display:block;background:#fff;color:var(--primary);padding:.8rem;border-radius:12px;font-size:.8rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;transition:background .25s;"
+                    onmouseover="this.style.background='var(--light)'" onmouseout="this.style.background='#fff'">
+                    Book Free Consult →
+                </a>
+            </div>
+
+        </aside>
+    </div>
+
+    <!-- ═══ PULL QUOTE BREAK ═══════════════════════════ -->
+    <section class="quote-break">
+        <div class="container" style="max-width:1300px;">
+            <div class="fade-up">
+                <span class="qb-mark">"</span>
+                <p class="qb-text">Food is not just fuel. It is information, medicine, culture, and connection —
+                    <em>treat it accordingly.</em>
+                </p>
+                <p class="qb-source">— Reform Wellness Philosophy</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ WEIGHT LOSS SECTION ══════════════════════ -->
+    <section class="topic-section" id="sec-weight">
+        <div class="topic-header fade-up">
+            <div class="topic-header-left">
+                <div class="topic-section-label" style="color:var(--cat-weight);">
+                    <span style="width:22px;height:1px;background:var(--cat-weight);display:block;"></span>Weight Loss
+                </div>
+                <h2 class="topic-h" style="color:var(--dark);">Shed Weight <em
+                        style="font-style:italic;color:var(--cat-weight);">Naturally</em></h2>
+            </div>
+            <a href="#" class="topic-see-all">See All Weight Loss Articles →</a>
+        </div>
+        <div class="topic-grid">
+            <div class="tg-3 fade-up">
+                <a href="#" class="article-card card-md img-med" data-cat="weight">
+                    <div class="ac-img">
+                        <div class="ac-cat-strip" style="background:var(--cat-weight);"></div>
+                        <img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=500&q=80" alt="Article" />
+                        <span class="ac-readtime">5 min read</span>
+                    </div>
+                    <div class="ac-body">
+                        <div class="ac-meta"><span class="ac-date">Apr 2025</span></div>
+                        <h2 class="ac-title">The Truth About Cheat Meals: Do They Help or Hurt Fat Loss?</h2>
+                        <div class="ac-footer"><span class="ac-link">Read More →</span></div>
+                    </div>
+                </a>
+                <a href="#" class="article-card card-md img-med" data-cat="weight">
+                    <div class="ac-img">
+                        <div class="ac-cat-strip" style="background:var(--cat-weight);"></div>
+                        <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=500&q=80"
+                            alt="Article" />
+                        <span class="ac-readtime">6 min read</span>
+                    </div>
+                    <div class="ac-body">
+                        <div class="ac-meta"><span class="ac-date">Mar 2025</span></div>
+                        <h2 class="ac-title">How to Count Calories on an Indian Diet (The Right Way)</h2>
+                        <div class="ac-footer"><span class="ac-link">Read More →</span></div>
+                    </div>
+                </a>
+                <a href="#" class="article-card card-md img-med" data-cat="weight">
+                    <div class="ac-img">
+                        <div class="ac-cat-strip" style="background:var(--cat-weight);"></div>
+                        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=500&q=80"
+                            alt="Article" />
+                        <span class="ac-readtime">4 min read</span>
+                    </div>
+                    <div class="ac-body">
+                        <div class="ac-meta"><span class="ac-date">Feb 2025</span></div>
+                        <h2 class="ac-title">Sabzi vs Salad: Which Is Actually Better for Weight Loss?</h2>
+                        <div class="ac-footer"><span class="ac-link">Read More →</span></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ PCOS SECTION ══════════════════════════════ -->
+    <section class="topic-section" id="sec-pcos">
+        <div class="topic-header fade-up">
+            <div class="topic-header-left">
+                <div class="topic-section-label" style="color:var(--cat-pcos);">
+                    <span style="width:22px;height:1px;background:var(--cat-pcos);display:block;"></span>PCOS & Hormones
+                </div>
+                <h2 class="topic-h">Balance Your <em style="font-style:italic;color:var(--cat-pcos);">Hormones</em></h2>
+            </div>
+            <a href="#" class="topic-see-all">See All PCOS Articles →</a>
+        </div>
+        <div class="topic-grid">
+            <div class="tg-3 fade-up">
+                <a href="#" class="article-card card-md img-med" data-cat="pcos">
+                    <div class="ac-img">
+                        <div class="ac-cat-strip" style="background:var(--cat-pcos);"></div>
+                        <img src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?w=500&q=80"
+                            alt="Article" />
+                        <span class="ac-readtime">7 min read</span>
+                    </div>
+                    <div class="ac-body">
+                        <div class="ac-meta"><span class="ac-date">Apr 2025</span></div>
+                        <h2 class="ac-title">Inositol and PCOS: What Indian Women Need to Know</h2>
+                        <div class="ac-footer"><span class="ac-link">Read More →</span></div>
+                    </div>
+                </a>
+                <a href="#" class="article-card card-md img-med" data-cat="pcos">
+                    <div class="ac-img">
+                        <div class="ac-cat-strip" style="background:var(--cat-pcos);"></div>
+                        <img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?w=500&q=80"
+                            alt="Article" />
+                        <span class="ac-readtime">5 min read</span>
+                    </div>
+                    <div class="ac-body">
+                        <div class="ac-meta"><span class="ac-date">Mar 2025</span></div>
+                        <h2 class="ac-title">Anti-Inflammatory Indian Spices That Fight Hormonal Imbalance</h2>
+                        <div class="ac-footer"><span class="ac-link">Read More →</span></div>
+                    </div>
+                </a>
+                <a href="#" class="article-card card-md img-med" data-cat="pcos">
+                    <div class="ac-img">
+                        <div class="ac-cat-strip" style="background:var(--cat-pcos);"></div>
+                        <img src="https://images.unsplash.com/photo-1559181567-c3190bfa4945?w=500&q=80" alt="Article" />
+                        <span class="ac-readtime">8 min read</span>
+                    </div>
+                    <div class="ac-body">
+                        <div class="ac-meta"><span class="ac-date">Feb 2025</span></div>
+                        <h2 class="ac-title">Hypothyroid Diet: 7-Day Indian Meal Plan That Actually Works</h2>
+                        <div class="ac-footer"><span class="ac-link">Read More →</span></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ NEWSLETTER SECTION ════════════════════════ -->
+    <section class="newsletter-section">
+        <div class="nl-inner">
+            <div class="nl-text fade-left">
+                <p class="nl-eyebrow">Stay Informed</p>
+                <h2 class="nl-h">Get Weekly<br><em>Wellness Wisdom</em></h2>
+                <p class="nl-sub">Join 4,200+ readers who get our Tuesday newsletter — practical nutrition tips, new
+                    recipes, and expert insights designed for the Indian lifestyle. Always free.</p>
+            </div>
+            <div class="nl-form fade-right">
+                <div class="nl-benefits">
+                    <div class="nl-benefit">
+                        <span class="nl-benefit-check">✓</span>
+                        Weekly science-backed nutrition tip
+                    </div>
+                    <div class="nl-benefit">
+                        <span class="nl-benefit-check">✓</span>
+                        New Indian healthy recipe every fortnight
+                    </div>
+                    <div class="nl-benefit">
+                        <span class="nl-benefit-check">✓</span>
+                        Early access to new blog articles
+                    </div>
+                    <div class="nl-benefit">
+                        <span class="nl-benefit-check">✓</span>
+                        Exclusive offers for consultations
+                    </div>
+                </div>
+                <div class="nl-input-row">
+                    <input class="nl-input" type="text" placeholder="Your name" />
+                    <input class="nl-input" type="email" placeholder="Email address" />
+                </div>
+                <button class="nl-btn"
+                    onclick="this.textContent='Subscribed! 🌿';this.style.background='var(--accent)';">
+                    Subscribe to the Journal →
+                </button>
+                <p class="nl-note">🔒 No spam ever. Unsubscribe with one click.</p>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer"></div>
+
+    <a href="https://wa.me/91XXXXXXXXXX" target="_blank" class="wa-btn">
+
+        <i class="fa-brands fa-whatsapp"></i>
+
+        <div class="wa-tooltip">
+            WhatsApp Us
+        </div>
+
+    </a>
+
+    <script src="/js/main.js"></script>
+
+    <script>
+        /* navbar */
+        const nav = document.getElementById('navbar');
+        window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 60));
+
+        /* fade animations */
+        const fadeEls = document.querySelectorAll('.fade-up,.fade-left,.fade-right');
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach((e, i) => {
+                if (e.isIntersecting) {
+                    setTimeout(() => e.target.classList.add('v'), i * 75);
+                    obs.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.07 });
+        fadeEls.forEach(el => obs.observe(el));
+
+        /* category filter */
+        function filterArticles(cat, btn) {
+            /* update active button */
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            /* show/hide cards */
+            document.querySelectorAll('.article-card[data-cat]').forEach(card => {
+                if (cat === 'all' || card.dataset.cat === cat) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
