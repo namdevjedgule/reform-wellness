@@ -53,7 +53,6 @@
         </div>
     </section>
 
-    <!-- MARQUEE -->
     <div class="marquee-wrap">
         <div class="marquee-track">
             <span class="marquee-item">Weight Loss</span>
@@ -75,7 +74,6 @@
         </div>
     </div>
 
-    <!-- SERVICES -->
     <section class="services" id="services">
         <div class="container">
             <div class="fade-up">
@@ -129,7 +127,6 @@
         </div>
     </section>
 
-    <!-- ABOUT -->
     <section class="about" id="about">
         <div class="container">
             <div class="about-grid">
@@ -179,7 +176,6 @@
         </div>
     </section>
 
-    <!-- PROCESS -->
     <section class="process" id="process">
         <div class="container">
             <div class="fade-up" style="text-align:center; margin-bottom:0;">
@@ -212,7 +208,6 @@
         </div>
     </section>
 
-    <!-- TRANSFORMATIONS -->
     <section class="transforms">
         <div class="container">
             <div class="fade-up" style="text-align:center;">
@@ -248,7 +243,6 @@
         </div>
     </section>
 
-    <!-- TESTIMONIALS -->
     <section class="testimonials">
         <div class="container">
             <div class="fade-up" style="text-align:center;">
@@ -297,7 +291,6 @@
         </div>
     </section>
 
-    <!-- WHY CHOOSE US -->
     <section class="why">
         <div class="container">
 
@@ -326,7 +319,6 @@
 
                 </div>
 
-
                 <div class="why-card">
 
                     <div class="why-icon">
@@ -342,7 +334,6 @@
 
                 </div>
 
-
                 <div class="why-card">
 
                     <div class="why-icon">
@@ -357,7 +348,6 @@
                     </p>
 
                 </div>
-
 
                 <div class="why-card">
 
@@ -379,7 +369,6 @@
         </div>
     </section>
 
-    <!-- BLOG -->
     <section class="blog" id="blog">
         <div class="container">
             <div class="fade-up" style="text-align:center;">
@@ -426,7 +415,6 @@
         </div>
     </section>
 
-    <!-- CTA -->
     <section class="cta">
         <div class="container">
             <div class="cta-inner fade-up">
@@ -439,7 +427,6 @@
         </div>
     </section>
 
-    <!-- CONTACT -->
     <section class="contact" id="contact">
         <div class="container">
             <div class="contact-grid">
@@ -490,13 +477,11 @@
 
     <script src="/js/main.js"></script>
     <script>
-        // Navbar scroll effect
         const nav = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             nav.classList.toggle('scrolled', window.scrollY > 60);
         });
 
-        // Fade-up on scroll
         const fadeEls = document.querySelectorAll('.fade-up');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry, i) => {

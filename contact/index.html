@@ -13,106 +13,137 @@
     <link rel="stylesheet" href="/css/style.css">
     <style>
         .contact-hero {
+            height: calc(100vh - 92px);
             min-height: calc(100vh - 92px);
             background: var(--dark);
-            display: flex;
-            align-items: center;
-            padding: 5% 6% 5% 7%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             position: relative;
             overflow: hidden;
         }
 
-        .contact-hero::before {
-            content: '';
+        .hero-grain {
             position: absolute;
             inset: 0;
-            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='250' height='250' filter='url(%23n)' opacity='.055'/%3E%3C/svg%3E");
             pointer-events: none;
-            opacity: .4;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='280'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.68' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='280' height='280' filter='url(%23n)' opacity='.05'/%3E%3C/svg%3E");
+            opacity: .5;
         }
 
-        .hero-blob1 {
+        .hero-blob {
             position: absolute;
-            top: -120px;
-            right: -80px;
-            width: 520px;
-            height: 520px;
+            pointer-events: none;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(144, 155, 76, .22) 0%, transparent 68%);
-            pointer-events: none;
         }
 
-        .hero-blob2 {
-            position: absolute;
-            bottom: -80px;
-            left: 30%;
+        .hero-blob-1 {
+            top: -100px;
+            right: 40%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(144, 155, 76, .2) 0%, transparent 68%);
+        }
+
+        .hero-blob-2 {
+            bottom: -60px;
+            left: 15%;
             width: 360px;
             height: 360px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(72, 153, 38, .14) 0%, transparent 65%);
-            pointer-events: none;
+            background: radial-gradient(circle, rgba(72, 153, 38, .15) 0%, transparent 65%);
         }
 
-        .hero-deco {
-            position: absolute;
-            right: 5%;
-            bottom: -0.5rem;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(14rem, 22vw, 22rem);
-            font-weight: 600;
-            font-style: italic;
-            color: rgba(144, 155, 76, .07);
-            line-height: 1;
-            pointer-events: none;
-            user-select: none;
-            letter-spacing: -.02em;
+        .hero-blob-3 {
+            top: 30%;
+            right: -80px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(180, 187, 133, .12) 0%, transparent 65%);
         }
 
-        .hero-content {
+        .ch-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
             position: relative;
             z-index: 2;
-            max-width: 780px;
+
+            padding-top: clamp(2rem, 4vh, 4rem);
+            padding-bottom: clamp(2rem, 4vh, 4rem);
+            padding-left: 8%;
+            padding-right: 6%;
         }
 
-        .hero-eyebrow {
+        .ch-eyebrow {
             display: inline-flex;
             align-items: center;
-            gap: .7rem;
+            gap: .75rem;
             font-size: .72rem;
             letter-spacing: .16em;
             text-transform: uppercase;
             color: var(--secondary);
             font-weight: 500;
-            margin-bottom: 1.6rem;
+            margin-bottom: 1.2rem;
         }
 
-        .hero-eyebrow::before {
+        .ch-eyebrow::before {
             content: '';
-            width: 34px;
+            width: 36px;
             height: 1px;
             background: var(--secondary);
         }
 
-        .hero-h1 {
+        .ch-h1 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(3.4rem, 6vw, 7rem);
+            font-size: clamp(3rem, 5vw, 6rem);
             font-weight: 300;
-            line-height: .95;
+            line-height: .92;
             color: var(--light);
-            letter-spacing: -.01em;
+            letter-spacing: -.02em;
+            margin-bottom: 1.2rem;
         }
 
-        .hero-h1 em {
+        .ch-h1 em {
             font-style: italic;
             color: var(--secondary);
         }
 
-        .hero-sub {
+        .ch-sub {
             font-size: .95rem;
-            line-height: 1.85;
-            color: rgba(240, 238, 233, .52);
-            max-width: 500px;
-            margin-top: 1.6rem;
+            line-height: 1.7;
+            color: rgba(240, 238, 233, .5);
+            max-width: 440px;
+            margin-bottom: 1.2rem;
+        }
+
+        .ch-scroll-hint {
+            position: relative;
+            margin-top: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: rgba(240, 238, 233, .35);
+            font-size: .72rem;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+        }
+
+        .ch-scroll-line {
+            width: 60px;
+            height: 1px;
+            background: rgba(240, 238, 233, .2);
+        }
+        
+        .ch-right {
+            position: relative;
+            overflow: hidden;
+            background: var(--soft);
+        }
+
+        .ch-right img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: .8;
         }
 
         .contact-main {
@@ -281,7 +312,6 @@
             opacity: 1;
         }
 
-        /* hours block */
         .hours-block {
             background: var(--dark);
             border-radius: 20px;
@@ -376,7 +406,6 @@
             }
         }
 
-        /* ── RIGHT PANEL / FORM ───────────── */
         .right-panel {
             padding: 2.5rem 0 2.5rem 4.5rem;
         }
@@ -433,7 +462,6 @@
             line-height: 1.7;
         }
 
-        /* goal selector */
         .goal-label {
             font-size: .76rem;
             text-transform: uppercase;
@@ -477,7 +505,6 @@
             opacity: 1;
         }
 
-        /* form fields */
         .form-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -549,7 +576,6 @@
             cursor: pointer;
         }
 
-        /* floating label line accent */
         .field-wrap::after {
             content: '';
             position: absolute;
@@ -568,7 +594,6 @@
             transform: scaleX(1);
         }
 
-        /* preferred contact */
         .pref-label {
             font-size: .72rem;
             text-transform: uppercase;
@@ -627,7 +652,6 @@
             border-color: var(--primary);
         }
 
-        /* submit btn */
         .submit-btn {
             width: 100%;
             padding: 1.05rem;
@@ -672,7 +696,6 @@
             line-height: 1.6;
         }
 
-        /* success state */
         .form-success {
             display: none;
             text-align: center;
@@ -701,7 +724,6 @@
             line-height: 1.8;
         }
 
-        /* ── MAP SECTION ──────────────────── */
         .map-section {
             background: var(--soft);
         }
@@ -741,7 +763,6 @@
             text-align: center;
         }
 
-        /* ── FAQ ──────────────────────────── */
         .faq {
             background: var(--light);
         }
@@ -813,7 +834,6 @@
             padding: 0 1.8rem 1.5rem;
         }
 
-        /* ── SOCIAL CTA STRIP ─────────────── */
         .social-strip {
             background: var(--dark);
             padding: 4rem 0;
@@ -880,7 +900,6 @@
             font-size: 1.2rem;
         }
 
-        /* ── FOOTER ───────────────────────── */
         footer {
             background: var(--dark);
             color: rgba(240, 238, 233, .45);
@@ -951,7 +970,6 @@
             font-size: .74rem;
         }
 
-        /* ── WA BTN ───────────────────────── */
         .wa-btn {
             position: fixed;
             bottom: 2rem;
@@ -990,7 +1008,6 @@
             }
         }
 
-        /* ── ANIMS ────────────────────────── */
         .fade-up {
             opacity: 0;
             transform: translateY(28px);
@@ -1016,7 +1033,6 @@
             transform: none;
         }
 
-        /* ── RESPONSIVE ───────────────────── */
         @media(max-width:1024px) {
             .main-grid {
                 grid-template-columns: 1fr;
@@ -1054,8 +1070,10 @@
                 grid-template-columns: 1fr;
             }
 
-            .contact-hero {
-                padding: 7rem 6% 3.5rem;
+            .contact-hero-inner {
+                min-height: calc(100vh - 92px);
+                padding: 6% 6% 8% 8%;
+                align-items: center;
             }
 
             .hero-deco {
@@ -1083,24 +1101,31 @@
 
     <div id="navbar"></div>
 
-    <!-- HERO -->
     <section class="contact-hero">
-        <div class="hero-blob1"></div>
-        <div class="hero-blob2"></div>
-        <div class="hero-deco">Hello.</div>
-        <div class="hero-content">
-            <span class="hero-eyebrow">Get In Touch</span>
-            <h1 class="hero-h1">Let's Start Your<br><em>Wellness</em> Story</h1>
-            <p class="hero-sub">Whether you have a question, want to book a consultation, or simply want to know if
+        <div class="hero-grain"></div>
+        <div class="hero-blob hero-blob-1"></div>
+        <div class="hero-blob hero-blob-2"></div>
+        <div class="hero-blob hero-blob-3"></div>
+
+        <div class="ch-left">
+            <span class="ch-eyebrow">Get In Touch</span>
+            <h1 class="ch-h1">Let's<br>Start Your<br><em>Wellness Story</em></h1>
+            <p class="ch-sub">Whether you have a question, want to book a consultation, or simply want to know if
                 we're the right fit — we'd love to hear from you. Reach out any way you prefer.</p>
+            <div class="ch-scroll-hint">
+                <span class="ch-scroll-line"></span>
+                <span>Scroll to explore</span>
+            </div>
+        </div>
+        <div class="ch-right">
+            <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=900&q=80"
+    alt="Healthy lifestyle wellness" />
         </div>
     </section>
 
-    <!-- MAIN CONTACT GRID -->
     <section class="contact-main">
         <div class="main-grid">
 
-            <!-- LEFT INFO PANEL -->
             <div class="left-panel fade-left">
                 <span class="panel-tag">Reach Us</span>
                 <h2 class="panel-h">We're <em>Always</em><br>Here For You</h2>
@@ -1150,7 +1175,6 @@
                     </div>
                 </div>
 
-                <!-- Hours -->
                 <div class="hours-block">
                     <h4 class="hours-title">Consultation Hours</h4>
                     <div class="hours-rows">
@@ -1168,26 +1192,29 @@
                 </div>
             </div>
 
-            <!-- RIGHT FORM PANEL -->
             <div class="right-panel fade-right">
                 <div class="form-card">
 
-                    <!-- Default form view -->
                     <div id="formView">
                         <div class="form-card-tag">Book a Session</div>
                         <h3 class="form-card-h">Send Us a <em>Message</em></h3>
                         <p class="form-card-sub">Fill in a few quick details and we'll get back to you within 24 hours —
                             usually much sooner.</p>
 
-                        <!-- Goal chips -->
                         <p class="goal-label">What's your primary goal?</p>
                         <div class="goal-chips">
-                            <span class="goal-chip" onclick="toggleChip(this)"><i class="fa-solid fa-weight-scale"></i> Weight Loss</span>
-                            <span class="goal-chip" onclick="toggleChip(this)"><i class="fa-solid fa-seedling"></i> PCOS / Thyroid</span>
-                            <span class="goal-chip" onclick="toggleChip(this)"><i class="fa-solid fa-dumbbell"></i> Muscle Gain</span>
-                            <span class="goal-chip" onclick="toggleChip(this)"><i class="fa-solid fa-stethoscope"></i> Diabetes Care</span>
-                            <span class="goal-chip" onclick="toggleChip(this)"><i class="fa-solid fa-person-running"></i> Sports Nutrition</span>
-                            <span class="goal-chip" onclick="toggleChip(this)"><i class="fa-solid fa-leaf"></i> General Wellness</span>
+                            <span class="goal-chip" onclick="toggleChip(this)"><i class="fa-solid fa-weight-scale"></i>
+                                Weight Loss</span>
+                            <span class="goal-chip" onclick="toggleChip(this)"><i class="fa-solid fa-seedling"></i> PCOS
+                                / Thyroid</span>
+                            <span class="goal-chip" onclick="toggleChip(this)"><i class="fa-solid fa-dumbbell"></i>
+                                Muscle Gain</span>
+                            <span class="goal-chip" onclick="toggleChip(this)"><i class="fa-solid fa-stethoscope"></i>
+                                Diabetes Care</span>
+                            <span class="goal-chip" onclick="toggleChip(this)"><i
+                                    class="fa-solid fa-person-running"></i> Sports Nutrition</span>
+                            <span class="goal-chip" onclick="toggleChip(this)"><i class="fa-solid fa-leaf"></i> General
+                                Wellness</span>
                         </div>
 
                         <form id="contactForm" novalidate>
@@ -1253,7 +1280,6 @@
                                 </div>
                             </div>
 
-                            <!-- Preferred contact -->
                             <p class="pref-label">Preferred way to reach you</p>
                             <div class="pref-options">
                                 <label class="pref-opt checked" id="pref-wa">
@@ -1276,12 +1302,12 @@
                             <button type="submit" class="submit-btn" id="submitBtn">
                                 Send Message &nbsp;→
                             </button>
-                            <p class="form-note"><i class="fas fa-lock"></i> Your details are kept private and never shared with third parties.
+                            <p class="form-note"><i class="fas fa-lock"></i> Your details are kept private and never
+                                shared with third parties.
                             </p>
                         </form>
                     </div>
 
-                    <!-- Success state -->
                     <div class="form-success" id="formSuccess">
                         <div class="form-success-icon">🌿</div>
                         <h3 class="form-success-h">Message Received!</h3>
@@ -1299,7 +1325,6 @@
         </div>
     </section>
 
-    <!-- MAP -->
     <section class="map-section">
         <div class="map-wrap">
             <div class="map-header fade-up">
@@ -1323,11 +1348,11 @@
                     loading="lazy" referrerpolicy="no-referrer-when-downgrade">
                 </iframe>
             </div>
-            <p class="map-sub fade-up"><i class="fas fa-map-marker-alt"></i> Kharadi, Pune, Maharashtra — Near World Trade Center, Pune</p>
+            <p class="map-sub fade-up"><i class="fas fa-map-marker-alt"></i> Kharadi, Pune, Maharashtra — Near World
+                Trade Center, Pune</p>
         </div>
     </section>
 
-    <!-- FAQ -->
     <section class="faq">
         <div class="container" style="max-width:1240px;">
             <div class="fade-up" style="text-align:center;margin-bottom:0;">
@@ -1406,7 +1431,6 @@
         </div>
     </section>
 
-    <!-- SOCIAL STRIP -->
     <section class="social-strip">
         <div class="social-inner fade-up">
             <div class="social-text">
@@ -1445,11 +1469,9 @@
     <script src="/js/main.js"></script>
 
     <script>
-        /* navbar scroll */
         const nav = document.getElementById('navbar');
         window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 60));
 
-        /* scroll animations */
         const allFade = document.querySelectorAll('.fade-up,.fade-left,.fade-right');
         const obs = new IntersectionObserver((entries) => {
             entries.forEach((e, i) => {
@@ -1461,18 +1483,15 @@
         }, { threshold: 0.08 });
         allFade.forEach(el => obs.observe(el));
 
-        /* goal chips */
         function toggleChip(el) {
             el.classList.toggle('active');
         }
 
-        /* preferred contact */
         function selectPref(el) {
             document.querySelectorAll('.pref-opt').forEach(o => o.classList.remove('checked'));
             el.classList.add('checked');
         }
 
-        /* faq accordion */
         function toggleFaq(el) {
             const item = el.parentElement;
             const wasOpen = item.classList.contains('open');
@@ -1494,16 +1513,13 @@
                 return;
             }
 
-            // Goals
             const goals = [];
             document.querySelectorAll('.goal-chip.active').forEach(chip => {
                 goals.push(chip.innerText);
             });
 
-            // Preferred contact
             const pref = document.querySelector('input[name="pref"]:checked').value;
 
-            // Collect data
             const message = `
 🌿 *New Consultation Request*
 
@@ -1524,18 +1540,15 @@ ${document.getElementById('msg').value}
 
             const encodedMessage = encodeURIComponent(message);
 
-            const whatsappNumber = "918669586311"; // 👉 replace with your number
+            const whatsappNumber = "918669586311";
 
             const url = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
 
-            // UI loading
             btn.textContent = 'Redirecting…';
             btn.disabled = true;
 
-            // Open WhatsApp
             window.open(url, '_blank');
 
-            // Show success UI
             setTimeout(() => {
                 document.getElementById('formView').style.display = 'none';
                 document.getElementById('formSuccess').classList.add('show');

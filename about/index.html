@@ -13,64 +13,76 @@
     <link rel="stylesheet" href="/css/style.css">
     <style>
         .about-hero {
+            height: calc(100vh - 92px);
             min-height: calc(100vh - 92px);
+            background: var(--dark);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             position: relative;
             overflow: hidden;
-            display: grid;
-            grid-template-columns: 55% 45%;
+        }
+
+        .hero-grain {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='280'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.68' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='280' height='280' filter='url(%23n)' opacity='.05'/%3E%3C/svg%3E");
+            opacity: .5;
+        }
+
+        .hero-blob {
+            position: absolute;
+            pointer-events: none;
+            border-radius: 50%;
+        }
+
+        .hero-blob-1 {
+            top: -100px;
+            right: 40%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(144, 155, 76, .2) 0%, transparent 68%);
+        }
+
+        .hero-blob-2 {
+            bottom: -60px;
+            left: 15%;
+            width: 360px;
+            height: 360px;
+            background: radial-gradient(circle, rgba(72, 153, 38, .15) 0%, transparent 65%);
+        }
+
+        .hero-blob-3 {
+            top: 30%;
+            right: -80px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(180, 187, 133, .12) 0%, transparent 65%);
         }
 
         .ah-left {
-            background: var(--dark);
             display: flex;
             flex-direction: column;
-            justify-content: flex-end;
-            padding: 5% 6% 5% 7%;
+            justify-content: center;
             position: relative;
-            overflow: hidden;
-        }
+            z-index: 2;
 
-        /* organic grain overlay */
-        .ah-left::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='.06'/%3E%3C/svg%3E");
-            opacity: .4;
-            pointer-events: none;
-        }
-
-        .ah-left-accent {
-            position: absolute;
-            top: -80px;
-            right: -80px;
-            width: 360px;
-            height: 360px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(144, 155, 76, .25) 0%, transparent 70%);
-        }
-
-        .ah-left-accent2 {
-            position: absolute;
-            bottom: -60px;
-            left: -60px;
-            width: 280px;
-            height: 280px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(72, 153, 38, .18) 0%, transparent 70%);
+            padding-top: clamp(2rem, 4vh, 4rem);
+            padding-bottom: clamp(2rem, 4vh, 4rem);
+            padding-left: 8%;
+            padding-right: 6%;
         }
 
         .ah-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: .75rem;
             font-size: .72rem;
             letter-spacing: .16em;
             text-transform: uppercase;
             color: var(--secondary);
             font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: .75rem;
-            margin-bottom: 2rem;
-            position: relative;
+            margin-bottom: 1.2rem;
         }
 
         .ah-eyebrow::before {
@@ -80,32 +92,32 @@
             background: var(--secondary);
         }
 
-        .ah-title {
+        .ah-h1 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(3.5rem, 5.5vw, 6.5rem);
+            font-size: clamp(3rem, 5vw, 6rem);
             font-weight: 300;
-            line-height: 1.0;
+            line-height: .92;
             color: var(--light);
-            position: relative;
+            letter-spacing: -.02em;
+            margin-bottom: 1.2rem;
         }
 
-        .ah-title em {
+        .ah-h1 em {
             font-style: italic;
             color: var(--secondary);
         }
 
-        .ah-subtitle {
+        .ah-sub {
             font-size: .95rem;
-            line-height: 1.85;
-            color: rgba(240, 238, 233, .55);
+            line-height: 1.7;
+            color: rgba(240, 238, 233, .5);
             max-width: 440px;
-            margin-top: 2rem;
-            position: relative;
+            margin-bottom: 1.2rem;
         }
 
         .ah-scroll-hint {
             position: relative;
-            margin-top: 4rem;
+            margin-top: 1.2rem;
             display: flex;
             align-items: center;
             gap: 1rem;
@@ -147,7 +159,7 @@
 
         .ah-stat {
             flex: 1;
-            padding: 1.6rem 1.5rem;
+            padding: 1.1rem 1rem;
             border-right: 1px solid rgba(240, 238, 233, .08);
             text-align: center;
         }
@@ -158,7 +170,7 @@
 
         .ah-stat-num {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 2.4rem;
+            font-size: 2rem;
             font-weight: 600;
             color: var(--secondary);
             line-height: 1;
@@ -172,7 +184,6 @@
             letter-spacing: .08em;
         }
 
-        /* ── SECTION COMMONS ─────────────────── */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -1054,14 +1065,16 @@
 
     <div id="navbar"></div>
 
-    <!-- HERO -->
     <section class="about-hero">
+        <div class="hero-grain"></div>
+        <div class="hero-blob hero-blob-1"></div>
+        <div class="hero-blob hero-blob-2"></div>
+        <div class="hero-blob hero-blob-3"></div>
+
         <div class="ah-left">
-            <div class="ah-left-accent"></div>
-            <div class="ah-left-accent2"></div>
             <span class="ah-eyebrow">Our Story</span>
-            <h1 class="ah-title">Nutrition<br>Rooted in<br><em>Purpose</em></h1>
-            <p class="ah-subtitle">We're not just a diet clinic. We're your long-term partner in building a healthier,
+            <h1 class="ah-h1">Nutrition<br>Rooted in<br><em>Purpose</em></h1>
+            <p class="ah-sub">We're not just a diet clinic. We're your long-term partner in building a healthier,
                 more vibrant life — through food you love, in a way that lasts.</p>
             <div class="ah-scroll-hint">
                 <span class="ah-scroll-line"></span>
@@ -1165,8 +1178,7 @@
             <div class="team-grid fade-up">
                 <div class="team-card">
                     <div class="team-img-wrap">
-                        <img src="/images/owner/owner.jpg"
-                            alt="Lead Nutritionist" />
+                        <img src="/images/owner/owner.jpg" alt="Lead Nutritionist" />
                         <div class="team-img-overlay"></div>
                         <span class="team-img-tag">Lead Nutritionist</span>
                     </div>
@@ -1184,8 +1196,7 @@
                 </div>
                 <div class="team-card">
                     <div class="team-img-wrap">
-                        <img src="/images/owner/owner.jpg"
-                            alt="Sports Nutritionist" />
+                        <img src="/images/owner/owner.jpg" alt="Sports Nutritionist" />
                         <div class="team-img-overlay"></div>
                         <span class="team-img-tag">Sports Nutrition</span>
                     </div>
@@ -1203,8 +1214,7 @@
                 </div>
                 <div class="team-card">
                     <div class="team-img-wrap">
-                        <img src="/images/owner/owner.jpg"
-                            alt="Wellness Coach" />
+                        <img src="/images/owner/owner.jpg" alt="Wellness Coach" />
                         <div class="team-img-overlay"></div>
                         <span class="team-img-tag">Wellness Coach</span>
                     </div>
@@ -1453,7 +1463,8 @@
                     <p class="cta-p">Book a free, no-obligation consultation with our team and discover what a
                         personalized nutrition plan can truly do for your life.</p>
                     <div class="cta-btns">
-                        <a href="https://wa.me/91XXXXXXXXXX" target="_blank" class="btn-w"><i class="fab fa-whatsapp"></i> Book Free Consult</a>
+                        <a href="https://wa.me/91XXXXXXXXXX" target="_blank" class="btn-w"><i
+                                class="fab fa-whatsapp"></i> Book Free Consult</a>
                         <a href="/#services" class="btn-outline-w">View Programs</a>
                     </div>
                 </div>

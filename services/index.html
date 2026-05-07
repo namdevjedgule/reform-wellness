@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="/css/style.css">
     <style>
         .services-hero {
+            height: calc(100vh - 92px);
             min-height: calc(100vh - 92px);
             background: var(--dark);
             display: grid;
@@ -59,16 +60,20 @@
             background: radial-gradient(circle, rgba(180, 187, 133, .12) 0%, transparent 65%);
         }
 
-        .hero-left {
+        .sh-left {
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 6% 6% 8% 8%;
             position: relative;
             z-index: 2;
+
+            padding-top: clamp(2rem, 4vh, 4rem);
+            padding-bottom: clamp(2rem, 4vh, 4rem);
+            padding-left: 8%;
+            padding-right: 6%;
         }
 
-        .hero-eyebrow {
+        .sh-eyebrow {
             display: inline-flex;
             align-items: center;
             gap: .75rem;
@@ -77,47 +82,47 @@
             text-transform: uppercase;
             color: var(--secondary);
             font-weight: 500;
-            margin-bottom: 2rem;
+            margin-bottom: 1.2rem;
         }
 
-        .hero-eyebrow::before {
+        .sh-eyebrow::before {
             content: '';
             width: 36px;
             height: 1px;
             background: var(--secondary);
         }
 
-        .hero-h1 {
+        .sh-h1 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(3.8rem, 5.5vw, 7rem);
+            font-size: clamp(3rem, 5vw, 6rem);
             font-weight: 300;
-            line-height: .93;
+            line-height: .92;
             color: var(--light);
             letter-spacing: -.02em;
-            margin-bottom: 2rem;
+            margin-bottom: 1.2rem;
         }
 
-        .hero-h1 em {
+        .sh-h1 em {
             font-style: italic;
             color: var(--secondary);
         }
 
-        .hero-sub {
+        .sh-sub {
             font-size: .95rem;
-            line-height: 1.85;
+            line-height: 1.7;
             color: rgba(240, 238, 233, .5);
             max-width: 440px;
-            margin-bottom: 3rem;
+            margin-bottom: 1.2rem;
         }
 
-        .hero-count-strip {
+        .sh-count-strip {
             display: flex;
             gap: 2.5rem;
-            padding-top: 2.5rem;
+            margin-top: 1.2rem;
             border-top: 1px solid rgba(240, 238, 233, .1);
         }
 
-        .hero-count-num {
+        .sh-count-num {
             font-family: 'Cormorant Garamond', serif;
             font-size: 2.8rem;
             font-weight: 600;
@@ -125,7 +130,7 @@
             line-height: 1;
         }
 
-        .hero-count-label {
+        .sh-count-label {
             font-size: .7rem;
             color: rgba(240, 238, 233, .45);
             text-transform: uppercase;
@@ -133,99 +138,60 @@
             margin-top: .3rem;
         }
 
-        /* service nav pills in hero */
-        .hero-service-nav {
-            position: absolute;
-            bottom: 3rem;
-            right: 0;
-            left: 50%;
-            display: flex;
-            flex-wrap: wrap;
-            gap: .6rem;
-            padding: 0 5%;
-            z-index: 2;
-        }
-
-        .hsn-pill {
-            background: rgba(240, 238, 233, .07);
-            border: 1px solid rgba(240, 238, 233, .12);
-            color: rgba(240, 238, 233, .6);
-            padding: .45rem 1.1rem;
-            border-radius: 100px;
-            font-size: .72rem;
-            font-weight: 500;
-            text-decoration: none;
-            transition: all .25s;
-        }
-
-        .hsn-pill:hover {
-            background: var(--primary);
-            border-color: var(--primary);
-            color: #fff;
-        }
-
-        .hero-right {
+        .sh-right {
             position: relative;
             overflow: hidden;
         }
 
-        .hero-right img {
+        .sh-right img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            /* mix-blend-mode: luminosity; */
             opacity: .8;
         }
 
-            /* floating badge */
-            .hero-badge {
-                position: absolute;
-                top: 2.5rem;
-                left: 2.5rem;
-                background: rgba(240, 238, 233, 0.15);
-                backdrop-filter: blur(16px);
-                border: 1px solid rgba(240, 238, 233, 0.2);
-                border-radius: 16px;
-                padding: 1rem 1.4rem;
-                width: 180px;
-            }
+        .sh-badge {
+            position: absolute;
+            top: 2.5rem;
+            left: 2.5rem;
+            background: rgba(240, 238, 233, 0.15);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(240, 238, 233, 0.2);
+            border-radius: 16px;
+            padding: 1rem 1.4rem;
+            width: 180px;
+        }
 
-            /* each stat block */
-            .badge-item {
-                text-align: center;
-            }
+        .badge-item {
+            text-align: center;
+        }
 
-            /* value */
-            .hero-badge-val {
-                font-family: 'Cormorant Garamond', serif;
-                font-size: 2rem;
-                font-weight: 600;
-                color: var(--dark);
-                line-height: 1;
-            }
+        .sh-badge-val {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--dark);
+            line-height: 1;
+        }
 
-            /* label */
-            .hero-badge-label {
-                font-size: 0.7rem;
-                color: var(--dark);
-                margin-top: 0.3rem;
-                text-transform: uppercase;
-                letter-spacing: 0.08em;
-                opacity: 0.8;
-            }
+        .sh-badge-label {
+            font-size: 0.7rem;
+            color: var(--dark);
+            margin-top: 0.3rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            opacity: 0.8;
+        }
 
-            /* divider (softer + premium) */
-            .badge-divider {
-                width: 100%;
-                border-top: 1px solid rgba(245, 243, 235, 0.6);
-                /* softer + consistent */
-                margin: 12px 0;
-            }
+        .badge-divider {
+            width: 100%;
+            border-top: 1px solid rgba(245, 243, 235, 0.6);
+            margin: 12px 0;
+        }
 
-        /* ─── STICKY SERVICE NAV ──────────────────── */
         .sticky-nav {
             position: sticky;
-            top: 70px;
+            top: 95px;
             z-index: 200;
             background: rgba(240, 238, 233, .96);
             backdrop-filter: blur(18px);
@@ -293,7 +259,6 @@
             color: var(--accent);
         }
 
-        /* ─── SECTION COMMONS ─────────────────────── */
         .container {
             max-width: 1240px;
             margin: 0 auto;
@@ -332,7 +297,6 @@
             color: var(--primary);
         }
 
-        /* fade animations */
         .fade-up {
             opacity: 0;
             transform: translateY(28px);
@@ -358,8 +322,6 @@
             transform: none;
         }
 
-        /* ─── SERVICE SECTIONS ────────────────────── */
-        /* alternating light/soft backgrounds */
         .svc-section {
             padding: 7rem 0;
             position: relative;
@@ -374,7 +336,6 @@
             background: var(--soft);
         }
 
-        /* massive background number per section */
         .svc-bg-num {
             position: absolute;
             font-family: 'Cormorant Garamond', serif;
@@ -397,7 +358,6 @@
             left: -2%;
         }
 
-        /* main service layout */
         .svc-layout {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -415,7 +375,6 @@
             direction: ltr;
         }
 
-        /* image side */
         .svc-img-wrap {
             position: relative;
         }
@@ -451,7 +410,6 @@
             bottom: -2.5rem;
         }
 
-        /* result badge on image */
         .svc-result-badge {
             position: absolute;
             bottom: 2rem;
@@ -501,7 +459,6 @@
             letter-spacing: .06em;
         }
 
-        /* text side */
         .svc-text {}
 
         .svc-num {
@@ -535,7 +492,6 @@
             margin-bottom: 2rem;
         }
 
-        /* benefit pills */
         .svc-pills {
             display: flex;
             flex-wrap: wrap;
@@ -565,7 +521,6 @@
             flex-shrink: 0;
         }
 
-        /* what's included list */
         .svc-includes {
             margin-bottom: 2.5rem;
         }
@@ -607,7 +562,6 @@
             margin-top: .05rem;
         }
 
-        /* pricing reveal */
         .svc-pricing-trigger {
             display: inline-flex;
             align-items: center;
@@ -653,7 +607,6 @@
             gap: .8rem;
         }
 
-        /* pricing panel */
         .svc-pricing-panel {
             max-height: 0;
             overflow: hidden;
@@ -732,7 +685,6 @@
             color: rgba(240, 238, 233, .55);
         }
 
-        /* ─── ALL SERVICES OVERVIEW ───────────────── */
         .services-overview {
             background: var(--dark);
             padding: 6rem 0;
@@ -809,7 +761,6 @@
             transition: transform .25s, opacity .25s;
         }
 
-        /* ─── PROCESS STRIP ───────────────────────── */
         .process-strip {
             background: var(--primary);
             padding: 5rem 0;
@@ -870,7 +821,6 @@
             margin: 0 auto;
         }
 
-        /* ─── RESULTS / STATS ─────────────────────── */
         .results-section {
             background: var(--soft);
             padding: 6rem 0;
@@ -965,7 +915,6 @@
             margin-bottom: .75rem;
         }
 
-        /* ─── CTA ─────────────────────────────────── */
         .services-cta {
             background: var(--light);
             padding: 6rem 0;
@@ -1069,7 +1018,6 @@
             color: var(--secondary);
         }
 
-        /* ─── FOOTER ──────────────────────────────── */
         footer {
             background: var(--dark);
             color: rgba(240, 238, 233, .45);
@@ -1141,7 +1089,6 @@
             font-size: .74rem;
         }
 
-        /* ─── WA ──────────────────────────────────── */
         .wa-btn {
             position: fixed;
             bottom: 2rem;
@@ -1180,7 +1127,6 @@
             }
         }
 
-        /* ─── RESPONSIVE ──────────────────────────── */
         @media(max-width:1060px) {
             .services-hero {
                 grid-template-columns: 1fr;
@@ -1269,72 +1215,62 @@
 
     <div id="navbar"></div>
 
-    <!-- ═══ HERO ═══════════════════════════════════ -->
     <section class="services-hero" id="top">
         <div class="hero-grain"></div>
         <div class="hero-blob hero-blob-1"></div>
         <div class="hero-blob hero-blob-2"></div>
         <div class="hero-blob hero-blob-3"></div>
 
-        <div class="hero-left">
-            <span class="hero-eyebrow">What We Offer</span>
-            <h1 class="hero-h1">Programs<br>Built for<br><em>Your Body</em></h1>
-            <p class="hero-sub">Six specialized nutrition programs, each crafted around your unique health condition,
+        <div class="sh-left">
+            <span class="sh-eyebrow">What We Offer</span>
+            <h1 class="sh-h1">Programs<br>Built for<br><em>Your Body</em></h1>
+            <p class="sh-sub">Six specialized nutrition programs, each crafted around your unique health condition,
                 metabolism, and Indian lifestyle — never a template, always personal.</p>
-            <div class="hero-count-strip">
+            <div class="sh-count-strip">
                 <div>
-                    <div class="hero-count-num">6</div>
-                    <div class="hero-count-label">Programs</div>
+                    <div class="sh-count-num">6</div>
+                    <div class="sh-count-label">Programs</div>
                 </div>
                 <div>
-                    <div class="hero-count-num">500+</div>
-                    <div class="hero-count-label">Clients Helped</div>
+                    <div class="sh-count-num">500+</div>
+                    <div class="sh-count-label">Clients Helped</div>
                 </div>
                 <div>
-                    <div class="hero-count-num">100%</div>
-                    <div class="hero-count-label">Indian Food Based</div>
+                    <div class="sh-count-num">100%</div>
+                    <div class="sh-count-label">Indian Food Based</div>
                 </div>
             </div>
-            <!-- <div class="hero-service-nav">
-                <a href="#weight-loss" class="hsn-pill">⚖️ Weight Loss</a>
-                <a href="#pcos-thyroid" class="hsn-pill">🌸 PCOS & Thyroid</a>
-                <a href="#muscle-gain" class="hsn-pill">💪 Muscle Gain</a>
-                <a href="#diabetes" class="hsn-pill">🩺 Diabetes</a>
-                <a href="#sports" class="hsn-pill">🏃 Sports</a>
-                <a href="#gut-health" class="hsn-pill">🌿 Gut Health</a>
-            </div> -->
         </div>
 
-        <div class="hero-right">
+        <div class="sh-right">
             <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=900&q=80"
                 alt="Nutrition programs" />
 
-            <div class="hero-badge">
+            <div class="sh-badge">
 
                 <div class="badge-item">
-                    <div class="hero-badge-val">98%</div>
-                    <div class="hero-badge-label">Client Satisfaction</div>
+                    <div class="sh-badge-val">98%</div>
+                    <div class="sh-badge-label">Client Satisfaction</div>
                 </div>
 
                 <div class="badge-divider"></div>
 
                 <div class="badge-item">
-                    <div class="hero-badge-val">500+</div>
-                    <div class="hero-badge-label">Transformations</div>
+                    <div class="sh-badge-val">500+</div>
+                    <div class="sh-badge-label">Transformations</div>
                 </div>
 
                 <div class="badge-divider"></div>
 
                 <div class="badge-item">
-                    <div class="hero-badge-val">6+</div>
-                    <div class="hero-badge-label">Years Experience</div>
+                    <div class="sh-badge-val">6+</div>
+                    <div class="sh-badge-label">Years Experience</div>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <!-- ═══ STICKY SERVICE NAV ══════════════════════ -->
     <nav class="sticky-nav" id="stickyNav">
         <div class="sn-inner">
             <a href="#weight-loss" class="sn-item active" data-section="weight-loss"><span class="sn-icon">
@@ -1361,7 +1297,6 @@
         </div>
     </nav>
 
-    <!-- ═══ SERVICE 1: WEIGHT LOSS ══════════════════ -->
     <section class="svc-section" id="weight-loss">
         <div class="svc-bg-num right">01</div>
         <div class="container">
@@ -1443,7 +1378,6 @@
         </div>
     </section>
 
-    <!-- ═══ SERVICE 2: PCOS / THYROID ══════════════ -->
     <section class="svc-section" id="pcos-thyroid">
         <div class="svc-bg-num left">02</div>
         <div class="container">
@@ -1523,7 +1457,6 @@
         </div>
     </section>
 
-    <!-- ═══ SERVICE 3: MUSCLE GAIN ══════════════════ -->
     <section class="svc-section" id="muscle-gain">
         <div class="svc-bg-num right">03</div>
         <div class="container">
@@ -1604,7 +1537,6 @@
         </div>
     </section>
 
-    <!-- ═══ SERVICE 4: DIABETES ══════════════════════ -->
     <section class="svc-section" id="diabetes">
         <div class="svc-bg-num left">04</div>
         <div class="container">
@@ -1685,7 +1617,6 @@
         </div>
     </section>
 
-    <!-- ═══ SERVICE 5: SPORTS ════════════════════════ -->
     <section class="svc-section" id="sports">
         <div class="svc-bg-num right">05</div>
         <div class="container">
@@ -1767,7 +1698,6 @@
         </div>
     </section>
 
-    <!-- ═══ SERVICE 6: GUT HEALTH ═══════════════════ -->
     <section class="svc-section" id="gut-health">
         <div class="svc-bg-num left">06</div>
         <div class="container">
@@ -1849,7 +1779,6 @@
         </div>
     </section>
 
-    <!-- ═══ ALL SERVICES OVERVIEW ════════════════════ -->
     <section class="services-overview">
         <div class="container">
             <div class="fade-up" style="text-align:center;">
@@ -1915,7 +1844,6 @@
         </div>
     </section>
 
-    <!-- ═══ PROCESS STRIP ════════════════════════════ -->
     <section class="process-strip">
         <div class="container">
             <div class="fade-up" style="text-align:center;margin-bottom:3.5rem;">
@@ -1949,7 +1877,6 @@
         </div>
     </section>
 
-    <!-- ═══ RESULTS ═══════════════════════════════════ -->
     <section class="results-section">
         <div class="container">
             <div class="results-grid">
@@ -1998,7 +1925,6 @@
         </div>
     </section>
 
-    <!-- ═══ CTA ════════════════════════════════════════ -->
     <section class="services-cta">
         <div class="container">
             <div class="cta-box fade-up">
@@ -2030,11 +1956,9 @@
     <script src="/js/main.js"></script>
 
     <script>
-        /* ── navbar scroll ── */
         const nav = document.getElementById('navbar');
         window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 60));
 
-        /* ── fade animations ── */
         const fadeEls = document.querySelectorAll('.fade-up,.fade-left,.fade-right');
         const obs = new IntersectionObserver((entries) => {
             entries.forEach((e, i) => {
@@ -2046,7 +1970,6 @@
         }, { threshold: 0.08 });
         fadeEls.forEach(el => obs.observe(el));
 
-        /* ── sticky nav active state ── */
         const sections = ['weight-loss', 'pcos-thyroid', 'muscle-gain', 'diabetes', 'sports', 'gut-health'];
         const snItems = document.querySelectorAll('.sn-item');
         let ticking = false;
@@ -2066,7 +1989,6 @@
             if (!ticking) { requestAnimationFrame(() => { updateActiveNav(); ticking = false; }); ticking = true; }
         });
 
-        /* smooth scroll on sticky nav click */
         snItems.forEach(item => {
             item.addEventListener('click', e => {
                 e.preventDefault();
@@ -2075,11 +1997,9 @@
             });
         });
 
-        /* ── pricing panel toggle ── */
         function togglePricing(id, btn) {
             const panel = document.getElementById(id);
             const isOpen = panel.classList.contains('open');
-            // close all first
             document.querySelectorAll('.svc-pricing-panel').forEach(p => p.classList.remove('open'));
             document.querySelectorAll('.svc-pricing-trigger').forEach(b => {
                 b.textContent = b.textContent.replace('↑', '↓');
