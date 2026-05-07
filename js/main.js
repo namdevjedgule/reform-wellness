@@ -7,25 +7,38 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!navbarEl) return;
 
     fetch(prefix + "components/navbar.html")
-        .then(r => { if (!r.ok) throw new Error("navbar fetch failed"); return r.text(); })
+        .then(r => { if (!r.ok) throw new Error("navbar 404"); return r.text(); })
         .then(html => {
-
             navbarEl.innerHTML = html;
-            initNavbar();
 
+            const drawer = document.getElementById("mobileDrawer");
+            if (drawer) {
+                document.body.appendChild(drawer);
+            }
+
+            initNavbar();
         })
-        .catch(err => {
-            console.warn("Navbar load failed:", err);
-        });
+        .catch(err => console.warn("Navbar load failed:", err));
 
     function initNavbar() {
 
-        const nav = document.getElementById("mainNav");
-        const hamburger = document.getElementById("hamburger");
+        const navBar = navbarEl.querySelector("nav");
+        const hamburger = navbarEl.querySelector("#hamburger");
         const drawer = document.getElementById("mobileDrawer");
-        const drawerPanel = document.getElementById("drawerPanel");
-        const drawerClose = document.getElementById("drawerClose");
         const drawerBackdrop = document.getElementById("drawerBackdrop");
+
+        const currentPath = window.location.pathname;
+        navbarEl.querySelectorAll(".nav-links a, .drawer-nav a").forEach(link => {
+            const lp = new URL(link.href, window.location.origin).pathname;
+            const match = lp === "/" ? currentPath === "/" : currentPath.startsWith(lp);
+            if (match) link.classList.add("active");
+        });
+
+        const onScroll = () => {
+            if (navBar) navBar.classList.toggle("scrolled", window.scrollY > 60);
+        };
+        window.addEventListener("scroll", onScroll, { passive: true });
+        onScroll();
 
         let pageContent = document.getElementById("pageContent");
 
@@ -36,77 +49,64 @@ document.addEventListener("DOMContentLoaded", function () {
 
             const toWrap = [];
             document.body.childNodes.forEach(node => {
-                const skip = (
-                    node === navbarEl ||
-                    (node.nodeType === 1 && (
+                const isNavbar = node === navbarEl;
+                const isDrawer =
+                    node.nodeType === 1 &&
+                    (
                         node.classList?.contains("drawer") ||
                         node.id === "mobileDrawer" ||
-                        node.id === "navbar"
-                    ))
-                );
-                if (!skip) toWrap.push(node);
+                        node.querySelector?.("#mobileDrawer")
+                    );
+                if (!isNavbar && !isDrawer) toWrap.push(node);
             });
 
-            const firstChild = toWrap[0];
-            if (firstChild) document.body.insertBefore(pageContent, firstChild);
-            toWrap.forEach(node => pageContent.appendChild(node));
-
+            if (toWrap.length) {
+                document.body.insertBefore(pageContent, toWrap[0]);
+                toWrap.forEach(n => pageContent.appendChild(n));
+            }
         } else {
             pageContent.classList.add("page-content");
         }
 
-        const currentPath = window.location.pathname;
-
-        document.querySelectorAll(".nav-links a, .drawer-nav a").forEach(link => {
-            const lp = new URL(link.href, window.location.origin).pathname;
-            const isHome = lp === "/" && currentPath === "/";
-            const isOther = lp !== "/" && currentPath.startsWith(lp);
-            if (isHome || isOther) link.classList.add("active");
-        });
-
-        const onScroll = () => {
-            if (nav) nav.classList.toggle("scrolled", window.scrollY > 60);
-        };
-        window.addEventListener("scroll", onScroll, { passive: true });
-        onScroll();
-
         function openDrawer() {
+            if (!drawer) return;
             drawer.classList.add("open");
             drawer.setAttribute("aria-hidden", "false");
-            hamburger.classList.add("active");
-            hamburger.setAttribute("aria-expanded", "true");
-            hamburger.setAttribute("aria-label", "Close menu");
+            hamburger?.classList.add("active");
+            hamburger?.setAttribute("aria-expanded", "true");
+            hamburger?.setAttribute("aria-label", "Close menu");
             document.body.classList.add("menu-open");
-            pageContent && pageContent.classList.add("blurred");
-            drawerPanel && drawerPanel.focus?.();
+            pageContent?.classList.add("blurred");
         }
 
         function closeDrawer() {
+            if (!drawer) return;
             drawer.classList.remove("open");
             drawer.setAttribute("aria-hidden", "true");
-            hamburger.classList.remove("active");
-            hamburger.setAttribute("aria-expanded", "false");
-            hamburger.setAttribute("aria-label", "Open menu");
+            hamburger?.classList.remove("active");
+            hamburger?.setAttribute("aria-expanded", "false");
+            hamburger?.setAttribute("aria-label", "Open menu");
             document.body.classList.remove("menu-open");
-            pageContent && pageContent.classList.remove("blurred");
+            pageContent?.classList.remove("blurred");
         }
 
-        if (hamburger) hamburger.addEventListener("click", openDrawer);
-        if (drawerClose) drawerClose.addEventListener("click", closeDrawer);
-        if (drawerBackdrop) drawerBackdrop.addEventListener("click", closeDrawer);
+        hamburger?.addEventListener("click", () => {
+            drawer?.classList.contains("open") ? closeDrawer() : openDrawer();
+        });
 
-        document.querySelectorAll(".drawer-nav a").forEach(link => {
-            link.addEventListener("click", closeDrawer);
+        drawerBackdrop?.addEventListener("click", closeDrawer);
+
+        navbarEl.querySelectorAll(".drawer-nav a").forEach(a => {
+            a.addEventListener("click", closeDrawer);
         });
 
         document.addEventListener("keydown", e => {
-            if (e.key === "Escape" && drawer.classList.contains("open")) closeDrawer();
+            if (e.key === "Escape" && drawer?.classList.contains("open")) closeDrawer();
         });
 
         window.addEventListener("resize", () => {
-            if (window.innerWidth > 992 && drawer.classList.contains("open")) closeDrawer();
+            if (window.innerWidth > 992 && drawer?.classList.contains("open")) closeDrawer();
         });
-
     }
 
     const footerEl = document.getElementById("footer");
@@ -117,22 +117,15 @@ document.addEventListener("DOMContentLoaded", function () {
             .catch(err => console.warn("Footer load failed:", err));
     }
 
-    function initFadeObs() {
-        const fadeEls = document.querySelectorAll(".fade-up");
-        if (!fadeEls.length) return;
-
-        const obs = new IntersectionObserver((entries) => {
-            entries.forEach((entry, i) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => entry.target.classList.add("visible"), i * 80);
-                    obs.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.08 });
-
-        fadeEls.forEach(el => obs.observe(el));
-    }
-
-    initFadeObs();
+    const fadeEls = document.querySelectorAll(".fade-up");
+    const fadeObs = new IntersectionObserver((entries) => {
+        entries.forEach((e, i) => {
+            if (e.isIntersecting) {
+                setTimeout(() => e.target.classList.add("visible"), i * 80);
+                fadeObs.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.08 });
+    fadeEls.forEach(el => fadeObs.observe(el));
 
 });

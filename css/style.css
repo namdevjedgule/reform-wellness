@@ -37,42 +37,47 @@ body.menu-open {
     font-family: 'Cormorant Garamond', serif;
 }
 
-nav {
+#navbar {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    z-index: 1000;
+    z-index: 100000;
+}
+
+#navbar nav {
+    position: relative;
+    z-index: 9999;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1.1rem 5%;
-    background: rgba(240, 238, 233, 0.85);
+    padding: 1.0rem 5%;
+    background: rgba(240, 238, 233, 0.92);
     backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
     border-bottom: 1px solid rgba(144, 155, 76, 0.15);
     transition: all 0.3s ease;
 }
 
-nav.scrolled {
-    padding: 0.9rem 5%;
-    background: rgba(240, 238, 233, 0.97);
+#navbar nav.scrolled {
+    padding: 1.5rem 5%;
+    background: rgba(240, 238, 233, 0.98);
     box-shadow: 0 2px 30px rgba(46, 44, 47, 0.06);
 }
 
-.logo {
+#navbar .logo {
     display: flex;
     align-items: center;
-    z-index: 1002;
 }
 
-.nav-logo {
+#navbar .nav-logo {
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
 }
 
-.nav-logo img {
+#navbar .nav-logo img {
     height: 58px;
     width: auto;
     object-fit: contain;
@@ -80,18 +85,18 @@ nav.scrolled {
     transition: transform 0.3s ease;
 }
 
-.nav-logo img:hover {
+#navbar .nav-logo img:hover {
     transform: scale(1.04);
 }
 
-.nav-links {
+#navbar .nav-links {
     display: flex;
     gap: 2.5rem;
     list-style: none;
     align-items: center;
 }
 
-.nav-links a {
+#navbar .nav-links a {
     text-decoration: none;
     color: var(--dark);
     font-size: 0.84rem;
@@ -102,18 +107,18 @@ nav.scrolled {
     transition: all 0.25s ease;
 }
 
-.nav-links a:hover {
+#navbar .nav-links a:hover {
     opacity: 1;
     color: var(--primary);
 }
 
-.nav-links a.active {
+#navbar .nav-links a.active {
     color: var(--primary);
     opacity: 1;
     position: relative;
 }
 
-.nav-links a.active::after {
+#navbar .nav-links a.active::after {
     content: "";
     position: absolute;
     left: 0;
@@ -124,7 +129,7 @@ nav.scrolled {
     border-radius: 10px;
 }
 
-.nav-cta {
+#navbar .nav-cta {
     background: var(--primary);
     color: #fff;
     padding: 0.72rem 1.6rem;
@@ -137,30 +142,30 @@ nav.scrolled {
     transition: all 0.3s ease;
 }
 
-.nav-cta:hover {
+#navbar .nav-cta:hover {
     background: var(--accent);
     transform: translateY(-2px);
 }
 
-.mobile-cta {
+#navbar .mobile-cta {
     display: none;
 }
 
-.hamburger {
+#navbar .hamburger {
     display: none;
     flex-direction: column;
     justify-content: space-between;
     width: 30px;
     height: 22px;
     cursor: pointer;
-    z-index: 2001;
     background: none;
     border: none;
     padding: 0;
     position: relative;
+    z-index: 9999;
 }
 
-.hamburger span {
+#navbar .hamburger span {
     display: block;
     width: 100%;
     height: 2px;
@@ -169,15 +174,15 @@ nav.scrolled {
     transition: all 0.3s ease;
 }
 
-.hamburger.active span:nth-child(1) {
+#navbar .hamburger.active span:nth-child(1) {
     transform: translateY(10px) rotate(45deg);
 }
 
-.hamburger.active span:nth-child(2) {
+#navbar .hamburger.active span:nth-child(2) {
     opacity: 0;
 }
 
-.hamburger.active span:nth-child(3) {
+#navbar .hamburger.active span:nth-child(3) {
     transform: translateY(-10px) rotate(-45deg);
 }
 
@@ -187,15 +192,17 @@ nav.scrolled {
 }
 
 .page-content.blurred {
-    filter: blur(5px) brightness(0.80);
+    filter: blur(5px) brightness(0.78);
     transform: scale(0.982);
-    pointer-events: none;
 }
 
 .drawer {
     position: fixed;
-    inset: 0;
-    z-index: 1800;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99999;
     pointer-events: none;
     visibility: hidden;
 }
@@ -208,10 +215,11 @@ nav.scrolled {
 .drawer-backdrop {
     position: absolute;
     inset: 0;
-    background: rgba(46, 44, 47, 0.45);
+    background: rgba(46, 44, 47, 0.50);
     opacity: 0;
     transition: opacity 0.4s ease;
     cursor: pointer;
+    z-index: 99998;
 }
 
 .drawer.open .drawer-backdrop {
@@ -220,11 +228,11 @@ nav.scrolled {
 
 .drawer-panel {
     position: absolute;
-    top: 0;
+    top: 92px;
     right: 0;
+    bottom: 0;
     width: 45%;
-    height: 100dvh;
-    background: rgba(240, 238, 233, 0.97);
+    background: rgba(240, 238, 233, 0.98);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
     display: flex;
@@ -232,11 +240,12 @@ nav.scrolled {
     overflow-y: auto;
     overflow-x: hidden;
     border-left: 1px solid rgba(144, 155, 76, 0.18);
-    box-shadow: -16px 0 60px rgba(46, 44, 47, 0.14), -3px 0 16px rgba(46, 44, 47, 0.07);
+    box-shadow: -16px 0 60px rgba(46, 44, 47, 0.15),
+        -3px 0 16px rgba(46, 44, 47, 0.07);
     transform: translateX(100%);
-    transition: transform 0.52s var(--drawer-ease);
+    transition: transform 0.48s var(--drawer-ease);
     will-change: transform;
-    z-index: 1;
+    z-index: 100000;
 }
 
 .drawer.open .drawer-panel {
@@ -251,70 +260,24 @@ nav.scrolled {
     right: 0;
     height: 3px;
     background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+    z-index: 1;
     flex-shrink: 0;
-    z-index: 2;
-}
-
-.drawer-head {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.4rem 2rem;
-    border-bottom: 1px solid rgba(144, 155, 76, 0.15);
-    background: rgba(240, 238, 233, 0.5);
-    flex-shrink: 0;
-    min-height: 82px;
-}
-
-.drawer-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: var(--dark);
-    text-decoration: none;
-    letter-spacing: 0.01em;
-}
-
-.drawer-logo span {
-    color: var(--primary);
-}
-
-.drawer-close {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 34px;
-    height: 34px;
-    background: rgba(144, 155, 76, 0.1);
-    border: 1px solid rgba(144, 155, 76, 0.22);
-    border-radius: 50%;
-    cursor: pointer;
-    color: var(--dark);
-    transition: background 0.22s, color 0.22s, transform 0.28s;
-    flex-shrink: 0;
-}
-
-.drawer-close:hover {
-    background: var(--primary);
-    color: #fff;
-    border-color: var(--primary);
-    transform: rotate(90deg);
 }
 
 .drawer-eyebrow {
-    padding: 1.5rem 2rem 0.5rem;
+    padding: 1.6rem 2rem 0.6rem;
     font-size: 0.62rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--primary);
     font-weight: 600;
-    opacity: 0.75;
+    opacity: 0.8;
     flex-shrink: 0;
 }
 
 .drawer-nav {
     flex: 1;
-    padding: 0.4rem 0;
+    padding: 0.3rem 0;
 }
 
 .drawer-nav ul {
@@ -325,10 +288,10 @@ nav.scrolled {
 
 .drawer-nav li {
     opacity: 0;
-    transform: translateX(20px);
+    transform: translateX(22px);
     transition:
-        opacity 0.38s ease calc(var(--i, 0) * 60ms + 0.1s),
-        transform 0.42s var(--drawer-ease) calc(var(--i, 0) * 60ms + 0.08s);
+        opacity 0.36s ease calc(var(--i, 0) * 60ms + 0.08s),
+        transform 0.40s var(--drawer-ease) calc(var(--i, 0) * 60ms + 0.06s);
 }
 
 .drawer.open .drawer-nav li {
@@ -340,7 +303,7 @@ nav.scrolled {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1.05rem 2rem;
+    padding: 1.1rem 2rem;
     text-decoration: none;
     color: var(--dark);
     font-size: 0.95rem;
@@ -360,12 +323,13 @@ nav.scrolled {
     transform: translateX(-6px);
     transition: opacity 0.2s, transform 0.25s ease;
     color: var(--primary);
+    flex-shrink: 0;
 }
 
 .drawer-nav a:hover {
     color: var(--primary);
     opacity: 1;
-    padding-left: 2.4rem;
+    padding-left: 2.5rem;
     background: rgba(144, 155, 76, 0.06);
 }
 
@@ -393,14 +357,16 @@ nav.scrolled {
 }
 
 .drawer-foot {
-    padding: 1.6rem 2rem 2rem;
+    padding: 1.4rem 1.2rem 2rem;
     border-top: 1px solid rgba(144, 155, 76, 0.15);
     margin-top: auto;
     flex-shrink: 0;
-    background: rgba(216, 192, 173, 0.18);
+    background: rgba(216, 192, 173, 0.2);
     opacity: 0;
     transform: translateY(10px);
-    transition: opacity 0.38s ease 0.42s, transform 0.38s ease 0.42s;
+    transition:
+        opacity 0.36s ease 0.38s,
+        transform 0.36s ease 0.38s;
 }
 
 .drawer.open .drawer-foot {
@@ -438,39 +404,39 @@ nav.scrolled {
     display: flex;
     flex-direction: column;
     gap: 0.35rem;
-    margin-bottom: 1.1rem;
+    margin-bottom: 1rem;
 }
 
 .drawer-contact p {
     font-size: 0.76rem;
     color: var(--dark);
-    opacity: 0.52;
+    opacity: 0.55;
 }
 
 .drawer-tagline {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 0.88rem;
+    font-size: 0.82rem;
     font-style: italic;
     color: var(--primary);
-    opacity: 0.72;
-    line-height: 1.5;
+    opacity: 0.75;
+    line-height: 1.4;
+    white-space: nowrap;
 }
 
 @media screen and (max-width: 992px) {
-
-    .hamburger {
+    #navbar .hamburger {
         display: flex;
     }
 
-    .desktop-cta {
+    #navbar .desktop-cta {
         display: none;
     }
 
-    nav .nav-links {
+    #navbar .nav-links {
         display: none;
     }
 
-    .mobile-cta {
+    #navbar .mobile-cta {
         display: block;
     }
 
@@ -492,12 +458,11 @@ nav.scrolled {
 }
 
 @media screen and (max-width: 480px) {
-
-    nav {
-        padding: 1rem 5%;
+    #navbar nav {
+        padding: 1.5rem 5%;
     }
 
-    .nav-logo img {
+    #navbar .nav-logo img {
         height: 44px;
     }
 
@@ -507,7 +472,10 @@ nav.scrolled {
 
     .drawer-nav a {
         font-size: 0.95rem;
-        gap: 1.7rem;
+    }
+
+    .drawer-nav a {
+        padding: 1rem 1.6rem;
     }
 }
 
