@@ -113,6 +113,10 @@ document.addEventListener("DOMContentLoaded", function () {
                         node.id === "mobileDrawer"
                     );
 
+                const isWaBtn =
+                    node.nodeType === 1 &&
+                    node.classList?.contains("wa-btn");
+
                 if (!isNavbar && !isDrawer) {
                     toWrap.push(node);
                 }

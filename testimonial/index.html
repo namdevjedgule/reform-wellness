@@ -1,0 +1,1750 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Testimonials & Results — Reform Wellness</title>
+    <link rel="icon" type="image/x-icon" href="/favicon_io/favicon.ico" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <style>
+        .testimonial-hero {
+            height: calc(100vh - 92px);
+            min-height: calc(100vh - 92px);
+            background: var(--dark);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-grain {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='280'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.68' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='280' height='280' filter='url(%23n)' opacity='.05'/%3E%3C/svg%3E");
+            opacity: .5;
+        }
+
+        .hero-blob {
+            position: absolute;
+            pointer-events: none;
+            border-radius: 50%;
+        }
+
+        .hero-blob-1 {
+            top: -100px;
+            right: 40%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(144, 155, 76, .2) 0%, transparent 68%);
+        }
+
+        .hero-blob-2 {
+            bottom: -60px;
+            left: 15%;
+            width: 360px;
+            height: 360px;
+            background: radial-gradient(circle, rgba(72, 153, 38, .15) 0%, transparent 65%);
+        }
+
+        .hero-blob-3 {
+            top: 30%;
+            right: -80px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(180, 187, 133, .12) 0%, transparent 65%);
+        }
+
+        .th-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+
+            padding-top: clamp(2rem, 4vh, 4rem);
+            padding-bottom: clamp(2rem, 4vh, 4rem);
+            padding-left: 8%;
+            padding-right: 6%;
+        }
+
+        .th-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.78rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--secondary);
+            font-weight: 500;
+            margin-bottom: 1.8rem;
+        }
+
+        .th-eyebrow::before {
+            content: '';
+            display: block;
+            width: 32px;
+            height: 1px;
+            background: var(--secondary);
+        }
+
+        .th-h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3rem, 5vw, 6rem);
+            font-weight: 300;
+            line-height: .92;
+            color: var(--light);
+            letter-spacing: -.02em;
+            margin-bottom: 1.2rem;
+        }
+
+        .th-h1 em {
+            font-style: italic;
+            color: var(--secondary);
+        }
+
+        .th-sub {
+            font-size: .95rem;
+            line-height: 1.7;
+            color: rgba(240, 238, 233, .5);
+            max-width: 440px;
+            margin-bottom: 1.2rem;
+        }
+
+        .th-actions {
+            display: flex;
+            align-items: center;
+        }
+
+        .th-btn-primary {
+            background: var(--primary);
+            color: #fff;
+            padding: 0.9rem 2.2rem;
+            border-radius: 100px;
+            font-size: 0.88rem;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
+            box-shadow: 0 8px 30px rgba(144, 155, 76, 0.3);
+        }
+
+        .th-btn-primary:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(72, 153, 38, 0.35);
+        }
+
+        .th-count-strip {
+            display: flex;
+            gap: 2.5rem;
+            margin-top: 1.2rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid rgba(240, 238, 233, .1);
+            flex-wrap: wrap;
+        }
+
+        .th-count-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.8rem;
+            font-weight: 600;
+            color: var(--secondary);
+            line-height: 1;
+        }
+
+        .th-count-label {
+            font-size: .7rem;
+            color: rgba(240, 238, 233, .45);
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            margin-top: .3rem;
+        }
+
+        .th-right {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .th-right img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: .75;
+        }
+
+        .tpage-filter {
+            background: var(--soft);
+            padding: 2.2rem 0;
+            position: sticky;
+            top: 92px;
+            z-index: 100;
+            border-bottom: 1px solid rgba(144, 155, 76, .18);
+        }
+
+        .tpage-filter-inner {
+            display: flex;
+            gap: .75rem;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 1.5px solid rgba(144, 155, 76, .35);
+            color: var(--dark);
+            padding: .6rem 1.4rem;
+            border-radius: 100px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: .8rem;
+            font-weight: 500;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all .25s ease;
+            opacity: .75;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: #fff;
+            opacity: 1;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(144, 155, 76, .3);
+        }
+
+        /* ── Before / After section ──────────────────────── */
+        .tpage-ba {
+            background: var(--light);
+        }
+
+        .tpage-ba-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .ba-card {
+            background: var(--soft);
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid rgba(144, 155, 76, .15);
+            box-shadow: 0 8px 40px rgba(46, 44, 47, .07);
+            transition: transform .35s ease, box-shadow .35s ease;
+        }
+
+        .ba-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 24px 70px rgba(46, 44, 47, .13);
+        }
+
+        /* Photo comparison slider */
+        .ba-photos {
+            position: relative;
+            aspect-ratio: 3/4;
+            overflow: hidden;
+            cursor: col-resize;
+            user-select: none;
+        }
+
+        .ba-before,
+        .ba-after {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+        }
+
+        .ba-after {
+            clip-path: inset(0 50% 0 0);
+            transition: clip-path .05s linear;
+        }
+
+        .ba-divider {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 3px;
+            background: #fff;
+            transform: translateX(-50%);
+            z-index: 3;
+            transition: left .05s linear;
+            pointer-events: none;
+        }
+
+        .ba-divider-handle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #fff;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, .2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: .85rem;
+            gap: 2px;
+        }
+
+        .ba-label {
+            position: absolute;
+            top: 1rem;
+            font-size: .65rem;
+            font-weight: 600;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            padding: .35rem .75rem;
+            border-radius: 100px;
+            z-index: 4;
+            pointer-events: none;
+        }
+
+        .ba-label-before {
+            left: 1rem;
+            background: rgba(46, 44, 47, .7);
+            color: #fff;
+        }
+
+        .ba-label-after {
+            right: 1rem;
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .ba-body {
+            padding: 1.6rem 1.75rem 2rem;
+        }
+
+        .ba-result {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.9rem;
+            font-weight: 600;
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: .3rem;
+        }
+
+        .ba-name {
+            font-weight: 600;
+            font-size: .9rem;
+            color: var(--dark);
+            margin-bottom: .2rem;
+        }
+
+        .ba-meta {
+            font-size: .78rem;
+            opacity: .6;
+            letter-spacing: .04em;
+            margin-bottom: 1rem;
+        }
+
+        .ba-quote {
+            font-size: .86rem;
+            line-height: 1.7;
+            opacity: .7;
+            font-style: italic;
+            border-left: 3px solid var(--primary);
+            padding-left: .9rem;
+        }
+
+        .ba-program-tag {
+            display: inline-block;
+            margin-top: 1rem;
+            background: rgba(144, 155, 76, .12);
+            color: var(--primary);
+            font-size: .7rem;
+            font-weight: 600;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            padding: .35rem .85rem;
+            border-radius: 100px;
+        }
+
+        /* ── Video testimonials ──────────────────────────── */
+        .tpage-videos {
+            background: var(--dark);
+        }
+
+        .tpage-videos .section-label {
+            color: var(--secondary);
+        }
+
+        .tpage-videos .section-label::before {
+            background: var(--secondary);
+        }
+
+        .tpage-videos .section-title {
+            color: var(--light);
+        }
+
+        .tpage-video-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 4rem;
+        }
+
+        .video-card {
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            background: rgba(255, 255, 255, .05);
+            border: 1px solid rgba(255, 255, 255, .1);
+            transition: transform .3s, box-shadow .3s;
+        }
+
+        .video-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 24px 60px rgba(0, 0, 0, .35);
+        }
+
+        .video-thumb {
+            position: relative;
+            aspect-ratio: 16/9;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .video-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform .4s ease;
+        }
+
+        .video-card:hover .video-thumb img {
+            transform: scale(1.05);
+        }
+
+        .video-thumb-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(46, 44, 47, .45);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background .3s;
+        }
+
+        .video-card:hover .video-thumb-overlay {
+            background: rgba(46, 44, 47, .3);
+        }
+
+        .video-play-btn {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.4rem;
+            padding-left: 4px;
+            /* optical center */
+            box-shadow: 0 8px 30px rgba(0, 0, 0, .25);
+            transition: transform .25s, box-shadow .25s;
+        }
+
+        .video-card:hover .video-play-btn {
+            transform: scale(1.1);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, .35);
+        }
+
+        .video-duration {
+            position: absolute;
+            bottom: .7rem;
+            right: .8rem;
+            background: rgba(0, 0, 0, .65);
+            color: #fff;
+            font-size: .7rem;
+            font-weight: 500;
+            padding: .2rem .55rem;
+            border-radius: 6px;
+            letter-spacing: .04em;
+        }
+
+        .video-body {
+            padding: 1.4rem 1.6rem 1.7rem;
+        }
+
+        .video-name {
+            font-weight: 600;
+            font-size: .9rem;
+            color: var(--light);
+            margin-bottom: .2rem;
+        }
+
+        .video-meta {
+            font-size: .78rem;
+            color: rgba(240, 238, 233, .5);
+            letter-spacing: .04em;
+            margin-bottom: .85rem;
+        }
+
+        .video-quote {
+            font-size: .84rem;
+            line-height: 1.65;
+            color: rgba(240, 238, 233, .65);
+            font-style: italic;
+        }
+
+        .video-tag {
+            display: inline-block;
+            margin-top: .85rem;
+            background: rgba(180, 187, 133, .15);
+            color: var(--secondary);
+            font-size: .68rem;
+            font-weight: 600;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            padding: .3rem .8rem;
+            border-radius: 100px;
+            border: 1px solid rgba(180, 187, 133, .25);
+        }
+
+        /* Video modal */
+        .video-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 999999;
+            background: rgba(20, 18, 22, .92);
+            backdrop-filter: blur(10px);
+            align-items: center;
+            justify-content: center;
+            padding: 5%;
+        }
+
+        .video-modal.open {
+            display: flex;
+        }
+
+        .video-modal-inner {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            aspect-ratio: 16/9;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, .5);
+        }
+
+        .video-modal-inner iframe,
+        .video-modal-inner video {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+        }
+
+        .video-modal-close {
+            position: absolute;
+            top: -3.2rem;
+            right: 0;
+            background: rgba(255, 255, 255, .1);
+            border: 1px solid rgba(255, 255, 255, .2);
+            color: #fff;
+            width: 2.4rem;
+            height: 2.4rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background .2s;
+        }
+
+        .video-modal-close:hover {
+            background: var(--primary);
+        }
+
+        /* ── Written Reviews ─────────────────────────────── */
+        .tpage-reviews {
+            background: var(--soft);
+        }
+
+        .tpage-reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 4rem;
+        }
+
+        .review-card {
+            background: var(--light);
+            border-radius: 20px;
+            padding: 2.2rem;
+            border: 1px solid rgba(144, 155, 76, .15);
+            position: relative;
+            overflow: hidden;
+            transition: transform .3s, box-shadow .3s;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(46, 44, 47, .1);
+        }
+
+        .review-card::before {
+            content: '"';
+            position: absolute;
+            top: -.5rem;
+            right: 1.5rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 8rem;
+            font-weight: 600;
+            color: var(--primary);
+            opacity: .07;
+            line-height: 1;
+        }
+
+        /* Featured (wide) card */
+        .review-card.featured {
+            grid-column: span 2;
+            background: var(--primary);
+            border-color: transparent;
+        }
+
+        .review-card.featured::before {
+            color: #fff;
+            opacity: .08;
+        }
+
+        .review-card.featured .review-stars {
+            color: #fff;
+            opacity: .8;
+        }
+
+        .review-card.featured .review-quote {
+            color: rgba(255, 255, 255, .88);
+        }
+
+        .review-card.featured .review-name {
+            color: #fff;
+        }
+
+        .review-card.featured .review-meta {
+            color: rgba(255, 255, 255, .6);
+        }
+
+        .review-card.featured .review-avatar {
+            background: rgba(255, 255, 255, .2);
+            color: #fff;
+        }
+
+        .review-card.featured .review-source {
+            background: rgba(255, 255, 255, .15);
+            color: #fff;
+        }
+
+        .review-stars {
+            color: var(--accent);
+            font-size: .85rem;
+            letter-spacing: .05em;
+            margin-bottom: 1rem;
+        }
+
+        .review-quote {
+            font-size: .92rem;
+            line-height: 1.8;
+            opacity: .75;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            justify-content: space-between;
+        }
+
+        .review-author-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .review-avatar {
+            width: 3rem;
+            height: 3rem;
+            min-width: 3rem;
+            border-radius: 50%;
+            background: var(--secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .review-name {
+            font-weight: 600;
+            font-size: .9rem;
+        }
+
+        .review-meta {
+            font-size: .75rem;
+            opacity: .55;
+            margin-top: .15rem;
+            letter-spacing: .03em;
+        }
+
+        .review-source {
+            display: flex;
+            align-items: center;
+            gap: .35rem;
+            background: rgba(144, 155, 76, .1);
+            color: var(--primary);
+            font-size: .68rem;
+            font-weight: 600;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            padding: .3rem .75rem;
+            border-radius: 100px;
+            white-space: nowrap;
+        }
+
+        /* ── Overall Rating Banner ───────────────────────── */
+        .tpage-rating {
+            background: var(--light);
+        }
+
+        .rating-banner {
+            background: var(--dark);
+            border-radius: 28px;
+            padding: 4rem 5%;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr auto 1fr;
+            align-items: center;
+            gap: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .rating-banner::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 0% 50%, rgba(144, 155, 76, .15) 0%, transparent 50%),
+                radial-gradient(ellipse at 100% 50%, rgba(72, 153, 38, .1) 0%, transparent 50%);
+        }
+
+        .rating-item {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .rating-big {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3.5rem, 7vw, 6rem);
+            font-weight: 600;
+            color: var(--secondary);
+            line-height: 1;
+        }
+
+        .rating-stars-row {
+            display: flex;
+            justify-content: center;
+            gap: .2rem;
+            color: var(--accent);
+            font-size: 1.1rem;
+            margin: .5rem 0 .4rem;
+        }
+
+        .rating-label {
+            font-size: .78rem;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: rgba(240, 238, 233, .5);
+        }
+
+        .rating-divider {
+            width: 1px;
+            height: 80px;
+            background: rgba(255, 255, 255, .12);
+            margin: 0 3rem;
+        }
+
+        /* ── Logos / Trust strip ─────────────────────────── */
+        .tpage-trust {
+            background: var(--soft);
+            padding: 3rem 0;
+        }
+
+        .trust-strip {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: .6rem;
+            color: var(--dark);
+            opacity: .55;
+            font-size: .82rem;
+            font-weight: 500;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+        }
+
+        .trust-item i {
+            font-size: 1.2rem;
+            color: var(--primary);
+            opacity: 1;
+        }
+
+        /* ── CTA ─────────────────────────────────────────── */
+        .tpage-cta {
+            background: var(--light);
+        }
+
+        .tpage-cta-inner {
+            background: var(--primary);
+            border-radius: 28px;
+            padding: 5rem 5%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tpage-cta-inner::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 30% 50%, rgba(255, 255, 255, .12) 0%, transparent 55%),
+                radial-gradient(ellipse at 75% 30%, rgba(72, 153, 38, .2) 0%, transparent 55%);
+        }
+
+        .tpage-cta-label {
+            color: rgba(255, 255, 255, .75);
+            font-size: .78rem;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .tpage-cta-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.4rem, 5vw, 4.5rem);
+            font-weight: 300;
+            color: #fff;
+            line-height: 1.1;
+            margin-bottom: 1.4rem;
+            position: relative;
+        }
+
+        .tpage-cta-title em {
+            font-style: italic;
+            color: rgba(255, 255, 255, .75);
+        }
+
+        .tpage-cta-sub {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, .7);
+            max-width: 480px;
+            margin: 0 auto 2.5rem;
+            position: relative;
+        }
+
+        .tpage-cta-btn {
+            background: var(--dark);
+            color: var(--light);
+            padding: 1rem 2.8rem;
+            border-radius: 100px;
+            font-size: .9rem;
+            font-weight: 500;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: .7rem;
+            box-shadow: 0 10px 40px rgba(46, 44, 47, .25);
+            transition: background .25s, transform .2s, box-shadow .25s;
+            position: relative;
+        }
+
+        .tpage-cta-btn:hover {
+            background: #fff;
+            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 18px 50px rgba(46, 44, 47, .35);
+        }
+
+        @media (max-width: 1100px) {
+            .tpage-ba-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .tpage-video-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .tpage-reviews-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .review-card.featured {
+                grid-column: span 2;
+            }
+
+            .rating-banner {
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 2rem;
+            }
+
+            .rating-divider {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            .tpage-filter {
+                top: 76px;
+                padding: 1.4rem 0;
+            }
+
+            .tpage-ba-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .tpage-video-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .tpage-reviews-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .review-card.featured {
+                grid-column: span 1;
+            }
+
+            .rating-banner {
+                grid-template-columns: 1fr 1fr;
+                gap: 2.5rem;
+                padding: 3rem 5%;
+                border-radius: 20px;
+            }
+
+            .rating-divider {
+                display: none;
+            }
+        }
+
+        @media (max-width: 640px) {
+
+            .tpage-filter-inner {
+                gap: .5rem;
+                padding: 0 5%;
+                justify-content: flex-start;
+                overflow-x: auto;
+                flex-wrap: nowrap;
+                padding-bottom: .5rem;
+            }
+
+            .filter-btn {
+                white-space: nowrap;
+                flex-shrink: 0;
+            }
+
+            .tpage-ba-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tpage-video-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .rating-banner {
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+                padding: 2.5rem 5%;
+                border-radius: 16px;
+            }
+
+            .tpage-cta-inner {
+                padding: 3.5rem 5%;
+                border-radius: 16px;
+            }
+
+            .trust-strip {
+                gap: 1.5rem;
+                justify-content: flex-start;
+                padding: 0 5%;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .rating-banner {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="navbar"></div>
+
+    <section class="testimonial-hero" id="top">
+        <div class="hero-grain"></div>
+        <div class="hero-blob hero-blob-1"></div>
+        <div class="hero-blob hero-blob-2"></div>
+        <div class="hero-blob hero-blob-3"></div>
+
+        <div class="th-left">
+            <span class="th-eyebrow">Real People · Real Results</span>
+            <h1 class="th-h1">Stories That<br>Inspire <em>Change</em></h1>
+            <p class="th-sub">Over 1000+ clients have transformed their health with Reform Wellness. See their stories
+                and results.</p>
+            <div class="th-actions">
+                <a href="https://wa.me/919359798708" target="_blank" class="th-btn-primary">Start Your Story →</a>
+            </div>
+            <div class="th-count-strip">
+                <div>
+                    <div class="th-count-num">1000+</div>
+                    <div class="th-count-label">Clients Transformed</div>
+                </div>
+                <div>
+                    <div class="th-count-num">4.9★</div>
+                    <div class="th-count-label">Average Rating</div>
+                </div>
+                <div>
+                    <div class="th-count-num">98%</div>
+                    <div class="th-count-label">Success Rate</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="th-right">
+            <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=900&q=80"
+                alt="Client transformation" />
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════
+             FILTER TABS
+        ══════════════════════════════════════════════ -->
+    <div class="tpage-filter">
+        <div class="tpage-filter-inner">
+            <button class="filter-btn active" data-filter="all">All Results</button>
+            <button class="filter-btn" data-filter="weight-loss">Weight Loss</button>
+            <button class="filter-btn" data-filter="pcos">PCOS & Thyroid</button>
+            <button class="filter-btn" data-filter="muscle">Muscle Gain</button>
+            <button class="filter-btn" data-filter="diabetes">Diabetes</button>
+            <button class="filter-btn" data-filter="gut">Gut Health</button>
+        </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════
+             BEFORE / AFTER
+        ══════════════════════════════════════════════ -->
+    <section class="tpage-ba">
+        <div class="container">
+            <div class="fade-up" style="text-align:center;">
+                <span class="section-label">Visual Proof</span>
+                <h2 class="section-title">Before &amp; After<br><em>Transformations</em></h2>
+                <p
+                    style="font-size:.92rem; opacity:.6; margin-top:1rem; max-width:500px; margin-left:auto; margin-right:auto; line-height:1.7;">
+                    Drag the slider on each photo to reveal the transformation. Real clients, real results — no
+                    filters.
+                </p>
+            </div>
+
+            <div class="tpage-ba-grid fade-up">
+
+                <!-- Card 1 -->
+                <div class="ba-card" data-category="weight-loss">
+                    <div class="ba-photos" data-slider>
+                        <img class="ba-before"
+                            src="https://images.unsplash.com/photo-1616279969856-759f316a5ac1?w=600&q=80"
+                            alt="Before" />
+                        <img class="ba-after"
+                            src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&q=80" alt="After" />
+                        <div class="ba-divider">
+                            <div class="ba-divider-handle">
+                                <i class="fa-solid fa-chevron-left"></i>
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </div>
+                        </div>
+                        <span class="ba-label ba-label-before">Before</span>
+                        <span class="ba-label ba-label-after">After</span>
+                    </div>
+                    <div class="ba-body">
+                        <div class="ba-result">−14 kg</div>
+                        <div class="ba-name">Priya Sharma</div>
+                        <div class="ba-meta">Age 32 · Pune · 4 months</div>
+                        <p class="ba-quote">"I never thought I could lose weight eating the foods I love. Reform
+                            Wellness made it possible."</p>
+                        <span class="ba-program-tag">Weight Loss Program</span>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="ba-card" data-category="pcos">
+                    <div class="ba-photos" data-slider>
+                        <img class="ba-before"
+                            src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&q=80" alt="Before" />
+                        <img class="ba-after"
+                            src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&q=80" alt="After" />
+                        <div class="ba-divider">
+                            <div class="ba-divider-handle">
+                                <i class="fa-solid fa-chevron-left"></i>
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </div>
+                        </div>
+                        <span class="ba-label ba-label-before">Before</span>
+                        <span class="ba-label ba-label-after">After</span>
+                    </div>
+                    <div class="ba-body">
+                        <div class="ba-result">PCOS Reversed</div>
+                        <div class="ba-name">Anjali Mehta</div>
+                        <div class="ba-meta">Age 27 · Mumbai · 6 months</div>
+                        <p class="ba-quote">"My cycles are regular for the first time in 5 years. The
+                            anti-inflammatory plan changed everything."</p>
+                        <span class="ba-program-tag">PCOS & Thyroid Care</span>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="ba-card" data-category="muscle">
+                    <div class="ba-photos" data-slider>
+                        <img class="ba-before"
+                            src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&q=80"
+                            alt="Before" />
+                        <img class="ba-after"
+                            src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=600&q=80" alt="After" />
+                        <div class="ba-divider">
+                            <div class="ba-divider-handle">
+                                <i class="fa-solid fa-chevron-left"></i>
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </div>
+                        </div>
+                        <span class="ba-label ba-label-before">Before</span>
+                        <span class="ba-label ba-label-after">After</span>
+                    </div>
+                    <div class="ba-body">
+                        <div class="ba-result">+7 kg Muscle</div>
+                        <div class="ba-name">Rohit Kulkarni</div>
+                        <div class="ba-meta">Age 24 · Pune · 5 months</div>
+                        <p class="ba-quote">"Finally a high-protein plan that uses real Indian food. My gym
+                            performance is through the roof."</p>
+                        <span class="ba-program-tag">Muscle Gain Program</span>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="ba-card" data-category="diabetes">
+                    <div class="ba-photos" data-slider>
+                        <img class="ba-before"
+                            src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=600&q=80"
+                            alt="Before" />
+                        <img class="ba-after"
+                            src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80" alt="After" />
+                        <div class="ba-divider">
+                            <div class="ba-divider-handle">
+                                <i class="fa-solid fa-chevron-left"></i>
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </div>
+                        </div>
+                        <span class="ba-label ba-label-before">Before</span>
+                        <span class="ba-label ba-label-after">After</span>
+                    </div>
+                    <div class="ba-body">
+                        <div class="ba-result">HbA1c: 10.2→6.1</div>
+                        <div class="ba-name">Suresh Patil</div>
+                        <div class="ba-meta">Age 52 · Pune · 5 months</div>
+                        <p class="ba-quote">"My doctor reduced my medication by half. I control my sugar purely
+                            through diet now."</p>
+                        <span class="ba-program-tag">Diabetes Management</span>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="ba-card" data-category="weight-loss">
+                    <div class="ba-photos" data-slider>
+                        <img class="ba-before"
+                            src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=80" alt="Before" />
+                        <img class="ba-after"
+                            src="https://images.unsplash.com/photo-1588286840104-8957b019727f?w=600&q=80" alt="After" />
+                        <div class="ba-divider">
+                            <div class="ba-divider-handle">
+                                <i class="fa-solid fa-chevron-left"></i>
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </div>
+                        </div>
+                        <span class="ba-label ba-label-before">Before</span>
+                        <span class="ba-label ba-label-after">After</span>
+                    </div>
+                    <div class="ba-body">
+                        <div class="ba-result">−10 kg</div>
+                        <div class="ba-name">Neha Joshi</div>
+                        <div class="ba-meta">Age 38 · Nashik · 3 months</div>
+                        <p class="ba-quote">"Post-pregnancy weight gone in 3 months. Dr. Roshni understood my body
+                            perfectly."</p>
+                        <span class="ba-program-tag">Weight Loss Program</span>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="ba-card" data-category="gut">
+                    <div class="ba-photos" data-slider>
+                        <img class="ba-before"
+                            src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&q=80"
+                            alt="Before" />
+                        <img class="ba-after"
+                            src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=80" alt="After" />
+                        <div class="ba-divider">
+                            <div class="ba-divider-handle">
+                                <i class="fa-solid fa-chevron-left"></i>
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </div>
+                        </div>
+                        <span class="ba-label ba-label-before">Before</span>
+                        <span class="ba-label ba-label-after">After</span>
+                    </div>
+                    <div class="ba-body">
+                        <div class="ba-result">IBS Free</div>
+                        <div class="ba-name">Kavita Desai</div>
+                        <div class="ba-meta">Age 44 · Pune · 4 months</div>
+                        <p class="ba-quote">"10 years of bloating and discomfort resolved in 4 months. I wish I had
+                            found them sooner."</p>
+                        <span class="ba-program-tag">Gut Health & Immunity</span>
+                    </div>
+                </div>
+
+            </div><!-- /ba-grid -->
+
+            <!-- Replace placeholder images instruction -->
+            <p class="fade-up"
+                style="text-align:center; margin-top:2.5rem; font-size:.82rem; opacity:.45; letter-spacing:.04em;">
+                ← Replace the placeholder images above with your actual client before/after photos →
+            </p>
+
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════
+             VIDEO TESTIMONIALS
+        ══════════════════════════════════════════════ -->
+    <section class="tpage-videos">
+        <div class="container">
+            <div class="fade-up" style="text-align:center;">
+                <span class="section-label">In Their Own Words</span>
+                <h2 class="section-title">Video <em>Reviews</em></h2>
+                <p
+                    style="font-size:.92rem; color:rgba(240,238,233,.55); margin-top:1rem; max-width:500px; margin-left:auto; margin-right:auto; line-height:1.7;">
+                    Watch real clients share their Reform Wellness journey in their own words.
+                </p>
+            </div>
+
+            <div class="tpage-video-grid fade-up">
+
+                <!-- Video 1 — YouTube embed example -->
+                <div class="video-card" data-video-src="https://www.youtube.com/embed/YOUR_VIDEO_ID_1?autoplay=1"
+                    data-category="weight-loss">
+                    <div class="video-thumb">
+                        <!-- Replace with actual thumbnail: /images/testimonials/video-thumb-1.jpg -->
+                        <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&q=80"
+                            alt="Video Testimonial" />
+                        <div class="video-thumb-overlay">
+                            <div class="video-play-btn"><i class="fa-solid fa-play"></i></div>
+                        </div>
+                        <span class="video-duration">2:14</span>
+                    </div>
+                    <div class="video-body">
+                        <div class="video-name">Mitali Meshram</div>
+                        <div class="video-meta">Pune · Weight Loss · −12 kg</div>
+                        <p class="video-quote">"Dr. Roshni and Anjali made this feel effortless. I lost 12 kg
+                            without giving up my rotis."</p>
+                        <span class="video-tag">Weight Loss</span>
+                    </div>
+                </div>
+
+                <!-- Video 2 -->
+                <div class="video-card" data-video-src="https://www.youtube.com/embed/YOUR_VIDEO_ID_2?autoplay=1"
+                    data-category="pcos">
+                    <div class="video-thumb">
+                        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&q=80"
+                            alt="Video Testimonial" />
+                        <div class="video-thumb-overlay">
+                            <div class="video-play-btn"><i class="fa-solid fa-play"></i></div>
+                        </div>
+                        <span class="video-duration">3:42</span>
+                    </div>
+                    <div class="video-body">
+                        <div class="video-name">Sneha Kulkarni</div>
+                        <div class="video-meta">Mumbai · PCOS Recovery</div>
+                        <p class="video-quote">"My hormonal levels are balanced for the first time. The meal plan
+                            was actually delicious."</p>
+                        <span class="video-tag">PCOS & Thyroid</span>
+                    </div>
+                </div>
+
+                <!-- Video 3 -->
+                <div class="video-card" data-video-src="https://www.youtube.com/embed/YOUR_VIDEO_ID_3?autoplay=1"
+                    data-category="muscle">
+                    <div class="video-thumb">
+                        <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=600&q=80"
+                            alt="Video Testimonial" />
+                        <div class="video-thumb-overlay">
+                            <div class="video-play-btn"><i class="fa-solid fa-play"></i></div>
+                        </div>
+                        <span class="video-duration">1:58</span>
+                    </div>
+                    <div class="video-body">
+                        <div class="video-name">Arjun Pawar</div>
+                        <div class="video-meta">Pune · Muscle Gain · +8 kg</div>
+                        <p class="video-quote">"A genuine high-protein plan built around Indian meals. My strength
+                            gains doubled in 3 months."</p>
+                        <span class="video-tag">Muscle Gain</span>
+                    </div>
+                </div>
+
+                <!-- Video 4 -->
+                <div class="video-card" data-video-src="https://www.youtube.com/embed/YOUR_VIDEO_ID_4?autoplay=1"
+                    data-category="diabetes">
+                    <div class="video-thumb">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80"
+                            alt="Video Testimonial" />
+                        <div class="video-thumb-overlay">
+                            <div class="video-play-btn"><i class="fa-solid fa-play"></i></div>
+                        </div>
+                        <span class="video-duration">4:10</span>
+                    </div>
+                    <div class="video-body">
+                        <div class="video-name">Ramesh Deshpande</div>
+                        <div class="video-meta">Pune · Diabetes Management</div>
+                        <p class="video-quote">"My fasting sugar dropped from 210 to 98. No medicines — just the
+                            diet plan from Dr. Roshni."</p>
+                        <span class="video-tag">Diabetes</span>
+                    </div>
+                </div>
+
+                <!-- Video 5 -->
+                <div class="video-card" data-video-src="https://www.youtube.com/embed/YOUR_VIDEO_ID_5?autoplay=1"
+                    data-category="weight-loss">
+                    <div class="video-thumb">
+                        <img src="https://images.unsplash.com/photo-1588286840104-8957b019727f?w=600&q=80"
+                            alt="Video Testimonial" />
+                        <div class="video-thumb-overlay">
+                            <div class="video-play-btn"><i class="fa-solid fa-play"></i></div>
+                        </div>
+                        <span class="video-duration">2:35</span>
+                    </div>
+                    <div class="video-body">
+                        <div class="video-name">Pooja Gaikwad</div>
+                        <div class="video-meta">Aurangabad · Weight Loss · −9 kg</div>
+                        <p class="video-quote">"WhatsApp check-ins kept me accountable every single day. Anjali was
+                            always there for me."</p>
+                        <span class="video-tag">Weight Loss</span>
+                    </div>
+                </div>
+
+                <!-- Video 6 -->
+                <div class="video-card" data-video-src="https://www.youtube.com/embed/YOUR_VIDEO_ID_6?autoplay=1"
+                    data-category="gut">
+                    <div class="video-thumb">
+                        <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&q=80"
+                            alt="Video Testimonial" />
+                        <div class="video-thumb-overlay">
+                            <div class="video-play-btn"><i class="fa-solid fa-play"></i></div>
+                        </div>
+                        <span class="video-duration">3:05</span>
+                    </div>
+                    <div class="video-body">
+                        <div class="video-name">Deepa Nair</div>
+                        <div class="video-meta">Pune · Gut Health</div>
+                        <p class="video-quote">"After years of digestive problems I finally feel normal. The
+                            probiotic meal plan was a game-changer."</p>
+                        <span class="video-tag">Gut Health</span>
+                    </div>
+                </div>
+
+            </div><!-- /video-grid -->
+
+            <p class="fade-up"
+                style="text-align:center; margin-top:2.5rem; font-size:.82rem; color:rgba(240,238,233,.35); letter-spacing:.04em;">
+                ← Replace YOUR_VIDEO_ID with actual YouTube video IDs in the data-video-src attributes →
+            </p>
+
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════
+             WRITTEN REVIEWS
+        ══════════════════════════════════════════════ -->
+    <section class="tpage-reviews">
+        <div class="container">
+            <div class="fade-up" style="text-align:center;">
+                <span class="section-label">Client Reviews</span>
+                <h2 class="section-title">What Our Clients<br><em>Are Saying</em></h2>
+            </div>
+
+            <div class="tpage-reviews-grid fade-up">
+
+                <!-- Featured wide review -->
+                <div class="review-card featured">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-quote">"I am truly grateful for both Doctor Roshni and Anjali. You made weight
+                        loss feel simple and sustainable by genuinely understanding my preferences, lifestyle, and
+                        the foods I grew up eating. For the first time in my life, following a diet didn't feel like
+                        punishment — it felt like care."</p>
+                    <div class="review-author">
+                        <div class="review-author-left">
+                            <div class="review-avatar">M</div>
+                            <div>
+                                <div class="review-name">Mitali Meshram</div>
+                                <div class="review-meta">Weight Loss · Pune · −12 kg in 4 months</div>
+                            </div>
+                        </div>
+                        <span class="review-source"><i class="fa-brands fa-google"></i> Google</span>
+                    </div>
+                </div>
+
+                <!-- Regular review -->
+                <div class="review-card" data-category="weight-loss">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-quote">"Roshni is an excellent dietician. I consulted her for my weight loss
+                        journey and the results exceeded everything I expected."</p>
+                    <div class="review-author">
+                        <div class="review-author-left">
+                            <div class="review-avatar">V</div>
+                            <div>
+                                <div class="review-name">Vikas Sharma</div>
+                                <div class="review-meta">Weight Loss · Pune</div>
+                            </div>
+                        </div>
+                        <span class="review-source"><i class="fa-brands fa-google"></i> Google</span>
+                    </div>
+                </div>
+
+                <!-- Regular review -->
+                <div class="review-card" data-category="weight-loss">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-quote">"I successfully lost 10 kg in just 4 months following their customized
+                        diet plans. The WhatsApp support was incredibly helpful."</p>
+                    <div class="review-author">
+                        <div class="review-author-left">
+                            <div class="review-avatar">V</div>
+                            <div>
+                                <div class="review-name">Vaibhav Phad</div>
+                                <div class="review-meta">Weight Loss · Pune</div>
+                            </div>
+                        </div>
+                        <span class="review-source"><i class="fa-brands fa-google"></i> Google</span>
+                    </div>
+                </div>
+
+                <div class="review-card" data-category="pcos">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-quote">"My PCOS symptoms have reduced dramatically. The anti-inflammatory meal
+                        plan was easy to follow and the results were visible within 6 weeks."</p>
+                    <div class="review-author">
+                        <div class="review-author-left">
+                            <div class="review-avatar">P</div>
+                            <div>
+                                <div class="review-name">Pooja Gaikwad</div>
+                                <div class="review-meta">PCOS Care · Aurangabad</div>
+                            </div>
+                        </div>
+                        <span class="review-source"><i class="fa-brands fa-google"></i> Google</span>
+                    </div>
+                </div>
+
+                <div class="review-card" data-category="diabetes">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-quote">"My fasting blood sugar went from 210 to 98 in 5 months — no extra
+                        medication, only the diet plan. Dr. Roshni's knowledge of glycemic control is exceptional."
+                    </p>
+                    <div class="review-author">
+                        <div class="review-author-left">
+                            <div class="review-avatar">R</div>
+                            <div>
+                                <div class="review-name">Ramesh Deshpande</div>
+                                <div class="review-meta">Diabetes Management · Pune</div>
+                            </div>
+                        </div>
+                        <span class="review-source"><i class="fa-brands fa-google"></i> Google</span>
+                    </div>
+                </div>
+
+                <div class="review-card" data-category="muscle">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-quote">"Finally a nutritionist who understands that Indian athletes exist!
+                        High-protein plan built around dal, paneer, and eggs. Gained 7 kg muscle in 5 months."</p>
+                    <div class="review-author">
+                        <div class="review-author-left">
+                            <div class="review-avatar">A</div>
+                            <div>
+                                <div class="review-name">Arjun Pawar</div>
+                                <div class="review-meta">Muscle Gain · Pune</div>
+                            </div>
+                        </div>
+                        <span class="review-source"><i class="fa-solid fa-star"></i> Practo</span>
+                    </div>
+                </div>
+
+                <div class="review-card" data-category="gut">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-quote">"10 years of IBS and bloating resolved in 4 months. The gut-healing
+                        protocol was methodical and evidence-based. I wish I had found them sooner."</p>
+                    <div class="review-author">
+                        <div class="review-author-left">
+                            <div class="review-avatar">K</div>
+                            <div>
+                                <div class="review-name">Kavita Desai</div>
+                                <div class="review-meta">Gut Health · Pune</div>
+                            </div>
+                        </div>
+                        <span class="review-source"><i class="fa-solid fa-star"></i> Practo</span>
+                    </div>
+                </div>
+
+                <div class="review-card" data-category="pcos">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-quote">"Thyroid levels normalised after 3 months on the plan. My energy levels
+                        are the best they've been in years and I've lost 8 kg as a bonus."</p>
+                    <div class="review-author">
+                        <div class="review-author-left">
+                            <div class="review-avatar">S</div>
+                            <div>
+                                <div class="review-name">Shruti Bapat</div>
+                                <div class="review-meta">Thyroid Care · Mumbai</div>
+                            </div>
+                        </div>
+                        <span class="review-source"><i class="fa-brands fa-google"></i> Google</span>
+                    </div>
+                </div>
+
+            </div><!-- /reviews-grid -->
+
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════
+             OVERALL RATING BANNER
+        ══════════════════════════════════════════════ -->
+    <section class="tpage-rating">
+        <div class="container">
+            <div class="rating-banner fade-up">
+
+                <div class="rating-item">
+                    <div class="rating-big">4.9</div>
+                    <div class="rating-stars-row">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <div class="rating-label">Google Rating</div>
+                </div>
+
+                <div class="rating-divider"></div>
+
+                <div class="rating-item">
+                    <div class="rating-big">500+</div>
+                    <div class="rating-stars-row" style="color:var(--secondary);">
+                        <i class="fa-solid fa-comment"></i>
+                    </div>
+                    <div class="rating-label">Verified Reviews</div>
+                </div>
+
+                <div class="rating-divider"></div>
+
+                <div class="rating-item">
+                    <div class="rating-big">4.8</div>
+                    <div class="rating-stars-row">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <div class="rating-label">Practo Rating</div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════
+             TRUST STRIP
+        ══════════════════════════════════════════════ -->
+    <section class="tpage-trust">
+        <div class="container">
+            <div class="trust-strip fade-up">
+                <div class="trust-item"><i class="fa-solid fa-shield-halved"></i> Verified Reviews</div>
+                <div class="trust-item"><i class="fa-solid fa-user-doctor"></i> Certified Nutritionists</div>
+                <div class="trust-item"><i class="fa-brands fa-google"></i> 4.9 on Google</div>
+                <div class="trust-item"><i class="fa-solid fa-award"></i> 6+ Years Practice</div>
+                <div class="trust-item"><i class="fa-solid fa-heart-pulse"></i> 1000+ Lives Changed</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════
+             CTA
+        ══════════════════════════════════════════════ -->
+    <section class="tpage-cta">
+        <div class="container">
+            <div class="tpage-cta-inner fade-up">
+                <p class="tpage-cta-label">Your Turn</p>
+                <h2 class="tpage-cta-title">Ready to Write Your<br><em>Success Story?</em></h2>
+                <p class="tpage-cta-sub">Join 1000+ clients who have transformed their health with personalised,
+                    science-backed nutrition — the Indian way.</p>
+                <a href="https://wa.me/919359798708" target="_blank" class="tpage-cta-btn">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    Book Free Consultation
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer"></div>
+
+    <a href="https://wa.me/91XXXXXXXXXX" target="_blank" class="wa-btn">
+
+        <i class="fa-brands fa-whatsapp"></i>
+
+        <div class="wa-tooltip">
+            WhatsApp Us
+        </div>
+
+    </a>
+
+    <!-- Video Modal -->
+    <div class="video-modal" id="videoModal">
+        <div class="video-modal-inner" id="videoModalInner">
+            <button class="video-modal-close" id="videoModalClose">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <!-- iframe injected by JS -->
+        </div>
+    </div>
+
+    <script src="/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            document.querySelectorAll('[data-slider]').forEach(function (slider) {
+                const after = slider.querySelector('.ba-after');
+                const divider = slider.querySelector('.ba-divider');
+                let dragging = false;
+
+                function setPos(x) {
+                    const rect = slider.getBoundingClientRect();
+                    let pct = Math.max(5, Math.min(95, ((x - rect.left) / rect.width) * 100));
+                    after.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
+                    divider.style.left = pct + '%';
+                }
+
+                slider.addEventListener('mousedown', function (e) { dragging = true; setPos(e.clientX); });
+                window.addEventListener('mouseup', function () { dragging = false; });
+                window.addEventListener('mousemove', function (e) { if (dragging) setPos(e.clientX); });
+
+                slider.addEventListener('touchstart', function (e) { dragging = true; setPos(e.touches[0].clientX); }, { passive: true });
+                window.addEventListener('touchend', function () { dragging = false; });
+                window.addEventListener('touchmove', function (e) { if (dragging) setPos(e.touches[0].clientX); }, { passive: true });
+            });
+
+            const modal = document.getElementById('videoModal');
+            const modalInner = document.getElementById('videoModalInner');
+            const modalClose = document.getElementById('videoModalClose');
+
+            document.querySelectorAll('.video-card').forEach(function (card) {
+                card.querySelector('.video-thumb').addEventListener('click', function () {
+                    const src = card.getAttribute('data-video-src');
+                    const old = modalInner.querySelector('iframe, video');
+                    if (old) old.remove();
+
+                    if (src && src.includes('YOUR_VIDEO_ID')) {
+                        const msg = document.createElement('div');
+                        msg.style.cssText = 'width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#1a1a1a;color:#fff;font-family:DM Sans,sans-serif;font-size:1rem;opacity:.7;text-align:center;padding:2rem;';
+                        msg.textContent = 'Replace YOUR_VIDEO_ID in the HTML with your actual YouTube video ID to play this video.';
+                        modalInner.appendChild(msg);
+                    } else if (src) {
+                        const iframe = document.createElement('iframe');
+                        iframe.src = src;
+                        iframe.allowFullscreen = true;
+                        iframe.allow = 'autoplay; encrypted-media';
+                        modalInner.appendChild(iframe);
+                    }
+
+                    modal.classList.add('open');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            function closeModal() {
+                modal.classList.remove('open');
+                document.body.style.overflow = '';
+                const old = modalInner.querySelector('iframe, video, div');
+                if (old) old.remove();
+            }
+
+            modalClose.addEventListener('click', closeModal);
+            modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
+            document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
+
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const baCards = document.querySelectorAll('.ba-card[data-category]');
+            const vidCards = document.querySelectorAll('.video-card[data-category]');
+            const revCards = document.querySelectorAll('.review-card[data-category]');
+
+            filterBtns.forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    const f = btn.getAttribute('data-filter');
+
+                    function toggleCard(card) {
+                        const match = f === 'all' || card.getAttribute('data-category') === f;
+                        card.style.display = match ? '' : 'none';
+                    }
+
+                    baCards.forEach(toggleCard);
+                    vidCards.forEach(toggleCard);
+                    revCards.forEach(toggleCard);
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>
