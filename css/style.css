@@ -4,7 +4,7 @@
     --secondary: #B4BB85;
     --accent: #489926;
     --light: #F0EEE9;
-    --soft: #D8C0AD;
+    --soft: #E6DAC8;
 
     --drawer-ease: cubic-bezier(0.76, 0, 0.24, 1);
 }
@@ -609,7 +609,7 @@ body.menu-open {
 }
 
 .hero-stat-num {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Cardo', serif;
     font-size: 2.6rem;
     font-weight: 600;
     color: var(--primary);
@@ -627,27 +627,15 @@ body.menu-open {
 .hero-right {
     position: relative;
     z-index: 1;
-    background: var(--soft);
     overflow: hidden;
-}
-
-.hero-right::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    /* background: linear-gradient(135deg, var(--secondary) 0%, var(--soft) 50%, var(--primary) 100%); */
-    opacity: 0.35;
 }
 
 .hero-img-overlay {
     position: absolute;
     inset: 0;
-    background: url('/images/banner/pexels-vo-thuy-tien-248787-3985872.jpg') center/cover no-repeat;
+    background: url('/images/owner/owner4.webp') center top/cover no-repeat;
     mix-blend-mode: multiply;
-    opacity: 1.0;
+    opacity: 1;
 }
 
 .hero-badge {
@@ -671,7 +659,7 @@ body.menu-open {
 }
 
 .hero-badge-val {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Cardo', serif;
     font-size: 1.8rem;
     font-weight: 600;
     color: var(--accent);
@@ -913,7 +901,7 @@ section {
 }
 
 .about-accent-num {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Cardo', serif;
     font-size: 2.8rem;
     font-weight: 600;
     line-height: 1;
@@ -1203,8 +1191,8 @@ section {
 
 .why-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.0rem;
     margin-top: 3.5rem;
 }
 
@@ -1212,9 +1200,13 @@ section {
     background: rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 20px;
-    padding: 2.2rem 1.8rem;
+    padding: 1.8rem 0.8rem;
     backdrop-filter: blur(10px);
     transition: background 0.3s, transform 0.3s;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .why-card:hover {

@@ -10,6 +10,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap"
         rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
     <style>
         .about-hero {
@@ -136,15 +137,14 @@
         .ah-right {
             position: relative;
             overflow: hidden;
-            background: var(--soft);
         }
 
         .ah-right img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            mix-blend-mode: multiply;
-            opacity: .75;
+            /* mix-blend-mode: multiply;
+            opacity: .75; */
         }
 
         .ah-stat-strip {
@@ -169,7 +169,7 @@
         }
 
         .ah-stat-num {
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'Cardo', serif;
             font-size: 2rem;
             font-weight: 600;
             color: var(--secondary);
@@ -373,38 +373,182 @@
 
         .dietitian-header {
             text-align: center;
-            margin-bottom: 5rem;
+            margin-bottom: 3rem;
         }
 
-        .team-grid {
+        .team-hero {
+            display: grid;
+            grid-template-columns: 380px 1fr;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid rgba(144, 155, 76, .18);
+            margin-bottom: 1.8rem;
+            background: var(--light);
+        }
+
+        .team-hero-img {
+            position: relative;
+            min-height: 320px;
+            background: #1a1a18;
+            overflow: hidden;
+        }
+
+        .team-hero-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            display: block;
+            opacity: .85;
+            transition: transform .55s;
+        }
+
+        .team-hero:hover .team-hero-img img {
+            transform: scale(1.04);
+        }
+
+        .team-hero-img-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(144, 155, 76, .18) 0%, transparent 60%);
+        }
+
+        .team-hero-badge {
+            position: absolute;
+            top: 1.4rem;
+            left: 1.4rem;
+            background: var(--primary);
+            color: #fff;
+            font-size: .65rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            padding: .4rem 1rem;
+            border-radius: 100px;
+            font-weight: 500;
+        }
+
+        .team-hero-stat {
+            position: absolute;
+            bottom: 1.4rem;
+            left: 1.4rem;
+            background: rgba(20, 20, 18, .72);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-radius: 14px;
+            padding: .8rem 1.2rem;
+            border: 1px solid rgba(144, 155, 76, .3);
+        }
+
+        .team-hero-stat-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.7rem;
+            font-weight: 600;
+            color: #c8d270;
+            line-height: 1;
+        }
+
+        .team-hero-stat-label {
+            font-size: .6rem;
+            color: rgba(255, 255, 255, .5);
+            letter-spacing: .09em;
+            text-transform: uppercase;
+            margin-top: 4px;
+        }
+
+        .team-hero-body {
+            padding: 2rem 2.8rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .team-founder-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: .68rem;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: .7rem;
+        }
+
+        .team-founder-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--primary);
+            flex-shrink: 0;
+        }
+
+        .team-hero-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.4rem;
+            font-weight: 500;
+            color: var(--dark);
+            margin: 0 0 .3rem;
+            line-height: 1.1;
+        }
+
+        .team-hero-role {
+            font-size: .7rem;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            color: rgba(46, 44, 47, .45);
+            margin-bottom: 1rem;
+        }
+
+        .team-hero-bio {
+            font-size: .9rem;
+            line-height: 1.85;
+            color: rgba(46, 44, 47, .65);
+            margin-bottom: 1.2rem;
+            max-width: 400px;
+        }
+
+        .team-signature {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            color: rgba(46, 44, 47, .35);
+        }
+
+        /* --- Supporting trio --- */
+        .team-trio {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
+            gap: 1.4rem;
         }
 
         .team-card {
             background: var(--light);
-            border-radius: 24px;
+            border-radius: 20px;
             overflow: hidden;
-            border: 1px solid rgba(144, 155, 76, .15);
-            transition: transform .35s, box-shadow .35s;
+            border: 1px solid rgba(144, 155, 76, .14);
+            transition: transform .35s, border-color .35s, box-shadow .35s;
         }
 
         .team-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 30px 80px rgba(46, 44, 47, .12);
+            transform: translateY(-6px);
+            border-color: rgba(144, 155, 76, .35);
+            box-shadow: 0 24px 60px rgba(46, 44, 47, .1);
         }
 
         .team-img-wrap {
             position: relative;
+            aspect-ratio: 4/3;
             overflow: hidden;
-            aspect-ratio: 3/4;
+            background: #1a1a18;
         }
 
         .team-img-wrap img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: top;
+            display: block;
+            opacity: .8;
             transition: transform .5s;
         }
 
@@ -412,68 +556,94 @@
             transform: scale(1.04);
         }
 
-        .team-img-overlay {
+        .team-img-grad {
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, rgba(46, 44, 47, .7) 0%, transparent 50%);
+            background: linear-gradient(to top, rgba(20, 20, 18, .65) 0%, transparent 55%);
         }
 
         .team-img-tag {
             position: absolute;
-            top: 1.2rem;
-            left: 1.2rem;
-            background: var(--primary);
-            color: #fff;
-            font-size: .65rem;
+            top: 1rem;
+            left: 1rem;
+            background: rgba(20, 20, 18, .58);
+            border: 1px solid rgba(144, 155, 76, .4);
+            color: rgba(255, 255, 255, .88);
+            font-size: .6rem;
             letter-spacing: .1em;
             text-transform: uppercase;
-            padding: .35rem .9rem;
+            padding: .3rem .8rem;
             border-radius: 100px;
             font-weight: 500;
         }
 
         .team-body {
-            padding: 1.8rem 2rem;
+            padding: 1.5rem 1.7rem;
         }
 
         .team-name {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
+            font-size: 1.45rem;
             font-weight: 500;
             color: var(--dark);
             margin-bottom: .25rem;
         }
 
         .team-role {
-            font-size: .75rem;
+            font-size: .65rem;
             text-transform: uppercase;
-            letter-spacing: .08em;
+            letter-spacing: .09em;
             color: var(--primary);
             font-weight: 500;
-            margin-bottom: 1rem;
+            margin-bottom: .9rem;
         }
 
         .team-bio {
-            font-size: .82rem;
-            line-height: 1.75;
-            opacity: .65;
-            margin-bottom: 1.2rem;
+            font-size: .78rem;
+            line-height: 1.78;
+            opacity: .6;
+            margin-bottom: 1.1rem;
         }
 
         .team-creds {
             display: flex;
             flex-wrap: wrap;
-            gap: .4rem;
+            gap: .38rem;
         }
 
         .team-cred {
-            font-size: .68rem;
-            padding: .3rem .75rem;
+            font-size: .62rem;
+            padding: .28rem .72rem;
             border-radius: 100px;
             background: var(--soft);
             border: 1px solid rgba(144, 155, 76, .2);
             color: var(--dark);
-            opacity: .8;
+            opacity: .75;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 900px) {
+            .team-hero {
+                grid-template-columns: 1fr;
+            }
+
+            .team-hero-img {
+                min-height: 320px;
+            }
+
+            .team-trio {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .team-hero-body {
+                padding: 2rem;
+            }
+
+            .team-hero-name {
+                font-size: 2.2rem;
+            }
         }
 
         /* ── VALUES ──────────────────────────── */
@@ -1082,15 +1252,14 @@
             </div>
         </div>
         <div class="ah-right">
-            <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=900&q=80"
-                alt="Nutrition at Reform Wellness" />
+            <img src="/images/about/team.png" alt="Nutrition at Reform Wellness" />
             <div class="ah-stat-strip">
                 <div class="ah-stat">
                     <div class="ah-stat-num">500+</div>
                     <div class="ah-stat-label">Clients Helped</div>
                 </div>
                 <div class="ah-stat">
-                    <div class="ah-stat-num">6+</div>
+                    <div class="ah-stat-num">7+</div>
                     <div class="ah-stat-label">Years Practice</div>
                 </div>
                 <div class="ah-stat">
@@ -1111,7 +1280,7 @@
             <div class="story-layout">
                 <div class="story-imgs fade-left">
                     <div class="story-bg-shape"></div>
-                    <img src="/images/owner/2025-05-20.jpg" class="story-img-main" alt="Our Story" />
+                    <img src="/images/owner/owner2.webp" class="story-img-main" alt="Our Story" />
                     <img src="/images/banner/pexels-yaroslav-shuraev-8845420.jpg" class="story-img-inset"
                         alt="Healthy food" />
                 </div>
@@ -1132,7 +1301,7 @@
                             for."</p>
                         <cite>— Founder, Reform Wellness</cite>
                     </div>
-                    <a href="https://wa.me/91XXXXXXXXXX" target="_blank" class="btn-w"
+                    <a href="https://wa.me/919859798708" target="_blank" class="btn-w"
                         style="display:inline-block; margin-top:.5rem;">Start Your Journey →</a>
                 </div>
             </div>
@@ -1168,6 +1337,7 @@
     <!-- TEAM / DIETITIAN -->
     <section class="dietitian">
         <div class="container">
+
             <div class="dietitian-header fade-up">
                 <span class="section-tag">The Experts</span>
                 <h2 class="section-h">Meet Your <em>Nutritionists</em></h2>
@@ -1175,34 +1345,103 @@
                     Certified, compassionate professionals dedicated to your sustainable wellness transformation.
                 </p>
             </div>
-            <div class="team-grid fade-up">
-                <div class="team-card">
-                    <div class="team-img-wrap">
-                        <img src="/images/owner/owner.jpg" alt="Lead Nutritionist" />
-                        <div class="team-img-overlay"></div>
-                        <span class="team-img-tag">Lead Nutritionist</span>
-                    </div>
-                    <div class="team-body">
-                        <h3 class="team-name">Dt. Roshani Musale</h3>
-                        <div class="team-role">Clinical Nutritionist & Founder</div>
-                        <p class="team-bio">6+ years of clinical experience specializing in metabolic health, hormonal
-                            conditions, and therapeutic nutrition for Indian lifestyles.</p>
-                        <div class="team-creds">
-                            <span class="team-cred">M.Sc. Nutrition</span>
-                            <span class="team-cred">PCOS Specialist</span>
-                            <span class="team-cred">Diabetes Care</span>
-                        </div>
+
+            <!-- FOUNDER HERO -->
+            <div class="team-hero fade-up">
+                <div class="team-hero-img">
+                    <img src="/images/about/AZP_6138.webp" alt="Dt. Roshani Musale" />
+                    <div class="team-hero-img-overlay"></div>
+                    <span class="team-hero-badge">Founder &amp; Lead</span>
+                    <div class="team-hero-stat">
+                        <div class="team-hero-stat-num">7+</div>
+                        <div class="team-hero-stat-label">Years clinical experience</div>
                     </div>
                 </div>
+                <div class="team-hero-body">
+                    <div class="team-founder-label"><span class="team-founder-dot"></span> Nutritionist &amp; Health
+                        Coach</div>
+                    <h3 class="team-hero-name">Dietician Roshani</h3>
+                    <div class="team-hero-role">Nutritionist &amp; Health Coach</div>
+
+                    <div style="display:flex;flex-direction:column;gap:.35rem;margin-bottom:1.1rem;">
+                        <div
+                            style="display:flex;align-items:center;gap:.55rem;font-size:.78rem;color:rgba(46,44,47,.6);">
+                            <span style="color:var(--primary);font-size:.85rem;">&#9990;</span> 8698389171
+                        </div>
+                        <div
+                            style="display:flex;align-items:center;gap:.55rem;font-size:.78rem;color:rgba(46,44,47,.6);">
+                            <span style="color:var(--primary);font-size:.85rem;">&#9993;</span>
+                            musaleroshani96@gmail.com
+                        </div>
+                    </div>
+
+                    <p class="team-hero-bio">Certified Dietician with 7+ years of experience as a Clinical Dietician and
+                        Weight Management Expert. Completed Bachelor's and Master's in Food Science &amp; Nutrition.
+                        Achieved a World Record in ancient therapeutic recipes during academics.</p>
+
+                    <div style="display:flex;gap:1.2rem;margin-bottom:1.1rem;">
+                        <div style="text-align:center;">
+                            <div
+                                style="font-family:'Cardo Garamond',serif;font-size:1.6rem;font-weight:600;color:var(--primary);line-height:1;">
+                                1000+</div>
+                            <div
+                                style="font-size:.6rem;text-transform:uppercase;letter-spacing:.08em;color:rgba(46,44,47,.5);margin-top:3px;">
+                                Weight loss clients</div>
+                        </div>
+                        <div style="width:1px;background:rgba(144,155,76,.2);"></div>
+                        <div style="text-align:center;">
+                            <div
+                                style="font-family:'Cardo Garamond',serif;font-size:1.6rem;font-weight:600;color:var(--primary);line-height:1;">
+                                100+</div>
+                            <div
+                                style="font-size:.6rem;text-transform:uppercase;letter-spacing:.08em;color:rgba(46,44,47,.5);margin-top:3px;">
+                                PCOD / Diabetes / Thyroid</div>
+                        </div>
+                        <div style="width:1px;background:rgba(144,155,76,.2);"></div>
+                        <div style="text-align:center;">
+                            <div
+                                style="font-family:'Cardo Garamond',serif;font-size:1.6rem;font-weight:600;color:var(--primary);line-height:1;">
+                                7+</div>
+                            <div
+                                style="font-size:.6rem;text-transform:uppercase;letter-spacing:.08em;color:rgba(46,44,47,.5);margin-top:3px;">
+                                Years experience</div>
+                        </div>
+                    </div>
+
+                    <div class="team-creds">
+                        <span class="team-cred">Weight Management</span>
+                        <span class="team-cred">Lifestyle Disorders</span>
+                        <span class="team-cred">Family Nutrition</span>
+                        <span class="team-cred">Geriatric Diet</span>
+                        <span class="team-cred">Skin &amp; Hair Nutrition</span>
+                    </div>
+
+                    <div style="font-size:.7rem;color:rgba(46,44,47,.5);line-height:1.9;">
+                        <div
+                            style="margin-top:.5rem;font-size:.62rem;text-transform:uppercase;letter-spacing:.1em;color:var(--primary);font-weight:500;margin-bottom:.5rem;">
+                            Career Highlights</div>
+                        <div>&#8227; Senior Dietician · Fitelo <span style="opacity:.6;">(Aug 2022 – Dec 2023)</span>
+                        </div>
+                        <div>&#8227; Consultant Dietician · MediBuddy <span style="opacity:.6;">(Mar 2019 – Jul
+                                2022)</span></div>
+                        <div>&#8227; Senior Dietician · Vibes Healthcare Ltd <span style="opacity:.6;">(Jan 2019 – Dec
+                                2019)</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SUPPORTING THREE -->
+            <div class="team-trio fade-up">
+
                 <div class="team-card">
                     <div class="team-img-wrap">
-                        <img src="/images/owner/owner.jpg" alt="Sports Nutritionist" />
-                        <div class="team-img-overlay"></div>
+                        <img src="/images/about/member-one.webp" alt="Anjali Deshmukh" />
+                        <div class="team-img-grad"></div>
                         <span class="team-img-tag">Sports Nutrition</span>
                     </div>
                     <div class="team-body">
                         <h3 class="team-name">Anjali Deshmukh</h3>
-                        <div class="team-role">Sports & Performance Nutritionist</div>
+                        <div class="team-role">Sports &amp; Performance Nutritionist</div>
                         <p class="team-bio">Specializes in performance-driven nutrition, muscle gain programs, and
                             recovery optimization for athletes and fitness enthusiasts.</p>
                         <div class="team-creds">
@@ -1212,10 +1451,11 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="team-card">
                     <div class="team-img-wrap">
-                        <img src="/images/owner/owner.jpg" alt="Wellness Coach" />
-                        <div class="team-img-overlay"></div>
+                        <img src="/images/about/member-two.webp" alt="Meera Joshi" />
+                        <div class="team-img-grad"></div>
                         <span class="team-img-tag">Wellness Coach</span>
                     </div>
                     <div class="team-body">
@@ -1230,6 +1470,25 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="team-card">
+                    <div class="team-img-wrap">
+                        <img src="/images/about/member-three.webp" alt="Fourth Team Member" />
+                        <div class="team-img-grad"></div>
+                        <span class="team-img-tag">Nutrition Coach</span>
+                    </div>
+                    <div class="team-body">
+                        <h3 class="team-name">Team Member</h3>
+                        <div class="team-role">Nutrition Specialist</div>
+                        <p class="team-bio">Add the details for your fourth team member here — their specialization,
+                            experience, and what makes their approach unique.</p>
+                        <div class="team-creds">
+                            <span class="team-cred">Credential 1</span>
+                            <span class="team-cred">Credential 2</span>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -1463,7 +1722,7 @@
                     <p class="cta-p">Book a free, no-obligation consultation with our team and discover what a
                         personalized nutrition plan can truly do for your life.</p>
                     <div class="cta-btns">
-                        <a href="https://wa.me/91XXXXXXXXXX" target="_blank" class="btn-w"><i
+                        <a href="https://wa.me/919859798708" target="_blank" class="btn-w"><i
                                 class="fab fa-whatsapp"></i> Book Free Consult</a>
                         <a href="/#services" class="btn-outline-w">View Programs</a>
                     </div>
@@ -1478,7 +1737,7 @@
 
     <div id="footer"></div>
 
-    <a href="https://wa.me/91XXXXXXXXXX" target="_blank" class="wa-btn">
+    <a href="https://wa.me/919859798708" target="_blank" class="wa-btn">
 
         <i class="fa-brands fa-whatsapp"></i>
 
