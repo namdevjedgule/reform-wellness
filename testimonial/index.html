@@ -10,7 +10,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap"
         rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cardo:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css" />
     <style>
         .testimonial-hero {
@@ -222,6 +222,12 @@
             box-shadow: 0 6px 20px rgba(144, 155, 76, .3);
         }
 
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2%;
+        }
+
         /* ── Before / After section ──────────────────────── */
         .tpage-ba {
             background: var(--light);
@@ -229,8 +235,8 @@
 
         .tpage-ba-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
             margin-top: 4rem;
         }
 
@@ -251,7 +257,7 @@
         /* Photo comparison slider */
         .ba-photos {
             position: relative;
-            aspect-ratio: 3/4;
+            aspect-ratio: 4/3;
             overflow: hidden;
             cursor: col-resize;
             user-select: none;
@@ -329,35 +335,35 @@
         }
 
         .ba-body {
-            padding: 1.6rem 1.75rem 2rem;
+            padding: 1rem 1.25rem 1.25rem;
         }
 
         .ba-result {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.9rem;
             font-weight: 600;
             color: var(--accent);
             line-height: 1;
-            margin-bottom: .3rem;
+            font-size: 1.5rem;
+            margin-bottom: .15rem;
         }
 
         .ba-name {
             font-weight: 600;
-            font-size: .9rem;
+            font-size: .85rem;
             color: var(--dark);
             margin-bottom: .2rem;
         }
 
         .ba-meta {
-            font-size: .78rem;
+            font-size: .72rem;
             opacity: .6;
             letter-spacing: .04em;
-            margin-bottom: 1rem;
+            margin-bottom: .6rem;
         }
 
         .ba-quote {
-            font-size: .86rem;
-            line-height: 1.7;
+            font-size: .8rem;
+            line-height: 1.55;
             opacity: .7;
             font-style: italic;
             border-left: 3px solid var(--primary);
@@ -366,14 +372,14 @@
 
         .ba-program-tag {
             display: inline-block;
-            margin-top: 1rem;
+            margin-top: .6rem;
             background: rgba(144, 155, 76, .12);
             color: var(--primary);
-            font-size: .7rem;
+            font-size: .65rem;
             font-weight: 600;
             letter-spacing: .08em;
             text-transform: uppercase;
-            padding: .35rem .85rem;
+            padding: .28rem .75rem;
             border-radius: 100px;
         }
 
@@ -904,7 +910,7 @@
 
         @media (max-width: 1100px) {
             .tpage-ba-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(3, 1fr);
             }
 
             .tpage-video-grid {
@@ -937,7 +943,7 @@
             }
 
             .tpage-ba-grid {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: repeat(2, 1fr);
             }
 
             .tpage-video-grid {
@@ -981,7 +987,7 @@
             }
 
             .tpage-ba-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
             }
 
             .tpage-video-grid {
@@ -1050,14 +1056,10 @@
         </div>
 
         <div class="th-right">
-            <img src="/images/testimonial/hero.webp"
-                alt="Client transformation" />
+            <img src="/images/testimonial/hero.webp" alt="Client transformation" />
         </div>
     </section>
 
-    <!-- ══════════════════════════════════════════════
-             FILTER TABS
-        ══════════════════════════════════════════════ -->
     <div class="tpage-filter">
         <div class="tpage-filter-inner">
             <button class="filter-btn active" data-filter="all">All Results</button>
@@ -1076,9 +1078,9 @@
         <div class="container">
             <div class="fade-up" style="text-align:center;">
                 <span class="section-label">Visual Proof</span>
-                <h2 class="section-title">Before &amp; After<br><em>Transformations</em></h2>
+                <h2 class="section-title">Before &amp; After<em> Transformations</em></h2>
                 <p
-                    style="font-size:.92rem; opacity:.6; margin-top:1rem; max-width:500px; margin-left:auto; margin-right:auto; line-height:1.7;">
+                    style="font-size:.92rem; opacity:.6; margin-top:1rem; max-width:700px; margin-left:auto; margin-right:auto; line-height:1.7;">
                     Drag the slider on each photo to reveal the transformation. Real clients, real results no
                     filters.
                 </p>
@@ -1246,13 +1248,483 @@
                     </div>
                 </div>
 
-            </div><!-- /ba-grid -->
+                <div class="ba-card" data-category="weight-management">
+                    <div class="ba-photos" data-slider>
+                        <img class="ba-before"
+                            src="https://images.unsplash.com/photo-1616279969856-759f316a5ac1?w=600&q=80"
+                            alt="Before" />
+                        <img class="ba-after"
+                            src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&q=80" alt="After" />
+                        <div class="ba-divider">
+                            <div class="ba-divider-handle">
+                                <i class="fa-solid fa-chevron-left"></i>
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </div>
+                        </div>
+                        <span class="ba-label ba-label-before">Before</span>
+                        <span class="ba-label ba-label-after">After</span>
+                    </div>
+                    <div class="ba-body">
+                        <div class="ba-result">−14 kg</div>
+                        <div class="ba-name">Priya Sharma</div>
+                        <div class="ba-meta">Age 32 · Pune · 4 months</div>
+                        <p class="ba-quote">"I never thought I could lose weight eating the foods I love. Reform
+                            Wellness made it possible."</p>
+                        <span class="ba-program-tag">Weight Loss Program</span>
+                    </div>
+                </div>
 
-            <!-- Replace placeholder images instruction -->
-            <p class="fade-up"
-                style="text-align:center; margin-top:2.5rem; font-size:.82rem; opacity:.45; letter-spacing:.04em;">
-                ← Replace the placeholder images above with your actual client before/after photos →
-            </p>
+                <!-- Card 2 -->
+                <div class="ba-card" data-category="pcos">
+                    <div class="ba-photos" data-slider>
+                        <img class="ba-before"
+                            src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&q=80" alt="Before" />
+                        <img class="ba-after"
+                            src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&q=80" alt="After" />
+                        <div class="ba-divider">
+                            <div class="ba-divider-handle">
+                                <i class="fa-solid fa-chevron-left"></i>
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </div>
+                        </div>
+                        <span class="ba-label ba-label-before">Before</span>
+                        <span class="ba-label ba-label-after">After</span>
+                    </div>
+                    <div class="ba-body">
+                        <div class="ba-result">PCOS Reversed</div>
+                        <div class="ba-name">Anjali Mehta</div>
+                        <div class="ba-meta">Age 27 · Mumbai · 6 months</div>
+                        <p class="ba-quote">"My cycles are regular for the first time in 5 years. The
+                            anti-inflammatory plan changed everything."</p>
+                        <span class="ba-program-tag">PCOS & Thyroid Care</span>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="ba-card" data-category="muscle">
+                    <div class="ba-photos" data-slider>
+                        <img class="ba-before"
+                            src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&q=80"
+                            alt="Before" />
+                        <img class="ba-after"
+                            src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=600&q=80" alt="After" />
+                        <div class="ba-divider">
+                            <div class="ba-divider-handle">
+                                <i class="fa-solid fa-chevron-left"></i>
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </div>
+                        </div>
+                        <span class="ba-label ba-label-before">Before</span>
+                        <span class="ba-label ba-label-after">After</span>
+                    </div>
+                    <div class="ba-body">
+                        <div class="ba-result">+7 kg Muscle</div>
+                        <div class="ba-name">Rohit Kulkarni</div>
+                        <div class="ba-meta">Age 24 · Pune · 5 months</div>
+                        <p class="ba-quote">"Finally a high-protein plan that uses real Indian food. My gym
+                            performance is through the roof."</p>
+                        <span class="ba-program-tag">Muscle Gain Program</span>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="ba-card" data-category="diabetes">
+                    <div class="ba-photos" data-slider>
+                        <img class="ba-before"
+                            src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=600&q=80"
+                            alt="Before" />
+                        <img class="ba-after"
+                            src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80" alt="After" />
+                        <div class="ba-divider">
+                            <div class="ba-divider-handle">
+                                <i class="fa-solid fa-chevron-left"></i>
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </div>
+                        </div>
+                        <span class="ba-label ba-label-before">Before</span>
+                        <span class="ba-label ba-label-after">After</span>
+                    </div>
+                    <div class="ba-body">
+                        <div class="ba-result">HbA1c: 10.2→6.1</div>
+                        <div class="ba-name">Suresh Patil</div>
+                        <div class="ba-meta">Age 52 · Pune · 5 months</div>
+                        <p class="ba-quote">"My doctor reduced my medication by half. I control my sugar purely
+                            through diet now."</p>
+                        <span class="ba-program-tag">Diabetes Management</span>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="ba-card" data-category="weight-management">
+                    <div class="ba-photos" data-slider>
+                        <img class="ba-before"
+                            src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=80" alt="Before" />
+                        <img class="ba-after"
+                            src="https://images.unsplash.com/photo-1588286840104-8957b019727f?w=600&q=80" alt="After" />
+                        <div class="ba-divider">
+                            <div class="ba-divider-handle">
+                                <i class="fa-solid fa-chevron-left"></i>
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </div>
+                        </div>
+                        <span class="ba-label ba-label-before">Before</span>
+                        <span class="ba-label ba-label-after">After</span>
+                    </div>
+                    <div class="ba-body">
+                        <div class="ba-result">−10 kg</div>
+                        <div class="ba-name">Neha Joshi</div>
+                        <div class="ba-meta">Age 38 · Nashik · 3 months</div>
+                        <p class="ba-quote">"Post-pregnancy weight gone in 3 months. Dr. Roshni understood my body
+                            perfectly."</p>
+                        <span class="ba-program-tag">Weight Loss Program</span>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="ba-card" data-category="gut">
+                    <div class="ba-photos" data-slider>
+                        <img class="ba-before"
+                            src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&q=80"
+                            alt="Before" />
+                        <img class="ba-after"
+                            src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=80" alt="After" />
+                        <div class="ba-divider">
+                            <div class="ba-divider-handle">
+                                <i class="fa-solid fa-chevron-left"></i>
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </div>
+                        </div>
+                        <span class="ba-label ba-label-before">Before</span>
+                        <span class="ba-label ba-label-after">After</span>
+                    </div>
+                    <div class="ba-body">
+                        <div class="ba-result">IBS Free</div>
+                        <div class="ba-name">Kavita Desai</div>
+                        <div class="ba-meta">Age 44 · Pune · 4 months</div>
+                        <p class="ba-quote">"10 years of bloating and discomfort resolved in 4 months. I wish I had
+                            found them sooner."</p>
+                        <span class="ba-program-tag">Gut Health & Immunity</span>
+                    </div>
+                </div>
+
+                <div class="ba-card" data-category="weight-management">
+                    <div class="ba-photos" data-slider>
+                        <img class="ba-before"
+                            src="https://images.unsplash.com/photo-1616279969856-759f316a5ac1?w=600&q=80"
+                            alt="Before" />
+                        <img class="ba-after"
+                            src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&q=80" alt="After" />
+                        <div class="ba-divider">
+                            <div class="ba-divider-handle">
+                                <i class="fa-solid fa-chevron-left"></i>
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </div>
+                        </div>
+                        <span class="ba-label ba-label-before">Before</span>
+                        <span class="ba-label ba-label-after">After</span>
+                    </div>
+                    <div class="ba-body">
+                        <div class="ba-result">−14 kg</div>
+                        <div class="ba-name">Priya Sharma</div>
+                        <div class="ba-meta">Age 32 · Pune · 4 months</div>
+                        <p class="ba-quote">"I never thought I could lose weight eating the foods I love. Reform
+                            Wellness made it possible."</p>
+                        <span class="ba-program-tag">Weight Loss Program</span>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="ba-card" data-category="pcos">
+                    <div class="ba-photos" data-slider>
+                        <img class="ba-before"
+                            src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&q=80" alt="Before" />
+                        <img class="ba-after"
+                            src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&q=80" alt="After" />
+                        <div class="ba-divider">
+                            <div class="ba-divider-handle">
+                                <i class="fa-solid fa-chevron-left"></i>
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </div>
+                        </div>
+                        <span class="ba-label ba-label-before">Before</span>
+                        <span class="ba-label ba-label-after">After</span>
+                    </div>
+                    <div class="ba-body">
+                        <div class="ba-result">PCOS Reversed</div>
+                        <div class="ba-name">Anjali Mehta</div>
+                        <div class="ba-meta">Age 27 · Mumbai · 6 months</div>
+                        <p class="ba-quote">"My cycles are regular for the first time in 5 years. The
+                            anti-inflammatory plan changed everything."</p>
+                        <span class="ba-program-tag">PCOS & Thyroid Care</span>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="ba-card" data-category="muscle">
+                    <div class="ba-photos" data-slider>
+                        <img class="ba-before"
+                            src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&q=80"
+                            alt="Before" />
+                        <img class="ba-after"
+                            src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=600&q=80" alt="After" />
+                        <div class="ba-divider">
+                            <div class="ba-divider-handle">
+                                <i class="fa-solid fa-chevron-left"></i>
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </div>
+                        </div>
+                        <span class="ba-label ba-label-before">Before</span>
+                        <span class="ba-label ba-label-after">After</span>
+                    </div>
+                    <div class="ba-body">
+                        <div class="ba-result">+7 kg Muscle</div>
+                        <div class="ba-name">Rohit Kulkarni</div>
+                        <div class="ba-meta">Age 24 · Pune · 5 months</div>
+                        <p class="ba-quote">"Finally a high-protein plan that uses real Indian food. My gym
+                            performance is through the roof."</p>
+                        <span class="ba-program-tag">Muscle Gain Program</span>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="ba-card" data-category="diabetes">
+                    <div class="ba-photos" data-slider>
+                        <img class="ba-before"
+                            src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=600&q=80"
+                            alt="Before" />
+                        <img class="ba-after"
+                            src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80" alt="After" />
+                        <div class="ba-divider">
+                            <div class="ba-divider-handle">
+                                <i class="fa-solid fa-chevron-left"></i>
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </div>
+                        </div>
+                        <span class="ba-label ba-label-before">Before</span>
+                        <span class="ba-label ba-label-after">After</span>
+                    </div>
+                    <div class="ba-body">
+                        <div class="ba-result">HbA1c: 10.2→6.1</div>
+                        <div class="ba-name">Suresh Patil</div>
+                        <div class="ba-meta">Age 52 · Pune · 5 months</div>
+                        <p class="ba-quote">"My doctor reduced my medication by half. I control my sugar purely
+                            through diet now."</p>
+                        <span class="ba-program-tag">Diabetes Management</span>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="ba-card" data-category="weight-management">
+                    <div class="ba-photos" data-slider>
+                        <img class="ba-before"
+                            src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=80" alt="Before" />
+                        <img class="ba-after"
+                            src="https://images.unsplash.com/photo-1588286840104-8957b019727f?w=600&q=80" alt="After" />
+                        <div class="ba-divider">
+                            <div class="ba-divider-handle">
+                                <i class="fa-solid fa-chevron-left"></i>
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </div>
+                        </div>
+                        <span class="ba-label ba-label-before">Before</span>
+                        <span class="ba-label ba-label-after">After</span>
+                    </div>
+                    <div class="ba-body">
+                        <div class="ba-result">−10 kg</div>
+                        <div class="ba-name">Neha Joshi</div>
+                        <div class="ba-meta">Age 38 · Nashik · 3 months</div>
+                        <p class="ba-quote">"Post-pregnancy weight gone in 3 months. Dr. Roshni understood my body
+                            perfectly."</p>
+                        <span class="ba-program-tag">Weight Loss Program</span>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="ba-card" data-category="gut">
+                    <div class="ba-photos" data-slider>
+                        <img class="ba-before"
+                            src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&q=80"
+                            alt="Before" />
+                        <img class="ba-after"
+                            src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=80" alt="After" />
+                        <div class="ba-divider">
+                            <div class="ba-divider-handle">
+                                <i class="fa-solid fa-chevron-left"></i>
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </div>
+                        </div>
+                        <span class="ba-label ba-label-before">Before</span>
+                        <span class="ba-label ba-label-after">After</span>
+                    </div>
+                    <div class="ba-body">
+                        <div class="ba-result">IBS Free</div>
+                        <div class="ba-name">Kavita Desai</div>
+                        <div class="ba-meta">Age 44 · Pune · 4 months</div>
+                        <p class="ba-quote">"10 years of bloating and discomfort resolved in 4 months. I wish I had
+                            found them sooner."</p>
+                        <span class="ba-program-tag">Gut Health & Immunity</span>
+                    </div>
+                </div>
+
+                <div class="ba-card" data-category="weight-management">
+                    <div class="ba-photos" data-slider>
+                        <img class="ba-before"
+                            src="https://images.unsplash.com/photo-1616279969856-759f316a5ac1?w=600&q=80"
+                            alt="Before" />
+                        <img class="ba-after"
+                            src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&q=80" alt="After" />
+                        <div class="ba-divider">
+                            <div class="ba-divider-handle">
+                                <i class="fa-solid fa-chevron-left"></i>
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </div>
+                        </div>
+                        <span class="ba-label ba-label-before">Before</span>
+                        <span class="ba-label ba-label-after">After</span>
+                    </div>
+                    <div class="ba-body">
+                        <div class="ba-result">−14 kg</div>
+                        <div class="ba-name">Priya Sharma</div>
+                        <div class="ba-meta">Age 32 · Pune · 4 months</div>
+                        <p class="ba-quote">"I never thought I could lose weight eating the foods I love. Reform
+                            Wellness made it possible."</p>
+                        <span class="ba-program-tag">Weight Loss Program</span>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="ba-card" data-category="pcos">
+                    <div class="ba-photos" data-slider>
+                        <img class="ba-before"
+                            src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&q=80" alt="Before" />
+                        <img class="ba-after"
+                            src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&q=80" alt="After" />
+                        <div class="ba-divider">
+                            <div class="ba-divider-handle">
+                                <i class="fa-solid fa-chevron-left"></i>
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </div>
+                        </div>
+                        <span class="ba-label ba-label-before">Before</span>
+                        <span class="ba-label ba-label-after">After</span>
+                    </div>
+                    <div class="ba-body">
+                        <div class="ba-result">PCOS Reversed</div>
+                        <div class="ba-name">Anjali Mehta</div>
+                        <div class="ba-meta">Age 27 · Mumbai · 6 months</div>
+                        <p class="ba-quote">"My cycles are regular for the first time in 5 years. The
+                            anti-inflammatory plan changed everything."</p>
+                        <span class="ba-program-tag">PCOS & Thyroid Care</span>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="ba-card" data-category="muscle">
+                    <div class="ba-photos" data-slider>
+                        <img class="ba-before"
+                            src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&q=80"
+                            alt="Before" />
+                        <img class="ba-after"
+                            src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=600&q=80" alt="After" />
+                        <div class="ba-divider">
+                            <div class="ba-divider-handle">
+                                <i class="fa-solid fa-chevron-left"></i>
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </div>
+                        </div>
+                        <span class="ba-label ba-label-before">Before</span>
+                        <span class="ba-label ba-label-after">After</span>
+                    </div>
+                    <div class="ba-body">
+                        <div class="ba-result">+7 kg Muscle</div>
+                        <div class="ba-name">Rohit Kulkarni</div>
+                        <div class="ba-meta">Age 24 · Pune · 5 months</div>
+                        <p class="ba-quote">"Finally a high-protein plan that uses real Indian food. My gym
+                            performance is through the roof."</p>
+                        <span class="ba-program-tag">Muscle Gain Program</span>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="ba-card" data-category="diabetes">
+                    <div class="ba-photos" data-slider>
+                        <img class="ba-before"
+                            src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=600&q=80"
+                            alt="Before" />
+                        <img class="ba-after"
+                            src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80" alt="After" />
+                        <div class="ba-divider">
+                            <div class="ba-divider-handle">
+                                <i class="fa-solid fa-chevron-left"></i>
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </div>
+                        </div>
+                        <span class="ba-label ba-label-before">Before</span>
+                        <span class="ba-label ba-label-after">After</span>
+                    </div>
+                    <div class="ba-body">
+                        <div class="ba-result">HbA1c: 10.2→6.1</div>
+                        <div class="ba-name">Suresh Patil</div>
+                        <div class="ba-meta">Age 52 · Pune · 5 months</div>
+                        <p class="ba-quote">"My doctor reduced my medication by half. I control my sugar purely
+                            through diet now."</p>
+                        <span class="ba-program-tag">Diabetes Management</span>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="ba-card" data-category="weight-management">
+                    <div class="ba-photos" data-slider>
+                        <img class="ba-before"
+                            src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=80" alt="Before" />
+                        <img class="ba-after"
+                            src="https://images.unsplash.com/photo-1588286840104-8957b019727f?w=600&q=80" alt="After" />
+                        <div class="ba-divider">
+                            <div class="ba-divider-handle">
+                                <i class="fa-solid fa-chevron-left"></i>
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </div>
+                        </div>
+                        <span class="ba-label ba-label-before">Before</span>
+                        <span class="ba-label ba-label-after">After</span>
+                    </div>
+                    <div class="ba-body">
+                        <div class="ba-result">−10 kg</div>
+                        <div class="ba-name">Neha Joshi</div>
+                        <div class="ba-meta">Age 38 · Nashik · 3 months</div>
+                        <p class="ba-quote">"Post-pregnancy weight gone in 3 months. Dr. Roshni understood my body
+                            perfectly."</p>
+                        <span class="ba-program-tag">Weight Loss Program</span>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="ba-card" data-category="gut">
+                    <div class="ba-photos" data-slider>
+                        <img class="ba-before"
+                            src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&q=80"
+                            alt="Before" />
+                        <img class="ba-after"
+                            src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&q=80" alt="After" />
+                        <div class="ba-divider">
+                            <div class="ba-divider-handle">
+                                <i class="fa-solid fa-chevron-left"></i>
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </div>
+                        </div>
+                        <span class="ba-label ba-label-before">Before</span>
+                        <span class="ba-label ba-label-after">After</span>
+                    </div>
+                    <div class="ba-body">
+                        <div class="ba-result">IBS Free</div>
+                        <div class="ba-name">Kavita Desai</div>
+                        <div class="ba-meta">Age 44 · Pune · 4 months</div>
+                        <p class="ba-quote">"10 years of bloating and discomfort resolved in 4 months. I wish I had
+                            found them sooner."</p>
+                        <span class="ba-program-tag">Gut Health & Immunity</span>
+                    </div>
+                </div>
+            </div>
 
         </div>
     </section>
@@ -1266,7 +1738,7 @@
                 <span class="section-label">In Their Own Words</span>
                 <h2 class="section-title">Video <em>Reviews</em></h2>
                 <p
-                    style="font-size:.92rem; color:rgba(240,238,233,.55); margin-top:1rem; max-width:500px; margin-left:auto; margin-right:auto; line-height:1.7;">
+                    style="font-size:.92rem; color:rgba(240,238,233,.55); margin-top:1rem; max-width:700px; margin-left:auto; margin-right:auto; line-height:1.7;">
                     Watch real clients share their Reform Wellness journey in their own words.
                 </p>
             </div>
@@ -1394,12 +1866,7 @@
                     </div>
                 </div>
 
-            </div><!-- /video-grid -->
-
-            <p class="fade-up"
-                style="text-align:center; margin-top:2.5rem; font-size:.82rem; color:rgba(240,238,233,.35); letter-spacing:.04em;">
-                ← Replace YOUR_VIDEO_ID with actual YouTube video IDs in the data-video-src attributes →
-            </p>
+            </div>
 
         </div>
     </section>
@@ -1721,8 +2188,50 @@
             modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
             document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
 
+            const BATCH = 8;
+            const baGrid = document.querySelector('.tpage-ba-grid');
+            const allBaCards = Array.from(baGrid.querySelectorAll('.ba-card'));
+
+            const viewMoreBtn = document.createElement('div');
+            viewMoreBtn.style.cssText = 'text-align:center; margin-top:2.5rem;';
+            viewMoreBtn.innerHTML = `<button id="viewMoreBA" style="background:transparent; border:1.5px solid rgba(144,155,76,.45); color:var(--dark); padding:.7rem 2.4rem; border-radius:100px; font-family:\'DM Sans\',sans-serif; font-size:.85rem; font-weight:500; letter-spacing:.06em; text-transform:uppercase; cursor:pointer; transition:all .25s ease;">View More Results ↓</button>`;
+            baGrid.parentElement.appendChild(viewMoreBtn);
+
+            let visibleCount = BATCH;
+            let activeFilter = 'all';
+
+            function getFilteredCards() {
+                return activeFilter === 'all'
+                    ? allBaCards
+                    : allBaCards.filter(c => c.getAttribute('data-category') === activeFilter);
+            }
+
+            function renderBaCards() {
+                const filtered = getFilteredCards();
+                allBaCards.forEach(c => c.style.display = 'none');
+                filtered.forEach((c, i) => {
+                    c.style.display = i < visibleCount ? '' : 'none';
+                });
+                const btn = document.getElementById('viewMoreBA');
+                if (filtered.length <= visibleCount) {
+                    btn.style.display = 'none';
+                } else {
+                    btn.style.display = 'inline-block';
+                    btn.textContent = 'View More Results ↓';
+                }
+            }
+
+            document.getElementById('viewMoreBA').addEventListener('click', function () {
+                visibleCount += BATCH;
+                renderBaCards();
+                // smooth scroll hint so user sees the new cards
+                window.scrollBy({ top: 200, behavior: 'smooth' });
+            });
+
+            renderBaCards();
+
+            // ── Filter buttons ────────────────────────────────────
             const filterBtns = document.querySelectorAll('.filter-btn');
-            const baCards = document.querySelectorAll('.ba-card[data-category]');
             const vidCards = document.querySelectorAll('.video-card[data-category]');
             const revCards = document.querySelectorAll('.review-card[data-category]');
 
@@ -1730,17 +2239,14 @@
                 btn.addEventListener('click', function () {
                     filterBtns.forEach(b => b.classList.remove('active'));
                     btn.classList.add('active');
+                    activeFilter = btn.getAttribute('data-filter');
+                    visibleCount = BATCH; // reset count on filter change
+                    renderBaCards();
 
-                    const f = btn.getAttribute('data-filter');
-
-                    function toggleCard(card) {
-                        const match = f === 'all' || card.getAttribute('data-category') === f;
-                        card.style.display = match ? '' : 'none';
-                    }
-
-                    baCards.forEach(toggleCard);
-                    vidCards.forEach(toggleCard);
-                    revCards.forEach(toggleCard);
+                    // filter video + review cards as before
+                    const f = activeFilter;
+                    vidCards.forEach(c => c.style.display = (f === 'all' || c.getAttribute('data-category') === f) ? '' : 'none');
+                    revCards.forEach(c => c.style.display = (f === 'all' || c.getAttribute('data-category') === f) ? '' : 'none');
                 });
             });
         });
