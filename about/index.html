@@ -243,34 +243,22 @@
         }
 
         .story-img-main {
-            width: 80%;
-            aspect-ratio: 3/4;
+            width: 100%;
+            aspect-ratio: 4/5;
             object-fit: cover;
             border-radius: 20px;
-            box-shadow: 0 40px 100px rgba(46, 44, 47, .13);
-        }
-
-        .story-img-inset {
-            position: absolute;
-            bottom: -3rem;
-            right: -1rem;
-            width: 52%;
-            aspect-ratio: 1/1;
-            object-fit: cover;
-            border-radius: 16px;
-            border: 5px solid var(--light);
-            box-shadow: 0 20px 60px rgba(46, 44, 47, .12);
+            box-shadow: 0 40px 100px rgba(46, 44, 47, 0.12);
         }
 
         .story-bg-shape {
             position: absolute;
             top: 2rem;
             left: -2rem;
-            width: 75%;
-            height: 85%;
+            right: 2rem;
+            bottom: -2rem;
             border-radius: 20px;
             background: var(--secondary);
-            opacity: .22;
+            opacity: .4;
             z-index: -1;
         }
 
@@ -1223,10 +1211,6 @@
             .ah-stat-strip {
                 flex-wrap: wrap;
             }
-
-            .story-img-inset {
-                display: none;
-            }
         }
     </style>
 </head>
@@ -1259,7 +1243,7 @@
                     <div class="ah-stat-label">Clients Helped</div>
                 </div>
                 <div class="ah-stat">
-                    <div class="ah-stat-num">7+</div>
+                    <div class="ah-stat-num">10+</div>
                     <div class="ah-stat-label">Years Practice</div>
                 </div>
                 <div class="ah-stat">
@@ -1281,8 +1265,6 @@
                 <div class="story-imgs fade-left">
                     <div class="story-bg-shape"></div>
                     <img src="/images/owner/owner2.webp" class="story-img-main" alt="Our Story" />
-                    <img src="/images/banner/pexels-yaroslav-shuraev-8845420.jpg" class="story-img-inset"
-                        alt="Healthy food" />
                 </div>
                 <div class="story-text fade-right">
                     <span class="section-tag">The Beginning</span>
@@ -1341,7 +1323,7 @@
             <div class="dietitian-header fade-up">
                 <span class="section-tag">The Experts</span>
                 <h2 class="section-h">Meet Your <em>Nutritionists</em></h2>
-                <p style="font-size:.95rem;opacity:.65;max-width:500px;margin:.9rem auto 0;line-height:1.8;">
+                <p style="font-size:.95rem;opacity:.65;max-width:700px;margin:.9rem auto 0;line-height:1.8;">
                     Certified, compassionate professionals dedicated to your sustainable wellness transformation.
                 </p>
             </div>
@@ -1353,14 +1335,13 @@
                     <div class="team-hero-img-overlay"></div>
                     <span class="team-hero-badge">Founder &amp; Lead</span>
                     <div class="team-hero-stat">
-                        <div class="team-hero-stat-num">7+</div>
+                        <div class="team-hero-stat-num">10+</div>
                         <div class="team-hero-stat-label">Years clinical experience</div>
                     </div>
                 </div>
                 <div class="team-hero-body">
-                    <div class="team-founder-label"><span class="team-founder-dot"></span> Nutritionist &amp; Health
-                        Coach</div>
-                    <h3 class="team-hero-name">Dietician Roshani</h3>
+                    <div class="team-founder-label"><span class="team-founder-dot"></span>Founder</div>
+                    <h3 class="team-hero-name">Dietitian Roshani Musale</h3>
                     <div class="team-hero-role">Nutritionist &amp; Health Coach</div>
 
                     <div style="display:flex;flex-direction:column;gap:.35rem;margin-bottom:1.1rem;">
@@ -1375,7 +1356,8 @@
                         </div>
                     </div>
 
-                    <p class="team-hero-bio">Certified Dietician with 7+ years of experience as a Clinical Dietician and
+                    <p class="team-hero-bio">Certified Dietician with 10+ years of experience as a Clinical Dietician
+                        and
                         Weight Management Expert. Completed Bachelor's and Master's in Food Science &amp; Nutrition.
                         Achieved a World Record in ancient therapeutic recipes during academics.</p>
 
@@ -1401,7 +1383,7 @@
                         <div style="text-align:center;">
                             <div
                                 style="font-family:'Cardo Garamond',serif;font-size:1.6rem;font-weight:600;color:var(--primary);line-height:1;">
-                                7+</div>
+                                10+</div>
                             <div
                                 style="font-size:.6rem;text-transform:uppercase;letter-spacing:.08em;color:rgba(46,44,47,.5);margin-top:3px;">
                                 Years experience</div>
@@ -1504,8 +1486,7 @@
                         Every decision we make at Reform Wellness is guided by these core values. They are not just
                         words they are the foundation of every meal plan, every consultation, every follow-up.
                     </p>
-                    <img src="/images/about/phylosophyy.webp"
-                        class="values-img" alt="Healthy values" />
+                    <img src="/images/about/phylosophyy.webp" class="values-img" alt="Healthy values" />
                 </div>
                 <div class="values-list fade-right">
                     <div class="value-item">
@@ -1634,7 +1615,7 @@
     </section>
 
     <!-- APPROACH -->
-    <section class="approach">
+    <!-- <section class="approach">
         <div class="container">
             <div class="fade-up" style="text-align:center; margin-bottom:0;">
                 <span class="section-tag">How We Work</span>
@@ -1652,8 +1633,7 @@
                 </div>
                 <div>
                     <div class="ap-card" style="margin-bottom:1.5rem;">
-                        <img src="/images/about/indian-food.webp"
-                            alt="Indian Food" />
+                        <img src="/images/about/indian-food.webp" alt="Indian Food" />
                         <div class="ap-card-overlay">
                             <div class="ap-num">02</div>
                             <div class="ap-title">Indian Food First</div>
@@ -1662,8 +1642,7 @@
                         </div>
                     </div>
                     <div class="ap-card">
-                        <img src="/images/about/ongoing-support.webp"
-                            alt="Progress Tracking" />
+                        <img src="/images/about/ongoing-support.webp" alt="Progress Tracking" />
                         <div class="ap-card-overlay">
                             <div class="ap-num">03</div>
                             <div class="ap-title">Ongoing Support</div>
@@ -1674,7 +1653,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- CERTIFICATIONS -->
     <section class="certs">
@@ -1686,27 +1665,27 @@
             <div class="certs-grid fade-up">
                 <div class="cert-card">
                     <div class="cert-icon"><i class="fa-solid fa-user-graduate"></i></div>
-                    <div class="cert-title">M.Sc. Clinical Nutrition</div>
+                    <div class="cert-title">M.Sc. Clinical <br>Nutrition</div>
                     <p class="cert-body">Masters in Clinical Nutrition and Dietetics from an accredited Indian
                         university.</p>
                 </div>
                 <div class="cert-card">
                     <div class="cert-icon"><i class="fa-solid fa-award"></i></div>
-                    <div class="cert-title">Registered Dietitian</div>
-                    <p class="cert-body">Registered with the Indian Dietetic Association (IDA) meeting the highest
-                        professional standards.</p>
+                    <div class="cert-title">Weight Management Specialist</div>
+                    <p class="cert-body">Specialized in weight loss, weight gain, and personalized nutrition planning.
+                    </p>
                 </div>
                 <div class="cert-card">
                     <div class="cert-icon"><i class="fa-solid fa-capsules"></i></div>
-                    <div class="cert-title">Diabetes Educator</div>
+                    <div class="cert-title">Diabetes <br>Educator</div>
                     <p class="cert-body">Certified diabetes educator trained in therapeutic nutrition for metabolic
                         conditions.</p>
                 </div>
                 <div class="cert-card">
                     <div class="cert-icon"> <i class="fa-solid fa-heart-pulse"></i></div>
-                    <div class="cert-title">PCOS & Hormonal Health</div>
-                    <p class="cert-body">Specialized certification in hormonal nutrition therapy, PCOS management, and
-                        thyroid care.</p>
+                    <div class="cert-title">PCOS &amp; Hormonal <br>Health</div>
+                    <p class="cert-body">Specialized in nutrition therapy for PCOS, hormonal balance, and thyroid
+                        health.</p>
                 </div>
             </div>
         </div>
