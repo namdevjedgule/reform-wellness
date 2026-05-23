@@ -228,7 +228,6 @@
             padding: 0 2%;
         }
 
-        /* ── Before / After section ──────────────────────── */
         .tpage-ba {
             background: var(--light);
         }
@@ -268,7 +267,6 @@
             height: 100%;
             object-fit: cover;
             object-position: top center;
-
             opacity: 0;
             transition: opacity 1s ease;
         }
@@ -288,120 +286,33 @@
             border-radius: 100px;
             z-index: 5;
             transition: opacity .4s ease;
-
             opacity: 0;
-
             display: inline-flex;
             align-items: center;
             justify-content: center;
-
             width: auto;
             max-width: max-content;
             white-space: nowrap;
         }
 
-        /* BEFORE LABEL */
         .ba-label-before {
             left: 1rem;
             background: rgba(46, 44, 47, .75);
             color: #fff;
         }
 
-        /* AFTER LABEL */
         .ba-label-after {
             right: 1rem;
             background: var(--primary);
             color: #fff;
         }
 
-        /* show before label */
         .auto-flip.show-before .ba-label-before {
             opacity: 1;
         }
 
-        /* show after label */
         .auto-flip.show-after .ba-label-after {
             opacity: 1;
-        }
-
-        /* Photo comparison slider */
-        .ba-photos {
-            position: relative;
-            aspect-ratio: 4/4;
-            overflow: hidden;
-            cursor: col-resize;
-            user-select: none;
-        }
-
-        .ba-before,
-        .ba-after {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: top center;
-        }
-
-        .ba-after {
-            clip-path: inset(0 0 0 50%);
-            transition: clip-path .05s linear;
-        }
-
-        .ba-divider {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            width: 3px;
-            background: #fff;
-            transform: translateX(-50%);
-            z-index: 3;
-            transition: left .05s linear;
-            pointer-events: none;
-        }
-
-        .ba-divider-handle {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: #fff;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, .2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary);
-            font-size: .85rem;
-            gap: 2px;
-        }
-
-        .ba-label {
-            position: absolute;
-            top: 1rem;
-            font-size: .65rem;
-            font-weight: 600;
-            letter-spacing: .1em;
-            text-transform: uppercase;
-            padding: .35rem .75rem;
-            border-radius: 100px;
-            z-index: 4;
-            pointer-events: none;
-        }
-
-        .ba-label-before {
-            left: 1rem;
-            background: rgba(46, 44, 47, .7);
-            color: #fff;
-        }
-
-        .ba-label-after {
-            right: 1rem;
-            background: var(--primary);
-            color: #fff;
         }
 
         .ba-body {
@@ -1151,7 +1062,8 @@
                 <h2 class="section-title">Before &amp; After<em> Transformations</em></h2>
                 <p
                     style="font-size:.92rem; opacity:.6; margin-top:1rem; max-width:900px; margin-left:auto; margin-right:auto; line-height:1.7;">
-                    Real client transformations that automatically flip from before to after results. No filters, no edits. Just genuine progress.
+                    Real client transformations that automatically flip from before to after results. No filters, no
+                    edits. Just genuine progress.
                 </p>
             </div>
 
@@ -1310,8 +1222,8 @@
 
                 <div class="ba-card" data-category="pcos">
                     <div class="ba-photos auto-flip">
-                        <img class="ba-img before active" src="/images/testimonials/client9-before.jpg" alt="Before" />
-                        <img class="ba-img after" src="/images/testimonials/client9-after.jpg" alt="After" />
+                        <img class="ba-img before active" src="/images/testimonials/client9-before.webp" alt="Before" />
+                        <img class="ba-img after" src="/images/testimonials/client9-after.webp" alt="After" />
 
                         <span class="ba-label ba-label-before">Before</span>
                         <span class="ba-label ba-label-after">After</span>
@@ -1331,7 +1243,8 @@
                 <!-- Card 4 -->
                 <div class="ba-card" data-category="diabetes">
                     <div class="ba-photos auto-flip">
-                        <img class="ba-img before active" src="/images/testimonials/client10-before.webp" alt="Before" />
+                        <img class="ba-img before active" src="/images/testimonials/client10-before.webp"
+                            alt="Before" />
                         <img class="ba-img after" src="/images/testimonials/client10-after.webp" alt="After" />
 
                         <span class="ba-label ba-label-before">Before</span>
@@ -1352,7 +1265,8 @@
                 <!-- Card 5 -->
                 <div class="ba-card" data-category="weight-management">
                     <div class="ba-photos auto-flip">
-                        <img class="ba-img before active" src="/images/testimonials/client11-before.webp" alt="Before" />
+                        <img class="ba-img before active" src="/images/testimonials/client11-before.webp"
+                            alt="Before" />
                         <img class="ba-img after" src="/images/testimonials/client11-after.webp" alt="After" />
 
                         <span class="ba-label ba-label-before">Before</span>
@@ -1372,7 +1286,8 @@
                 <!-- Card 6 -->
                 <div class="ba-card" data-category="gut">
                     <div class="ba-photos auto-flip">
-                        <img class="ba-img before active" src="/images/testimonials/client12-before.webp" alt="Before" />
+                        <img class="ba-img before active" src="/images/testimonials/client12-before.webp"
+                            alt="Before" />
                         <img class="ba-img after" src="/images/testimonials/client12-after.webp" alt="After" />
 
                         <span class="ba-label ba-label-before">Before</span>
@@ -1448,7 +1363,8 @@
 
                 <div class="ba-card" data-category="pcos">
                     <div class="ba-photos auto-flip">
-                        <img class="ba-img before active" src="/images/testimonials/client16-before.jpeg" alt="Before" />
+                        <img class="ba-img before active" src="/images/testimonials/client16-before.jpeg"
+                            alt="Before" />
                         <img class="ba-img after" src="/images/testimonials/client16-after.jpeg" alt="After" />
 
                         <span class="ba-label ba-label-before">Before</span>
@@ -1543,7 +1459,491 @@
 
                 <div class="ba-card" data-category="muscle">
                     <div class="ba-photos auto-flip">
-                        <img class="ba-img before active" src="/images/testimonials/client21-before.jpeg" alt="Before" />
+                        <img class="ba-img before active" src="/images/testimonials/client21-before.jpeg"
+                            alt="Before" />
+                        <img class="ba-img after" src="/images/testimonials/client21-after.jpeg" alt="After" />
+                        <span class="ba-label ba-label-before">Before</span>
+                        <span class="ba-label ba-label-after">After</span>
+                    </div>
+                    <div class="ba-body">
+                        <div class="ba-result">-25 kg </div>
+                        <div class="ba-name">Manpreet Kaur</div>
+                        <div class="ba-meta">Age 34 · Panjab · 6 months</div>
+                        <p class="ba-quote">
+                            "My confidence, energy, and fitness improved more than I ever expected."
+                        </p>
+                        <span class="ba-program-tag">Weight Loss Program</span>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="ba-card" data-category="diabetes">
+                    <div class="ba-photos auto-flip">
+                        <img class="ba-img before active" src="/images/testimonials/client22-before.jpg" alt="Before" />
+                        <img class="ba-img after" src="/images/testimonials/client22-after.jpg" alt="After" />
+
+                        <span class="ba-label ba-label-before">Before</span>
+                        <span class="ba-label ba-label-after">After</span>
+                    </div>
+                    <div class="ba-body">
+                        <div class="ba-result">-14 kg</div>
+                        <div class="ba-name">Leena Devikar</div>
+                        <div class="ba-meta">Age 35 · Nagpur · 6 months</div>
+                        <p class="ba-quote">
+                            "The personalized diet plan made my weight loss journey simple and achievable."
+                        </p>
+                        <span class="ba-program-tag">Weight Loss Program</span>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="ba-card" data-category="weight-management">
+                    <div class="ba-photos auto-flip">
+                        <img class="ba-img before active" src="/images/testimonials/client23-before.jpg" alt="Before" />
+                        <img class="ba-img after" src="/images/testimonials/client23-after.jpg" alt="After" />
+                        <span class="ba-label ba-label-before">Before</span>
+                        <span class="ba-label ba-label-after">After</span>
+                    </div>
+                    <div class="ba-body">
+                        <div class="ba-result">−12 kg</div>
+                        <div class="ba-name">Shivani Singh</div>
+                        <div class="ba-meta">Age 34 · Panjab · 6 months</div>
+                        <p class="ba-quote">
+                            "I achieved steady weight loss while still enjoying balanced everyday meals."
+                        </p>
+                        <span class="ba-program-tag">Weight Loss Program</span>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="ba-card" data-category="gut">
+                    <div class="ba-photos auto-flip">
+                        <img class="ba-img before active" src="/images/testimonials/client24-before.jpg" alt="Before" />
+                        <img class="ba-img after" src="/images/testimonials/client24-after.jpg" alt="After" />
+                        <span class="ba-label ba-label-before">Before</span>
+                        <span class="ba-label ba-label-after">After</span>
+                    </div>
+                    <div class="ba-body">
+                        <div class="ba-result">-8 kg</div>
+                        <div class="ba-name">Khushpreet Kaur</div>
+                        <div class="ba-meta">Age 30 · Panjab · 4 months</div>
+                        <p class="ba-quote">
+                            "I finally feel healthier, lighter, and more confident in my daily life."
+                        </p>
+                        <span class="ba-program-tag">Weight Loss Program</span>
+                    </div>
+                </div>
+
+                <div class="ba-card" data-category="gut">
+                    <div class="ba-photos auto-flip">
+                        <img class="ba-img before active" src="/images/testimonials/client25-before.jpg" alt="Before" />
+                        <img class="ba-img after" src="/images/testimonials/client25-after.jpg" alt="After" />
+                        <span class="ba-label ba-label-before">Before</span>
+                        <span class="ba-label ba-label-after">After</span>
+                    </div>
+                    <div class="ba-body">
+                        <div class="ba-result">-20 kg</div>
+                        <div class="ba-name">Chetna Naik</div>
+                        <div class="ba-meta">Age 35 · Bhiwandi · 6 months</div>
+                        <p class="ba-quote">
+                            "This transformation improved not just my body, but my overall lifestyle and confidence."
+                        </p>
+                        <span class="ba-program-tag">Weight Loss Program</span>
+                    </div>
+                </div>
+
+                <div class="ba-card" data-category="weight-management">
+                    <div class="ba-photos auto-flip">
+                        <img class="ba-img before active" src="/images/testimonials/client1-before.webp" alt="Before" />
+                        <img class="ba-img after" src="/images/testimonials/client1-after.webp" alt="After" />
+
+                        <span class="ba-label ba-label-before">Before</span>
+                        <span class="ba-label ba-label-after">After</span>
+                    </div>
+                    <div class="ba-body">
+                        <div class="ba-result">−22 kg</div>
+                        <div class="ba-name">Poonam Anthony</div>
+                        <div class="ba-meta">Age 50 · Delhi · 12 months</div>
+                        <p class="ba-quote">"I never thought I could lose weight eating the foods I love. Reform
+                            Wellness made it possible."</p>
+                        <span class="ba-program-tag">Weight Loss Program</span>
+                    </div>
+                </div>
+
+                <div class="ba-card" data-category="pcos">
+                    <div class="ba-photos auto-flip">
+                        <img class="ba-img before active" src="/images/testimonials/client2-before.webp" alt="Before" />
+                        <img class="ba-img after" src="/images/testimonials/client2-after.webp" alt="After" />
+
+                        <span class="ba-label ba-label-before">Before</span>
+                        <span class="ba-label ba-label-after">After</span>
+                    </div>
+                    <div class="ba-body">
+                        <div class="ba-result">PCOS Reversed</div>
+                        <div class="ba-name">Mehek Kalara</div>
+                        <div class="ba-meta">Age 30 · Delhi · 6 months</div>
+                        <p class="ba-quote">
+                            "My hormones balanced naturally and my PCOS symptoms improved significantly."
+                        </p>
+                        <span class="ba-program-tag">PCOS &amp; Hormonal Health</span>
+                    </div>
+                </div>
+
+                <div class="ba-card" data-category="pcos">
+                    <div class="ba-photos auto-flip">
+                        <img class="ba-img before active" src="/images/testimonials/client3-before.webp" alt="Before" />
+                        <img class="ba-img after" src="/images/testimonials/client3-after.webp" alt="After" />
+
+                        <span class="ba-label ba-label-before">Before</span>
+                        <span class="ba-label ba-label-after">After</span>
+                    </div>
+                    <div class="ba-body">
+                        <div class="ba-result">-15 kg</div>
+                        <div class="ba-name">Nishant Gharat</div>
+                        <div class="ba-meta">Age 35 · Mumbai · 9 months</div>
+                        <p class="ba-quote">"I have reversed my cholesterol levels and pre diabetes condition in 6
+                            months. Thank to reform wellness!"</p>
+                        <span class="ba-program-tag">Weight Loss Program</span>
+                    </div>
+                </div>
+
+                <div class="ba-card" data-category="diabetes">
+                    <div class="ba-photos auto-flip">
+                        <img class="ba-img before active" src="/images/testimonials/client4-before.webp" alt="Before" />
+                        <img class="ba-img after" src="/images/testimonials/client4-after.webp" alt="After" />
+
+                        <span class="ba-label ba-label-before">Before</span>
+                        <span class="ba-label ba-label-after">After</span>
+                    </div>
+                    <div class="ba-body">
+                        <div class="ba-result">+6 kg Lean Muscle</div>
+                        <div class="ba-name">Pratik Sawant</div>
+                        <div class="ba-meta">Age 32 · Mumbai · 6 months</div>
+                        <p class="ba-quote">
+                            "I gained healthy muscle, improved my strength, and feel more confident than ever."
+                        </p>
+                        <span class="ba-program-tag">Muscle Gain Program</span>
+                    </div>
+                </div>
+
+                <div class="ba-card" data-category="pregnancy">
+                    <div class="ba-photos auto-flip">
+                        <img class="ba-img before active" src="/images/testimonials/client5-before.webp" alt="Before" />
+                        <img class="ba-img after" src="/images/testimonials/client5-after.webp" alt="After" />
+
+                        <span class="ba-label ba-label-before">Before</span>
+                        <span class="ba-label ba-label-after">After</span>
+                    </div>
+
+                    <div class="ba-body">
+                        <div class="ba-result">−12 kg Post Pregnancy</div>
+                        <div class="ba-name">Mamta Bhalerao</div>
+                        <div class="ba-meta">Age 38 · Mumbai · 6 months</div>
+                        <p class="ba-quote">
+                            "I regained my confidence after pregnancy and achieved healthy weight loss naturally."
+                        </p>
+                        <span class="ba-program-tag">Post Pregnancy Weight Loss</span>
+                    </div>
+                </div>
+
+                <div class="ba-card" data-category="gut">
+                    <div class="ba-photos auto-flip">
+                        <img class="ba-img before active" src="/images/testimonials/client6-before.webp" alt="Before" />
+                        <img class="ba-img after" src="/images/testimonials/client6-after.webp" alt="After" />
+
+                        <span class="ba-label ba-label-before">Before</span>
+                        <span class="ba-label ba-label-after">After</span>
+                    </div>
+                    <div class="ba-body">
+                        <div class="ba-result">−8 kg &amp; Gut Health Improved</div>
+                        <div class="ba-name">Zakir Malik</div>
+                        <div class="ba-meta">Age 44 · Kashmir · 4 months</div>
+                        <p class="ba-quote">
+                            "My digestion improved completely and I feel healthier from within."
+                        </p>
+                        <span class="ba-program-tag">Gut Health &amp; Immunity</span>
+                    </div>
+                </div>
+
+                <div class="ba-card" data-category="weight-management">
+                    <div class="ba-photos auto-flip">
+                        <img class="ba-img before active" src="/images/testimonials/client7-before.webp" alt="Before" />
+                        <img class="ba-img after" src="/images/testimonials/client7-after.webp" alt="After" />
+
+                        <span class="ba-label ba-label-before">Before</span>
+                        <span class="ba-label ba-label-after">After</span>
+                    </div>
+                    <div class="ba-body">
+                        <div class="ba-result">−12 kg</div>
+                        <div class="ba-name">Pawan Kumar Pandey</div>
+                        <div class="ba-meta">Age 38 · Pune · 6 months</div>
+                        <p class="ba-quote">
+                            "The guidance was simple, practical, and helped me stay consistent throughout my journey."
+                        </p>
+                        <span class="ba-program-tag">Weight Loss Program</span>
+                    </div>
+                </div>
+
+                <div class="ba-card" data-category="muscle">
+                    <div class="ba-photos auto-flip">
+                        <img class="ba-img before active" src="/images/testimonials/client8-before.webp" alt="Before" />
+                        <img class="ba-img after" src="/images/testimonials/client8-after.webp" alt="After" />
+
+                        <span class="ba-label ba-label-before">Before</span>
+                        <span class="ba-label ba-label-after">After</span>
+                    </div>
+                    <div class="ba-body">
+                        <div class="ba-result">-22 kg</div>
+                        <div class="ba-name">Harshita</div>
+                        <div class="ba-meta">Age 37 · Bangalore · 12 months</div>
+                        <p class="ba-quote">
+                            "My sugar levels are now under control and I feel lighter and more active every day."
+                        </p>
+                        <span class="ba-program-tag">Weight Loss Program</span>
+                    </div>
+                </div>
+
+                <div class="ba-card" data-category="pcos">
+                    <div class="ba-photos auto-flip">
+                        <img class="ba-img before active" src="/images/testimonials/client9-before.webp" alt="Before" />
+                        <img class="ba-img after" src="/images/testimonials/client9-after.webp" alt="After" />
+
+                        <span class="ba-label ba-label-before">Before</span>
+                        <span class="ba-label ba-label-after">After</span>
+                    </div>
+
+                    <div class="ba-body">
+                        <div class="ba-result">−6 kg &amp; PCOD Reversed</div>
+                        <div class="ba-name">Komal Kadam</div>
+                        <div class="ba-meta">Age 22 · Mumbai · 6 months</div>
+                        <p class="ba-quote">
+                            "I lost weight naturally, improved my fitness, and successfully reversed my PCOD symptoms."
+                        </p>
+                        <span class="ba-program-tag">PCOD &amp; Weight Management</span>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="ba-card" data-category="diabetes">
+                    <div class="ba-photos auto-flip">
+                        <img class="ba-img before active" src="/images/testimonials/client10-before.webp"
+                            alt="Before" />
+                        <img class="ba-img after" src="/images/testimonials/client10-after.webp" alt="After" />
+
+                        <span class="ba-label ba-label-before">Before</span>
+                        <span class="ba-label ba-label-after">After</span>
+                    </div>
+                    <div class="ba-body">
+                        <div class="ba-result">HbA1c: 10.2→6.1</div>
+                        <div class="ba-name">Pradip Choudhary</div>
+                        <div class="ba-meta">Age 35 · Pune · 6 months</div>
+                        <p class="ba-quote">
+                            "My blood sugar levels improved significantly through proper nutrition and lifestyle
+                            changes."
+                        </p>
+                        <span class="ba-program-tag">Diabetes Management</span>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="ba-card" data-category="weight-management">
+                    <div class="ba-photos auto-flip">
+                        <img class="ba-img before active" src="/images/testimonials/client11-before.webp"
+                            alt="Before" />
+                        <img class="ba-img after" src="/images/testimonials/client11-after.webp" alt="After" />
+
+                        <span class="ba-label ba-label-before">Before</span>
+                        <span class="ba-label ba-label-after">After</span>
+                    </div>
+                    <div class="ba-body">
+                        <div class="ba-result">−12 kg</div>
+                        <div class="ba-name">Shushma Shelke</div>
+                        <div class="ba-meta">Age 28 · Pune · 4 months</div>
+                        <p class="ba-quote">
+                            "I achieved healthy weight loss without extreme dieting or complicated routines."
+                        </p>
+                        <span class="ba-program-tag">Weight Loss Program</span>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="ba-card" data-category="gut">
+                    <div class="ba-photos auto-flip">
+                        <img class="ba-img before active" src="/images/testimonials/client12-before.webp"
+                            alt="Before" />
+                        <img class="ba-img after" src="/images/testimonials/client12-after.webp" alt="After" />
+
+                        <span class="ba-label ba-label-before">Before</span>
+                        <span class="ba-label ba-label-after">After</span>
+                    </div>
+                    <div class="ba-body">
+                        <div class="ba-result">−12 kg &amp; Anxiety Improved</div>
+                        <div class="ba-name">Vandana Arora</div>
+                        <div class="ba-meta">Age 52 · Mumbai · 9 months</div>
+                        <p class="ba-quote">
+                            "I lost weight, improved my gut health, and feel mentally calmer and healthier now."
+                        </p>
+                        <span class="ba-program-tag">Gut Health &amp; Immunity</span>
+                    </div>
+                </div>
+
+                <div class="ba-card" data-category="weight-management">
+                    <div class="ba-photos auto-flip">
+                        <img class="ba-img before active" src="/images/testimonials/client13-before.jpg" alt="Before" />
+                        <img class="ba-img after" src="/images/testimonials/client13-after.jpeg" alt="After" />
+
+                        <span class="ba-label ba-label-before">Before</span>
+                        <span class="ba-label ba-label-after">After</span>
+                    </div>
+                    <div class="ba-body">
+                        <div class="ba-result">−15 kg</div>
+                        <div class="ba-name">Balwinder Singh</div>
+                        <div class="ba-meta">Age 35 · Canada · 6 months</div>
+                        <p class="ba-quote">
+                            "I lost fat, gained strength, and completely transformed my lifestyle."
+                        </p>
+                        <span class="ba-program-tag">Weight Loss & Muscle Building</span>
+                    </div>
+                </div>
+
+                <div class="ba-card" data-category="weight-management">
+                    <div class="ba-photos auto-flip">
+                        <img class="ba-img before active" src="/images/testimonials/client14-before.jpg" alt="Before" />
+                        <img class="ba-img after" src="/images/testimonials/client14-after.jpg" alt="After" />
+
+                        <span class="ba-label ba-label-before">Before</span>
+                        <span class="ba-label ba-label-after">After</span>
+                    </div>
+                    <div class="ba-body">
+                        <div class="ba-result">−11 kg</div>
+                        <div class="ba-name">Anjali Mehta</div>
+                        <div class="ba-meta">Age 27 · Mumbai · 6 months</div>
+                        <p class="ba-quote">
+                            "I achieved healthy weight loss naturally and feel more energetic and confident now."
+                        </p>
+                        <span class="ba-program-tag">Weight Loss Program</span>
+                    </div>
+                </div>
+
+                <div class="ba-card" data-category="weight-management">
+                    <div class="ba-photos auto-flip">
+                        <img class="ba-img before active" src="/images/testimonials/client15-before.jpg" alt="Before" />
+                        <img class="ba-img after" src="/images/testimonials/client15-after.jpg" alt="After" />
+
+                        <span class="ba-label ba-label-before">Before</span>
+                        <span class="ba-label ba-label-after">After</span>
+                    </div>
+                    <div class="ba-body">
+                        <div class="ba-result">−9 kg</div>
+                        <div class="ba-name">Rohini Patil</div>
+                        <div class="ba-meta">Age 24 · Pune · 5 months</div>
+                        <p class="ba-quote">
+                            "The personalized nutrition plan helped me lose weight and build healthier habits."
+                        </p>
+                        <span class="ba-program-tag">Weight Loss Program</span>
+                    </div>
+                </div>
+
+                <div class="ba-card" data-category="pcos">
+                    <div class="ba-photos auto-flip">
+                        <img class="ba-img before active" src="/images/testimonials/client16-before.jpeg"
+                            alt="Before" />
+                        <img class="ba-img after" src="/images/testimonials/client16-after.jpeg" alt="After" />
+
+                        <span class="ba-label ba-label-before">Before</span>
+                        <span class="ba-label ba-label-after">After</span>
+                    </div>
+                    <div class="ba-body">
+                        <div class="ba-result">−13 kg &amp; PCOD Reversed</div>
+                        <div class="ba-name">Radha Rajguru</div>
+                        <div class="ba-meta">Age 22 · Pune · 6 months</div>
+                        <p class="ba-quote">
+                            "My PCOD symptoms improved naturally and I finally feel healthier and more confident."
+                        </p>
+                        <span class="ba-program-tag">PCOD &amp; Weight Management</span>
+                    </div>
+                </div>
+
+                <div class="ba-card" data-category="weight-management">
+                    <div class="ba-photos auto-flip">
+                        <img class="ba-img before active" src="/images/testimonials/client17-before.jpg" alt="Before" />
+                        <img class="ba-img after" src="/images/testimonials/client17-after.jpg" alt="After" />
+
+                        <span class="ba-label ba-label-before">Before</span>
+                        <span class="ba-label ba-label-after">After</span>
+                    </div>
+                    <div class="ba-body">
+                        <div class="ba-result">−24 kg &amp; Lean Muscle Gain</div>
+                        <div class="ba-name">Rahul Rajput</div>
+                        <div class="ba-meta">Age 32 · Jabalpur · 6 months</div>
+                        <p class="ba-quote">
+                            "I lost fat, gained strength, and completely transformed my lifestyle and fitness."
+                        </p>
+                        <span class="ba-program-tag">Weight Loss &amp; Muscle Building</span>
+                    </div>
+                </div>
+
+                <div class="ba-card" data-category="diabetes">
+                    <div class="ba-photos auto-flip">
+                        <img class="ba-img before active" src="/images/testimonials/client18-before.jpg" alt="Before" />
+                        <img class="ba-img after" src="/images/testimonials/client18-after.jpg" alt="After" />
+
+                        <span class="ba-label ba-label-before">Before</span>
+                        <span class="ba-label ba-label-after">After</span>
+                    </div>
+                    <div class="ba-body">
+                        <div class="ba-result">−17 kg &amp; Sugar Controlled</div>
+                        <div class="ba-name">Yashashree Kanade</div>
+                        <div class="ba-meta">Age 30 · Pune · 12 months</div>
+                        <p class="ba-quote">
+                            "I reduced weight naturally and successfully improved my blood sugar levels."
+                        </p>
+                        <span class="ba-program-tag">Diabetes Management</span>
+                    </div>
+                </div>
+
+                <div class="ba-card" data-category="weight-management">
+                    <div class="ba-photos auto-flip">
+                        <img class="ba-img before active" src="/images/testimonials/client19-before.jpg" alt="Before" />
+                        <img class="ba-img after" src="/images/testimonials/client19-after.jpg" alt="After" />
+
+                        <span class="ba-label ba-label-before">Before</span>
+                        <span class="ba-label ba-label-after">After</span>
+                    </div>
+                    <div class="ba-body">
+                        <div class="ba-result">−6 kg &amp; Inch Loss</div>
+                        <div class="ba-name">Jaya Singhal</div>
+                        <div class="ba-meta">Age 35 · Dubai · 4 months</div>
+                        <p class="ba-quote">
+                            "I lost inches, reduced weight, and still enjoyed balanced meals every day."
+                        </p>
+                        <span class="ba-program-tag">Weight Loss &amp; Inch Loss</span>
+                    </div>
+                </div>
+
+                <div class="ba-card" data-category="muscle">
+                    <div class="ba-photos auto-flip">
+                        <img class="ba-img before active" src="/images/testimonials/client20-before.jpg" alt="Before" />
+                        <img class="ba-img after" src="/images/testimonials/client20-after.jpg" alt="After" />
+
+                        <span class="ba-label ba-label-before">Before</span>
+                        <span class="ba-label ba-label-after">After</span>
+                    </div>
+                    <div class="ba-body">
+                        <div class="ba-result">+5 kg Lean Muscle</div>
+                        <div class="ba-name">Amogh Kulkarni</div>
+                        <div class="ba-meta">Age 28 · Pune · 4 months</div>
+                        <p class="ba-quote">
+                            "I gained healthy muscle, improved my strength, and feel more energetic than ever."
+                        </p>
+                        <span class="ba-program-tag">Muscle Gain Program</span>
+                    </div>
+                </div>
+
+                <div class="ba-card" data-category="muscle">
+                    <div class="ba-photos auto-flip">
+                        <img class="ba-img before active" src="/images/testimonials/client21-before.jpeg"
+                            alt="Before" />
                         <img class="ba-img after" src="/images/testimonials/client21-after.jpeg" alt="After" />
                         <span class="ba-label ba-label-before">Before</span>
                         <span class="ba-label ba-label-after">After</span>
@@ -2113,7 +2513,7 @@
             modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
             document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
 
-            const BATCH = 8;
+            const BATCH = 16;
             const baGrid = document.querySelector('.tpage-ba-grid');
             const allBaCards = Array.from(baGrid.querySelectorAll('.ba-card'));
 
@@ -2149,7 +2549,6 @@
             document.getElementById('viewMoreBA').addEventListener('click', function () {
                 visibleCount += BATCH;
                 renderBaCards();
-                // smooth scroll hint so user sees the new cards
                 window.scrollBy({ top: 200, behavior: 'smooth' });
             });
 
@@ -2164,7 +2563,7 @@
                     filterBtns.forEach(b => b.classList.remove('active'));
                     btn.classList.add('active');
                     activeFilter = btn.getAttribute('data-filter');
-                    visibleCount = BATCH; // reset count on filter change
+                    visibleCount = BATCH;
                     renderBaCards();
 
                     const f = activeFilter;
