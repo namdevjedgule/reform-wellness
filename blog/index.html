@@ -103,8 +103,8 @@
 
         /* ── HERO ── */
         .blog-hero {
-            height: calc(100vh - 92px);
-            min-height: calc(100vh - 92px);
+            height: calc(100vh - 90px);
+            min-height: calc(100vh - 90px);
             background: var(--dark);
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -118,14 +118,12 @@
             pointer-events: none;
             background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='280'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.68' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='280' height='280' filter='url(%23n)' opacity='.05'/%3E%3C/svg%3E");
             opacity: .5;
-            z-index: 0;
         }
 
         .hero-blob {
             position: absolute;
             pointer-events: none;
             border-radius: 50%;
-            z-index: 0;
         }
 
         .hero-blob-1 {
@@ -152,7 +150,7 @@
             background: radial-gradient(circle, rgba(180, 187, 133, .12) 0%, transparent 65%);
         }
 
-        .sh-left {
+        .bh-left {
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -164,7 +162,7 @@
             padding-right: 6%;
         }
 
-        .sh-eyebrow {
+        .bh-eyebrow {
             display: inline-flex;
             align-items: center;
             gap: .75rem;
@@ -176,14 +174,14 @@
             margin-bottom: 1.2rem;
         }
 
-        .sh-eyebrow::before {
+        .bh-eyebrow::before {
             content: '';
             width: 36px;
             height: 1px;
             background: var(--secondary);
         }
 
-        .sh-h1 {
+        .bh-h1 {
             font-family: 'Cormorant Garamond', serif;
             font-size: clamp(3rem, 5vw, 5.5rem);
             font-weight: 300;
@@ -193,12 +191,12 @@
             margin-bottom: 1.2rem;
         }
 
-        .sh-h1 em {
+        .bh-h1 em {
             font-style: italic;
             color: var(--secondary);
         }
 
-        .sh-sub {
+        .bh-sub {
             font-size: .95rem;
             line-height: 1.7;
             color: rgba(240, 238, 233, .5);
@@ -206,38 +204,35 @@
             margin-bottom: 1.2rem;
         }
 
-        .sh-count-strip {
+        .bh-count-strip {
             display: flex;
             gap: 2.5rem;
             margin-top: 1.2rem;
-            padding-top: 1.2rem;
             border-top: 1px solid rgba(240, 238, 233, .1);
-            flex-wrap: wrap;
         }
 
-        .sh-count-num {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.5rem;
+        .bh-count-num {
+            font-family: 'Cardo', serif;
+            font-size: 2.8rem;
             font-weight: 600;
             color: var(--secondary);
             line-height: 1;
         }
 
-        .sh-count-label {
-            font-size: .68rem;
+        .bh-count-label {
+            font-size: .7rem;
             color: rgba(240, 238, 233, .45);
             text-transform: uppercase;
             letter-spacing: .08em;
             margin-top: .3rem;
         }
 
-        .sh-right {
+        .bh-right {
             position: relative;
             overflow: hidden;
-            z-index: 1;
         }
 
-        .sh-right img {
+        .bh-right img {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -755,38 +750,140 @@
             color: var(--dark);
         }
 
-        @media(max-width: 900px) {
+        @media (max-width:1024px) {
+
             .blog-hero {
+                min-height: calc(100svh - 90px);
+                display: grid;
                 grid-template-columns: 1fr;
-                max-height: none;
-                height: auto;
+                grid-template-rows: auto 1fr;
+                overflow: hidden;
             }
 
-            .sh-right {
-                height: 280px;
+            .bh-left {
+                padding: 2rem 6% 1rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                z-index: 2;
+            }
+
+            .bh-eyebrow {
+                font-size: 0.7rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .bh-h1 {
+                font-size: clamp(1.8rem, 5vw, 2.8rem);
+                line-height: 1.05;
+                margin-bottom: 0.5rem;
+            }
+
+            .bh-sub {
+                font-size: 0.82rem;
+                line-height: 1.55;
+                margin-bottom: 0.7rem;
+                max-width: 95%;
+            }
+
+            .bh-right {
+                position: relative;
+                height: 100%;
+                min-height: 0;
+                overflow: hidden;
+            }
+
+            .bh-right img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center top;
+                display: block;
+            }
+
+            .bh-count-strip {
+                margin-top: 0.7rem;
+                padding-top: 0.7rem;
+                gap: 1.5rem;
+                border-top: 1px solid rgba(144, 155, 76, 0.2);
+                justify-content: center;
+            }
+
+            .bh-count-strip>div {
+                flex: 1 1 calc(50% - 0.5rem);
+                text-align: center;
+            }
+
+            .bh-count-num {
+                font-size: 1.8rem;
+            }
+
+            .bh-count-label {
+                font-size: 0.62rem;
             }
 
             .detail-content-wrap {
                 grid-template-columns: 1fr;
-                gap: 2.5rem;
+                gap: 3rem;
             }
 
             .detail-sidebar {
                 position: static;
             }
-
-            .related-grid {
-                grid-template-columns: 1fr;
-            }
         }
 
-        @media(max-width: 600px) {
-            .sh-right {
-                height: 220px;
+        @media (max-width:768px) {
+
+            .blog-hero {
+                min-height: calc(100svh - 90px);
             }
 
-            .sh-count-strip {
-                gap: 1.5rem;
+            .bh-left {
+                padding: 1.5rem 5% 0.8rem;
+            }
+
+            .bh-h1 {
+                font-size: clamp(2rem, 8vw, 3rem);
+                line-height: 1.15;
+            }
+
+            .bh-sub {
+                font-size: 0.8rem;
+                line-height: 1.6;
+                max-width: 100%;
+            }
+
+            .bh-count-strip {
+                border: none !important;
+                border-top: none !important;
+                padding-top: 0 !important;
+
+                display: flex;
+                flex-wrap: wrap !important;
+                justify-content: center;
+                gap: 1rem;
+                width: 100%;
+                overflow: hidden;
+            }
+
+            .bh-count-strip>div {
+                flex: 0 0 45%;
+                text-align: center;
+            }
+
+            .bh-count-num {
+                font-size: 1.6rem;
+            }
+
+            .bh-count-label {
+                font-size: 0.6rem;
+            }
+
+            .filter-btn {
+                padding: 0.9rem 1rem;
+                font-size: 0.68rem;
             }
 
             .articles-grid {
@@ -794,7 +891,141 @@
             }
 
             .detail-title {
-                font-size: 2rem;
+                font-size: 2.2rem;
+            }
+
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width:480px) {
+
+            .bh-left {
+                padding: 1rem 5% 0.6rem;
+            }
+
+            .bh-eyebrow {
+                font-size: 0.66rem;
+                gap: 0.4rem;
+            }
+
+            .bh-eyebrow::before {
+                width: 22px;
+            }
+
+            .bh-h1 br {
+                display: none;
+            }
+
+            .bh-h1 {
+                font-size: clamp(1.6rem, 6.5vw, 2.4rem);
+                margin-bottom: 0.4rem;
+                line-height: 1.2;
+            }
+
+            .bh-sub {
+                font-size: 0.78rem;
+                margin-bottom: 0.6rem;
+            }
+
+            .bh-right {
+                position: relative;
+                overflow: hidden;
+            }
+
+            .bh-count-strip {
+                margin-top: 0.5rem;
+                padding-top: 0.5rem;
+                gap: 1rem;
+            }
+
+            .bh-count-num {
+                font-size: 1.5rem;
+            }
+
+            .bh-count-label {
+                font-size: 0.58rem;
+            }
+
+            .card-body {
+                padding: 1.3rem;
+            }
+
+            .card-title {
+                font-size: 1.15rem;
+            }
+
+            .card-excerpt {
+                font-size: 0.78rem;
+            }
+
+            .detail-hero {
+                padding: 2.5rem 5% 3rem;
+            }
+
+            .detail-title {
+                font-size: 1.8rem;
+                line-height: 1.15;
+            }
+
+            .article-prose h2 {
+                font-size: 1.6rem;
+            }
+
+            .article-prose h3 {
+                font-size: 1.25rem;
+            }
+
+            .article-prose p,
+            .article-prose li {
+                font-size: 0.88rem;
+                line-height: 1.8;
+            }
+        }
+
+        @media (max-width:400px) {
+
+            .blog-hero {
+                height: calc(100svh - 90px);
+                min-height: calc(100svh - 90px);
+                grid-template-rows: auto 1fr;
+            }
+
+            .bh-h1 {
+                font-size: clamp(1.3rem, 8vw, 1.8rem);
+            }
+
+            .bh-right {
+                height: 100% !important;
+                min-height: 0 !important;
+            }
+
+            .bh-count-strip {
+                border: none !important;
+                border-top: none !important;
+                padding-top: 0 !important;
+
+                display: flex;
+                flex-wrap: wrap !important;
+                justify-content: center;
+                gap: 1rem;
+                width: 100%;
+                overflow: hidden;
+            }
+
+            .bh-count-strip>div {
+                flex: 0 0 45%;
+                text-align: center;
+            }
+
+            .bh-count-num {
+                font-size: clamp(1.2rem, 3vw, 2rem);
+            }
+
+            .bh-count-label {
+                font-size: clamp(0.65rem, 1.5vw, 0.82rem);
+                line-height: 1.4;
             }
         }
     </style>
@@ -806,39 +1037,43 @@
 
     <div id="list-view">
 
-        <section class="blog-hero">
+        <section class="blog-hero" id="top">
             <div class="hero-grain"></div>
             <div class="hero-blob hero-blob-1"></div>
             <div class="hero-blob hero-blob-2"></div>
             <div class="hero-blob hero-blob-3"></div>
-            <div class="sh-left">
-                <span class="sh-eyebrow">Reform Wellness · Nutrition Journal</span>
-                <h1 class="sh-h1">Read. Learn.<br><em>Eat Better.</em></h1>
-                <p class="sh-sub">Evidence-based nutrition articles written for real Indian lifestyles covering
+
+            <div class="bh-left">
+                <span class="bh-eyebrow">Reform Wellness · Nutrition Journal</span>
+                <h1 class="bh-h1">
+                    <span>Read.</span><br>
+                    <span>Learn.</span><br>
+                    <em>Eat Better.</em>
+                </h1>
+                <p class="bh-sub">Evidence-based nutrition articles written for real Indian lifestyles covering
                     weight, hormones, disease, family health, and more.</p>
-                <div class="sh-count-strip">
+                <div class="bh-count-strip">
                     <div>
-                        <div class="sh-count-num">12</div>
-                        <div class="sh-count-label">Articles</div>
+                        <div class="bh-count-num">12</div>
+                        <div class="bh-count-label">Articles</div>
                     </div>
                     <div>
-                        <div class="sh-count-num">6</div>
-                        <div class="sh-count-label">Topics</div>
+                        <div class="bh-count-num">6</div>
+                        <div class="bh-count-label">Topics</div>
                     </div>
                     <div>
-                        <div class="sh-count-num">100%</div>
-                        <div class="sh-count-label">India-Focused</div>
+                        <div class="bh-count-num">100%</div>
+                        <div class="bh-count-label">India-Focused</div>
                     </div>
                     <div>
-                        <div class="sh-count-num">Free</div>
-                        <div class="sh-count-label">Always</div>
+                        <div class="bh-count-num">Free</div>
+                        <div class="bh-count-label">Always</div>
                     </div>
                 </div>
             </div>
-            <div class="sh-right">
-                <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=1000&q=85"
-                    alt="Wellness Journal" />
-                <div class="sh-right-overlay"></div>
+            <div class="bh-right">
+                <img src="/images/blog/blog-hero.webp" alt="Wellness Journal" />
+                <div class="bh-right-overlay"></div>
             </div>
         </section>
 
@@ -932,9 +1167,6 @@
     <script src="/js/main.js"></script>
 
     <script>
-        // ══════════════════════════════════════════════
-        // DATA
-        // ══════════════════════════════════════════════
         const CAT_META = {
             general: { label: 'General Health', color: '#909B4C' },
             weight: { label: 'Weight Management', color: '#C4855A' },

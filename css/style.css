@@ -25,7 +25,7 @@ body {
     background: var(--light);
     color: var(--dark);
     overflow-x: clip;
-    padding-top: 92px;
+    padding-top: 90px;
 }
 
 html,
@@ -237,7 +237,7 @@ body.menu-open {
 
 .drawer-panel {
     position: absolute;
-    top: 92px;
+    top: 90px;
     right: 0;
     bottom: 0;
     width: 45%;
@@ -435,8 +435,8 @@ body.menu-open {
 }
 
 .hero {
-    height: calc(100vh - 92px);
-    min-height: calc(100vh - 92px);
+    height: calc(100vh - 90px);
+    min-height: calc(100vh - 90px);
     display: grid;
     grid-template-columns: 1fr 1fr;
     position: relative;
@@ -2525,8 +2525,8 @@ footer {
     }
 
     .hero {
-        height: calc(100svh - 92px);
-        min-height: calc(100svh - 92px);
+        height: calc(100svh - 90px);
+        min-height: calc(100svh - 90px);
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: auto 1fr;
@@ -2782,7 +2782,7 @@ footer {
 
 @media (max-width: 768px) {
     body {
-        padding-top: 92px;
+        padding-top: 90px;
     }
 
     section {
@@ -2794,8 +2794,8 @@ footer {
     }
 
     .hero {
-        height: calc(100svh - 92px);
-        min-height: calc(100svh - 92px);
+        height: calc(100svh - 90px);
+        min-height: calc(100svh - 90px);
         grid-template-rows: auto 1fr;
     }
 
@@ -2984,7 +2984,7 @@ footer {
 
 @media (max-width: 640px) {
     body {
-        padding-top: 92px;
+        padding-top: 90px;
     }
 
     section {
@@ -2996,8 +2996,8 @@ footer {
     }
 
     .hero {
-        height: calc(100svh - 92px);
-        min-height: calc(100svh - 92px);
+        height: calc(100svh - 90px);
+        min-height: calc(100svh - 90px);
         grid-template-rows: auto 1fr;
     }
 
@@ -3218,8 +3218,8 @@ footer {
     }
 
     .hero {
-        height: calc(100svh - 92px);
-        min-height: calc(100svh - 92px);
+        height: calc(100svh - 90px);
+        min-height: calc(100svh - 90px);
         grid-template-rows: auto 1fr;
     }
 
@@ -3333,8 +3333,8 @@ footer {
 
 @media (max-width: 400px) {
     .hero {
-        height: calc(100svh - 92px);
-        min-height: calc(100svh - 92px);
+        height: calc(100svh - 90px);
+        min-height: calc(100svh - 90px);
         grid-template-rows: auto 1fr;
     }
 

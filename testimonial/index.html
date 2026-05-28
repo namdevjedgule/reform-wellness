@@ -14,8 +14,8 @@
     <link rel="stylesheet" href="/css/style.css" />
     <style>
         .testimonial-hero {
-            height: calc(100vh - 92px);
-            min-height: calc(100vh - 92px);
+            height: calc(100vh - 90px);
+            min-height: calc(100vh - 90px);
             background: var(--dark);
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -916,11 +916,160 @@
             }
         }
 
+        @media (max-width:1024px) {
+
+            .testimonial-hero {
+                height: calc(100svh - 90px);
+                min-height: calc(100svh - 90px);
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-template-rows: auto 1fr;
+
+                overflow: hidden;
+            }
+
+            .th-left {
+                padding: 1.2rem 6% 0.8rem;
+
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                text-align: center;
+                min-height: 0;
+                z-index: 2;
+            }
+
+            .th-eyebrow {
+                font-size: 0.7rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .th-eyebrow::before {
+                width: 24px;
+            }
+
+            .th-h1 {
+                font-size: clamp(1.8rem, 5vw, 2.8rem);
+                line-height: 1.05;
+                margin-bottom: 0.5rem;
+            }
+
+            .th-sub {
+                font-size: 0.82rem;
+                line-height: 1.55;
+                margin-bottom: 0.7rem;
+                max-width: 95%;
+            }
+
+            .th-actions {
+                justify-content: center;
+            }
+
+            .th-btn-primary {
+                padding: 0.75rem 1.6rem;
+                font-size: 0.78rem;
+            }
+
+            .th-right {
+                position: relative;
+                overflow: hidden;
+                min-height: 0;
+            }
+
+            .th-right img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center top;
+                display: block;
+            }
+
+            .th-count-strip {
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: 0;
+
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+
+                background: rgba(46, 44, 47, .78);
+                backdrop-filter: blur(12px);
+
+                overflow: hidden;
+                z-index: 5;
+            }
+
+            .th-count-strip>div {
+                min-width: 0;
+
+                padding: 0.55rem 0.2rem;
+
+                text-align: center;
+
+                border-right: 1px solid rgba(240, 238, 233, .08);
+            }
+
+            .th-count-strip>div:last-child {
+                border-right: none;
+            }
+
+            .th-count-num {
+                font-size: 0.95rem;
+                line-height: 1;
+                white-space: nowrap;
+            }
+
+            .th-count-label {
+                font-size: 0.42rem;
+                line-height: 1.2;
+
+                margin-top: 0.15rem;
+
+                letter-spacing: 0.02em;
+
+                word-break: break-word;
+            }
+        }
+
+
         @media (max-width: 768px) {
 
             .tpage-filter {
-                top: 76px;
-                padding: 1.4rem 0;
+                position: sticky;
+                top: 90px;
+                z-index: 999;
+                padding: 0.7rem 0;
+                background: var(--soft);
+                border-bottom: 1px solid rgba(144, 155, 76, .18);
+            }
+
+            .tpage-filter-inner {
+                display: flex;
+                gap: .65rem;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                overflow-y: hidden;
+                padding: 0 1rem;
+
+                justify-content: flex-start;
+
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+            }
+
+            .tpage-filter-inner::-webkit-scrollbar {
+                display: none;
+            }
+
+            .filter-btn {
+                flex: 0 0 auto;
+                white-space: nowrap;
+
+                padding: .65rem 1.1rem;
+                font-size: .72rem;
             }
 
             .tpage-ba-grid {
@@ -953,18 +1102,35 @@
 
         @media (max-width: 640px) {
 
-            .tpage-filter-inner {
-                gap: .5rem;
-                padding: 0 5%;
-                justify-content: flex-start;
-                overflow-x: auto;
-                flex-wrap: nowrap;
-                padding-bottom: .5rem;
+            .th-left {
+                padding: 1rem 5% 0.6rem;
             }
 
-            .filter-btn {
-                white-space: nowrap;
-                flex-shrink: 0;
+            .th-eyebrow {
+                font-size: 0.65rem;
+                margin-bottom: 0.4rem;
+            }
+
+            .th-h1 br {
+                display: none;
+            }
+
+            .th-h1 {
+                font-size: clamp(1.6rem, 6.5vw, 2.4rem);
+                line-height: 1.2;
+            }
+
+            .th-sub {
+                font-size: 0.78rem;
+                margin-bottom: 0.6rem;
+            }
+
+            .th-count-num {
+                font-size: 0.82rem;
+            }
+
+            .th-count-label {
+                font-size: 0.38rem;
             }
 
             .tpage-ba-grid {
@@ -991,6 +1157,40 @@
                 gap: 1.5rem;
                 justify-content: flex-start;
                 padding: 0 5%;
+            }
+        }
+
+        @media (max-width:480px) {
+
+            .testimonial-hero {
+                height: calc(100svh - 90px);
+                min-height: calc(100svh - 90px);
+            }
+
+            .th-left {
+                padding: 0.7rem 5% 0.4rem;
+            }
+
+            .th-h1 {
+                font-size: clamp(1.4rem, 7.5vw, 2rem);
+                margin-bottom: 0.3rem;
+            }
+
+            .th-sub {
+                font-size: 0.72rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .th-count-strip>div {
+                padding: 0.45rem 0.1rem;
+            }
+
+            .th-count-num {
+                font-size: 0.72rem;
+            }
+
+            .th-count-label {
+                font-size: 0.34rem;
             }
         }
 
@@ -1037,7 +1237,7 @@
         </div>
 
         <div class="th-right">
-            <img src="/images/testimonial/hero.webp" alt="Client transformation" />
+            <img src="/images/testimonial/testimonial-hero.png" alt="Client transformation" />
         </div>
     </section>
 
@@ -1595,7 +1795,8 @@
 
                 <div class="ba-card" data-category="pcos">
                     <div class="ba-photos auto-flip">
-                        <img class="ba-img before active" src="/images/testimonials/client28-before.jpeg" alt="Before" />
+                        <img class="ba-img before active" src="/images/testimonials/client28-before.jpeg"
+                            alt="Before" />
                         <img class="ba-img after" src="/images/testimonials/client28-after.jpeg" alt="After" />
 
                         <span class="ba-label ba-label-before">Before</span>
@@ -1613,7 +1814,8 @@
 
                 <div class="ba-card" data-category="diabetes">
                     <div class="ba-photos auto-flip">
-                        <img class="ba-img before active" src="/images/testimonials/client29-before.jpeg" alt="Before" />
+                        <img class="ba-img before active" src="/images/testimonials/client29-before.jpeg"
+                            alt="Before" />
                         <img class="ba-img after" src="/images/testimonials/client29-after.jpeg" alt="After" />
 
                         <span class="ba-label ba-label-before">Before</span>
@@ -1632,7 +1834,8 @@
 
                 <div class="ba-card" data-category="pregnancy">
                     <div class="ba-photos auto-flip">
-                        <img class="ba-img before active" src="/images/testimonials/client30-before.jpeg" alt="Before" />
+                        <img class="ba-img before active" src="/images/testimonials/client30-before.jpeg"
+                            alt="Before" />
                         <img class="ba-img after" src="/images/testimonials/client30-after.jpeg" alt="After" />
 
                         <span class="ba-label ba-label-before">Before</span>
@@ -1652,7 +1855,8 @@
 
                 <div class="ba-card" data-category="gut">
                     <div class="ba-photos auto-flip">
-                        <img class="ba-img before active" src="/images/testimonials/client31-before.jpeg" alt="Before" />
+                        <img class="ba-img before active" src="/images/testimonials/client31-before.jpeg"
+                            alt="Before" />
                         <img class="ba-img after" src="/images/testimonials/client31-after.jpeg" alt="After" />
 
                         <span class="ba-label ba-label-before">Before</span>
@@ -1671,7 +1875,8 @@
 
                 <div class="ba-card" data-category="weight-management">
                     <div class="ba-photos auto-flip">
-                        <img class="ba-img before active" src="/images/testimonials/client32-before.jpeg" alt="Before" />
+                        <img class="ba-img before active" src="/images/testimonials/client32-before.jpeg"
+                            alt="Before" />
                         <img class="ba-img after" src="/images/testimonials/client32-after.jpeg" alt="After" />
 
                         <span class="ba-label ba-label-before">Before</span>
@@ -1690,7 +1895,8 @@
 
                 <div class="ba-card" data-category="muscle">
                     <div class="ba-photos auto-flip">
-                        <img class="ba-img before active" src="/images/testimonials/client33-before.jpeg" alt="Before" />
+                        <img class="ba-img before active" src="/images/testimonials/client33-before.jpeg"
+                            alt="Before" />
                         <img class="ba-img after" src="/images/testimonials/client33-after.jpeg" alt="After" />
 
                         <span class="ba-label ba-label-before">Before</span>
@@ -1709,7 +1915,8 @@
 
                 <div class="ba-card" data-category="pcos">
                     <div class="ba-photos auto-flip">
-                        <img class="ba-img before active" src="/images/testimonials/client34-before.jpeg" alt="Before" />
+                        <img class="ba-img before active" src="/images/testimonials/client34-before.jpeg"
+                            alt="Before" />
                         <img class="ba-img after" src="/images/testimonials/client34-after.jpeg" alt="After" />
 
                         <span class="ba-label ba-label-before">Before</span>
@@ -1793,8 +2000,8 @@
 
                 <div class="ba-card" data-category="weight-management">
                     <div class="ba-photos auto-flip">
-                        <img class="ba-img before active" src="/images/testimonials/client38-before.jpeg" alt="Before" />
-                        <img class="ba-img after" src="/images/testimonials/client38-after.jpeg" alt="After" />
+                        <img class="ba-img before active" src="/images/testimonials/client3-before.webp" alt="Before" />
+                        <img class="ba-img after" src="/images/testimonials/client3-after.webp" alt="After" />
 
                         <span class="ba-label ba-label-before">Before</span>
                         <span class="ba-label ba-label-after">After</span>
@@ -2447,8 +2654,10 @@
                 const beforeImg = card.querySelector('.before');
                 const afterImg = card.querySelector('.after');
 
-                beforeImg.classList.add('active');
-                card.classList.add('show-before');
+                setTimeout(() => {
+                    beforeImg.classList.add('active');
+                    card.classList.add('show-before');
+                }, 100);
 
                 let showingAfter = false;
 
@@ -2517,7 +2726,7 @@
             modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
             document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
 
-            const BATCH = 50;
+            const BATCH = 20;
             const baGrid = document.querySelector('.tpage-ba-grid');
             const allBaCards = Array.from(baGrid.querySelectorAll('.ba-card'));
 
