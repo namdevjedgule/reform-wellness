@@ -254,28 +254,19 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     const fadeEls = document.querySelectorAll(".fade-up");
-
     const fadeObs = new IntersectionObserver(
         (entries) => {
-
             entries.forEach((e, i) => {
-
                 if (e.isIntersecting) {
-
                     setTimeout(() => {
-
                         e.target.classList.add("visible");
-
                     }, i * 80);
-
                     fadeObs.unobserve(e.target);
                 }
             });
-
         },
         { threshold: 0.08 }
     );
-
     fadeEls.forEach(el => fadeObs.observe(el));
 
 });

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Our Services — Reform Wellness</title>
+    <title>Our Services- Reform Wellness</title>
     <link rel="icon" type="image/x-icon" href="/favicon_io/favicon.ico" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
     <link
@@ -1150,101 +1150,6 @@
             font-size: .74rem;
         }
 
-        @media (max-width: 1024px) {
-
-            .services-hero {
-
-                /* REMOVE OLD HEIGHT */
-                height: auto;
-                min-height: auto;
-
-                /* SAFARI + MOBILE SAFE HEIGHT */
-                min-height: calc(100svh - 92px);
-
-                display: flex;
-                align-items: center;
-                justify-content: center;
-
-                overflow: hidden;
-
-                padding: 0;
-            }
-
-            .sh-right {
-                display: none;
-            }
-
-            .sh-left {
-
-                width: 100%;
-
-                /* IMPORTANT FIX */
-                min-height: calc(100svh - 92px);
-
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-
-                /* SMALLER SAFE PADDING */
-                padding:
-                    clamp(3rem, 6vw, 5rem) clamp(1.2rem, 5vw, 7%) clamp(2rem, 5vw, 4rem);
-
-                box-sizing: border-box;
-            }
-
-            /* ================= TYPOGRAPHY ================= */
-
-            .sh-h1 {
-                font-size: clamp(2.5rem, 8vw, 5rem);
-                line-height: .92;
-                margin-bottom: 1rem;
-            }
-
-            .sh-sub {
-                font-size: clamp(.88rem, 2vw, 1rem);
-                line-height: 1.7;
-                margin-bottom: 1rem;
-                max-width: 100%;
-            }
-
-            .sh-count-strip {
-                margin-top: .8rem;
-                padding-top: 1rem;
-                gap: 1rem;
-                flex-wrap: wrap;
-            }
-
-            .sh-count-num {
-                font-size: clamp(1.8rem, 5vw, 2.6rem);
-            }
-
-            .sh-count-label {
-                font-size: .62rem;
-            }
-
-            /* ================= BLOBS ================= */
-
-            .hero-blob-1 {
-                width: 260px;
-                height: 260px;
-                top: -80px;
-                right: -80px;
-            }
-
-            .hero-blob-2 {
-                width: 200px;
-                height: 200px;
-                left: -60px;
-                bottom: -60px;
-            }
-
-            .hero-blob-3 {
-                width: 160px;
-                height: 160px;
-                right: -50px;
-            }
-        }
-
         @media(max-width:1060px) {
             .services-hero {
                 grid-template-columns: 1fr;
@@ -1293,48 +1198,76 @@
         @media (max-width: 1024px) {
 
             .services-hero {
-                height: calc(100vh - 92px);
-                min-height: calc(100vh - 92px);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                grid-template-columns: 1fr;
-            }
+                height: calc(100svh - 92px);
+                min-height: calc(100svh - 92px);
 
-            .sh-right {
-                display: none;
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-template-rows: auto 1fr;
+
+                overflow: hidden;
             }
 
             .sh-left {
-                width: 100%;
-                height: 100%;
-                min-height: calc(100vh - 92px);
+                padding: 1.2rem 6% 0.8rem;
 
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
+                align-items: center;
 
-                padding: 5rem 7%;
+                text-align: center;
+                min-height: 0;
+                z-index: 2;
+            }
+
+            .sh-eyebrow {
+                font-size: 0.7rem;
+                margin-bottom: 0.5rem;
             }
 
             .sh-h1 {
-                font-size: clamp(3.5rem, 9vw, 5.5rem);
+                font-size: clamp(1.8rem, 5vw, 2.8rem);
+                line-height: 1.05;
+                margin-bottom: 0.5rem;
             }
 
             .sh-sub {
-                max-width: 100%;
-                font-size: 1rem;
+                font-size: 0.82rem;
+                line-height: 1.55;
+                margin-bottom: 0.7rem;
+                max-width: 95%;
+            }
+
+            .sh-right {
+                position: relative;
+                height: 100%;
+                min-height: 0;
+                overflow: hidden;
+            }
+
+            .sh-right img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center top;
+                display: block;
             }
 
             .sh-count-strip {
-                flex-wrap: wrap;
+                margin-top: 0.7rem;
+                padding-top: 0.7rem;
                 gap: 1.5rem;
+                border-top: 1px solid rgba(144, 155, 76, 0.2);
+                justify-content: center;
             }
 
-            .sh-badge {
-                top: auto;
-                bottom: 2rem;
-                left: 2rem;
+            .sh-count-num {
+                font-size: 1.8rem;
+            }
+
+            .sh-count-label {
+                font-size: 0.62rem;
             }
 
             .sticky-nav {
@@ -1414,84 +1347,30 @@
 
         @media (max-width: 768px) {
 
-            .services-hero {
-                grid-template-columns: 1fr;
-                height: auto;
-                min-height: auto;
-            }
-
-            .hero-blob-1 {
-                width: 280px;
-                height: 280px;
-                right: -60px;
-                top: -40px;
-            }
-
-            .hero-blob-2 {
-                width: 220px;
-                height: 220px;
-                left: -50px;
-                bottom: -50px;
-            }
-
-            .hero-blob-3 {
-                width: 180px;
-                height: 180px;
-                right: -40px;
-            }
-
-            .sh-right {
-                display: none;
-            }
-
-            .sh-left {
-                width: 100%;
-                min-height: calc(100vh - 92px);
-                padding: 4rem 6%;
-                justify-content: center;
-            }
-
-            .sh-h1 {
-                font-size: clamp(2.8rem, 12vw, 4.5rem);
-                line-height: .95;
-            }
-
-            .sh-sub {
-                max-width: 100%;
-                font-size: .92rem;
-                line-height: 1.8;
-                margin-bottom: 1.5rem;
-            }
-
             .sh-count-strip {
-                gap: 1.5rem;
-                margin-top: 1rem;
-                padding-top: 1.2rem;
-                flex-wrap: wrap;
+                border: none !important;
+                border-top: none !important;
+                padding-top: 0 !important;
+
+                display: flex;
+                flex-wrap: wrap !important;
+                justify-content: center;
+                gap: 1rem;
+                width: 100%;
+                overflow: hidden;
+            }
+
+            .sh-count-strip>div {
+                flex: 0 0 45%;
+                text-align: center;
             }
 
             .sh-count-num {
-                font-size: 2rem;
+                font-size: 1.6rem;
             }
 
             .sh-count-label {
-                font-size: .62rem;
-            }
-
-            .sh-badge {
-                width: 150px;
-                padding: .9rem 1rem;
-                border-radius: 14px;
-                left: 1rem;
-                bottom: 1rem;
-            }
-
-            .sh-badge-val {
-                font-size: 1.5rem;
-            }
-
-            .sh-badge-label {
-                font-size: .62rem;
+                font-size: 0.6rem;
             }
 
             .sticky-nav {
@@ -1640,49 +1519,118 @@
             }
         }
 
-        @media (max-width: 480px) {
-
-            .services-hero,
-            .sh-left {
-                min-height: calc(100svh - 70px);
+        @media(max-width:640px) {
+            .services-hero {
+                height: calc(100svh - 92px);
+                min-height: calc(100svh - 92px);
             }
 
             .sh-left {
-
-                padding:
-                    4.5rem 1.2rem 2rem;
+                padding: 1rem 5% 0.6rem;
             }
 
             .sh-eyebrow {
-                font-size: .62rem;
-                margin-bottom: .8rem;
+                font-size: 0.65rem;
+                margin-bottom: 0.4rem;
+            }
+
+            .sh-h1 br {
+                display: none;
             }
 
             .sh-h1 {
-                font-size: 2.4rem;
-                line-height: .9;
-                margin-bottom: .9rem;
+                font-size: clamp(1.6rem, 6.5vw, 2.4rem);
+                margin-bottom: 0.4rem;
+                line-height: 1.2;
             }
 
             .sh-sub {
-                font-size: .86rem;
-                line-height: 1.65;
+                font-size: 0.78rem;
+                margin-bottom: 0.6rem;
             }
 
-            .sh-eyebrow::before {
-                width: 24px;
+            .sh-right {
+                position: relative;
+                overflow: hidden;
             }
 
             .sh-count-strip {
+                margin-top: 0.5rem;
+                padding-top: 0.5rem;
                 gap: 1rem;
             }
 
             .sh-count-num {
-                font-size: 1.7rem;
+                font-size: 1.5rem;
             }
 
             .sh-count-label {
-                font-size: .58rem;
+                font-size: 0.58rem;
+            }
+
+            .overview-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-inner {
+                flex-direction: column;
+                gap: 2.5rem;
+            }
+
+            .process-inner::before {
+                display: none;
+            }
+
+            .results-stats {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .pricing-inner {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: .5rem;
+                text-align: center;
+            }
+
+            .cta-box {
+                padding: 3.5rem 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            .services-hero {
+                height: calc(100svh - 92px);
+                min-height: calc(100svh - 92px);
+            }
+
+            .sh-left {
+                padding: 0.7rem 5% 0.4rem;
+            }
+
+            .sh-h1 {
+                font-size: clamp(1.4rem, 7.5vw, 2rem);
+                margin-bottom: 0.3rem;
+            }
+
+            .sh-sub {
+                font-size: 0.72rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .sh-count-strip {
+                gap: 0.7rem;
+            }
+
+            .sh-count-num {
+                font-size: 1.4rem;
             }
 
             .sh-badge {
@@ -1730,40 +1678,48 @@
             }
         }
 
-        @media(max-width:640px) {
-            .overview-grid {
-                grid-template-columns: 1fr;
+        @media(max-width:400px) {
+
+            .services-hero {
+                height: calc(100svh - 92px);
+                min-height: calc(100svh - 92px);
+                grid-template-rows: auto 1fr;
             }
 
-            .process-inner {
-                flex-direction: column;
-                gap: 2.5rem;
+            .sh-h1 {
+                font-size: clamp(1.3rem, 8vw, 1.8rem);
             }
 
-            .process-inner::before {
-                display: none;
+            .sh-right {
+                height: 100% !important;
+                min-height: 0 !important;
             }
 
-            .results-stats {
-                grid-template-columns: 1fr 1fr;
+            .sh-count-strip {
+                border: none !important;
+                border-top: none !important;
+                padding-top: 0 !important;
+
+                display: flex;
+                flex-wrap: wrap !important;
+                justify-content: center;
+                gap: 1rem;
+                width: 100%;
+                overflow: hidden;
             }
 
-            .pricing-inner {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-bottom {
-                flex-direction: column;
-                gap: .5rem;
+            .sh-count-strip>div {
+                flex: 0 0 45%;
                 text-align: center;
             }
 
-            .cta-box {
-                padding: 3.5rem 2rem;
+            .sh-count-num {
+                font-size: clamp(1.2rem, 3vw, 2rem);
+            }
+
+            .sh-count-label {
+                font-size: clamp(0.65rem, 1.5vw, 0.82rem);
+                line-height: 1.4;
             }
         }
     </style>
@@ -1781,7 +1737,11 @@
 
         <div class="sh-left">
             <span class="sh-eyebrow">What We Offer</span>
-            <h1 class="sh-h1">Programs<br>Built for<br><em>Your Body</em></h1>
+            <h1 class="sh-h1">
+                <span>Programs</span><br>
+                <span>Built for</span><br>
+                <em>Your Body</em>
+            </h1>
             <p class="sh-sub">Five specialized nutrition programs, each crafted around your unique health condition,
                 metabolism, and Indian lifestyle never a template, always personal.</p>
             <div class="sh-count-strip">
@@ -1805,8 +1765,7 @@
         </div>
 
         <div class="sh-right">
-            <img src="/images/services/services.webp"
-                alt="Nutrition programs" />
+            <img src="/images/services/services.webp" alt="Nutrition programs" />
         </div>
     </section>
 
@@ -1814,13 +1773,13 @@
         <div class="sn-inner">
             <a href="#weight-management" class="sn-item active" data-section="weight-management"><span class="sn-icon">
                     <i class="fa-solid fa-weight-scale"></i>
-                </span>Weight Management</a>
+                </span>Weight Management Plan</a>
             <a href="#disease-management" class="sn-item" data-section="disease-management"><span class="sn-icon">
                     <i class="fa-solid fa-heart-pulse"></i>
-                </span>Disease Management</a>
+                </span>Disease Management Plan</a>
             <a href="#pre-plan" class="sn-item" data-section="pre-plan"><span class="sn-icon">
                     <i class="fa-solid fa-ring"></i>
-                </span>Pre-bridal & Pre-groom Plan</a>
+                </span>Pre-Bridal & Pre-Groom Plan</a>
             <a href="#family-plan" class="sn-item" data-section="family-plan"><span class="sn-icon">
                     <i class="fa-solid fa-people-group"></i>
                 </span>Family Nutrition Plan</a>
@@ -1836,8 +1795,7 @@
             <div class="svc-layout fade-up">
                 <div class="svc-img-wrap">
                     <div class="svc-img-bg"></div>
-                    <img src="/images/services/weight-management.webp" class="svc-img"
-                        alt="Weight Loss" />
+                    <img src="/images/services/weight-management.webp" class="svc-img" alt="Weight Loss" />
                     <div class="svc-result-badge">
                         <div class="srb-icon"><i class="fa-solid fa-weight-scale"></i></div>
                         <div>
@@ -1912,8 +1870,7 @@
             <div class="svc-layout flip fade-up">
                 <div class="svc-img-wrap">
                     <div class="svc-img-bg"></div>
-                    <img src="/images/services/disease-management.webp" class="svc-img"
-                        alt="PCOS Thyroid" />
+                    <img src="/images/services/disease-management.webp" class="svc-img" alt="PCOS Thyroid" />
                     <div class="svc-result-badge">
                         <div class="srb-icon"><i class="fa-solid fa-heart-pulse"></i></div>
                         <div>
@@ -2001,8 +1958,7 @@
             <div class="svc-layout fade-up">
                 <div class="svc-img-wrap">
                     <div class="svc-img-bg"></div>
-                    <img src="/images/services/pre-plan.webp" class="svc-img"
-                        alt="Muscle Gain" />
+                    <img src="/images/services/pre-plan.webp" class="svc-img" alt="Muscle Gain" />
                     <div class="svc-result-badge">
                         <div class="srb-icon"><i class="fa-solid fa-ring"></i></div>
                         <div>
@@ -2014,7 +1970,7 @@
                 <div class="svc-text">
                     <div class="svc-num">03</div>
                     <span class="sec-tag">Program Three</span>
-                    <h2 class="svc-title">Pre-bridal & Pre-groom <br><em>Plan</em></h2>
+                    <h2 class="svc-title">Pre-Bridal & <em>Pre-Groom</em> <br>Plan</h2>
                     <p class="svc-desc">
                         A complete transformation plan designed for brides and grooms to feel healthy,
                         confident, energetic, and glowing before their special day with customized nutrition,
@@ -2074,8 +2030,7 @@
             <div class="svc-layout flip fade-up">
                 <div class="svc-img-wrap">
                     <div class="svc-img-bg"></div>
-                    <img src="/images/services/family-nutrition.webp"
-                        alt="Family Nutrition Plan" class="svc-img" />
+                    <img src="/images/services/family-nutrition.webp" alt="Family Nutrition Plan" class="svc-img" />
                     <div class="svc-result-badge">
                         <div class="srb-icon"><i class="fa-solid fa-people-group"></i></div>
                         <div>
@@ -2146,8 +2101,7 @@
             <div class="svc-layout fade-up">
                 <div class="svc-img-wrap">
                     <div class="svc-img-bg"></div>
-                    <img src="/images/services/pregnancy-plan.webp" class="svc-img"
-                        alt="Pregnancy & Lactation" />
+                    <img src="/images/services/pregnancy-plan.webp" class="svc-img" alt="Pregnancy & Lactation" />
                     <div class="svc-result-badge">
                         <div class="srb-icon"><i class="fa-solid fa-baby"></i></div>
                         <div>
@@ -2256,7 +2210,7 @@
                 <a href="#pre-plan" class="ov-card">
                     <div class="ov-num">03</div>
                     <div class="ov-icon"><i class="fa-solid fa-ring"></i></div>
-                    <div class="ov-title">Pre-bridal & Pre-groom Plan</div>
+                    <div class="ov-title">Pre-Bridal & Pre-Groom Plan</div>
                     <div class="ov-desc">
                         Complete wellness transformation plans for brides and grooms before their special wedding
                         journey.
