@@ -916,20 +916,134 @@
             }
         }
 
-        @media (max-width:1024px) {
+        /* =========================================================
+   TABLET ONLY (768px - 1024px)
+   KEEP DESKTOP STYLE
+========================================================= */
+        @media (max-width:1024px) and (min-width:769px) {
 
             .testimonial-hero {
                 height: calc(100svh - 90px);
                 min-height: calc(100svh - 90px);
+
                 display: grid;
-                grid-template-columns: 1fr;
-                grid-template-rows: auto 1fr;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 1fr;
 
                 overflow: hidden;
             }
 
             .th-left {
-                padding: 1.2rem 6% 0.8rem;
+                padding: 2rem 6%;
+
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+
+                text-align: left;
+                z-index: 2;
+            }
+
+            .th-eyebrow {
+                font-size: 0.7rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .th-eyebrow::before {
+                width: 28px;
+            }
+
+            .th-h1 {
+                font-size: clamp(2.2rem, 4vw, 3.5rem);
+                line-height: 1.05;
+                margin-bottom: 0.8rem;
+            }
+
+            .th-sub {
+                font-size: 0.84rem;
+                line-height: 1.6;
+                margin-bottom: 1rem;
+                max-width: 95%;
+            }
+
+            .th-actions {
+                justify-content: flex-start;
+            }
+
+            .th-btn-primary {
+                padding: 0.8rem 1.7rem;
+                font-size: 0.8rem;
+            }
+
+            .th-right {
+                position: relative;
+                overflow: hidden;
+                height: 100%;
+            }
+
+            .th-right img {
+                width: 100%;
+                height: 100%;
+
+                object-fit: cover;
+                object-position: center center;
+
+                display: block;
+            }
+
+            .th-count-strip {
+                margin-top: 1.2rem;
+
+                position: static;
+
+                display: flex;
+                gap: 1.5rem;
+
+                background: transparent;
+                backdrop-filter: none;
+            }
+
+            .th-count-strip>div {
+                padding: 0;
+                border-right: none;
+                text-align: left;
+            }
+
+            .th-count-num {
+                font-size: 1.8rem;
+                line-height: 1;
+                white-space: nowrap;
+            }
+
+            .th-count-label {
+                font-size: 0.62rem;
+                line-height: 1.4;
+                margin-top: 0.2rem;
+            }
+        }
+
+
+        /* =========================================================
+   MOBILE ONLY (max-width:768px)
+   IMAGE TOP + CONTENT BOTTOM
+========================================================= */
+        @media (max-width:768px) {
+
+            .testimonial-hero {
+                height: calc(100svh - 90px);
+                min-height: calc(100svh - 90px);
+
+                display: flex;
+                flex-direction: column-reverse;
+
+                overflow: hidden;
+            }
+
+            .th-left {
+                height: 60%;
+
+                padding: 1.5rem 5% 1rem;
 
                 display: flex;
                 flex-direction: column;
@@ -937,30 +1051,50 @@
                 align-items: center;
 
                 text-align: center;
-                min-height: 0;
                 z-index: 2;
             }
 
+            .th-right {
+                height: 40%;
+
+                position: relative;
+                overflow: hidden;
+            }
+
+            .th-right img {
+                width: 100%;
+                height: 100%;
+
+                object-fit: cover;
+                object-position: center center;
+
+                display: block;
+            }
+
             .th-eyebrow {
-                font-size: 0.7rem;
+                font-size: 0.68rem;
                 margin-bottom: 0.5rem;
             }
 
             .th-eyebrow::before {
-                width: 24px;
+                width: 22px;
+            }
+
+            .th-h1 br {
+                display: none;
             }
 
             .th-h1 {
-                font-size: clamp(1.8rem, 5vw, 2.8rem);
-                line-height: 1.05;
-                margin-bottom: 0.5rem;
+                font-size: clamp(1.8rem, 7vw, 2.5rem);
+                line-height: 1.12;
+                margin-bottom: 0.6rem;
             }
 
             .th-sub {
-                font-size: 0.82rem;
+                font-size: 0.78rem;
                 line-height: 1.55;
-                margin-bottom: 0.7rem;
-                max-width: 95%;
+                max-width: 100%;
+                margin-bottom: 0.8rem;
             }
 
             .th-actions {
@@ -968,75 +1102,46 @@
             }
 
             .th-btn-primary {
-                padding: 0.75rem 1.6rem;
-                font-size: 0.78rem;
-            }
-
-            .th-right {
-                position: relative;
-                overflow: hidden;
-                min-height: 0;
-            }
-
-            .th-right img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                object-position: center top;
-                display: block;
+                padding: 0.75rem 1.5rem;
+                font-size: 0.75rem;
             }
 
             .th-count-strip {
-                position: absolute;
-                left: 0;
-                right: 0;
-                bottom: 0;
+                margin-top: 1rem;
 
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
+                position: static;
 
-                background: rgba(46, 44, 47, .78);
-                backdrop-filter: blur(12px);
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
 
-                overflow: hidden;
-                z-index: 5;
+                gap: 1rem;
+
+                background: transparent;
+                backdrop-filter: none;
             }
 
             .th-count-strip>div {
-                min-width: 0;
+                flex: 0 0 45%;
 
-                padding: 0.55rem 0.2rem;
+                padding: 0;
+                border-right: none;
 
                 text-align: center;
-
-                border-right: 1px solid rgba(240, 238, 233, .08);
-            }
-
-            .th-count-strip>div:last-child {
-                border-right: none;
             }
 
             .th-count-num {
-                font-size: 0.95rem;
+                font-size: 1.3rem;
                 line-height: 1;
-                white-space: nowrap;
             }
 
             .th-count-label {
-                font-size: 0.42rem;
-                line-height: 1.2;
-
-                margin-top: 0.15rem;
-
-                letter-spacing: 0.02em;
-
-                word-break: break-word;
+                font-size: 0.54rem;
+                line-height: 1.3;
+                margin-top: 0.2rem;
             }
-        }
 
-
-        @media (max-width: 768px) {
-
+            /* KEEP YOUR EXISTING STYLES */
             .tpage-filter {
                 position: sticky;
                 top: 90px;
@@ -1100,41 +1205,30 @@
             }
         }
 
-        @media (max-width: 640px) {
+
+        /* =========================================================
+   SMALL MOBILE
+========================================================= */
+        @media (max-width:640px) {
 
             .th-left {
-                padding: 1rem 5% 0.6rem;
-            }
-
-            .th-eyebrow {
-                font-size: 0.65rem;
-                margin-bottom: 0.4rem;
-            }
-
-            .th-h1 br {
-                display: none;
+                padding: 1rem 5% 0.7rem;
             }
 
             .th-h1 {
-                font-size: clamp(1.6rem, 6.5vw, 2.4rem);
-                line-height: 1.2;
+                font-size: clamp(1.6rem, 6.5vw, 2.2rem);
             }
 
             .th-sub {
-                font-size: 0.78rem;
-                margin-bottom: 0.6rem;
+                font-size: 0.75rem;
             }
 
             .th-count-num {
-                font-size: 0.82rem;
+                font-size: 1.1rem;
             }
 
             .th-count-label {
-                font-size: 0.38rem;
-            }
-
-            .tpage-ba-grid {
-                grid-template-columns: repeat(2, 1fr);
+                font-size: 0.48rem;
             }
 
             .tpage-video-grid {
@@ -1160,41 +1254,52 @@
             }
         }
 
+
+        /* =========================================================
+   EXTRA SMALL MOBILE
+========================================================= */
         @media (max-width:480px) {
 
-            .testimonial-hero {
-                height: calc(100svh - 90px);
-                min-height: calc(100svh - 90px);
-            }
-
             .th-left {
-                padding: 0.7rem 5% 0.4rem;
+                padding: 0.8rem 5% 0.5rem;
             }
 
             .th-h1 {
-                font-size: clamp(1.4rem, 7.5vw, 2rem);
-                margin-bottom: 0.3rem;
+                font-size: clamp(1.4rem, 7vw, 1.9rem);
             }
 
             .th-sub {
                 font-size: 0.72rem;
-                margin-bottom: 0.5rem;
+            }
+
+            .th-count-strip {
+                gap: 0.8rem;
             }
 
             .th-count-strip>div {
-                padding: 0.45rem 0.1rem;
+                flex: 0 0 45%;
             }
 
             .th-count-num {
-                font-size: 0.72rem;
+                font-size: 1rem;
             }
 
             .th-count-label {
-                font-size: 0.34rem;
+                font-size: 0.46rem;
             }
         }
 
-        @media (max-width: 400px) {
+
+        @media (max-width:400px) {
+
+            .th-h1 {
+                font-size: 1.3rem;
+            }
+
+            .th-count-strip>div {
+                flex: 1 1 100%;
+            }
+
             .rating-banner {
                 grid-template-columns: 1fr;
             }
@@ -1216,7 +1321,7 @@
             <span class="th-eyebrow">Real People · Real Results</span>
             <h1 class="th-h1">
                 <span>Stories That</span><br>
-                <span>Inspire</span><br>
+                <span>Inspire</span>
                 <em>Change</em>
             </h1>
             <p class="th-sub">Over 1000+ clients have transformed their health with Reform Wellness. See their stories
