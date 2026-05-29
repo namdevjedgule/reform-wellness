@@ -269,4 +269,16 @@ document.addEventListener("DOMContentLoaded", function () {
     );
     fadeEls.forEach(el => fadeObs.observe(el));
 
+    (function () {
+        var btn = document.getElementById('rwFabBtn');
+        var opts = document.getElementById('rwFabOpts');
+        var open = true;
+
+        btn.addEventListener('click', function () {
+            open = !open;
+            opts.classList.toggle('rw-hidden', !open);
+            btn.classList.toggle('rw-open', open);
+        });
+    })();
+
 });
