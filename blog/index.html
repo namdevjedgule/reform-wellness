@@ -390,6 +390,51 @@
             color: var(--muted);
         }
 
+        .card-image {
+            position: relative;
+            width: 100%;
+            height: 190px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            transition: transform .4s ease;
+        }
+
+        .article-card:hover .card-image img {
+            transform: scale(1.04);
+        }
+
+        .card-img-badge {
+            position: absolute;
+            bottom: .75rem;
+            left: .9rem;
+            font-size: .6rem;
+            font-weight: 600;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            padding: .28rem .75rem;
+            border-radius: 100px;
+            color: #fff;
+            backdrop-filter: blur(4px);
+        }
+
+        /* Remove the old colored top bar since image replaces it */
+        .card-top {
+            display: none;
+        }
+
+        /* Slightly taller cards look better with images */
+        .card-body {
+            padding: 1.3rem 1.6rem 1.6rem;
+        }
+
         .card-title {
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.28rem;
@@ -872,6 +917,42 @@
                 flex: 0 0 45%;
                 text-align: center;
             }
+
+            .detail-hero {
+                padding: 2rem 5% 2.5rem;
+            }
+
+            .detail-title {
+                font-size: clamp(1.6rem, 6vw, 2.4rem);
+                margin-bottom: 1rem;
+            }
+
+            /* Two-column content → single column */
+            .detail-content-wrap {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                padding: 2rem 5% 4rem;
+            }
+
+            /* Move sidebar below article content */
+            .detail-sidebar {
+                position: static;
+                order: 2;
+            }
+
+            .detail-article {
+                order: 1;
+            }
+
+            /* Related cards: 1 column on small screens */
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+
+            /* TOC block — hide by default on mobile to save space */
+            .dsb-block:first-child {
+                display: none;
+            }
         }
 
         @media (max-width:480px) {
@@ -921,11 +1002,65 @@
                 font-size: 0.5rem;
                 line-height: 1.3;
             }
+
+            .detail-hero {
+                padding: 1.5rem 5% 2rem;
+            }
+
+            .detail-cat-row {
+                gap: .5rem;
+                margin-bottom: 1rem;
+            }
+
+            .detail-title {
+                font-size: clamp(1.4rem, 7vw, 1.9rem);
+            }
+
+            .detail-content-wrap {
+                padding: 1.5rem 5% 3rem;
+                gap: 1.5rem;
+            }
+
+            .article-prose h2 {
+                font-size: 1.4rem;
+                margin: 2rem 0 .75rem;
+            }
+
+            .article-prose h3 {
+                font-size: 1.15rem;
+            }
+
+            .article-prose p {
+                font-size: .88rem;
+            }
+
+            .article-prose li {
+                font-size: .86rem;
+            }
+
+            .article-callout {
+                padding: 1rem 1.1rem;
+                font-size: 1rem;
+            }
+
+            .related-section {
+                padding-top: 1.5rem;
+            }
+
+            .related-title {
+                font-size: 1.2rem;
+                margin-bottom: 1rem;
+            }
+
+            .cta-block {
+                padding: 1.2rem;
+            }
+
+            .breadcrumb-current {
+                max-width: 200px;
+            }
         }
 
-        /* =========================================================
-   EXTRA SMALL
-========================================================= */
         @media (max-width:400px) {
 
             .blog-hero {
@@ -1121,6 +1256,7 @@
         const ARTICLES = [
             {
                 id: 1, cat: 'general',
+                img: '/images/blog/vitamin.webp',
                 title: 'Micronutrient Deficiency in Indian Women: Iron, B12 & Vitamin D Explained',
                 excerpt: 'Indian women often have iron deficiency, vitamin B12 deficiency and vitamin D deficiency. These deficiencies can cause a lot of health problems here\'s what the common signs are, what causes them, and how to fix them.',
                 author: 'Dt. Roshani Musale', read: '7 min read', date: 'May 2025',
@@ -1276,6 +1412,7 @@
             },
             {
                 id: 2, cat: 'general',
+                img: '/images/blog/best-nutrition.webp',
                 title: 'Best Nutritionist in Kharadi Pune: What to Look For and How to Choose',
                 excerpt: 'Looking for a nutritionist in Kharadi, Pune? Learn how to choose the right nutritionist, what makes a good nutrition clinic, and how to find practical nutrition advice that fits your lifestyle.',
                 author: 'Dt. Roshani Musale', read: '6 min read', date: 'May 2025',
@@ -1403,6 +1540,7 @@
             },
             {
                 id: 3, cat: 'general',
+                img: '/images/blog/diet-plan.webp',
                 title: 'Thyroid and Diet in India: Why Generic Advice Doesn\'t Work for Us',
                 excerpt: 'Discover a practical thyroid diet plan for India with Indian foods for thyroid health, foods to avoid, weight gain tips, and expert hypothyroidism diet advice.',
                 author: 'Dt. Roshani Musale', read: '8 min read', date: 'Apr 2025',
@@ -1584,6 +1722,7 @@
             },
             {
                 id: 4, cat: 'general',
+                img: '/images/blog/protein-deficiency.webp',
                 title: 'Protein Deficiency in Indians: Why It’s More Common Than You Think',
                 excerpt: 'Learn why protein deficiency in Indians is more common than expected. Discover signs of protein deficiency, protein rich Indian foods, and high protein diet tips.',
                 author: 'Dt. Roshani Musale', read: '6 min read', date: 'Apr 2025',
@@ -1742,6 +1881,7 @@
             },
             {
                 id: 5, cat: 'general',
+                img: '/images/blog/weight-loss.webp',
                 title: 'Weight Loss After 30 for Indian Women: A Dietician\'s Practical Guide',
                 excerpt: 'Struggling with weight loss after 30 in India? Discover practical diet tips, metabolism support, healthy Indian meals, and expert nutrition advice for women.',
                 author: 'Dt. Roshani Musale', read: '9 min read', date: 'Mar 2025',
@@ -1921,6 +2061,7 @@
             },
             {
                 id: 6, cat: 'general',
+                img: '/images/blog/pcos-diet.webp',
                 title: 'PCOS Diet Plan for Pune Women: Foods That Work With Indian Eating Habits',
                 excerpt: 'Looking for a practical PCOS diet plan in India? Discover PCOS-friendly Indian foods, weight loss tips, foods to avoid, and expert nutrition advice for women.',
                 author: 'Dt. Roshani Musale', read: '8 min read', date: 'Mar 2025',
@@ -2140,6 +2281,7 @@
             },
             {
                 id: 7, cat: 'general',
+                img: '/images/blog/nutritionist.webp',
                 title: 'What Does a Nutritionist Actually Do? A Guide for First-Time Clients in Pune',
                 excerpt: 'Wondering what a nutritionist does? Learn what to expect during your first nutrition consultation in Pune, nutritionist vs dietician differences, and more.',
                 author: 'Dt. Roshani Musale', read: '5 min read', date: 'Feb 2025',
@@ -2312,6 +2454,7 @@
             },
             {
                 id: 8, cat: 'weight',
+                img: '/images/blog/micronutrient-deficiency.webp',
                 title: 'How a Structured 3-Month Weight Loss Plan Works Differently Than a Generic Diet',
                 excerpt: 'A properly structured weight management plan isn\'t just a meal chart it is a phased, evolving program that adapts to your body\'s response over time.',
                 author: 'Dt. Roshani Musale', read: '7 min read', date: 'May 2025',
@@ -2326,6 +2469,7 @@
             },
             {
                 id: 9, cat: 'disease',
+                img: '/images/blog/micronutrient-deficiency.webp',
                 title: 'PCOD, Thyroid, Diabetes Can One Nutritionist Help You Manage All Three?',
                 excerpt: 'Many Indian women manage multiple conditions simultaneously. A disease management nutrition plan that addresses all three is not only possible it is highly effective.',
                 author: 'Dt. Roshani Musale', read: '9 min read', date: 'Apr 2025',
@@ -2340,6 +2484,7 @@
             },
             {
                 id: 10, cat: 'bridal',
+                img: '/images/blog/micronutrient-deficiency.webp',
                 title: 'Why Your Pre-Bridal Nutrition Plan Should Start at Least 5 Months Before the Wedding',
                 excerpt: 'Crash dieting before a wedding is one of the most damaging things you can do to your skin, hair, and metabolism. Here\'s the right way to prepare with time on your side.',
                 author: 'Dt. Roshani Musale', read: '6 min read', date: 'Apr 2025',
@@ -2354,6 +2499,7 @@
             },
             {
                 id: 11, cat: 'family',
+                img: '/images/blog/micronutrient-deficiency.webp',
                 title: 'Why More Families Are Moving to a Single Nutritionist for Everyone at Home',
                 excerpt: 'One person in the family changes their diet, and suddenly everyone else is eating differently too. A family nutrition plan makes this intentional and highly effective.',
                 author: 'Dt. Roshani Musale', read: '6 min read', date: 'Mar 2025',
@@ -2368,6 +2514,7 @@
             },
             {
                 id: 12, cat: 'pregnancy',
+                img: '/images/blog/micronutrient-deficiency.webp',
                 title: 'Trimester-by-Trimester Nutrition Guide for Pregnant Women What a Dietician Recommends',
                 excerpt: 'Nutritional needs change dramatically in each trimester. Most women get generic advice here is what a clinical dietician actually recommends at each stage.',
                 author: 'Dt. Roshani Musale', read: '10 min read', date: 'Feb 2025',
@@ -2383,9 +2530,6 @@
             },
         ];
 
-        // ══════════════════════════════════════════════
-        // RENDER LIST
-        // ══════════════════════════════════════════════
         function renderCards(filter) {
             filter = filter || 'all';
             const grid = document.getElementById('articlesGrid');
@@ -2396,14 +2540,15 @@
                 const meta = CAT_META[a.cat];
                 return `
                     <div class="article-card" onclick="showDetail(${a.id})">
-                        <div class="card-top" style="background:${meta.color};"></div>
+                         <div class="card-image">
+                                <img src="${a.img || '/images/blog/blog-hero.webp'}" alt="${a.title}" loading="lazy" />
+                                <span class="card-img-badge" style="background:${meta.color};">${meta.label}</span>
+                        </div>
                         <div class="card-body">
                             <div class="card-meta">
-                                <span class="cat-badge" style="background:${meta.color};">${meta.label}</span>
                                 <span class="read-time">${a.read}</span>
                             </div>
                             <h2 class="card-title">${a.title}</h2>
-                            <p class="card-excerpt">${a.excerpt}</p>
                             <div class="card-footer">
                                 <span class="card-date">${a.date}</span>
                                 <button class="read-link">Read More →</button>
@@ -2422,9 +2567,6 @@
             renderCards(cat);
         }
 
-        // ══════════════════════════════════════════════
-        // DETAIL VIEW
-        // ══════════════════════════════════════════════
         function showDetail(id) {
             const a = ARTICLES.find(x => x.id === id);
             const meta = CAT_META[a.cat];
@@ -2464,7 +2606,6 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Init
         renderCards();
     </script>
 </body>
