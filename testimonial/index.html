@@ -364,7 +364,6 @@
             border-radius: 100px;
         }
 
-        /* ── Video testimonials ──────────────────────────── */
         .tpage-videos {
             background: var(--dark);
         }
@@ -445,7 +444,6 @@
             color: var(--primary);
             font-size: 1.4rem;
             padding-left: 4px;
-            /* optical center */
             box-shadow: 0 8px 30px rgba(0, 0, 0, .25);
             transition: transform .25s, box-shadow .25s;
         }
@@ -507,7 +505,6 @@
             border: 1px solid rgba(180, 187, 133, .25);
         }
 
-        /* Video modal */
         .video-modal {
             display: none;
             position: fixed;
@@ -564,7 +561,6 @@
             background: var(--primary);
         }
 
-        /* ── Written Reviews ─────────────────────────────── */
         .tpage-reviews {
             background: var(--soft);
         }
@@ -604,7 +600,6 @@
             line-height: 1;
         }
 
-        /* Featured (wide) card */
         .review-card.featured {
             grid-column: span 2;
             background: var(--primary);
@@ -713,7 +708,6 @@
             white-space: nowrap;
         }
 
-        /* ── Overall Rating Banner ───────────────────────── */
         .tpage-rating {
             background: var(--light);
         }
@@ -776,7 +770,6 @@
             margin: 0 3rem;
         }
 
-        /* ── Logos / Trust strip ─────────────────────────── */
         .tpage-trust {
             background: var(--soft);
             padding: 3rem 0;
@@ -808,7 +801,6 @@
             opacity: 1;
         }
 
-        /* ── CTA ─────────────────────────────────────────── */
         .tpage-cta {
             background: var(--light);
         }
@@ -916,10 +908,6 @@
             }
         }
 
-        /* =========================================================
-   TABLET ONLY (768px - 1024px)
-   KEEP DESKTOP STYLE
-========================================================= */
         @media (max-width:1024px) and (min-width:769px) {
 
             .testimonial-hero {
@@ -1023,11 +1011,6 @@
             }
         }
 
-
-        /* =========================================================
-   MOBILE ONLY (max-width:768px)
-   IMAGE TOP + CONTENT BOTTOM
-========================================================= */
         @media (max-width:768px) {
 
             .testimonial-hero {
@@ -1108,25 +1091,19 @@
 
             .th-count-strip {
                 margin-top: 1rem;
-
                 position: static;
-
                 display: flex;
                 flex-wrap: wrap;
                 justify-content: center;
-
                 gap: 1rem;
-
                 background: transparent;
                 backdrop-filter: none;
             }
 
             .th-count-strip>div {
                 flex: 0 0 45%;
-
                 padding: 0;
                 border-right: none;
-
                 text-align: center;
             }
 
@@ -1141,7 +1118,6 @@
                 margin-top: 0.2rem;
             }
 
-            /* KEEP YOUR EXISTING STYLES */
             .tpage-filter {
                 position: sticky;
                 top: 90px;
@@ -1158,9 +1134,7 @@
                 overflow-x: auto;
                 overflow-y: hidden;
                 padding: 0 1rem;
-
                 justify-content: flex-start;
-
                 scrollbar-width: none;
                 -ms-overflow-style: none;
             }
@@ -1172,13 +1146,12 @@
             .filter-btn {
                 flex: 0 0 auto;
                 white-space: nowrap;
-
                 padding: .65rem 1.1rem;
                 font-size: .72rem;
             }
 
             .tpage-ba-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: 1fr;
             }
 
             .tpage-video-grid {
@@ -1205,10 +1178,6 @@
             }
         }
 
-
-        /* =========================================================
-   SMALL MOBILE
-========================================================= */
         @media (max-width:640px) {
 
             .th-left {
@@ -1254,10 +1223,6 @@
             }
         }
 
-
-        /* =========================================================
-   EXTRA SMALL MOBILE
-========================================================= */
         @media (max-width:480px) {
 
             .th-left {
@@ -1361,9 +1326,6 @@
         </div>
     </div>
 
-    <!-- ══════════════════════════════════════════════
-             BEFORE / AFTER
-        ══════════════════════════════════════════════ -->
     <section class="tpage-ba">
         <div class="container">
             <div class="fade-up" style="text-align:center;">
@@ -1549,7 +1511,6 @@
                     </div>
                 </div>
 
-                <!-- Card 4 -->
                 <div class="ba-card" data-category="diabetes">
                     <div class="ba-photos auto-flip">
                         <img class="ba-img before active" src="/images/testimonials/client10-before.webp"
@@ -1571,7 +1532,6 @@
                     </div>
                 </div>
 
-                <!-- Card 5 -->
                 <div class="ba-card" data-category="weight-management">
                     <div class="ba-photos auto-flip">
                         <img class="ba-img before active" src="/images/testimonials/client11-before.webp"
@@ -1592,7 +1552,6 @@
                     </div>
                 </div>
 
-                <!-- Card 6 -->
                 <div class="ba-card" data-category="gut">
                     <div class="ba-photos auto-flip">
                         <img class="ba-img before active" src="/images/testimonials/client12-before.webp"
@@ -1785,7 +1744,6 @@
                     </div>
                 </div>
 
-                <!-- Card 4 -->
                 <div class="ba-card" data-category="diabetes">
                     <div class="ba-photos auto-flip">
                         <img class="ba-img before active" src="/images/testimonials/client22-before.jpg" alt="Before" />
@@ -1805,7 +1763,6 @@
                     </div>
                 </div>
 
-                <!-- Card 5 -->
                 <div class="ba-card" data-category="weight-management">
                     <div class="ba-photos auto-flip">
                         <img class="ba-img before active" src="/images/testimonials/client23-before.jpg" alt="Before" />
@@ -1824,7 +1781,6 @@
                     </div>
                 </div>
 
-                <!-- Card 6 -->
                 <div class="ba-card" data-category="gut">
                     <div class="ba-photos auto-flip">
                         <img class="ba-img before active" src="/images/testimonials/client24-before.jpg" alt="Before" />
@@ -1860,8 +1816,6 @@
                         <span class="ba-program-tag">Weight Loss Program</span>
                     </div>
                 </div>
-
-                <!-- first 25 testimonials-->
 
                 <div class="ba-card" data-category="weight-management">
                     <div class="ba-photos auto-flip">
@@ -2043,7 +1997,6 @@
                     </div>
                 </div>
 
-                <!-- Card 4 -->
                 <div class="ba-card" data-category="diabetes">
                     <div class="ba-photos auto-flip">
                         <img class="ba-img before active" src="/images/testimonials/client35-before.jpeg"
@@ -2065,7 +2018,6 @@
                     </div>
                 </div>
 
-                <!-- Card 5 -->
                 <div class="ba-card" data-category="weight-management">
                     <div class="ba-photos auto-flip">
                         <img class="ba-img before active" src="/images/testimonials/client36-before.jpeg"
@@ -2086,7 +2038,6 @@
                     </div>
                 </div>
 
-                <!-- Card 6 -->
                 <div class="ba-card" data-category="gut">
                     <div class="ba-photos auto-flip">
                         <img class="ba-img before active" src="/images/testimonials/client37-before.jpeg"
@@ -2279,7 +2230,6 @@
                     </div>
                 </div>
 
-                <!-- Card 4 -->
                 <div class="ba-card" data-category="diabetes">
                     <div class="ba-photos auto-flip">
                         <img class="ba-img before active" src="/images/testimonials/client22-before.jpg" alt="Before" />
@@ -2299,7 +2249,6 @@
                     </div>
                 </div>
 
-                <!-- Card 5 -->
                 <div class="ba-card" data-category="weight-management">
                     <div class="ba-photos auto-flip">
                         <img class="ba-img before active" src="/images/testimonials/client23-before.jpg" alt="Before" />
@@ -2318,7 +2267,6 @@
                     </div>
                 </div>
 
-                <!-- Card 6 -->
                 <div class="ba-card" data-category="gut">
                     <div class="ba-photos auto-flip">
                         <img class="ba-img before active" src="/images/testimonials/client24-before.jpg" alt="Before" />
@@ -2359,9 +2307,6 @@
         </div>
     </section>
 
-    <!-- ══════════════════════════════════════════════
-             VIDEO TESTIMONIALS
-        ══════════════════════════════════════════════ -->
     <section class="tpage-videos">
         <div class="container">
             <div class="fade-up" style="text-align:center;">
@@ -2375,11 +2320,9 @@
 
             <div class="tpage-video-grid fade-up">
 
-                <!-- Video 1 — YouTube embed example -->
                 <div class="video-card" data-video-src="https://www.youtube.com/embed/YOUR_VIDEO_ID_1?autoplay=1"
                     data-category="weight-management">
                     <div class="video-thumb">
-                        <!-- Replace with actual thumbnail: /images/testimonials/video-thumb-1.jpg -->
                         <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&q=80"
                             alt="Video Testimonial" />
                         <div class="video-thumb-overlay">
@@ -2396,7 +2339,6 @@
                     </div>
                 </div>
 
-                <!-- Video 2 -->
                 <div class="video-card" data-video-src="https://www.youtube.com/embed/YOUR_VIDEO_ID_2?autoplay=1"
                     data-category="pcos">
                     <div class="video-thumb">
@@ -2416,7 +2358,6 @@
                     </div>
                 </div>
 
-                <!-- Video 3 -->
                 <div class="video-card" data-video-src="https://www.youtube.com/embed/YOUR_VIDEO_ID_3?autoplay=1"
                     data-category="muscle">
                     <div class="video-thumb">
@@ -2436,7 +2377,6 @@
                     </div>
                 </div>
 
-                <!-- Video 4 -->
                 <div class="video-card" data-video-src="https://www.youtube.com/embed/YOUR_VIDEO_ID_4?autoplay=1"
                     data-category="diabetes">
                     <div class="video-thumb">
@@ -2456,7 +2396,6 @@
                     </div>
                 </div>
 
-                <!-- Video 5 -->
                 <div class="video-card" data-video-src="https://www.youtube.com/embed/YOUR_VIDEO_ID_5?autoplay=1"
                     data-category="weight-management">
                     <div class="video-thumb">
@@ -2476,7 +2415,6 @@
                     </div>
                 </div>
 
-                <!-- Video 6 -->
                 <div class="video-card" data-video-src="https://www.youtube.com/embed/YOUR_VIDEO_ID_6?autoplay=1"
                     data-category="gut">
                     <div class="video-thumb">
@@ -2501,9 +2439,6 @@
         </div>
     </section>
 
-    <!-- ══════════════════════════════════════════════
-             WRITTEN REVIEWS
-        ══════════════════════════════════════════════ -->
     <section class="tpage-reviews">
         <div class="container">
             <div class="fade-up" style="text-align:center;">
@@ -2513,7 +2448,6 @@
 
             <div class="tpage-reviews-grid fade-up">
 
-                <!-- Featured wide review -->
                 <div class="review-card featured">
                     <div class="review-stars">★★★★★</div>
                     <p class="review-quote">"I am truly grateful for both Doctor Roshni and Anjali. You made weight
@@ -2532,7 +2466,6 @@
                     </div>
                 </div>
 
-                <!-- Regular review -->
                 <div class="review-card" data-category="weight-management">
                     <div class="review-stars">★★★★★</div>
                     <p class="review-quote">"Roshni is an excellent dietician. I consulted her for my weight loss
@@ -2549,7 +2482,6 @@
                     </div>
                 </div>
 
-                <!-- Regular review -->
                 <div class="review-card" data-category="weight-management">
                     <div class="review-stars">★★★★★</div>
                     <p class="review-quote">"I successfully lost 10 kg in just 4 months following their customized
@@ -2647,14 +2579,11 @@
                     </div>
                 </div>
 
-            </div><!-- /reviews-grid -->
+            </div>
 
         </div>
     </section>
 
-    <!-- ══════════════════════════════════════════════
-             OVERALL RATING BANNER
-        ══════════════════════════════════════════════ -->
     <section class="tpage-rating">
         <div class="container">
             <div class="rating-banner fade-up">
@@ -2699,9 +2628,6 @@
         </div>
     </section>
 
-    <!-- ══════════════════════════════════════════════
-             TRUST STRIP
-        ══════════════════════════════════════════════ -->
     <section class="tpage-trust">
         <div class="container">
             <div class="trust-strip fade-up">
@@ -2714,9 +2640,6 @@
         </div>
     </section>
 
-    <!-- ══════════════════════════════════════════════
-             CTA
-        ══════════════════════════════════════════════ -->
     <section class="tpage-cta">
         <div class="container">
             <div class="tpage-cta-inner fade-up">
@@ -2744,13 +2667,11 @@
 
     </a>
 
-    <!-- Video Modal -->
     <div class="video-modal" id="videoModal">
         <div class="video-modal-inner" id="videoModalInner">
             <button class="video-modal-close" id="videoModalClose">
                 <i class="fa-solid fa-xmark"></i>
             </button>
-            <!-- iframe injected by JS -->
         </div>
     </div>
 
@@ -2835,7 +2756,7 @@
             modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
             document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
 
-            const BATCH = 20;
+            const BATCH = 16;
             const baGrid = document.querySelector('.tpage-ba-grid');
             const allBaCards = Array.from(baGrid.querySelectorAll('.ba-card'));
 
