@@ -979,10 +979,6 @@
             }
         }
 
-        /* =========================================================
-   TABLET ONLY (768px - 1024px)
-   KEEP DESKTOP LAYOUT
-========================================================= */
         @media (max-width: 1024px) and (min-width: 769px) {
 
             .services-hero {
@@ -1071,7 +1067,6 @@
                 margin-top: 0.2rem;
             }
 
-            /* KEEP YOUR EXISTING CLASSES */
             .sn-inner {
                 width: max-content;
                 min-width: 100%;
@@ -1143,11 +1138,6 @@
             }
         }
 
-
-        /* =========================================================
-   MOBILE ONLY (max-width:768px)
-   IMAGE TOP + CONTENT BOTTOM
-========================================================= */
         @media (max-width: 768px) {
 
             .services-hero {
@@ -1161,7 +1151,7 @@
             }
 
             .sh-left {
-                height: 60%;
+                height: 50%;
 
                 padding: 1.5rem 5% 1rem;
 
@@ -1175,7 +1165,7 @@
             }
 
             .sh-right {
-                height: 40%;
+                height: 50%;
 
                 position: relative;
                 overflow: hidden;
@@ -1189,6 +1179,15 @@
                 object-position: center center;
 
                 display: block;
+            }
+
+            .sh-eyebrow {
+                font-size: 0.68rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .sh-eyebrow::before {
+                width: 22px;
             }
 
             .sh-h1 br {
@@ -1237,7 +1236,6 @@
                 line-height: 1.3;
             }
 
-            /* KEEP YOUR EXISTING CLASSES */
             .sn-item {
                 padding: .9rem 1.1rem;
                 font-size: .68rem;

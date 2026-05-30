@@ -270,15 +270,39 @@ document.addEventListener("DOMContentLoaded", function () {
     fadeEls.forEach(el => fadeObs.observe(el));
 
     (function () {
+        var wrap = document.getElementById('rwFabWrap');
         var btn = document.getElementById('rwFabBtn');
         var opts = document.getElementById('rwFabOpts');
         var open = true;
 
-        btn.addEventListener('click', function () {
+        function close() {
+            open = false;
+            opts.classList.add('rw-hidden');
+            btn.classList.remove('rw-open');
+        }
+
+        function toggle() {
             open = !open;
             opts.classList.toggle('rw-hidden', !open);
             btn.classList.toggle('rw-open', open);
+        }
+
+        btn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            toggle();
         });
+
+        wrap.addEventListener('click', function (e) {
+            e.stopPropagation();
+        });
+
+        document.addEventListener('click', function () {
+            if (open) close();
+        });
+
+        window.addEventListener('scroll', function () {
+            if (open) close();
+        }, { passive: true });
     })();
 
 });
