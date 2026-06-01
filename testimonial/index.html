@@ -170,13 +170,214 @@
         .th-right {
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 14px;
+            z-index: 2;
         }
 
-        .th-right img {
+        /* Top & bottom fade masks */
+        .slider-fade {
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 130px;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .slider-fade.top {
+            top: 0;
+            background: linear-gradient(to bottom, var(--dark) 0%, transparent 100%);
+        }
+
+        .slider-fade.bot {
+            bottom: 0;
+            background: linear-gradient(to top, var(--dark) 0%, transparent 100%);
+        }
+
+        /* Left & right fade masks for horizontal scroll */
+        .slider-fade-left,
+        .slider-fade-right {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 48px;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .slider-fade-left {
+            left: 0;
+            background: linear-gradient(to right, var(--dark) 0%, transparent 100%);
+        }
+
+        .slider-fade-right {
+            right: 0;
+            background: linear-gradient(to left, var(--dark) 0%, transparent 100%);
+        }
+
+        /* Each row wrapper */
+        .slider-row-wrap {
+            overflow: hidden;
+            width: 100%;
+            flex-shrink: 0;
+        }
+
+        /* The scrolling track */
+        .slider-row {
+            display: flex;
+            gap: 12px;
+            width: max-content;
+            will-change: transform;
+        }
+
+        /* Individual image card */
+        .slider-card {
+            flex-shrink: 0;
+            width: 210px;
+            height: 186px;
+            border-radius: 14px;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid rgba(180, 187, 133, .14);
+            cursor: pointer;
+        }
+
+        .slider-card img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: .75;
+            display: block;
+            transition: transform .6s var(--drawer-ease), filter .4s ease;
+            filter: brightness(.85) saturate(.85);
+        }
+
+        .slider-card:hover img {
+            transform: scale(1.06);
+            filter: brightness(.95) saturate(1.05);
+        }
+
+        /* Before / After pill tags */
+        .card-ba-tags {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            display: flex;
+            gap: 5px;
+            z-index: 2;
+        }
+
+        .card-tag {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 8.5px;
+            font-weight: 500;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            padding: 2px 8px;
+            border-radius: 100px;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+
+        .card-tag.before {
+            background: rgba(46, 44, 47, .65);
+            color: rgba(240, 238, 233, .55);
+            border: 1px solid rgba(240, 238, 233, .12);
+        }
+
+        .card-tag.after {
+            background: rgba(72, 153, 38, .22);
+            color: #B4BB85;
+            border: 1px solid rgba(72, 153, 38, .32);
+        }
+
+        /* Bottom gradient overlay */
+        .card-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 28px 12px 12px;
+            background: linear-gradient(to top,
+                    rgba(46, 44, 47, .95) 0%,
+                    rgba(46, 44, 47, .55) 50%,
+                    transparent 100%);
+            z-index: 2;
+        }
+
+        /* Result badge */
+        .card-result-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: rgba(72, 153, 38, .18);
+            border: 1px solid rgba(72, 153, 38, .32);
+            border-radius: 100px;
+            padding: 2px 8px;
+            margin-bottom: 5px;
+        }
+
+        .card-result-dot {
+            width: 4px;
+            height: 4px;
+            background: #489926;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .card-result-text {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 9px;
+            font-weight: 500;
+            color: #B4BB85;
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .card-name {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--light);
+            letter-spacing: .02em;
+        }
+
+        .card-meta {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 11px;
+            font-style: italic;
+            font-weight: 300;
+            color: rgba(180, 187, 133, .7);
+            margin-top: 1px;
+        }
+
+        /* Centre divider */
+        .slider-divider {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 0 28px;
+            flex-shrink: 0;
+            z-index: 3;
+            position: relative;
+        }
+
+        .slider-divider-line {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(180, 187, 133, .18), transparent);
+        }
+
+        .slider-divider-label {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 8.5px;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            color: rgba(180, 187, 133, .28);
+            white-space: nowrap;
         }
 
         .tpage-filter {
@@ -973,23 +1174,62 @@
 
                 text-align: center;
                 z-index: 2;
+                flex-shrink: 0;
             }
 
             .th-right {
                 height: 50%;
-
                 position: relative;
                 overflow: hidden;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 8px;
             }
 
-            .th-right img {
+            .card-overlay {
+                display: none;
+            }
+
+            .slider-row-wrap {
+                flex: 1;
+                min-height: 0;
+                overflow: hidden;
                 width: 100%;
+            }
+
+            .slider-row {
                 height: 100%;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
 
-                object-fit: cover;
-                object-position: center top;
+            .slider-card {
+                width: 140px;
+                height: 120px;
+                border-radius: 10px;
+                flex-shrink: 0;
+            }
 
-                display: block;
+            .slider-fade {
+                height: 60px;
+            }
+
+            .slider-fade-left,
+            .slider-fade-right {
+                width: 28px;
+            }
+
+            .slider-divider {
+                padding: 0 16px;
+                flex-shrink: 0;
+                gap: 8px;
+            }
+
+            .slider-divider-label {
+                font-size: 7px;
+                letter-spacing: 0.1em;
             }
 
             .th-eyebrow {
@@ -1162,6 +1402,20 @@
                 font-size: 0.48rem;
             }
 
+            .slider-card {
+                width: 120px;
+                height: 106px;
+                border-radius: 8px;
+            }
+
+            .slider-divider-label {
+                display: none;
+            }
+
+            .slider-divider {
+                padding: 0 12px;
+            }
+
             .tpage-video-grid {
                 grid-template-columns: 1fr;
             }
@@ -1215,6 +1469,44 @@
 
             .th-count-label {
                 font-size: 0.46rem;
+            }
+
+            .slider-card {
+                width: 105px;
+                height: 92px;
+                border-radius: 8px;
+            }
+
+            .card-ba-tags {
+                top: 6px;
+                left: 6px;
+                gap: 3px;
+            }
+
+            .card-tag {
+                font-size: 7px;
+                padding: 1px 5px;
+            }
+
+            .card-overlay {
+                padding: 18px 8px 8px;
+            }
+
+            .card-result-badge {
+                padding: 1px 6px;
+                margin-bottom: 3px;
+            }
+
+            .card-result-text {
+                font-size: 7.5px;
+            }
+
+            .card-name {
+                font-size: 10px;
+            }
+
+            .card-meta {
+                font-size: 9px;
             }
         }
 
@@ -1282,8 +1574,655 @@
             </div>
         </div>
 
-        <div class="th-right">
-            <img src="/images/testimonial/testimonial-hero.webp" alt="Client transformation" />
+        <div class="th-right" id="sliderPanel">
+
+            <div class="slider-fade top"></div>
+            <div class="slider-fade bot"></div>
+            <div class="slider-fade-left"></div>
+            <div class="slider-fade-right"></div>
+
+            <div class="slider-row-wrap">
+                <div class="slider-row" id="sliderRow1">
+
+                    <div class="slider-card">
+                        <img src="/images/testimonials/client1-after.webp" alt="Poonam Anthony transformation"
+                            loading="lazy">
+                        <div class="card-overlay">
+                            <div class="card-result-badge">
+                                <div class="card-result-dot"></div><span class="card-result-text">−22 kg · 12
+                                    months</span>
+                            </div>
+                            <div class="card-name">Poonam Anthony</div>
+                            <div class="card-meta">Weight Loss Program</div>
+                        </div>
+                    </div>
+
+                    <div class="slider-card">
+                        <img src="/images/testimonials/client3-after.webp" alt="Nishant Gharat transformation"
+                            loading="lazy">
+                        <div class="card-overlay">
+                            <div class="card-result-badge">
+                                <div class="card-result-dot"></div><span class="card-result-text">−12 kg · 9
+                                    months</span>
+                            </div>
+                            <div class="card-name">Nishant Gharat</div>
+                            <div class="card-meta">Weight Loss Program</div>
+                        </div>
+                    </div>
+
+                    <div class="slider-card">
+                        <img src="/images/testimonials/client5-after.webp" alt="Mamta Bhalerao transformation"
+                            loading="lazy">
+                        <div class="card-overlay">
+                            <div class="card-result-badge">
+                                <div class="card-result-dot"></div><span class="card-result-text">−12 kg · 6
+                                    months</span>
+                            </div>
+                            <div class="card-name">Mamta Bhalerao</div>
+                            <div class="card-meta">Post Pregnancy</div>
+                        </div>
+                    </div>
+
+                    <div class="slider-card">
+                        <img src="/images/testimonials/client7-after.webp" alt="Pawan Kumar Pandey transformation"
+                            loading="lazy">
+                        <div class="card-overlay">
+                            <div class="card-result-badge">
+                                <div class="card-result-dot"></div><span class="card-result-text">−12 kg · 6
+                                    months</span>
+                            </div>
+                            <div class="card-name">Pawan Kumar Pandey</div>
+                            <div class="card-meta">Weight Loss Program</div>
+                        </div>
+                    </div>
+
+                    <div class="slider-card">
+                        <img src="/images/testimonials/client13-after.webp" alt="Balvinder Singh transformation"
+                            loading="lazy">
+                        <div class="card-overlay">
+                            <div class="card-result-badge">
+                                <div class="card-result-dot"></div><span class="card-result-text">−15 kg · 6
+                                    months</span>
+                            </div>
+                            <div class="card-name">Balvinder Singh</div>
+                            <div class="card-meta">Weight Loss Program</div>
+                        </div>
+                    </div>
+
+                    <div class="slider-card">
+                        <img src="/images/testimonials/client17-after.webp" alt="Rahul Rajput transformation"
+                            loading="lazy">
+                        <div class="card-overlay">
+                            <div class="card-result-badge">
+                                <div class="card-result-dot"></div><span class="card-result-text">−24 kg · 6
+                                    months</span>
+                            </div>
+                            <div class="card-name">Rahul Rajput</div>
+                            <div class="card-meta">Weight Loss & Muscle</div>
+                        </div>
+                    </div>
+
+                    <div class="slider-card">
+                        <img src="/images/testimonials/client21-after.webp" alt="Manpreet Kaur transformation"
+                            loading="lazy">
+                        <div class="card-overlay">
+                            <div class="card-result-badge">
+                                <div class="card-result-dot"></div><span class="card-result-text">−25 kg · 6
+                                    months</span>
+                            </div>
+                            <div class="card-name">Manpreet Kaur</div>
+                            <div class="card-meta">Weight Loss Program</div>
+                        </div>
+                    </div>
+
+                    <div class="slider-card">
+                        <img src="/images/testimonials/client25-after.webp" alt="Chetna Naik transformation"
+                            loading="lazy">
+                        <div class="card-overlay">
+                            <div class="card-result-badge">
+                                <div class="card-result-dot"></div><span class="card-result-text">−20 kg · 6
+                                    months</span>
+                            </div>
+                            <div class="card-name">Chetna Naik</div>
+                            <div class="card-meta">Weight Loss Program</div>
+                        </div>
+                    </div>
+
+                    <div class="slider-card">
+                        <img src="/images/testimonials/client1-after.webp" alt="Poonam Anthony transformation"
+                            loading="lazy">
+                        <div class="card-overlay">
+                            <div class="card-result-badge">
+                                <div class="card-result-dot"></div><span class="card-result-text">−22 kg · 12
+                                    months</span>
+                            </div>
+                            <div class="card-name">Poonam Anthony</div>
+                            <div class="card-meta">Weight Loss Program</div>
+                        </div>
+                    </div>
+
+                    <div class="slider-card">
+                        <img src="/images/testimonials/client3-after.webp" alt="Nishant Gharat transformation"
+                            loading="lazy">
+                        <div class="card-overlay">
+                            <div class="card-result-badge">
+                                <div class="card-result-dot"></div><span class="card-result-text">−12 kg · 9
+                                    months</span>
+                            </div>
+                            <div class="card-name">Nishant Gharat</div>
+                            <div class="card-meta">Weight Loss Program</div>
+                        </div>
+                    </div>
+
+                    <div class="slider-card">
+                        <img src="/images/testimonials/client5-after.webp" alt="Mamta Bhalerao transformation"
+                            loading="lazy">
+                        <div class="card-overlay">
+                            <div class="card-result-badge">
+                                <div class="card-result-dot"></div><span class="card-result-text">−12 kg · 6
+                                    months</span>
+                            </div>
+                            <div class="card-name">Mamta Bhalerao</div>
+                            <div class="card-meta">Post Pregnancy</div>
+                        </div>
+                    </div>
+
+                    <div class="slider-card">
+                        <img src="/images/testimonials/client7-after.webp" alt="Pawan Kumar Pandey transformation"
+                            loading="lazy">
+                        <div class="card-overlay">
+                            <div class="card-result-badge">
+                                <div class="card-result-dot"></div><span class="card-result-text">−12 kg · 6
+                                    months</span>
+                            </div>
+                            <div class="card-name">Pawan Kumar Pandey</div>
+                            <div class="card-meta">Weight Loss Program</div>
+                        </div>
+                    </div>
+
+                    <div class="slider-card">
+                        <img src="/images/testimonials/client13-after.webp" alt="Balvinder Singh transformation"
+                            loading="lazy">
+                        <div class="card-overlay">
+                            <div class="card-result-badge">
+                                <div class="card-result-dot"></div><span class="card-result-text">−15 kg · 6
+                                    months</span>
+                            </div>
+                            <div class="card-name">Balvinder Singh</div>
+                            <div class="card-meta">Weight Loss Program</div>
+                        </div>
+                    </div>
+
+                    <div class="slider-card">
+                        <img src="/images/testimonials/client17-after.webp" alt="Rahul Rajput transformation"
+                            loading="lazy">
+                        <div class="card-overlay">
+                            <div class="card-result-badge">
+                                <div class="card-result-dot"></div><span class="card-result-text">−24 kg · 6
+                                    months</span>
+                            </div>
+                            <div class="card-name">Rahul Rajput</div>
+                            <div class="card-meta">Weight Loss & Muscle</div>
+                        </div>
+                    </div>
+
+                    <div class="slider-card">
+                        <img src="/images/testimonials/client21-after.webp" alt="Manpreet Kaur transformation"
+                            loading="lazy">
+                        <div class="card-overlay">
+                            <div class="card-result-badge">
+                                <div class="card-result-dot"></div><span class="card-result-text">−25 kg · 6
+                                    months</span>
+                            </div>
+                            <div class="card-name">Manpreet Kaur</div>
+                            <div class="card-meta">Weight Loss Program</div>
+                        </div>
+                    </div>
+
+                    <div class="slider-card">
+                        <img src="/images/testimonials/client25-after.webp" alt="Chetna Naik transformation"
+                            loading="lazy">
+                        <div class="card-overlay">
+                            <div class="card-result-badge">
+                                <div class="card-result-dot"></div><span class="card-result-text">−20 kg · 6
+                                    months</span>
+                            </div>
+                            <div class="card-name">Chetna Naik</div>
+                            <div class="card-meta">Weight Loss Program</div>
+                        </div>
+                    </div>
+
+                    <!-- SET 3 (repeat) -->
+                    <div class="slider-card">
+                        <img src="/images/testimonials/client1-after.webp" alt="Poonam Anthony transformation"
+                            loading="lazy">
+                        <div class="card-overlay">
+                            <div class="card-result-badge">
+                                <div class="card-result-dot"></div><span class="card-result-text">−22 kg · 12
+                                    months</span>
+                            </div>
+                            <div class="card-name">Poonam Anthony</div>
+                            <div class="card-meta">Weight Loss Program</div>
+                        </div>
+                    </div>
+
+                    <div class="slider-card">
+                        <img src="/images/testimonials/client3-after.webp" alt="Nishant Gharat transformation"
+                            loading="lazy">
+                        <div class="card-overlay">
+                            <div class="card-result-badge">
+                                <div class="card-result-dot"></div><span class="card-result-text">−12 kg · 9
+                                    months</span>
+                            </div>
+                            <div class="card-name">Nishant Gharat</div>
+                            <div class="card-meta">Weight Loss Program</div>
+                        </div>
+                    </div>
+
+                    <div class="slider-card">
+                        <img src="/images/testimonials/client5-after.webp" alt="Mamta Bhalerao transformation"
+                            loading="lazy">
+                        <div class="card-overlay">
+                            <div class="card-result-badge">
+                                <div class="card-result-dot"></div><span class="card-result-text">−12 kg · 6
+                                    months</span>
+                            </div>
+                            <div class="card-name">Mamta Bhalerao</div>
+                            <div class="card-meta">Post Pregnancy</div>
+                        </div>
+                    </div>
+
+                    <div class="slider-card">
+                        <img src="/images/testimonials/client7-after.webp" alt="Pawan Kumar Pandey transformation"
+                            loading="lazy">
+                        <div class="card-overlay">
+                            <div class="card-result-badge">
+                                <div class="card-result-dot"></div><span class="card-result-text">−12 kg · 6
+                                    months</span>
+                            </div>
+                            <div class="card-name">Pawan Kumar Pandey</div>
+                            <div class="card-meta">Weight Loss Program</div>
+                        </div>
+                    </div>
+
+                    <div class="slider-card">
+                        <img src="/images/testimonials/client13-after.webp" alt="Balvinder Singh transformation"
+                            loading="lazy">
+                        <div class="card-overlay">
+                            <div class="card-result-badge">
+                                <div class="card-result-dot"></div><span class="card-result-text">−15 kg · 6
+                                    months</span>
+                            </div>
+                            <div class="card-name">Balvinder Singh</div>
+                            <div class="card-meta">Weight Loss Program</div>
+                        </div>
+                    </div>
+
+                    <div class="slider-card">
+                        <img src="/images/testimonials/client17-after.webp" alt="Rahul Rajput transformation"
+                            loading="lazy">
+                        <div class="card-overlay">
+                            <div class="card-result-badge">
+                                <div class="card-result-dot"></div><span class="card-result-text">−24 kg · 6
+                                    months</span>
+                            </div>
+                            <div class="card-name">Rahul Rajput</div>
+                            <div class="card-meta">Weight Loss & Muscle</div>
+                        </div>
+                    </div>
+
+                    <div class="slider-card">
+                        <img src="/images/testimonials/client21-after.webp" alt="Manpreet Kaur transformation"
+                            loading="lazy">
+                        <div class="card-overlay">
+                            <div class="card-result-badge">
+                                <div class="card-result-dot"></div><span class="card-result-text">−25 kg · 6
+                                    months</span>
+                            </div>
+                            <div class="card-name">Manpreet Kaur</div>
+                            <div class="card-meta">Weight Loss Program</div>
+                        </div>
+                    </div>
+
+                    <div class="slider-card">
+                        <img src="/images/testimonials/client25-after.webp" alt="Chetna Naik transformation"
+                            loading="lazy">
+                        <div class="card-overlay">
+                            <div class="card-result-badge">
+                                <div class="card-result-dot"></div><span class="card-result-text">−20 kg · 6
+                                    months</span>
+                            </div>
+                            <div class="card-name">Chetna Naik</div>
+                            <div class="card-meta">Weight Loss Program</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="slider-divider">
+                <div class="slider-divider-line"></div>
+                <div class="slider-divider-label">Reform Wellness · Transformations</div>
+                <div class="slider-divider-line"></div>
+            </div>
+
+            <div class="slider-row-wrap">
+                <div class="slider-row" id="sliderRow2">
+
+                    <div class="slider-card">
+                        <img src="/images/testimonials/client8-after.webp" alt="Harshita transformation" loading="lazy">
+                        <div class="card-overlay">
+                            <div class="card-result-badge">
+                                <div class="card-result-dot"></div><span class="card-result-text">−22 kg · 12
+                                    months</span>
+                            </div>
+                            <div class="card-name">Harshita</div>
+                            <div class="card-meta">Weight Loss Program</div>
+                        </div>
+                    </div>
+
+                    <div class="slider-card">
+                        <img src="/images/testimonials/client2-after.webp" alt="Mehek Kalara transformation"
+                            loading="lazy">
+                        <div class="card-overlay">
+                            <div class="card-result-badge">
+                                <div class="card-result-dot"></div><span class="card-result-text">PCOS Reversed · 6
+                                    months</span>
+                            </div>
+                            <div class="card-name">Mehek Kalara</div>
+                            <div class="card-meta">PCOS & Hormonal Health</div>
+                        </div>
+                    </div>
+
+                    <div class="slider-card">
+                        <img src="/images/testimonials/client9-after.webp" alt="Komal Kadam transformation"
+                            loading="lazy">
+                        <div class="card-overlay">
+                            <div class="card-result-badge">
+                                <div class="card-result-dot"></div><span class="card-result-text">−6 kg · PCOD
+                                    Reversed</span>
+                            </div>
+                            <div class="card-name">Komal Kadam</div>
+                            <div class="card-meta">PCOD & Weight Management</div>
+                        </div>
+                    </div>
+
+                    <div class="slider-card">
+                        <img src="/images/testimonials/client29-after.webp" alt="Mayur Pathak transformation"
+                            loading="lazy">
+                        <div class="card-overlay">
+                            <div class="card-result-badge">
+                                <div class="card-result-dot"></div><span class="card-result-text">−25 kg · 12
+                                    months</span>
+                            </div>
+                            <div class="card-name">Mayur Pathak</div>
+                            <div class="card-meta">Weight Loss Program</div>
+                        </div>
+                    </div>
+
+                    <div class="slider-card">
+                        <img src="/images/testimonials/client18-after.webp" alt="Yashashree Kanade transformation"
+                            loading="lazy">
+                        <div class="card-overlay">
+                            <div class="card-result-badge">
+                                <div class="card-result-dot"></div><span class="card-result-text">−17 kg · 12
+                                    months</span>
+                            </div>
+                            <div class="card-name">Yashashree Kanade</div>
+                            <div class="card-meta">Diabetes Management</div>
+                        </div>
+                    </div>
+
+                    <div class="slider-card">
+                        <img src="/images/testimonials/client31-after.webp" alt="Anuradha Bhalerao transformation"
+                            loading="lazy">
+                        <div class="card-overlay">
+                            <div class="card-result-badge">
+                                <div class="card-result-dot"></div><span class="card-result-text">−16 kg · 9
+                                    months</span>
+                            </div>
+                            <div class="card-name">Anuradha Bhalerao</div>
+                            <div class="card-meta">Weight Loss Program</div>
+                        </div>
+                    </div>
+
+                    <div class="slider-card">
+                        <img src="/images/testimonials/client22-after.webp" alt="Leena Devikar transformation"
+                            loading="lazy">
+                        <div class="card-overlay">
+                            <div class="card-result-badge">
+                                <div class="card-result-dot"></div><span class="card-result-text">−14 kg · 6
+                                    months</span>
+                            </div>
+                            <div class="card-name">Leena Devikar</div>
+                            <div class="card-meta">Weight Loss Program</div>
+                        </div>
+                    </div>
+
+                    <div class="slider-card">
+                        <img src="/images/testimonials/client4-after.webp" alt="Pratik Sawant transformation"
+                            loading="lazy">
+                        <div class="card-overlay">
+                            <div class="card-result-badge">
+                                <div class="card-result-dot"></div><span class="card-result-text">+6 kg Lean
+                                    Muscle</span>
+                            </div>
+                            <div class="card-name">Pratik Sawant</div>
+                            <div class="card-meta">Muscle Gain Program</div>
+                        </div>
+                    </div>
+
+                    <!-- SET 2 (repeat) -->
+                    <div class="slider-card">
+                        <img src="/images/testimonials/client8-after.webp" alt="Harshita transformation" loading="lazy">
+                        <div class="card-overlay">
+                            <div class="card-result-badge">
+                                <div class="card-result-dot"></div><span class="card-result-text">−22 kg · 12
+                                    months</span>
+                            </div>
+                            <div class="card-name">Harshita</div>
+                            <div class="card-meta">Weight Loss Program</div>
+                        </div>
+                    </div>
+
+                    <div class="slider-card">
+                        <img src="/images/testimonials/client2-after.webp" alt="Mehek Kalara transformation"
+                            loading="lazy">
+                        <div class="card-overlay">
+                            <div class="card-result-badge">
+                                <div class="card-result-dot"></div><span class="card-result-text">PCOS Reversed · 6
+                                    months</span>
+                            </div>
+                            <div class="card-name">Mehek Kalara</div>
+                            <div class="card-meta">PCOS & Hormonal Health</div>
+                        </div>
+                    </div>
+
+                    <div class="slider-card">
+                        <img src="/images/testimonials/client9-after.webp" alt="Komal Kadam transformation"
+                            loading="lazy">
+                        <div class="card-overlay">
+                            <div class="card-result-badge">
+                                <div class="card-result-dot"></div><span class="card-result-text">−6 kg · PCOD
+                                    Reversed</span>
+                            </div>
+                            <div class="card-name">Komal Kadam</div>
+                            <div class="card-meta">PCOD & Weight Management</div>
+                        </div>
+                    </div>
+
+                    <div class="slider-card">
+                        <img src="/images/testimonials/client29-after.webp" alt="Mayur Pathak transformation"
+                            loading="lazy">
+                        <div class="card-overlay">
+                            <div class="card-result-badge">
+                                <div class="card-result-dot"></div><span class="card-result-text">−25 kg · 12
+                                    months</span>
+                            </div>
+                            <div class="card-name">Mayur Pathak</div>
+                            <div class="card-meta">Weight Loss Program</div>
+                        </div>
+                    </div>
+
+                    <div class="slider-card">
+                        <img src="/images/testimonials/client18-after.webp" alt="Yashashree Kanade transformation"
+                            loading="lazy">
+                        <div class="card-overlay">
+                            <div class="card-result-badge">
+                                <div class="card-result-dot"></div><span class="card-result-text">−17 kg · 12
+                                    months</span>
+                            </div>
+                            <div class="card-name">Yashashree Kanade</div>
+                            <div class="card-meta">Diabetes Management</div>
+                        </div>
+                    </div>
+
+                    <div class="slider-card">
+                        <img src="/images/testimonials/client31-after.webp" alt="Anuradha Bhalerao transformation"
+                            loading="lazy">
+                        <div class="card-overlay">
+                            <div class="card-result-badge">
+                                <div class="card-result-dot"></div><span class="card-result-text">−16 kg · 9
+                                    months</span>
+                            </div>
+                            <div class="card-name">Anuradha Bhalerao</div>
+                            <div class="card-meta">Weight Loss Program</div>
+                        </div>
+                    </div>
+
+                    <div class="slider-card">
+                        <img src="/images/testimonials/client22-after.webp" alt="Leena Devikar transformation"
+                            loading="lazy">
+                        <div class="card-overlay">
+                            <div class="card-result-badge">
+                                <div class="card-result-dot"></div><span class="card-result-text">−14 kg · 6
+                                    months</span>
+                            </div>
+                            <div class="card-name">Leena Devikar</div>
+                            <div class="card-meta">Weight Loss Program</div>
+                        </div>
+                    </div>
+
+                    <div class="slider-card">
+                        <img src="/images/testimonials/client4-after.webp" alt="Pratik Sawant transformation"
+                            loading="lazy">
+                        <div class="card-overlay">
+                            <div class="card-result-badge">
+                                <div class="card-result-dot"></div><span class="card-result-text">+6 kg Lean
+                                    Muscle</span>
+                            </div>
+                            <div class="card-name">Pratik Sawant</div>
+                            <div class="card-meta">Muscle Gain Program</div>
+                        </div>
+                    </div>
+
+                    <!-- SET 3 (repeat) -->
+                    <div class="slider-card">
+                        <img src="/images/testimonials/client8-after.webp" alt="Harshita transformation" loading="lazy">
+                        <div class="card-overlay">
+                            <div class="card-result-badge">
+                                <div class="card-result-dot"></div><span class="card-result-text">−22 kg · 12
+                                    months</span>
+                            </div>
+                            <div class="card-name">Harshita</div>
+                            <div class="card-meta">Weight Loss Program</div>
+                        </div>
+                    </div>
+
+                    <div class="slider-card">
+                        <img src="/images/testimonials/client2-after.webp" alt="Mehek Kalara transformation"
+                            loading="lazy">
+                        <div class="card-overlay">
+                            <div class="card-result-badge">
+                                <div class="card-result-dot"></div><span class="card-result-text">PCOS Reversed · 6
+                                    months</span>
+                            </div>
+                            <div class="card-name">Mehek Kalara</div>
+                            <div class="card-meta">PCOS & Hormonal Health</div>
+                        </div>
+                    </div>
+
+                    <div class="slider-card">
+                        <img src="/images/testimonials/client9-after.webp" alt="Komal Kadam transformation"
+                            loading="lazy">
+                        <div class="card-overlay">
+                            <div class="card-result-badge">
+                                <div class="card-result-dot"></div><span class="card-result-text">−6 kg · PCOD
+                                    Reversed</span>
+                            </div>
+                            <div class="card-name">Komal Kadam</div>
+                            <div class="card-meta">PCOD & Weight Management</div>
+                        </div>
+                    </div>
+
+                    <div class="slider-card">
+                        <img src="/images/testimonials/client29-after.webp" alt="Mayur Pathak transformation"
+                            loading="lazy">
+                        <div class="card-overlay">
+                            <div class="card-result-badge">
+                                <div class="card-result-dot"></div><span class="card-result-text">−25 kg · 12
+                                    months</span>
+                            </div>
+                            <div class="card-name">Mayur Pathak</div>
+                            <div class="card-meta">Weight Loss Program</div>
+                        </div>
+                    </div>
+
+                    <div class="slider-card">
+                        <img src="/images/testimonials/client18-after.webp" alt="Yashashree Kanade transformation"
+                            loading="lazy">
+                        <div class="card-overlay">
+                            <div class="card-result-badge">
+                                <div class="card-result-dot"></div><span class="card-result-text">−17 kg · 12
+                                    months</span>
+                            </div>
+                            <div class="card-name">Yashashree Kanade</div>
+                            <div class="card-meta">Diabetes Management</div>
+                        </div>
+                    </div>
+
+                    <div class="slider-card">
+                        <img src="/images/testimonials/client31-after.webp" alt="Anuradha Bhalerao transformation"
+                            loading="lazy">
+                        <div class="card-overlay">
+                            <div class="card-result-badge">
+                                <div class="card-result-dot"></div><span class="card-result-text">−16 kg · 9
+                                    months</span>
+                            </div>
+                            <div class="card-name">Anuradha Bhalerao</div>
+                            <div class="card-meta">Weight Loss Program</div>
+                        </div>
+                    </div>
+
+                    <div class="slider-card">
+                        <img src="/images/testimonials/client22-after.webp" alt="Leena Devikar transformation"
+                            loading="lazy">
+                        <div class="card-overlay">
+                            <div class="card-result-badge">
+                                <div class="card-result-dot"></div><span class="card-result-text">−14 kg · 6
+                                    months</span>
+                            </div>
+                            <div class="card-name">Leena Devikar</div>
+                            <div class="card-meta">Weight Loss Program</div>
+                        </div>
+                    </div>
+
+                    <div class="slider-card">
+                        <img src="/images/testimonials/client4-after.webp" alt="Pratik Sawant transformation"
+                            loading="lazy">
+                        <div class="card-overlay">
+                            <div class="card-result-badge">
+                                <div class="card-result-dot"></div><span class="card-result-text">+6 kg Lean
+                                    Muscle</span>
+                            </div>
+                            <div class="card-name">Pratik Sawant</div>
+                            <div class="card-meta">Muscle Gain Program</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -2207,10 +3146,11 @@
 
                 <div class="review-card featured">
                     <div class="review-stars">★★★★★</div>
-                    <p class="review-quote">"I am truly grateful for both Doctor Roshni and Anjali. You made weight
-                        loss feel simple and sustainable by genuinely understanding my preferences, lifestyle, and
-                        the foods I grew up eating. For the first time in my life, following a diet didn't feel like
-                        punishment it felt like care."</p>
+                    <p class="review-quote">"I am truely grateful for both Doctor Roshni and Anjali. So thankful for
+                        your support and guidance! You made weight loss feel simple and sustainable by truly
+                        understanding my preferences and lifestyle. Sweet, accommodating, and extremely knowledgeable. I
+                        couldn’t have asked for a better dieticians. Highly recommend you both to anyone looking for
+                        results with kindness and balance."</p>
                     <div class="review-author">
                         <div class="review-author-left">
                             <div class="review-avatar">M</div>
@@ -2225,8 +3165,9 @@
 
                 <div class="review-card" data-category="weight-management">
                     <div class="review-stars">★★★★★</div>
-                    <p class="review-quote">"Roshni is an excellent dietician. I consulted her for my weight loss
-                        journey and the results exceeded everything I expected."</p>
+                    <p class="review-quote">"Roshni is an excellent Dietician, I have consulted her for my weight loss
+                        journey. My initial expectation is to loose 5 Kg in 6 months but she encouraged me to set the
+                        target of loosing 10 Kg in 6 month and I eventually lost 8 Kg within 2 months."</p>
                     <div class="review-author">
                         <div class="review-author-left">
                             <div class="review-avatar">V</div>
@@ -2241,8 +3182,8 @@
 
                 <div class="review-card" data-category="weight-management">
                     <div class="review-stars">★★★★★</div>
-                    <p class="review-quote">"I successfully lost 10 kg in just 4 months following their customized
-                        diet plans. The WhatsApp support was incredibly helpful."</p>
+                    <p class="review-quote">"I had an excellent experience with Reform Wellness. By following their
+                        customized diet plans, I successfully lost 10 kg in just 4 months."</p>
                     <div class="review-author">
                         <div class="review-author-left">
                             <div class="review-avatar">V</div>
@@ -2255,16 +3196,16 @@
                     </div>
                 </div>
 
-                <div class="review-card" data-category="pcos">
+                <div class="review-card" data-category="weight-management">
                     <div class="review-stars">★★★★★</div>
-                    <p class="review-quote">"My PCOS symptoms have reduced dramatically. The anti-inflammatory meal
-                        plan was easy to follow and the results were visible within 6 weeks."</p>
+                    <p class="review-quote">"My six-month journey with Reform Wellness Clinic, guided by Anjali Ma’am,
+                        has been exceptional. I achieved a 12 kg weight loss"</p>
                     <div class="review-author">
                         <div class="review-author-left">
-                            <div class="review-avatar">P</div>
+                            <div class="review-avatar">A</div>
                             <div>
-                                <div class="review-name">Pooja Gaikwad</div>
-                                <div class="review-meta">PCOS Care · Aurangabad</div>
+                                <div class="review-name">Anuradha Bhalerao</div>
+                                <div class="review-meta">Weight Loss · Pune</div>
                             </div>
                         </div>
                         <span class="review-source"><i class="fa-brands fa-google"></i> Google</span>
@@ -2273,15 +3214,16 @@
 
                 <div class="review-card" data-category="diabetes">
                     <div class="review-stars">★★★★★</div>
-                    <p class="review-quote">"My fasting blood sugar went from 210 to 98 in 5 months no extra
-                        medication, only the diet plan. Dr. Roshni's knowledge of glycemic control is exceptional."
+                    <p class="review-quote">"I am extremely satisfied with the guidance provided by Dr Anjali. Under her
+                        care, I have successfully lost 21 kg and significantly improved my fitness levels at the age of
+                        65."
                     </p>
                     <div class="review-author">
                         <div class="review-author-left">
-                            <div class="review-avatar">R</div>
+                            <div class="review-avatar">M</div>
                             <div>
-                                <div class="review-name">Ramesh Deshpande</div>
-                                <div class="review-meta">Diabetes Management · Pune</div>
+                                <div class="review-name">Mayurkumar Pathak</div>
+                                <div class="review-meta">Weight Loss · Pune</div>
                             </div>
                         </div>
                         <span class="review-source"><i class="fa-brands fa-google"></i> Google</span>
@@ -2290,46 +3232,47 @@
 
                 <div class="review-card" data-category="muscle">
                     <div class="review-stars">★★★★★</div>
-                    <p class="review-quote">"Finally a nutritionist who understands that Indian athletes exist!
-                        High-protein plan built around dal, paneer, and eggs. Gained 7 kg muscle in 5 months."</p>
+                    <p class="review-quote">"I’m extremely happy with my 1-month journey with Reform Wellness. I gain 5
+                        kg and, more importantly, understood how to eat right."</p>
+                    <div class="review-author">
+                        <div class="review-author-left">
+                            <div class="review-avatar">N</div>
+                            <div>
+                                <div class="review-name">Nayan Baste</div>
+                                <div class="review-meta">Muscle Gain · Pune</div>
+                            </div>
+                        </div>
+                        <span class="review-source"><i class="fa-brands fa-google"></i> Google</span>
+                    </div>
+                </div>
+
+                <div class="review-card" data-category="weight-management">
+                    <div class="review-stars">★★★★★</div>
+                    <p class="review-quote">"Consulting with Dietitian Anjali ma'am has been an incredible experience.my
+                        weight loss is about 12 kg in just 3 months.."</p>
                     <div class="review-author">
                         <div class="review-author-left">
                             <div class="review-avatar">A</div>
                             <div>
-                                <div class="review-name">Arjun Pawar</div>
-                                <div class="review-meta">Muscle Gain · Pune</div>
+                                <div class="review-name">Archana Solanke</div>
+                                <div class="review-meta">Weight Loss · Pune</div>
                             </div>
                         </div>
                         <span class="review-source"><i class="fa-solid fa-star"></i> Practo</span>
                     </div>
                 </div>
 
-                <div class="review-card" data-category="gut">
+                <div class="review-card" data-category="weight-management">
                     <div class="review-stars">★★★★★</div>
-                    <p class="review-quote">"10 years of IBS and bloating resolved in 4 months. The gut-healing
-                        protocol was methodical and evidence-based. I wish I had found them sooner."</p>
+                    <p class="review-quote">"Excellent experience! I achieved a 12 kg weight loss in five months with a
+                        very comfortable diet plan. The regular check-ins and personalised support from Ms. Roshani made
+                        everything simple."</p>
                     <div class="review-author">
                         <div class="review-author-left">
-                            <div class="review-avatar">K</div>
+                            <div class="review-avatar">M</div>
                             <div>
-                                <div class="review-name">Kavita Desai</div>
-                                <div class="review-meta">Gut Health · Pune</div>
-                            </div>
-                        </div>
-                        <span class="review-source"><i class="fa-solid fa-star"></i> Practo</span>
-                    </div>
-                </div>
-
-                <div class="review-card" data-category="pcos">
-                    <div class="review-stars">★★★★★</div>
-                    <p class="review-quote">"Thyroid levels normalised after 3 months on the plan. My energy levels
-                        are the best they've been in years and I've lost 8 kg as a bonus."</p>
-                    <div class="review-author">
-                        <div class="review-author-left">
-                            <div class="review-avatar">S</div>
-                            <div>
-                                <div class="review-name">Shruti Bapat</div>
-                                <div class="review-meta">Thyroid Care · Mumbai</div>
+                                <div class="review-name">Mohini Kumbhar</div>
+                                <div class="review-meta">Weight Loss · Mumbai</div>
                             </div>
                         </div>
                         <span class="review-source"><i class="fa-brands fa-google"></i> Google</span>
@@ -2563,6 +3506,55 @@
                     revCards.forEach(c => c.style.display = (f === 'all' || c.getAttribute('data-category') === f) ? '' : 'none');
                 });
             });
+
+            const row1 = document.getElementById('sliderRow1');
+            const row2 = document.getElementById('sliderRow2');
+
+            if (row1 && row2) {
+
+                function heroRowWidth(el) {
+                    const n = Math.floor(el.children.length / 3);
+                    let w = 0;
+                    for (let i = 0; i < n; i++) {
+                        w += el.children[i].offsetWidth + 12;
+                    }
+                    return w;
+                }
+
+                let hsP1 = 0, hsP2 = 0, hsRaf;
+                const hsSpeed = 0.42;
+                let hsPaused = false;
+
+                const hsRoot = document.getElementById('sliderPanel');
+                if (hsRoot) {
+                    hsRoot.addEventListener('mouseenter', () => hsPaused = true);
+                    hsRoot.addEventListener('mouseleave', () => hsPaused = false);
+                }
+
+                function heroSliderTick() {
+                    if (!hsPaused) {
+                        const w1 = heroRowWidth(row1);
+                        const w2 = heroRowWidth(row2);
+                        if (w1 > 0) {
+                            hsP1 -= hsSpeed;
+                            if (hsP1 <= -w1) hsP1 += w1;
+                            row1.style.transform = `translateX(${hsP1}px)`;
+                        }
+                        if (w2 > 0) {
+                            hsP2 += hsSpeed;
+                            if (hsP2 >= 0) hsP2 -= w2;
+                            row2.style.transform = `translateX(${hsP2}px)`;
+                        }
+                    }
+                    hsRaf = requestAnimationFrame(heroSliderTick);
+                }
+
+                setTimeout(() => {
+                    hsP2 = -(heroRowWidth(row2) * 0.35);
+                    heroSliderTick();
+                }, 150);
+
+            }
         });
     </script>
 
