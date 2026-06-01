@@ -305,42 +305,4 @@ document.addEventListener("DOMContentLoaded", function () {
         }, { passive: true });
     })();
 
-    document.querySelectorAll('.auto-flip-home').forEach(card => {
-
-        const beforeImg = card.querySelector('.before');
-        const afterImg = card.querySelector('.after');
-
-        if (!beforeImg || !afterImg) return;
-
-        card.classList.add('show-before');
-        beforeImg.classList.add('active');
-
-        let showingAfter = false;
-
-        setInterval(() => {
-
-            if (!showingAfter) {
-
-                beforeImg.classList.remove('active');
-                afterImg.classList.add('active');
-
-                card.classList.remove('show-before');
-                card.classList.add('show-after');
-
-            } else {
-
-                afterImg.classList.remove('active');
-                beforeImg.classList.add('active');
-
-                card.classList.remove('show-after');
-                card.classList.add('show-before');
-
-            }
-
-            showingAfter = !showingAfter;
-
-        }, 1500);
-
-    });
-
 });
