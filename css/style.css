@@ -1907,6 +1907,7 @@ section {
     background: var(--soft);
 }
 
+
 .transforms-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -1928,61 +1929,12 @@ section {
     box-shadow: 0 20px 60px rgba(46, 44, 47, 0.12);
 }
 
-.transform-photo-wrap {
-    position: relative;
-    aspect-ratio: 1/1;
-    overflow: hidden;
-    border-radius: 20px;
-}
-
 .transform-img {
-    position: absolute;
-    inset: 0;
     width: 100%;
-    height: 100%;
+    aspect-ratio: 1/1;
     object-fit: cover;
-    object-position: top center;
-    opacity: 0;
-    transition: opacity 1s ease;
-}
-
-.transform-img.active {
-    opacity: 1;
-}
-
-.transform-label {
-    position: absolute;
-    top: 1rem;
-    font-size: .65rem;
-    font-weight: 600;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    padding: .35rem .75rem;
-    border-radius: 100px;
-    z-index: 5;
-    opacity: 0;
-    transition: opacity .4s ease;
-    white-space: nowrap;
-}
-
-.transform-label-before {
-    left: 1rem;
-    background: rgba(46, 44, 47, .75);
-    color: #fff;
-}
-
-.transform-label-after {
-    right: 1rem;
-    background: var(--primary);
-    color: #fff;
-}
-
-.auto-flip-home.show-before .transform-label-before {
-    opacity: 1;
-}
-
-.auto-flip-home.show-after .transform-label-after {
-    opacity: 1;
+    object-position: top;
+    border-radius: 20px;
 }
 
 .transform-body {
